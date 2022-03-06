@@ -1,9 +1,18 @@
 * {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.banner {
+
+}
+
+.banner img {
+  display: block;
+  margin: auto;
+  width: 100%;
 }
 
 header {
-  background-color: gray;
+  /* background-color: lightgray; */
   width: 1476px;
   height: 98px;
   position: relative;
@@ -20,7 +29,7 @@ header {
 ul {
   position: absolute;
   list-style: none;
-  background-color: darkgray;
+  /* background-color: darkgray; */
 }
 
 li {
@@ -30,10 +39,12 @@ li {
 a {
   text-decoration: none;
   outline: none;
+  color: #505050;
+  font-weight: 700;
 }
 
 header #nav {
-  background-color: darkgray;
+  /* background-color: lightgray; */
   width: 1342px;
   height: 59px;
   margin: 0 auto;
@@ -43,36 +54,49 @@ header #nav {
 #nav_left {
   width: 280px;
   height: 18px;
-  margin-right: auto;
-  margin-top: 12px;
+  margin-top: 22px;
 }
 
 #nav_left ul li {
   font-size: 16px;
-  margin: 0 0 0 34px;
+  margin-left: 34px;
 }
 
 #searchbox_wrap {
   display: inline-block;
-  margin: 0 0 0 40px;
+  margin-left: 40px;
+  position: relative;
 }
 
-#searchbox {
+#searchbox_wrap img {
+  position: absolute;
+  left: 7px;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+#searchbox_wrap #searchbox {
   width: 346px;
   height: 30px;
+  margin-top: 12px;
   border: 2px solid #eb1400;
   border-radius: 20px;
+  padding-left: 30px;
 }
 
+
 #nav_right {
-  width: 208px;
-  height: 18px;
+  /* background-color: #a4a4a4; */
+  height: 30px;
   margin-top: 22px;
+  margin-left: 300px;
 }
 
 #nav_right ul {
   position: relative;
   top: 1px;
+  display: flex;
 }
 
 #nav_right ul li {
@@ -80,14 +104,21 @@ header #nav {
   margin: 0 10px 0 0;
 }
 
+#nav_right ul li a {
+  font-size: 14px;
+  color: #989898;
+  width: 200px;
+  margin: 0 20px 0 0;
+}
+
 #wrap {
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
   width: 1126px;
   margin: 0 auto;
 }
 
 #chart {
-  background-color: #ad8a8a;
+  /* background-color: #ad8a8a; */
   width: 957px;
   height: 560px;
   margin: 0 auto;
@@ -103,7 +134,7 @@ header #nav {
   margin: 0 0 520px 0;
 }
 
-#section_head h2 {
+#section_head h1 {
   font-size: 20px;
   font-weight: bold;
   position: relative;
@@ -112,10 +143,10 @@ header #nav {
 }
 
 #section_albumchart {
-  background-color: darkkhaki;
-  width: 602px;
+  /* background-color: darkkhaki; */
+  width: 603px;
   height: 500px;
-  margin: 20px auto 0 auto;
+  margin: 30px auto 0 auto;
 }
 
 .albumchart_rowbody {
@@ -125,17 +156,36 @@ header #nav {
 }
 
 .albumchart-box {
-  background-color: aquamarine;
-  width: 187px;
-  height: 236px;
+  /* background-color: aquamarine; */
+  width: 188px;
+  height: 265px;
 }
 
 #albumchart_img {
   border-radius: 15px;
+  background-size: cover;
+  width: 187px; 
+  height: 188px;
+  margin-bottom: 7px;
+}
+
+/* 플레이 버튼 */
+#albumchart_img img {
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 137px;
+}
+
+/* 플레이 버튼 hover */
+#albumchart_img img:hover{
+
 }
 
 #albumchart_desc {
   text-align: left;
+  line-height: 20px;
+  /* margin-bottom: 30px; */
 }
 
 #albumchart_rank {
@@ -157,7 +207,7 @@ header #nav {
 }
 
 #section_rankchart {
-  background-color: blanchedalmond;
+  /* background-color: blanchedalmond; */
   margin: 20px auto 0 auto;
   width: 324px;
   height: 500px;
@@ -184,7 +234,12 @@ td {
 #rankchart-row {
   width: 320px;
   height: 80px;
-  border-bottom: 2px solid #747474;
+  border-top: 1px solid #747474;
+}
+#rankchart-row:first-child {
+  width: 320px;
+  height: 80px;
+  /* border-top: none; */
 }
 
 #rankchart_img {
@@ -212,9 +267,11 @@ td {
 }
 
 #year-btn {
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
+  width: 324px;
   margin-bottom: 18px;
   text-align: center;
+  align-items: center;
 }
 
 .btn {
@@ -224,18 +281,72 @@ td {
   border-radius: 8px;
   display: inline-block;
   font-size: 16px;
-  margin: 0 2.5px;
   color: #747474;
   font-weight: bold;
+  margin-right: 6px;
 }
 
-.banner {
-  margin: 0 auto 64px auto;
+.btn:last-child {
+  margin-right: 0;
+}
+
+.music_test_banner {
+  background-color: #eb1400;
+  width: 1126px;
+  height: 135px;
+  margin: 0 auto;
+  border-radius: 15px;
+  margin-bottom: 64px;
+  display: flex;
+  
+  vertical-align: middle;
+}
+
+.music_test_banner .music_test_left {
+  margin-left: 44px;
+}
+
+.music_test_banner .music_test_left .music_test_txt {
+  color: #fff;
+  font-size: 16px;
+  height: 135px;
+  display: table-cell;
+  vertical-align: middle;
+  letter-spacing: -0.02em;
+  /* 행간 지정 수정 예정 */
+  line-height: 28px;
+}
+.music_test_left .music_test_txt span {
+  color: #fff;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.music_test_banner .music_test_right {
+  margin-right: 44px;
+  margin-left: auto;
+}
+
+.music_test_right .music_test_btn {
+  background-color: #fff9db;
+  width: 192px;
+  height: 48px;
+  border-radius: 10px;
+  margin-top: 44px;
+
+  cursor: pointer;
+
+  color: #eb1400;
+  font-weight: bold;
+  font-size: 14px;
+
   text-align: center;
+  line-height: 48px;
+  vertical-align: middle;
 }
 
 #section_yearchart {
-  background-color: #ad8a8a;
+  /* background-color: #ad8a8a; */
   width: 957px;
   margin: 0 auto 64px auto;
 }
@@ -249,12 +360,33 @@ td {
   top: 10px;
   font-size: 20px;
   font-weight: bold;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 #yearchart_body {
+  margin-top: 30px;
   text-align: center;
   display: flex;
   justify-content: space-between;
+}
+
+#yearchart_body .yearchart_btn {
+  width: 176px;
+  height: 176px;
+  border-radius: 10px;
+  line-height: 176px;
+  vertical-align: middle;
+
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+#yearchart_body .yearchart_btn:last-child {
+  font-size: 20px;
+  font-weight: 400;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 #section_playlist {
@@ -278,6 +410,7 @@ td {
 #section_pick_title h1 {
   font-size: 20px;
   font-weight: bold;
+  font-family: 'Noto Sans KR', sans-serif;
   position: relative;
   top: 20px;
 }
@@ -296,6 +429,35 @@ td {
 #pick_title {
   margin-top: 20px;
   font-size: 16px;
+}
+
+.bottom_banner {
+  width: 957px;
+  height: 175px;
+  margin: 0 auto;
+  border-radius: 15px;
+  margin-bottom: 64px;
+  background-image: url("../images/main_bn_02.png");
+}
+
+.bottom_banner .bottom_banner_btn {
+  width: 159px;
+  height: 40px;
+
+  display: inline-block;
+  background-color: #eb1400;
+  border-radius: 10px;
+  color: #fff;
+  margin-left: 44px;
+  margin-top: 110px;
+  font-size: 14px;
+  font-weight: bold;
+
+  text-align: center;
+  line-height: 40px;
+  vertical-align: middle;
+  
+  cursor: pointer;
 }
 
 #footer_logo {
