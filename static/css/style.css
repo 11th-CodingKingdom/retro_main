@@ -1,0 +1,312 @@
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+header {
+  background-color: gray;
+  width: 1476px;
+  height: 98px;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+#logo {
+  margin: 0 20px 0 20px;
+}
+
+ul {
+  position: absolute;
+  list-style: none;
+  background-color: darkgray;
+}
+
+li {
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+header #nav {
+  background-color: darkgray;
+  width: 1342px;
+  height: 59px;
+  margin: 0 auto;
+  display: flex;
+}
+
+#nav_left {
+  width: 280px;
+  height: 18px;
+  margin-right: auto;
+  margin-top: 12px;
+}
+
+#nav_left ul li {
+  font-size: 16px;
+  margin: 0 0 0 34px;
+}
+
+#searchbox_wrap {
+  display: inline-block;
+  margin: 0 0 0 40px;
+}
+
+#searchbox {
+  width: 346px;
+  height: 30px;
+  border: 2px solid #eb1400;
+  border-radius: 20px;
+}
+
+#nav_right {
+  width: 208px;
+  height: 18px;
+  margin-top: 22px;
+}
+
+#nav_right ul {
+  position: relative;
+  top: 1px;
+}
+
+#nav_right ul li {
+  font-size: 14px;
+  margin: 0 10px 0 0;
+}
+
+#wrap {
+  background-color: antiquewhite;
+  width: 1126px;
+  margin: 0 auto;
+}
+
+#chart {
+  background-color: #ad8a8a;
+  width: 957px;
+  height: 560px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+#section_head {
+  width: 957px;
+  height: 42px;
+  position: absolute;
+  margin: 0 0 520px 0;
+}
+
+#section_head h2 {
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+  top: 14px;
+  left: 12px;
+}
+
+#section_albumchart {
+  background-color: darkkhaki;
+  width: 602px;
+  height: 500px;
+  margin: 20px auto 0 auto;
+}
+
+.albumchart_rowbody {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.albumchart-box {
+  background-color: aquamarine;
+  width: 187px;
+  height: 236px;
+}
+
+#albumchart_img {
+  border-radius: 15px;
+}
+
+#albumchart_desc {
+  text-align: left;
+}
+
+#albumchart_rank {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#albumchart_song {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+#albumchart_artist {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  color: #747474;
+  padding: 3px 0 0 11px;
+}
+
+#section_rankchart {
+  background-color: blanchedalmond;
+  margin: 20px auto 0 auto;
+  width: 324px;
+  height: 500px;
+}
+
+#rankchart-box {
+  border: 2px solid #747474;
+  border-radius: 15px;
+  width: 320px;
+  height: 412px;
+  margin: 0 auto;
+}
+
+td {
+  position: relative;
+  text-align: center;
+}
+
+#rankchart-table {
+  width: 320px;
+  height: 412px;
+}
+
+#rankchart-row {
+  width: 320px;
+  height: 80px;
+  border-bottom: 2px solid #747474;
+}
+
+#rankchart_img {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+}
+
+#rankchart_img > img {
+  vertical-align: middle;
+}
+
+#rankchart_rank {
+  width: 28px;
+  text-align: center;
+}
+
+#rankchart_desc {
+  width: 195px;
+  text-align: left;
+  margin-left: 15px;
+  position: relative;
+  bottom: 7px;
+}
+
+#year-btn {
+  background-color: aliceblue;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.btn {
+  width: 72px;
+  height: 32px;
+  border: 2px solid #747474;
+  border-radius: 8px;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0 2.5px;
+  color: #747474;
+  font-weight: bold;
+}
+
+.banner {
+  margin: 0 auto 64px auto;
+  text-align: center;
+}
+
+#section_yearchart {
+  background-color: #ad8a8a;
+  width: 957px;
+  margin: 0 auto 64px auto;
+}
+
+#yearchart_title {
+  margin-bottom: 20px;
+}
+
+#yearchart_title h1 {
+  position: relative;
+  top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#yearchart_body {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+#section_playlist {
+  background-color: #ad8a8a;
+  width: 957px;
+  height: 140px;
+  margin: 0 auto 50px auto;
+}
+
+#section_pick {
+  background-color: #ad8a8a;
+  width: 957px;
+  height: 600px;
+  margin: 0 auto 45px auto;
+}
+
+#section_pick_title {
+  margin-bottom: 35px;
+}
+
+#section_pick_title h1 {
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+  top: 20px;
+}
+
+#pick_body {
+  display: flex;
+  justify-content: space-between;
+}
+
+#pick-box {
+  background-color: aliceblue;
+  width: 176px;
+  height: 270px;
+}
+
+#pick_title {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+#footer_logo {
+  width: 957px;
+  margin: 36px auto 14px auto;
+}
+
+#footer_desc {
+  width: 957px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #a4a4a4;
+  margin: 0 auto 64px auto;
+}
