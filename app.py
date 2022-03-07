@@ -19,6 +19,12 @@ def show_musics():
     musics = list(db.musics.find({},{'_id':False}))
     return jsonify({'musics': musics})
 
+@app.route('/main/chart', methods=['GET'])
+def main_chart():
+    chart_year = int(request.args.get('chart_year'))
+    musics = list(db.musics.find({'rank_type':"AG", 'year':chart_year},{'_id': False}))
+    return jsonify({'music_list': musics})
+
 @app.route('/login_page')
 def login_page():
     return render_template('index-login.html')
