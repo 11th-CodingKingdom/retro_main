@@ -25,23 +25,28 @@ def regist_page():
 
 @app.route('/regist', methods=['POST'])
 def Regist():
+    name = request.form['name']
+    email = request.form['email']
     id = request.form['id']
     pw = bcrypt.generate_password_hash(request.form['pw'])
     pwCheck = request.form['pwCheck']
-    name = request.form['name']
-    email = request.form['email']
 
-    if db.users.find_one({'id': id}, {'_id': False}) != None:
+    if db.users.find_one({'name': name}, {'_id': False}) != None:
+        msg = "동일한 사용자가 존재합니다."
+
+    elif email.find("@") == -1:
+        msg = "올바른 이메일을 입력하세요"
+
+    elif db.users.find_one({'id': id}, {'_id': False}) != None:
         msg = "입력하신 ID는 다른 사용자가 사용중입니다."
 
-    elif len(pwCheck) < 10:
+    elif len(request.form['pw']) < 10:
         msg = "비밀번호는 10자리 이상이어야 합니다."
 
     elif bcrypt.check_password_hash(pw, pwCheck) != True:
         msg = "비밀번호 입력을 다시 확인하세요."
 
-    elif db.users.find_one({'name': name}, {'_id': False}) != None:
-        msg = "동일한 사용자가 존재합니다."
+
 
     else:
         information = {'id': id, 'pw': pw, 'email': email, 'name': name}
