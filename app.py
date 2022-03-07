@@ -21,7 +21,7 @@ def show_musics():
 
 @app.route('/regist')
 def regist_page():
-    return render_template('Regist.html')
+    return render_template('index-signup.html')
 
 @app.route('/regist', methods=['POST'])
 def Regist():
@@ -29,14 +29,10 @@ def Regist():
     pw = bcrypt.generate_password_hash(request.form['pw'])
     pwCheck = request.form['pwCheck']
     name = request.form['name']
-    birthday = request.form['birthday']
-    print(id.find("@"))
+    email = request.form['email']
 
-    if id.find("@") == -1:
-        msg = "올바른 이메일을 입력하세요"
-
-    elif db.users.find_one({'id': id}, {'_id': False}) != None:
-        msg = "입력하신 Email이 사용중입니다."
+    if db.users.find_one({'id': id}, {'_id': False}) != None:
+        msg = "입력하신 ID는 다른 사용자가 사용중입니다."
 
     elif len(pwCheck) < 10:
         msg = "비밀번호는 10자리 이상이어야 합니다."
@@ -44,11 +40,11 @@ def Regist():
     elif bcrypt.check_password_hash(pw, pwCheck) != True:
         msg = "비밀번호 입력을 다시 확인하세요."
 
-    elif db.users.find_one({'name': name, 'birthday': birthday}, {'_id': False}) != None:
+    elif db.users.find_one({'name': name}, {'_id': False}) != None:
         msg = "동일한 사용자가 존재합니다."
 
     else:
-        information = {'id': id, 'pw': pw, 'birthday': birthday, 'name': name}
+        information = {'id': id, 'pw': pw, 'email': email, 'name': name}
         db.users.insert_one(information)
         msg = "회원가입 완료!"
 
