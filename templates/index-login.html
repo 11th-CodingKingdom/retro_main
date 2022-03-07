@@ -8,6 +8,7 @@
     <meta property="og:title" content="RE:TRO | 그때 그 시절, 당신의 음악"/>
 
     <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style-login.css">
     <link rel="shortcut icon" href="../static/images/favicon.ico">
@@ -16,6 +17,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
+    <script>
+        function login() {
+            let id = $('#id').val()
+            let pw = $('#pw').val()
+
+            $.ajax({
+                type: 'POST',
+                url: '/login',
+                data: {'id':id, 'pw':pw},
+                success: function (response) {
+                    let msg = response['msg']
+                    let id = response['id']
+                    if(msg == "로그인 성공!"){
+                        location.href='/';
+                        alert(msg);
+                    }else {
+                        alert(msg);
+                    }
+                    }
+            });
+        }
+    </script>
 </head>
 <body>
 <div id="wrap">
@@ -27,13 +50,13 @@
             <div>
                 <span class="id_span">ID 로그인</span>
                 <div class="idpw_box">
-                    <input type="text" class="idpw_input" value="아이디">
+                    <input type="text" class="idpw_input" id='id' value="아이디">
                 </div>
                 <br>
                 <div class="idpw_box">
-                    <input type="text" class="idpw_input" value="비밀번호">
+                    <input type="text" class="idpw_input" id='pw' value="비밀번호">
                 </div>
-                <input type="button" class="login_btn" value="로그인"/>
+                <input type="button" class="login_btn" onclick ="login()" value="로그인"/>
                 <div id="banner_test">
                     <div id="test">
                         <div id="banner_text">

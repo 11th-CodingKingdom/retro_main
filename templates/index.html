@@ -8,12 +8,34 @@
     <meta property="og:title" content="RE:TRO | 그때 그 시절, 당신의 음악" />
 
     <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <script>
+        $(document).ready(function () {
+            loginStatus();
+        });
+        function loginStatus(){
+            let userID = "{{ session['userID']}}"
+            let loginText = ""
+            if (userID =="") {
+                loginText = "로그인"
+            }
+            else{
+                loginText = "로그아웃"
+            }
+            let login_html = `<ul>
+                                <li><a href="#">RE:TRO 소개</a></li>
+                                <li><a href="/login_page">${loginText}</a></li>
+                                <li><a href='/regist_page'>회원가입</a></li>
+                              </ul>`
+            $('#nav_right').append(login_html)
+        }
+    </script>
     
 </head>
 <body>
@@ -35,11 +57,6 @@
         </ul>
       </div>
       <div id="nav_right">
-          <ul>
-            <li><a href="#">RE:TRO 소개</a></li>
-            <li><a href="/login">로그인</a></li>
-            <li><a href='/regist'>회원가입</a></li>
-          </ul>
       </div>
     </nav>
   </header>

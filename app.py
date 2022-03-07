@@ -1,8 +1,9 @@
-from flask import Flask, render_template, jsonify, request, redirect, url_for
+from flask import Flask, render_template, jsonify, request, session
 from pymongo import MongoClient
 from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
+app.secret_key = "qwertyuiop"
 bcrypt = Bcrypt(app)
 
 client = MongoClient('localhost', 27017)
@@ -13,22 +14,38 @@ db = client.retro
 def home():
     return render_template('index.html')
 
-# API 역할을 하는 부분
 @app.route('/musics', methods=['GET'])
 def show_musics():
     musics = list(db.musics.find({},{'_id':False}))
     return jsonify({'musics': musics})
 
-@app.route('/login')
+@app.route('/login_page')
 def login_page():
     return render_template('index-login.html')
 
-@app.route('/regist')
+@app.route('/login', methods=['POST'])
+def login():
+    id = request.form['id']
+    pw = request.form['pw']
+    information = db.users.find_one({'id':id}, {'_id': False})
+
+    if information != None:
+        if bcrypt.check_password_hash(information['pw'], pw):
+            session['userID'] = id
+            msg = "로그인 성공!"
+        else:
+            msg = "ID 혹은 비밀번호를 확인하세요"
+    else:
+        msg = "ID 혹은 비밀번호를 확인하세요"
+
+    return jsonify({'msg': msg,'id':id})
+
+@app.route('/regist_page')
 def regist_page():
     return render_template('index-signup.html')
 
 @app.route('/regist', methods=['POST'])
-def Regist():
+def regist():
     name = request.form['name']
     email = request.form['email']
     id = request.form['id']
@@ -49,8 +66,6 @@ def Regist():
 
     elif bcrypt.check_password_hash(pw, pwCheck) != True:
         msg = "비밀번호 입력을 다시 확인하세요."
-
-
 
     else:
         information = {'id': id, 'pw': pw, 'email': email, 'name': name}
