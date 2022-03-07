@@ -19,6 +19,10 @@ def show_musics():
     musics = list(db.musics.find({},{'_id':False}))
     return jsonify({'musics': musics})
 
+@app.route('/login')
+def login_page():
+    return render_template('index-login.html')
+
 @app.route('/regist')
 def regist_page():
     return render_template('index-signup.html')
