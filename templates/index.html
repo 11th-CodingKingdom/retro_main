@@ -9,6 +9,8 @@
 
     <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="../static/js/main.js"></script>
+
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 
@@ -50,6 +52,10 @@
 <body>
   <section class="banner" style="margin-bottom: 0px;">
     <img src="../static/images/intro_main.jpg"/>
+    <div class="close">
+      <p>오늘 하루 그만보기</p>
+      <img src="../static/images/intro_close_bn.png" alt="close">
+    </div>
   </section>
   <header id="header">
     <div id="logo" onclick="location.href='#'">
@@ -144,10 +150,10 @@
         </section>
         <section id="section_rankchart">
           <div id="year-btn">
-            <input type="button" class="btn" value="1980"/>
-            <input type="button" class="btn" value="1990"/>
-            <input type="button" class="btn" value="2000"/>
-            <input type="button" class="btn" value="2010"/>
+            <input type="button" class="btn" value="1980" />
+            <input type="button" class="btn" value="1990" />
+            <input type="button" class="btn" value="2000" />
+            <input type="button" class="btn" value="2010" />
           </div>
           <div id="rankchart-box">
             <table id="rankchart-table">

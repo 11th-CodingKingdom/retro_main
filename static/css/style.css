@@ -11,6 +11,25 @@
   width: 100%;
 }
 
+.banner .close {
+  position: absolute;
+  top: 15px;
+  right: 100px;
+  display: flex;
+  cursor: pointer;
+}
+
+.banner .close p {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+}
+
+.banner .close img {
+  width: 16px;
+  height: 16px;
+  margin-left: 15px;
+}
+
 header {
   /* background-color: lightgray; */
   width: 1476px;
@@ -87,6 +106,9 @@ header #nav {
   padding-left: 30px;
 }
 
+#searchbox_wrap #searchbox:focus {
+  outline: none;
+}
 
 #nav_right {
   /* background-color: #a4a4a4; */
@@ -231,7 +253,7 @@ header #nav {
 }
 
 #rankchart-box {
-  border: 2px solid #747474;
+  border: 2px solid #afafaf;
   border-radius: 15px;
   width: 320px;
   height: 412px;
@@ -295,8 +317,8 @@ td {
 
 .btn {
   width: 72px;
-  height: 32px;
-  border: 2px solid #747474;
+  height: 30px;
+  border: 2px solid #c0c0c0;
   border-radius: 8px;
   display: inline-block;
   font-size: 16px;
@@ -304,6 +326,12 @@ td {
   font-weight: bold;
   margin-right: 6px;
   cursor: pointer;
+}
+
+.btn-active {
+  background-color: #eb1400;
+  border: 2px solid #eb1400;
+  color: #fff;
 }
 
 .btn:last-child {
