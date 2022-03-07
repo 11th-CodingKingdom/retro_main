@@ -8,12 +8,37 @@
     <meta property="og:title" content="RE:TRO | 그때 그 시절, 당신의 음악" />
 
     <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <script>
+        $(document).ready(function () {
+            loginStatus();
+        });
+        function loginStatus(){
+            let userID = "{{ session['userID']}}"
+            let loginText = ""
+            let href_login_out = ""
+            if (userID =="") {
+                loginText = "로그인"
+                href_login_out = "/login_page"
+            }
+            else{
+                loginText = "로그아웃"
+                href_login_out = "/logout"
+            }
+            let login_html = `<ul>
+                                <li><a href="#">RE:TRO 소개</a></li>
+                                <li><a href=${href_login_out}>${loginText}</a></li>
+                                <li><a href='/regist_page'>회원가입</a></li>
+                              </ul>`
+            $('#nav_right').append(login_html)
+        }
+    </script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +52,7 @@
     <img src="../static/images/intro_main.jpg"/>
   </section>
   <header id="header">
-    <div id="logo">
+    <div id="logo" onclick="location.href='#'">
       <img src="../static/images/reteo_logo.png" width="91px" height="26px" />
     </div>
     <nav id="nav">
@@ -42,11 +67,6 @@
         <input type="text" id="searchbox" placeholder="검색어를 입력하세요.">
       </div>
       <div id="nav_right">
-          <ul>
-            <li><a href="#">RE:TRO 소개</a></li>
-            <li><a href="#">로그인</a></li>
-            <li><a href="#">회원가입</a></li>
-          </ul>
       </div>
     </nav>
   </header>
@@ -54,6 +74,7 @@
       <section id="chart">
         <section id="section_head">
           <h1>RE:TRO 차트</h1>
+          <span>NEW</span>
         </section>
         <section id="section_albumchart">
             <div class="albumchart_rowbody">
@@ -228,6 +249,7 @@
       <section id="section_yearchart">
         <div id="yearchart_title">
           <h1>RE:TRO 모음집</h1>
+          <span>HOT</span>
         </div>
         <div id="yearchart_body">
           <div class="yearchart_btn" style="background-image: url(../static/images/retro_con1980.png);">1980</div>
@@ -237,45 +259,36 @@
           <div class="yearchart_btn" style="background-image: url(../static/images/retro_con_all.png);">전곡 모음집</div>
         </div>
       </section>
-      <section id="section_playlist">
-        <div id="playlist_wrap">
-          추천플리
+      <div class="section_playlist">
+        <div class="playlist_left">
+          <img src="../static/images/sub_bn_01.png" alt="leemoonsae">
         </div>
-      </section>
+        <div class="playlist_right">
+          <img src="../static/images/sub_bn_02.png" alt="leesunhee">
+        </div>
+      </div>
       <section id="section_pick">
         <div id="section_pick_title">
-          <h1>Editor's Pick</h1>
+          <h1>개발자's Pick</h1>
         </div>
         <div id="pick_body">
           <div id="pick-box">
             <a href="#">
               <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
             </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
+            <div id="pick_title">개발자 김광윤's Pick</div>
           </div>
           <div id="pick-box">
             <a href="#">
               <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
             </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
+            <div id="pick_title">개발자 김동우's Pick</div>
           </div>
           <div id="pick-box">
             <a href="#">
               <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
             </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
-          </div>
-          <div id="pick-box">
-            <a href="#">
-              <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
-            </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
-          </div>
-          <div id="pick-box">
-            <a href="#">
-              <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
-            </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
+            <div id="pick_title">개발자 김소정's Pick</div>
           </div>
         </div>
         <div id="pick_body">
@@ -283,31 +296,19 @@
             <a href="#">
               <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
             </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
+            <div id="pick_title">개발자 성다연's Pick</div>
           </div>
           <div id="pick-box">
             <a href="#">
               <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
             </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
+            <div id="pick_title">개발자 임세민's Pick</div>
           </div>
           <div id="pick-box">
             <a href="#">
               <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
             </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
-          </div>
-          <div id="pick-box">
-            <a href="#">
-              <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
-            </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
-          </div>
-          <div id="pick-box">
-            <a href="#">
-              <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
-            </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
+            <div id="pick_title">개발자 지수빈's Pick</div>
           </div>
         </div>
       </section>
