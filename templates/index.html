@@ -22,15 +22,18 @@
         function loginStatus(){
             let userID = "{{ session['userID']}}"
             let loginText = ""
+            let href_login_out = ""
             if (userID =="") {
                 loginText = "로그인"
+                href_login_out = "/login_page"
             }
             else{
                 loginText = "로그아웃"
+                href_login_out = "/logout"
             }
             let login_html = `<ul>
                                 <li><a href="#">RE:TRO 소개</a></li>
-                                <li><a href="/login_page">${loginText}</a></li>
+                                <li><a href=${href_login_out}>${loginText}</a></li>
                                 <li><a href='/regist_page'>회원가입</a></li>
                               </ul>`
             $('#nav_right').append(login_html)

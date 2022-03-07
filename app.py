@@ -40,6 +40,11 @@ def login():
 
     return jsonify({'msg': msg,'id':id})
 
+@app.route('/logout')
+def logout():
+    session.clear()
+    return render_template('index.html')
+
 @app.route('/regist_page')
 def regist_page():
     return render_template('index-signup.html')
