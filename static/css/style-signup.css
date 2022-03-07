@@ -1,0 +1,109 @@
+* {
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+    width: 1126px;
+    height: 957px;
+}
+
+#wrap {
+    width: 1126px;
+    height: 600px;
+}
+
+#content {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    letter-spacing: -0.05em;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+#loginbox {
+    width: 50%;
+    height: 50%;
+    float: left;
+    padding-top: 30px;
+}
+
+#logo {
+    width: 100px;
+    height: 30px;
+    display: inline-block;
+    margin: 30px auto 20px 141.5px;
+}
+
+#login_img {
+    width: 560px;
+    height: 547px;
+    float: right;
+}
+
+.id_span {
+    font-weight: 600;
+    display: flex;
+    margin: 30px auto 26px 141.5px;
+}
+
+.namemail_input {
+    width: 280px;
+    height: 40px;
+    color: lightgrey;
+    border: none;
+    display: flex;
+    margin-top: 4px;
+    margin-left: 20px;
+}
+
+.idpw_box {
+    width: 310px;
+    height: 50px;
+    color: lightgrey;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    display: flex;
+    margin: 0 auto 0 auto;
+}
+
+.idpw_input {
+    width: 240px;
+    height: 40px;
+    color: lightgrey;
+    border: none;
+    display: flex;
+    margin-left: 60px;
+    margin-top: 4px;
+}
+
+.login_btn {
+    color: white;
+    background-color: #eb1400;
+    width: 280px;
+    height: 40px;
+    border-radius: 10px;
+    border: #eb1400;
+    display: inline-block;
+    margin: 26px auto 0 141.5px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.banner_img {
+    width: 560px;
+    height: 609px;
+
+}
+
+#footer_logo {
+    width: 957px;
+    margin: 36px auto 14px auto;
+}
+
+#footer_desc {
+    width: 957px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #a4a4a4;
+    margin: 0 auto 64px auto;
+}
