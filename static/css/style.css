@@ -1,8 +1,7 @@
 * {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 .banner {
-
 }
 
 .banner img {
@@ -20,7 +19,7 @@
 }
 
 .banner .close p {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 16px;
 }
 
@@ -78,7 +77,7 @@ header #nav {
 }
 
 #nav_left ul li {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 16px;
   margin-left: 34px;
 }
@@ -130,7 +129,7 @@ header #nav {
 
 #nav_right ul li a {
   font-size: 14px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   color: #989898;
   width: 200px;
   margin: 0 20px 0 0;
@@ -162,7 +161,7 @@ header #nav {
 
 #section_head h1 {
   font-size: 20px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-weight: bold;
   position: relative;
   top: 14px;
@@ -173,7 +172,7 @@ header #nav {
 #section_head span {
   position: relative;
   top: 19px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 11px;
   font-weight: 700;
   color: #eb1400;
@@ -202,7 +201,7 @@ header #nav {
 #albumchart_img {
   border-radius: 15px;
   background-size: cover;
-  width: 187px; 
+  width: 187px;
   height: 188px;
   margin-bottom: 7px;
 }
@@ -216,14 +215,13 @@ header #nav {
 }
 
 /* 플레이 버튼 hover */
-#albumchart_img img:hover{
-
+#albumchart_img img:hover {
 }
 
 #albumchart_desc {
   text-align: left;
   line-height: 20px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   /* margin-bottom: 30px; */
 }
 
@@ -247,7 +245,7 @@ header #nav {
 
 #section_rankchart {
   /* background-color: blanchedalmond; */
-  margin: 20px auto 0 auto;
+  margin: 20px auto 0px auto;
   width: 324px;
   height: 500px;
 }
@@ -256,7 +254,7 @@ header #nav {
   border: 2px solid #afafaf;
   border-radius: 15px;
   width: 320px;
-  height: 412px;
+  height: 482px;
   margin: 0 auto;
 }
 
@@ -301,7 +299,7 @@ td {
 #rankchart_desc {
   width: 195px;
   text-align: left;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   margin-left: 15px;
   position: relative;
   bottom: 7px;
@@ -346,7 +344,7 @@ td {
   border-radius: 15px;
   margin-bottom: 64px;
   display: flex;
-  
+
   vertical-align: middle;
 }
 
@@ -357,7 +355,7 @@ td {
 .music_test_banner .music_test_left .music_test_txt {
   color: #fff;
   font-size: 16px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   height: 135px;
   display: table-cell;
   vertical-align: middle;
@@ -386,7 +384,7 @@ td {
   cursor: pointer;
 
   color: #eb1400;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-weight: bold;
   font-size: 14px;
 
@@ -411,7 +409,7 @@ td {
   top: 10px;
   font-size: 20px;
   font-weight: bold;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   cursor: pointer;
 }
 
@@ -419,7 +417,7 @@ td {
   position: relative;
   top: 16px;
   height: 20px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 11px;
   font-weight: 700;
   color: #eb1400;
@@ -444,13 +442,13 @@ td {
   color: #fff;
   font-size: 24px;
   font-weight: bold;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 #yearchart_body .yearchart_btn:last-child {
   font-size: 20px;
   font-weight: 400;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 .section_playlist {
@@ -493,7 +491,7 @@ td {
 #section_pick_title h1 {
   font-size: 20px;
   font-weight: bold;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   position: relative;
   top: 20px;
 }
@@ -511,7 +509,7 @@ td {
 
 #pick_title {
   margin-top: 20px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 16px;
 }
 
@@ -532,7 +530,7 @@ td {
   background-color: #eb1400;
   border-radius: 10px;
   color: #fff;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   margin-left: 44px;
   margin-top: 110px;
   font-size: 14px;
@@ -541,7 +539,7 @@ td {
   text-align: center;
   line-height: 40px;
   vertical-align: middle;
-  
+
   cursor: pointer;
 }
 
