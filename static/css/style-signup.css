@@ -3,13 +3,14 @@
 }
 
 body {
-    width: 1126px;
-    height: 957px;
+    width: 1920px;
+    height: 1000px;
+    margin: auto;
 }
 
 #wrap {
-    width: 1126px;
-    height: 600px;
+    width: 1920px;
+    height: 916px;
 }
 
 #content {
@@ -22,7 +23,7 @@ body {
 
 #loginbox {
     width: 50%;
-    height: 50%;
+    height: 886px;
     float: left;
     padding-top: 30px;
 }
@@ -31,7 +32,7 @@ body {
     width: 100px;
     height: 30px;
     display: inline-block;
-    margin: 30px auto 20px 141.5px;
+    margin: 90px auto 20px 305px;
 }
 
 #login_img {
@@ -41,24 +42,30 @@ body {
 }
 
 .id_span {
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: bold;
     display: flex;
-    margin: 30px auto 26px 141.5px;
+    margin: 30px auto 26px 305px;
 }
 
 .namemail_input {
-    width: 280px;
-    height: 40px;
-    color: lightgrey;
+    font-size: 20px;
+    width: 390px;
+    height: 55px;
     border: none;
     display: flex;
     margin-top: 4px;
     margin-left: 20px;
+    outline: none;
+}
+
+input::placeholder {
+    color: lightgrey;
 }
 
 .idpw_box {
-    width: 310px;
-    height: 50px;
+    width: 420px;
+    height: 65px;
     color: lightgrey;
     border-radius: 10px;
     border: 1px solid lightgrey;
@@ -66,33 +73,43 @@ body {
     margin: 0 auto 0 auto;
 }
 
+.idpw_box img {
+    width: 35px;
+    height: 30px;
+    margin: auto;
+}
+
 .idpw_input {
-    width: 240px;
-    height: 40px;
-    color: lightgrey;
+    font-size: 20px;
+    width: 350px;
+    height: 55px;
     border: none;
     display: flex;
-    margin-left: 60px;
     margin-top: 4px;
+    outline: none;
 }
 
 .login_btn {
     color: white;
     background-color: #eb1400;
-    width: 280px;
-    height: 40px;
+    width: 350px;
+    height: 52px;
     border-radius: 10px;
     border: #eb1400;
     display: inline-block;
-    margin: 26px auto 0 141.5px;
+    margin: 40px auto 0 305px;
     text-align: center;
     font-weight: 600;
 }
 
-.banner_img {
-    width: 560px;
-    height: 609px;
+#login_img {
+    width: 960px;
+    height: 916px;
+}
 
+.banner_img {
+    width: 960px;
+    height: 916px;
 }
 
 #footer_logo {
