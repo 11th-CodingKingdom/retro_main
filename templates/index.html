@@ -9,94 +9,14 @@
 
     <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="../static/js/main.js"></script>
+
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-    <script>
-        $(document).ready(function () {
-            loginStatus();
-            retroChart()
-        });
-        function loginStatus(){
-            let userID = "{{ session['userID']}}"
-            let loginText = ""
-            let href_login_out = ""
-            if (userID =="") {
-                login_logout = "로그인"
-                regist_mypage = "회원가입"
-                href_login_out = "/login_page"
-            }
-            else{
-                login_logout = "로그아웃"
-                regist_mypage = "마이페이지"
-                href_login_out = "/logout"
-            }
-            let login_html = `<ul>
-                                <li><a href="#">RE:TRO 소개</a></li>
-                                <li><a href=${href_login_out}>${login_logout}</a></li>
-                                <li><a href='/regist_page'>${regist_mypage}</a></li>
-                              </ul>`
-            $('#nav_right').append(login_html)
-        }
-
-        function retroChart() {
-            let chart_year = '2010'
-            $.ajax({
-                type: 'GET',
-                url: '/main/chart',
-                data: {'chart_year':chart_year},
-                success: function (response) {
-                    let music_list = response['music_list']
-                    for (let i = 0; i < 6; i ++)
-                    {
-                        let albumImageUrl = music_list[i]['albumImageUrl']
-                        let rank = music_list[i]['rank']
-                        let singer = music_list[i]['singer']
-                        let title = music_list[i]['title']
-                        let albumchart_html = `<div class="albumchart-box" onclick="location.href='#'" style="cursor: pointer;">
-                                                    <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
-                                                      <img src="../static/images/palybn_icon_red.png" alt="">
-                                                    </div>
-                                                    <div id="albumchart_desc">
-                                                      <span id="albumchart_rank">${rank}</span>
-                                                      <span id="albumchart_song">${title}</span>
-                                                      <span id="albumchart_artist">${singer}</span>
-                                                    </div>
-                                                 </div>`
-                        let rankchart_html = `<tr id="rankchart-row">
-                                                <td>
-                                                  <div id="rankchart_img">
-                                                    <img src='${albumImageUrl}' width="50px" height="50px" style="border-radius:10px"/>
-                                                  </div>
-                                                </td>
-                                                <td>
-                                                  <div id="rankchart_rank">${rank}</div>
-                                                </td>
-                                                <td>
-                                                  <div id="rankchart_desc">
-                                                    <div id="rankchart_song">${title}</div>
-                                                    <div id="rankchart_artist">${singer}</div>
-                                                  </div>
-                                                </td>
-                                              </tr>`
-                        if (i < 3) {
-                            $('#section_albumchart .albumchart_rowbody:eq(0)').append(albumchart_html)
-                        }
-                        else{
-                            $('#section_albumchart .albumchart_rowbody:eq(1)').append(albumchart_html)
-                        }
-                        if (i < 5) {
-                            $('#rankchart-table').append(rankchart_html)
-                        }
-                    }
-
-                }
-            });
-        }
-    </script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -108,9 +28,13 @@
 <body>
   <section class="banner" style="margin-bottom: 0px;">
     <img src="../static/images/intro_main.jpg"/>
+    <div class="close">
+      <p>오늘 하루 그만보기</p>
+      <img src="../static/images/intro_close_bn.png" alt="close">
+    </div>
   </section>
   <header id="header">
-    <div id="logo">
+    <div id="logo" onclick="location.href='#'">
       <img src="../static/images/reteo_logo.png" width="91px" height="26px" />
     </div>
     <nav id="nav">
@@ -125,6 +49,11 @@
         <input type="text" id="searchbox" placeholder="검색어를 입력하세요.">
       </div>
       <div id="nav_right">
+          <ul>
+            <li><a href="#">RE:TRO 소개</a></li>
+            <li><a href="#">로그인</a></li>
+            <li><a href="#">회원가입</a></li>
+          </ul>
       </div>
     </nav>
   </header>
@@ -132,6 +61,7 @@
       <section id="chart">
         <section id="section_head">
           <h1>RE:TRO 차트</h1>
+          <span>NEW</span>
         </section>
         <section id="section_albumchart">
             <div class="albumchart_rowbody">
@@ -141,10 +71,10 @@
         </section>
         <section id="section_rankchart">
           <div id="year-btn">
-            <input type="button" class="btn" value="1980"/>
-            <input type="button" class="btn" value="1990"/>
-            <input type="button" class="btn" value="2000"/>
-            <input type="button" class="btn" value="2010"/>
+            <input type="button" class="btn" value="1980" />
+            <input type="button" class="btn" value="1990" />
+            <input type="button" class="btn" value="2000" />
+            <input type="button" class="btn" value="2010" />
           </div>
           <div id="rankchart-box">
             <table id="rankchart-table">
@@ -175,45 +105,36 @@
           <div class="yearchart_btn" style="background-image: url(../static/images/retro_con_all.png);">전곡 모음집</div>
         </div>
       </section>
-      <section id="section_playlist">
-        <div id="playlist_wrap">
-          추천플리
+      <div class="section_playlist">
+        <div class="playlist_left">
+          <img src="../static/images/sub_bn_01.png" alt="leemoonsae">
         </div>
-      </section>
+        <div class="playlist_right">
+          <img src="../static/images/sub_bn_02.png" alt="leesunhee">
+        </div>
+      </div>
       <section id="section_pick">
         <div id="section_pick_title">
-          <h1>Editor's Pick</h1>
+          <h1>개발자's Pick</h1>
         </div>
         <div id="pick_body">
           <div id="pick-box">
             <a href="#">
               <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
             </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
+            <div id="pick_title">개발자 김광윤's Pick</div>
           </div>
           <div id="pick-box">
             <a href="#">
               <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
             </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
+            <div id="pick_title">개발자 김동우's Pick</div>
           </div>
           <div id="pick-box">
             <a href="#">
               <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
             </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
-          </div>
-          <div id="pick-box">
-            <a href="#">
-              <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
-            </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
-          </div>
-          <div id="pick-box">
-            <a href="#">
-              <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
-            </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
+            <div id="pick_title">개발자 김소정's Pick</div>
           </div>
         </div>
         <div id="pick_body">
@@ -221,31 +142,19 @@
             <a href="#">
               <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
             </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
+            <div id="pick_title">개발자 성다연's Pick</div>
           </div>
           <div id="pick-box">
             <a href="#">
               <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
             </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
+            <div id="pick_title">개발자 임세민's Pick</div>
           </div>
           <div id="pick-box">
             <a href="#">
               <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
             </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
-          </div>
-          <div id="pick-box">
-            <a href="#">
-              <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
-            </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
-          </div>
-          <div id="pick-box">
-            <a href="#">
-              <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
-            </a>
-            <div id="pick_title">코딩왕조 픽 플레이리스트</div>
+            <div id="pick_title">개발자 지수빈's Pick</div>
           </div>
         </div>
       </section>
