@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="RE:TRO | 그때 그 시절, 당신의 음악"/>
+
+    <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style-login.css">
+    <link rel="shortcut icon" href="../static/images/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <script>
+        function login() {
+            let id = $('#id').val()
+            let pw = $('#pw').val()
+
+            $.ajax({
+                type: 'POST',
+                url: '/login',
+                data: {'id':id, 'pw':pw},
+                success: function (response) {
+                    let msg = response['msg']
+                    let id = response['id']
+                    if(msg == "로그인 성공!"){
+                        location.href='/';
+                        alert(msg);
+                    }else {
+                        alert(msg);
+                    }
+                    }
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="wrap">
+    <div id="content">
+        <div id="loginbox">
+            <div id="logo">
+                <img src="../static/images/reteo_logo.png" width="91px" height="26px"/>
+            </div>
+            <div>
+                <span class="id_span">ID 로그인</span>
+                <div class="idpw_box">
+                    <input type="text" class="idpw_input" id='id' value="아이디">
+                </div>
+                <br>
+                <div class="idpw_box">
+                    <input type="text" class="idpw_input" id='pw' value="비밀번호">
+                </div>
+                <input type="button" class="login_btn" onclick ="login()" value="로그인"/>
+                <div id="banner_test">
+                    <div id="test">
+                        <div id="banner_text">
+                            <span id="bannerTest-text">아직도 레트로 아이디가 없으시다구요?</span><br>
+                            <span id="bannerTest-title">5초만에 회원가입 하러가기</span>
+                        </div>
+                        <div id="banner_btn">
+                            <input type="button" class="banner_btn" value="&#9654;"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="login_img">
+            <img class="banner_img" style="margin-bottom: 0px;" src="../static/images/login_bn_01.jpg"/>
+        </div>
+    </div>
+</div>
+<hr size="1" color="#eeeeee" style="margin-top: 0;">
+<footer>
+    <div id="footer_logo">
+        <img src="../static/images/logo_footer.png"/>
+    </div>
+    <div id="footer_desc">
+        Copyrights © 2022 - Coding Kingdom Team, All Rights Reserved.
+    </div>
+</footer>
+</body>
+</html>
