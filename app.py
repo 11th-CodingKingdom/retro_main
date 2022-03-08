@@ -44,7 +44,7 @@ def login():
     else:
         msg = "ID 혹은 비밀번호를 확인하세요"
 
-    return jsonify({'msg': msg,'id':id})
+    return jsonify({'msg': msg})
 
 @app.route('/logout')
 def logout():

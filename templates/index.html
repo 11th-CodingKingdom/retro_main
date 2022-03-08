@@ -49,7 +49,31 @@
                 url: '/main/chart',
                 data: {'chart_year':chart_year},
                 success: function (response) {
-                    console.log(response['music_list'])
+                    let music_list = response['music_list']
+                    for (let i = 0; i < 6; i ++)
+                    {
+                        let albumImageUrl = music_list[i]['albumImageUrl']
+                        let rank = music_list[i]['rank']
+                        let singer = music_list[i]['singer']
+                        let title = music_list[i]['title']
+                        let albumchart_html = `<div class="albumchart-box" onclick="location.href='#'" style="cursor: pointer;">
+                                                    <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
+                                                      <img src="../static/images/palybn_icon_red.png" alt="">
+                                                    </div>
+                                                    <div id="albumchart_desc">
+                                                      <span id="albumchart_rank">${rank}</span>
+                                                      <span id="albumchart_song">${title}</span>
+                                                      <span id="albumchart_artist">${singer}</span>
+                                                    </div>
+                                                 </div>`
+                        if (i < 3) {
+                            $('#section_albumchart .albumchart_rowbody:eq(0)').append(albumchart_html)
+                        }
+                        else{
+                            $('#section_albumchart .albumchart_rowbody:eq(1)').append(albumchart_html)
+                        }
+                    }
+
                 }
             });
         }
@@ -92,68 +116,8 @@
         </section>
         <section id="section_albumchart">
             <div class="albumchart_rowbody">
-              <div class="albumchart-box" onclick="location.href='#'" style="cursor: pointer;">
-                <div id="albumchart_img" style="background-image: url(https://cdn.music-flo.com/image/v2/album/065/520/07/04/407520065_62046e9b_s.jpg?1644457630716/dims/resize/500x500/quality/90);">
-                  <img src="../static/images/palybn_icon_red.png" alt="">
-                </div>
-                <div id="albumchart_desc">
-                  <span id="albumchart_rank">1</span>
-                  <span id="albumchart_song">INVU</span>
-                  <span id="albumchart_artist">태연</span>
-                </div>
-              </div>
-              <div class="albumchart-box" onclick="location.href='#'" style="cursor: pointer;">
-                <div id="albumchart_img" style="background-image: url(https://cdn.music-flo.com/image/v2/album/065/520/07/04/407520065_62046e9b_s.jpg?1644457630716/dims/resize/500x500/quality/90);">
-                  <img src="../static/images/palybn_icon_red.png" alt="">
-                </div>
-                <div id="albumchart_desc">
-                  <span id="albumchart_rank">1</span>
-                  <span id="albumchart_song">INVU</span>
-                  <span id="albumchart_artist">태연</span>
-                </div>
-              </div>
-              <div class="albumchart-box" onclick="location.href='#'" style="cursor: pointer;">
-                <div id="albumchart_img" style="background-image: url(https://cdn.music-flo.com/image/v2/album/065/520/07/04/407520065_62046e9b_s.jpg?1644457630716/dims/resize/500x500/quality/90);">
-                  <img src="../static/images/palybn_icon_red.png" alt="">
-                </div>
-                <div id="albumchart_desc">
-                  <span id="albumchart_rank">1</span>
-                  <span id="albumchart_song">INVU</span>
-                  <span id="albumchart_artist">태연</span>
-                </div>
-              </div>
             </div>
-            <div class="albumchart_rowbody">
-              <div class="albumchart-box" onclick="location.href='#'" style="cursor: pointer;">
-                <div id="albumchart_img" style="background-image: url(https://cdn.music-flo.com/image/v2/album/065/520/07/04/407520065_62046e9b_s.jpg?1644457630716/dims/resize/500x500/quality/90);">
-                  <img src="../static/images/palybn_icon_red.png" alt="">
-                </div>
-                <div id="albumchart_desc">
-                  <span id="albumchart_rank">1</span>
-                  <span id="albumchart_song">INVU</span>
-                  <span id="albumchart_artist">태연</span>
-                </div>
-              </div>
-              <div class="albumchart-box" onclick="location.href='#'" style="cursor: pointer;">
-                <div id="albumchart_img" style="background-image: url(https://cdn.music-flo.com/image/v2/album/065/520/07/04/407520065_62046e9b_s.jpg?1644457630716/dims/resize/500x500/quality/90);">
-                  <img src="../static/images/palybn_icon_red.png" alt="">
-                </div>
-                <div id="albumchart_desc">
-                  <span id="albumchart_rank">1</span>
-                  <span id="albumchart_song">INVU</span>
-                  <span id="albumchart_artist">태연</span>
-                </div>
-              </div>
-              <div class="albumchart-box" onclick="location.href='#'" style="cursor: pointer;">
-                <div id="albumchart_img" style="background-image: url(https://cdn.music-flo.com/image/v2/album/065/520/07/04/407520065_62046e9b_s.jpg?1644457630716/dims/resize/500x500/quality/90);">
-                  <img src="../static/images/palybn_icon_red.png" alt="">
-                </div>
-                <div id="albumchart_desc">
-                  <span id="albumchart_rank">1</span>
-                  <span id="albumchart_song">INVU</span>
-                  <span id="albumchart_artist">태연</span>
-                </div>
-              </div>
+            <div class="albumchart_rowbody", id="albumchart-1">
             </div>
         </section>
         <section id="section_rankchart">
