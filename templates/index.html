@@ -84,11 +84,10 @@
                                               </tr>`
                         if (i < 3) {
                             $('#section_albumchart .albumchart_rowbody:eq(0)').append(albumchart_html)
+                            $('#rankchart-table').append(rankchart_html)
                         }
                         else{
                             $('#section_albumchart .albumchart_rowbody:eq(1)').append(albumchart_html)
-                        }
-                        if (i < 5) {
                             $('#rankchart-table').append(rankchart_html)
                         }
                     }
