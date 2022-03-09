@@ -6,7 +6,8 @@ app = Flask(__name__)
 app.secret_key = "qwertyuiop"
 bcrypt = Bcrypt(app)
 
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb://test:test@54.144.213.113:27017')
+# client = MongoClient('localhost', 27017)
 db = client.retro
 
 # HTML 화면 보여주기
