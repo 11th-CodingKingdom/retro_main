@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06386f5f-9b52-42ea-a3f6-127bd51ba677" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/index-login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/style-login.css" beforeDir="false" />
-    </list>
+    <list default="true" id="06386f5f-9b52-42ea-a3f6-127bd51ba677" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +37,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Flask server.Flask (app.py)">
+  <component name="RunManager" selected="Flask 서버.Flask (app.py)">
     <configuration name="retro_frontend" type="PythonConfigurationType" factoryName="Python">
       <module name="retro_frontend" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -80,7 +77,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Flask server.Flask (app.py)" />
+        <item itemvalue="Flask 서버.Flask (app.py)" />
       </list>
     </recent_temporary>
   </component>
@@ -94,6 +91,7 @@
       <updated>1646644783006</updated>
       <workItem from="1646644784731" duration="560000" />
       <workItem from="1646645373852" duration="1058000" />
+      <workItem from="1646812822397" duration="55000" />
     </task>
     <servers />
   </component>
