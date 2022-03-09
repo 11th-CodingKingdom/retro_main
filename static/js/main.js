@@ -22,3 +22,8 @@ function closePopup() {
   banner.style.display = "none";
 }
 popup.addEventListener('click', closePopup);
+
+// 좋아요 버튼 클릭 시 하트 변경
+function toggleLike() {
+  document.getElementById("likebtn").src = "../static/images/like_icon_hover.png";
+}
