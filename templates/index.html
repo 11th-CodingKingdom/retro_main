@@ -24,8 +24,8 @@
         });
         function loginStatus(){
             let userID = "{{ session['userID']}}"
-            let loginText = ""
             let href_login_out = ""
+            $('#nav_right').empty()
             if (userID =="") {
                 login_logout = "로그인"
                 regist_mypage = "회원가입"
@@ -52,6 +52,9 @@
                 data: {'chart_year':chart_year},
                 success: function (response) {
                     let music_list = response['music_list']
+                    $('#section_albumchart .albumchart_rowbody:eq(0)').empty()
+                    $('#section_albumchart .albumchart_rowbody:eq(1)').empty()
+                    $('#rankchart-table').empty
                     for (let i = 0; i < 6; i ++)
                     {
                         let albumImageUrl = music_list[i]['albumImageUrl']
@@ -102,8 +105,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-
-    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="shortcut icon" href="../static/images/favicon.ico">
 
 </head>
 <body>
