@@ -15,15 +15,13 @@ db = client.retro
 def home():
     return render_template('index.html')
 
-@app.route('/musics', methods=['GET'])
-def show_musics():
-    musics = list(db.musics.find({},{'_id':False}))
-    return jsonify({'musics': musics})
-
 @app.route('/main/chart', methods=['GET'])
 def main_chart():
-    chart_year = int(request.args.get('chart_year'))
-    musics = list(db.musics.find({'rank_type':"AG", 'year':chart_year},{'_id': False}))
+    chart_year_str = request.args.get('chart_year')
+    print(chart_year_str)
+    print(type(chart_year_str))
+    chart_year = int(chart_year_str)
+    musics = list(db.musics.find({'rank_type':"AG", 'year':chart_year},{'_id': False}).limit(6))
     return jsonify({'music_list': musics})
 
 @app.route('/login_page')
