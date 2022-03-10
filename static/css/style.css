@@ -595,7 +595,6 @@ footer {
   background-color: #191919;
   position: fixed;
   bottom: 0;
-  text-align: center;
 }
 
 .playbar .playbar_song {
@@ -633,6 +632,8 @@ footer {
 }
 
 .playbar_song #likebtn {
+  position: absolute;
+  left: 25%;
   width: 25px;
   height: 25px;
   margin-top: 25px;
@@ -642,6 +643,7 @@ footer {
 .playbar .playbtn {
   position: absolute;
   top: 20%;
+  left: 48%;
   width: 50px;
   height: 50px;
   cursor: pointer;
