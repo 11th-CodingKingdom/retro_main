@@ -255,15 +255,16 @@ header #nav {
 #section_rankchart {
   /* background-color: blanchedalmond; */
   margin: 0px auto;
+  margin-top: 40px;
   width: 324px;
-  height: 455px;
+  height: 500px;
 }
 
 #rankchart-box {
   border: 2px solid #afafaf;
   border-radius: 15px;
   width: 320px;
-  height: 455px;
+  height: 500px;
   margin: 0 auto;
 }
 
@@ -280,21 +281,21 @@ td {
 
 #rankchart-row {
   width: 320px;
-  height: 76px;
+  height: 83px;
   border-top: 0.5px solid #747474;
   cursor: pointer;
 }
 #rankchart-row:first-child {
   width: 320px;
-  height: 76px;
+  height: 83px;
   border-top: none;
 }
 
 #rankchart_img {
-  width: 72px;
-  height: 72px;
+  width: 80px;
+  height: 80px;
   text-align: center;
-  line-height: 72px;
+  line-height: 80px;
 }
 
 #rankchart_img > img {
@@ -329,7 +330,7 @@ td {
   font-size: 16px;
   color: #747474;
   font-weight: bold;
-  margin-top: 15px;
+  margin-top: 10px;
   margin-right: 6px;
   cursor: pointer;
 }
@@ -633,7 +634,7 @@ footer {
 
 .playbar_song #likebtn {
   position: absolute;
-  left: 25%;
+  right: 3%;
   width: 25px;
   height: 25px;
   margin-top: 25px;
