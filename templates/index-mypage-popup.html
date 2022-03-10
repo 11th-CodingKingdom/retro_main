@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="RE:TRO | 그때 그 시절, 당신의 음악"/>
+
+    <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="../static/js/mypage.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style-mypage-popup.css.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <script>
+        $(function () {
+            $("#confirm").click(function () {
+                modalClose(); //모달 닫기 함수 호출
+
+                //컨펌 이벤트 처리
+            });
+            $("#modal-open").click(function () {
+                $("#popup").css('display', 'flex').hide().fadeIn();
+                //팝업을 flex속성으로 바꿔준 후 hide()로 숨기고 다시 fadeIn()으로 효과
+            });
+            $("#close").click(function () {
+                modalClose(); //모달 닫기 함수 호출
+            });
+
+            function modalClose() {
+                $("#popup").fadeOut(); //페이드아웃 효과
+            }
+        });
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+
+    <link rel="shortcut icon" href="../favicon.ico">
+
+</head>
+<body>
+<div class="container"> //컨테이너
+    <div class="popup-wrap" id="popup"> //모달을 감쌀 박스
+        <div class="popup"> //실질적 모달팝업
+            <div class="popup-head"> //로고 영역
+                <span class="head-title">BYTHEM</span>
+            </div>
+            <div class="popup-body"> //컨텐츠 영역
+                <div class="body-content">
+                    <div class="body-titlebox">
+                        <h1>Confirm Modal</h1>
+                    </div>
+                    <div class="body-contentbox">
+                        <p> 모달 내용칸 </p>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-foot"> //푸터 버튼 영역
+                <span class="pop-btn confirm" id="confirm">확인</span>
+                <span class="pop-btn close" id="close">창 닫기</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
