@@ -149,7 +149,7 @@ def mypage_withdraw():
             db.users.delete_one({'id':id})
             msg = "회원탈퇴가 완료되었습니다."
         else:
-            msg = '비밀번호를 다시 확인해주세요'
+            msg = '비밀번호를 다시 확인해주세요.'
     else:
         msg = "로그인 상태가 아닙니다."
     return jsonify({'msg': msg})

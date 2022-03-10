@@ -18,10 +18,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
     <script>
+        $(document).ready(function() {
+            $("#pw").keydown(function (key) {
+                if (key.keyCode == 13) {
+                    login();
+                }
+            });
+        });
+
         function login() {
             let id = $('#id').val()
             let pw = $('#pw').val()
-
             $.ajax({
                 type: 'POST',
                 url: '/login',
@@ -38,6 +45,7 @@
                     }
             });
         }
+
     </script>
 </head>
 <body>
@@ -56,7 +64,7 @@
                 <br>
                 <div class="idpw_box">
                     <img src="../static/images/search_icon.png" alt="">
-                    <input type="text" class="idpw_input" id='pw' placeholder="비밀번호">
+                    <input type="password" class="idpw_input" id='pw' placeholder="비밀번호">
                 </div>
                 <input type="button" class="login_btn" onclick ="login()" value="로그인"/>
                 <div id="banner_test">
