@@ -18,28 +18,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
     <script>
-            function regist() {
-                let id = $('#id').val()
-                let pw = $('#pw').val()
-                let pwCheck = $('#pwCheck').val()
-                let name = $('#name').val()
-                let email = $('#email').val()
+        $(document).ready(function() {
+            $('#logo img').click(function (){
+                location.href='/';
+            });
+        });
 
-                $.ajax({
-                    type: 'POST',
-                    url: '/regist',
-                    data: {'id':id, 'pw':pw, 'pwCheck':pwCheck,'name':name,'email':email},
-                    success: function (response) {
-                        let msg = response['msg']
-                        if(msg == "회원가입 완료!"){
-                            location.href='/login_page';
-                            alert(msg);
-                        }else {
-                            alert(msg);
-                        }
-                        }
-                });
-            }
+        function regist() {
+            let id = $('#id').val()
+            let pw = $('#pw').val()
+            let pwCheck = $('#pwCheck').val()
+            let name = $('#name').val()
+            let email = $('#email').val()
+
+            $.ajax({
+                type: 'POST',
+                url: '/regist',
+                data: {'id':id, 'pw':pw, 'pwCheck':pwCheck,'name':name,'email':email},
+                success: function (response) {
+                    let msg = response['msg']
+                    if(msg == "회원가입 완료!"){
+                        location.href='/login_page';
+                        alert(msg);
+                    }else {
+                        alert(msg);
+                    }
+                    }
+            });
+        }
     </script>
 
 </head>
