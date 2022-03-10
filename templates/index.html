@@ -53,12 +53,12 @@
   <section class="banner" style="margin-bottom: 0px;">
     <img src="../static/images/intro_main.jpg"/>
     <div class="close">
-      <p>오늘 하루 그만보기</p>
+      <p>팝업 닫기</p>
       <img src="../static/images/intro_close_bn.png" alt="close">
     </div>
   </section>
   <header id="header">
-    <div id="logo" onclick="location.href='#'">
+    <div id="logo" onclick="location.href='index.html'">
       <img src="../static/images/reteo_logo.png" width="91px" height="26px" />
     </div>
     <nav id="nav">
@@ -76,11 +76,19 @@
       </div>
     </nav>
   </header>
+  
   <div id="wrap">
       <section id="chart">
         <section id="section_head">
           <h1>RE:TRO 차트</h1>
           <span>NEW</span>
+          <!-- 1980-2010 버튼 4개 -->
+          <div id="year-btn">
+            <input type="button" class="btn btn-active" value="1980" />
+            <input type="button" class="btn" value="1990" />
+            <input type="button" class="btn" value="2000" />
+            <input type="button" class="btn" value="2010" />
+          </div>
         </section>
         <section id="section_albumchart">
             <div class="albumchart_rowbody">
@@ -149,12 +157,6 @@
             </div>
         </section>
         <section id="section_rankchart">
-          <div id="year-btn">
-            <input type="button" class="btn" value="1980" />
-            <input type="button" class="btn" value="1990" />
-            <input type="button" class="btn" value="2000" />
-            <input type="button" class="btn" value="2010" />
-          </div>
           <div id="rankchart-box">
             <table id="rankchart-table">
               <tr id="rankchart-row">
@@ -291,46 +293,52 @@
       </div>
       <section id="section_pick">
         <div id="section_pick_title">
-          <h1>Developer's Pick</h1>
+          <h1>개발자's Pick</h1>
         </div>
         <div id="pick_body">
           <div id="pick-box">
             <a href="#">
-              <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
+              <div class="pick-box-img">
+                <img src="../static/images/palybn_icon.png" alt="" />
+              </div>
             </a>
-            <div id="pick_title">Developer 김광윤's Pick</div>
           </div>
           <div id="pick-box">
             <a href="#">
-              <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
+              <div class="pick-box-img">
+                <img src="../static/images/palybn_icon.png" alt="" />
+              </div>
             </a>
-            <div id="pick_title">Developer 김동우's Pick</div>
           </div>
           <div id="pick-box">
             <a href="#">
-              <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
+              <div class="pick-box-img">
+                <img src="../static/images/palybn_icon.png" alt="" />
+              </div>
             </a>
-            <div id="pick_title">Developer 김소정's Pick</div>
           </div>
         </div>
         <div id="pick_body">
           <div id="pick-box">
             <a href="#">
-              <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
+              <div class="pick-box-img">
+                <img src="../static/images/palybn_icon.png" alt="" />
+              </div>
             </a>
-            <div id="pick_title">Developer 성다연's Pick</div>
           </div>
           <div id="pick-box">
             <a href="#">
-              <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
+              <div class="pick-box-img">
+                <img src="../static/images/palybn_icon.png" alt="" />
+              </div>
             </a>
-            <div id="pick_title">Developer 임세민's Pick</div>
           </div>
           <div id="pick-box">
             <a href="#">
-              <img src="https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90" width="176px" height="176px" style="border-radius: 10px;"/>
+              <div class="pick-box-img">
+                <img src="../static/images/palybn_icon.png" alt="" />
+              </div>
             </a>
-            <div id="pick_title">Developer 지수빈's Pick</div>
           </div>
         </div>
       </section>
@@ -346,6 +354,18 @@
     </div>
     <div id="footer_desc">
       Copyrights © 2022 - Coding Kingdom Team, All Rights Reserved.
+    </div>
+    <!-- 하단 재생 바 -->
+    <div class="playbar">
+      <div class="playbar_song">
+        <div class="youtube_movie"></div>
+        <div class="playbar_song_wrap">
+          <div class="playbar_song_title">인생 한잔</div>
+          <div class="playbar_song_artist">정은지</div>
+        </div>
+      <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">
+      </div>
+      <img src="../static/images/palybn_icon.png" alt="" class="playbtn">
     </div>
   </footer>
 </body>

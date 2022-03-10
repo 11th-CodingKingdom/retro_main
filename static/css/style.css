@@ -2,6 +2,7 @@
   font-family: "Noto Sans KR", sans-serif;
 }
 .banner {
+  
 }
 
 .banner img {
@@ -179,11 +180,19 @@ header #nav {
   margin-left: 20px;
 }
 
+#year-btn {
+  /* background-color: aliceblue; */
+  width: 324px;
+  margin-left: 465px;
+  text-align: center;
+  align-items: center;
+}
+
 #section_albumchart {
   /* background-color: darkkhaki; */
   width: 603px;
   height: 500px;
-  margin: 30px auto 0 auto;
+  margin: 40px auto 0 auto;
 }
 
 .albumchart_rowbody {
@@ -245,16 +254,16 @@ header #nav {
 
 #section_rankchart {
   /* background-color: blanchedalmond; */
-  margin: 20px auto 0px auto;
+  margin: 0px auto;
   width: 324px;
-  height: 500px;
+  height: 455px;
 }
 
 #rankchart-box {
   border: 2px solid #afafaf;
   border-radius: 15px;
   width: 320px;
-  height: 482px;
+  height: 455px;
   margin: 0 auto;
 }
 
@@ -265,26 +274,27 @@ td {
 
 #rankchart-table {
   width: 320px;
-  height: 412px;
+  height: 455px;
+  /* margin-top: 10px; */
 }
 
 #rankchart-row {
   width: 320px;
-  height: 80px;
+  height: 76px;
   border-top: 0.5px solid #747474;
   cursor: pointer;
 }
 #rankchart-row:first-child {
   width: 320px;
-  height: 80px;
+  height: 76px;
   border-top: none;
 }
 
 #rankchart_img {
-  width: 80px;
-  height: 80px;
+  width: 72px;
+  height: 72px;
   text-align: center;
-  line-height: 80px;
+  line-height: 72px;
 }
 
 #rankchart_img > img {
@@ -302,15 +312,12 @@ td {
   font-family: "Noto Sans KR", sans-serif;
   margin-left: 15px;
   position: relative;
-  bottom: 7px;
+  bottom: 13px;
 }
 
-#year-btn {
-  /* background-color: aliceblue; */
-  width: 324px;
-  margin-bottom: 10px;
-  text-align: center;
-  align-items: center;
+#rankchart_artist {
+  margin-top: 7px;
+  color: #747474;
 }
 
 .btn {
@@ -322,6 +329,7 @@ td {
   font-size: 16px;
   color: #747474;
   font-weight: bold;
+  margin-top: 15px;
   margin-right: 6px;
   cursor: pointer;
 }
@@ -434,7 +442,7 @@ td {
 #yearchart_body .yearchart_btn {
   width: 176px;
   height: 176px;
-  border-radius: 10px;
+  border-radius: 25px;
   line-height: 176px;
   vertical-align: middle;
   cursor: pointer;
@@ -480,7 +488,7 @@ td {
 #section_pick {
   /* background-color: #ad8a8a; */
   width: 957px;
-  height: 600px;
+  height: 680px;
   margin: 0 auto 45px auto;
 }
 
@@ -502,9 +510,28 @@ td {
 }
 
 #pick-box {
-  background-color: aliceblue;
-  width: 176px;
-  height: 270px;
+  height: 330px;
+}
+
+#pick-box img {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+}
+#pick-box .pick-box-img {
+  width: 300px;
+  height: 300px;
+  background-image: url('https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90');
+  background-size: cover;
+  border-radius: 10px;
+}
+
+#pick-box .pick-box-img img {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  top: 240px;
+  left: 240px;
 }
 
 #pick_title {
@@ -518,7 +545,8 @@ td {
   height: 175px;
   margin: 0 auto;
   border-radius: 15px;
-  margin-bottom: 64px;
+  margin-top: 100px;
+  margin-bottom: 70px;
   background-image: url("../images/main_bn_02.png");
 }
 
@@ -543,6 +571,10 @@ td {
   cursor: pointer;
 }
 
+footer {
+  height: 200px;
+}
+
 #footer_logo {
   width: 957px;
   margin: 36px auto 14px auto;
@@ -554,4 +586,65 @@ td {
   font-weight: 400;
   color: #a4a4a4;
   margin: 0 auto 64px auto;
+}
+
+/* 하단 재생 바 */
+.playbar {
+  width: 100vw;
+  height: 79px;
+  background-color: #191919;
+  position: fixed;
+  bottom: 0;
+}
+
+.playbar .playbar_song {
+  display: flex;
+  width: 500px;
+  height: 79px;
+}
+
+.playbar_song .youtube_movie {
+  width: 100px;
+  height: 50px;
+  background-color: #fff;
+  margin: 15px 20px;
+}
+
+.playbar_song .playbar_song_wrap {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+}
+
+.playbar_song .playbar_song_wrap .playbar_song_title {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.playbar_song .playbar_song_wrap .playbar_song_artist {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #fff;
+  font-size: 13px;
+}
+
+.playbar_song #likebtn {
+  position: absolute;
+  left: 25%;
+  width: 25px;
+  height: 25px;
+  margin-top: 25px;
+  cursor: pointer;
+}
+
+.playbar .playbtn {
+  position: absolute;
+  top: 20%;
+  left: 48%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
 }
