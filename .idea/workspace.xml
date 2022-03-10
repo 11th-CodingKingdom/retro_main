@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06386f5f-9b52-42ea-a3f6-127bd51ba677" name="Changes" comment="로그인 페이지에서 회원가입 이동할수 있도록 수정" />
+    <list default="true" id="06386f5f-9b52-42ea-a3f6-127bd51ba677" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/retro_frontend/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/retro_frontend/templates/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -244,6 +246,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="로그인 페이지에서 회원가입 이동할수 있도록 수정" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+<<<<<<< HEAD
     <SUITE FILE_PATH="coverage/retro_frontend$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1646918237154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/retro_frontend$retro_frontend.coverage" NAME="retro_frontend Coverage Results" MODIFIED="1646644839119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
