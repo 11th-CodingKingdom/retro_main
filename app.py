@@ -7,7 +7,6 @@ app.secret_key = "qwertyuiop"
 bcrypt = Bcrypt(app)
 
 client = MongoClient('mongodb://test:test@54.144.213.113:27017')
-# client = MongoClient('localhost', 27017)
 db = client.retro
 
 # HTML 화면 보여주기
@@ -137,7 +136,6 @@ def mypage_pwex():
     else:
         msg = "로그인 상태가 아닙니다."
     return jsonify({'msg': msg})
-
 
 @app.route('/userinfo/withdraw', methods=['POST'])
 def mypage_withdraw():
