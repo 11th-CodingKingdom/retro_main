@@ -3,6 +3,7 @@ let currentBtn;
 let btns = document.querySelectorAll('.btn');
 
 function clickBtn() {
+  currentBtn = document.querySelector('.btn-active');
   if (currentBtn){
     currentBtn.classList.remove('btn-active');
   }

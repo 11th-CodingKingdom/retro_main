@@ -518,6 +518,21 @@ td {
   height: 300px;
   border-radius: 10px;
 }
+#pick-box .pick-box-img {
+  width: 300px;
+  height: 300px;
+  background-image: url('https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90');
+  background-size: cover;
+  border-radius: 10px;
+}
+
+#pick-box .pick-box-img img {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  top: 240px;
+  left: 240px;
+}
 
 #pick_title {
   margin-top: 20px;
@@ -580,7 +595,6 @@ footer {
   background-color: #191919;
   position: fixed;
   bottom: 0;
-  text-align: center;
 }
 
 .playbar .playbar_song {
@@ -618,6 +632,8 @@ footer {
 }
 
 .playbar_song #likebtn {
+  position: absolute;
+  left: 25%;
   width: 25px;
   height: 25px;
   margin-top: 25px;
@@ -627,6 +643,7 @@ footer {
 .playbar .playbtn {
   position: absolute;
   top: 20%;
+  left: 48%;
   width: 50px;
   height: 50px;
   cursor: pointer;
