@@ -17,11 +17,18 @@ def home():
 
 @app.route('/main/chart', methods=['GET'])
 def main_chart():
-    chart_year_str = request.args.get('chart_year')
-    print(chart_year_str)
-    print(type(chart_year_str))
-    chart_year = int(chart_year_str)
-    musics = list(db.musics.find({'rank_type':"AG", 'year':chart_year},{'_id': False}).limit(6))
+    chart_year = int(request.args.get('chart_year'))
+    datas = list(db.musics.find({'rank_type':"AG", 'year':chart_year},{'_id': False}).limit(6))
+    musics = []
+    for music in datas:
+        music.pop('albumID', None)
+        music.pop('genre', None)
+        music.pop('Region', None)
+        music.pop('like', None)
+        music.pop('rank_type', None)
+        music.pop('year', None)
+        musics.append(music)
+
     return jsonify({'music_list': musics})
 
 @app.route('/login_page')
@@ -61,6 +68,8 @@ def regist():
     id = request.form['id']
     pw = bcrypt.generate_password_hash(request.form['pw'])
     pwCheck = request.form['pwCheck']
+    likeMusic = []
+    preferenceResult =""
 
     if db.users.find_one({'name': name}, {'_id': False}) != None:
         msg = "동일한 사용자가 존재합니다."
@@ -78,10 +87,71 @@ def regist():
         msg = "비밀번호 입력을 다시 확인하세요."
 
     else:
-        information = {'id': id, 'pw': pw, 'email': email, 'name': name}
+        information = {'id': id, 'pw': pw, 'email': email, 'name': name, 'likeMusic':likeMusic, 'preferenceResult': preferenceResult}
         db.users.insert_one(information)
         msg = "회원가입 완료!"
 
+    return jsonify({'msg': msg})
+
+@app.route('/userinfo', methods=['GET'])
+def mypage_info():
+    id = request.args.get('id')
+    userinfo = db.users.find_one({'id':id}, {'_id':False})
+    userinfo.pop('pw',None)
+    userinfo.pop('id',None)
+    return jsonify({'userinfo': userinfo})
+
+@app.route('/userinfo', methods=['POST'])
+def mypage_infoex():
+    id = request.form['id']
+    pw = request.form['pw']
+    email_new = request.form['email_new']
+    information = db.users.find_one({'id':id}, {'_id': False})
+    if information != None:
+        if bcrypt.check_password_hash(information['pw'], pw):
+            db.users.update_one({'id':id}, {"$set":{"email":email_new}})
+            msg = "회원정보 수정이 완료되었습니다."
+        else:
+            msg = '비밀번호를 다시 확인해주세요'
+    else:
+        msg = "로그인 상태가 아닙니다."
+    return jsonify({'msg': msg})
+
+@app.route('/userinfo/pw', methods=['POST'])
+def mypage_pwex():
+    id = request.form['id']
+    pw = request.form['pw']
+    pw_new = bcrypt.generate_password_hash(request.form['pw_new'])
+    pwCheck_new = request.form['pwCheck_new']
+    information = db.users.find_one({'id':id}, {'_id': False})
+
+    if information != None:
+        if bcrypt.check_password_hash(information['pw'], pw):
+            if bcrypt.check_password_hash(pw_new, pwCheck_new):
+                db.users.update_one({'id':id}, {"$set":{"pw":pw_new}})
+                msg = "비밀번호 변경이 완료되었습니다."
+            else :
+                msg = "비밀번호 입력을 다시 확인하세요."
+        else:
+            msg = '기존 비밀번호를 다시 확인하세요'
+    else:
+        msg = "로그인 상태가 아닙니다."
+    return jsonify({'msg': msg})
+
+
+@app.route('/userinfo/withdraw', methods=['POST'])
+def mypage_withdraw():
+    id = request.form['id']
+    pw = request.form['pw']
+    information = db.users.find_one({'id':id}, {'_id': False})
+    if information != None:
+        if bcrypt.check_password_hash(information['pw'], pw):
+            db.users.delete_one({'id':id})
+            msg = "회원탈퇴가 완료되었습니다."
+        else:
+            msg = '비밀번호를 다시 확인해주세요'
+    else:
+        msg = "로그인 상태가 아닙니다."
     return jsonify({'msg': msg})
 
 if __name__ == '__main__':
