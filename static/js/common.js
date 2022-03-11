@@ -1,3 +1,7 @@
+
+// 하단 playbar에서 play 버튼 <-> pause 버튼 변경을 위한 변수
+let playcnt = 1;
+
 // 로그인 상태 업데이트
 function loginStatus() {
     $.ajax({
@@ -33,6 +37,7 @@ function loginStatus() {
 
 // 화면 하단 플레이어 재생, 일시정지 제어함수
 function playing_control(){
+
     let playing_active = $('#player_active').text();
     let temp_html = ``
     if(playing_active == 1) {
@@ -45,4 +50,27 @@ function playing_control(){
     }
     $('#playbar_control').empty();
     $('#playbar_control').append(temp_html);
+}
+
+// 일시정지, 재생 버튼 번갈아 변경
+function togglePause() {
+    playing_control()
+
+
+  let play = document.getElementById("playbtn");
+
+  if(playcnt % 2 == 1) {
+    play.src = '../static/images/playbar_menu_pau.png';
+    play.style.width = '30px';
+    play.style.height = 'auto';
+    play.style.marginTop = '10px';
+    play.style.marginLeft = '10px';
+  } else {
+    play.src = '../static/images/palybn_icon.png';
+    play.style.width = '50px';
+    play.style.height = 'auto';
+    play.style.marginTop = '0px';
+    play.style.marginLeft = '0px';
+  }
+  playcnt++;
 }

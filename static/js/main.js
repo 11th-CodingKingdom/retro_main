@@ -44,27 +44,6 @@ function toggleLike() {
   likecnt++;
 }
 
-// 일시정지, 재생 버튼 번갈아 변경
-let playcnt = 1;
-function togglePause() {
-  let play = document.getElementById("playbtn");
-  
-  if(playcnt % 2 == 1) {
-    play.src = '../static/images/playbar_menu_pau.png';
-    play.style.width = '30px';
-    play.style.height = 'auto';
-    play.style.marginTop = '10px';
-    play.style.marginLeft = '10px';
-  } else {
-    play.src = '../static/images/palybn_icon.png';
-    play.style.width = '50px';
-    play.style.height = 'auto';
-    play.style.marginTop = '0px';
-    play.style.marginLeft = '0px';
-  }
-  playcnt++;
-}
-
 // RetroChart 업데이트
 function retroChart(chart_year) {
   $.ajax({
@@ -82,9 +61,10 @@ function retroChart(chart_year) {
               let rank = music_list[i]['rank']
               let singer = music_list[i]['singer']
               let title = music_list[i]['title']
+              let songID = music_list[i]['songID']
               let albumchart_html = `<div class="albumchart-box" onclick="location.href='#'">
                                           <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
-                                            <img src="../static/images/palybn_icon_red.png" alt="" id="albumchart_play" onmouseover="this.src='../static/images/palybn_icon_red_hover.png'" onmouseout="this.src='../static/images/palybn_icon_red.png'">
+                                            <img onclick="main_playing_active(${songID})" src="../static/images/palybn_icon_red.png" alt="" id="albumchart_play" onmouseover="this.src='../static/images/palybn_icon_red_hover.png'" onmouseout="this.src='../static/images/palybn_icon_red.png'">
                                           </div>
                                           <div id="albumchart_desc">
                                             <span id="albumchart_rank">${rank}</span>
