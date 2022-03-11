@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06386f5f-9b52-42ea-a3f6-127bd51ba677" name="Changes" comment="마이페이지 클릭 시 index-mypage.html 연결">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/retro_frontend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/retro_frontend.iml" afterDir="false" />
+    <list default="true" id="06386f5f-9b52-42ea-a3f6-127bd51ba677" name="Changes" comment="마이페이지 &#10;- 이메일, 이름, 좋아요 노래, 성향 서버연동완료">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/mypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/mypage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index-mypage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index-mypage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +163,7 @@
       <workItem from="1646894043083" duration="50000" />
       <workItem from="1646904209295" duration="5721000" />
       <workItem from="1646911992864" duration="5228000" />
-      <workItem from="1646978759146" duration="2834000" />
+      <workItem from="1646978759146" duration="3866000" />
     </task>
     <task id="LOCAL-00001" summary="Retro chart list 6개로 변경">
       <created>1646750837883</created>
@@ -231,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646972662294</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="마이페이지 &#10;- 이메일, 이름, 좋아요 노래, 성향 서버연동완료">
+      <created>1646981976717</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1646981976717</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,10 +274,11 @@
     <MESSAGE value="로그인 시 PW입력 후 Enter누르면 로그인 완료됨" />
     <MESSAGE value="로그인 페이지에서 회원가입 이동할수 있도록 수정" />
     <MESSAGE value="마이페이지 클릭 시 index-mypage.html 연결" />
-    <option name="LAST_COMMIT_MESSAGE" value="마이페이지 클릭 시 index-mypage.html 연결" />
+    <MESSAGE value="마이페이지 &#10;- 이메일, 이름, 좋아요 노래, 성향 서버연동완료" />
+    <option name="LAST_COMMIT_MESSAGE" value="마이페이지 &#10;- 이메일, 이름, 좋아요 노래, 성향 서버연동완료" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/retro_frontend$retro_frontend.coverage" NAME="retro_frontend 커버리지 결과" MODIFIED="1646981563463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/retro_frontend$retro_frontend.coverage" NAME="retro_frontend 커버리지 결과" MODIFIED="1646982648795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/retro_frontend$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1646645389000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

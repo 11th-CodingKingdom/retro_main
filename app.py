@@ -26,7 +26,7 @@ def login_status():
 @app.route('/main/chart', methods=['GET'])
 def main_chart():
     chart_year = int(request.args.get('chart_year'))
-    datas = list(db.musics.find({'rank_type':"AG", 'year':chart_year},{'_id': False}).limit(6))
+    datas = list(db.musics.find({'rank_type':"AG", 'year':chart_year},{'_id': False}).sort("like", -1).limit(6))
     musics = []
     for music in datas:
         music.pop('albumID', None)

@@ -1,6 +1,9 @@
 // 차트에 1980 ~ 2010 버튼 클릭 시 빨간색으로 변경
 $(document).ready(function () {
     loginStatus();
+    $('#footer_logo img').click(function (){
+        location.href='/';
+    });
 });
 
 let currentBtn;
@@ -46,7 +49,7 @@ function loginStatus() {
         success: function (response) {
             userID = response['id']
             $('#nav_right').empty()
-            if (userID == "") {
+            if (userID === "") {
                 login_mypage = "로그인"
                 regist_logout = "회원가입"
                 href_login_mypage = "/login_page"
@@ -83,7 +86,8 @@ function retroChart(chart_year) {
             for (let i = 0; i < 6; i ++)
             {
                 let albumImageUrl = music_list[i]['albumImageUrl']
-                let rank = music_list[i]['rank']
+                let rank = i+1;
+                rank +="";
                 let singer = music_list[i]['singer']
                 let title = music_list[i]['title']
                 let albumchart_html = `<div class="albumchart-box" onclick="location.href='#'" style="cursor: pointer;">
