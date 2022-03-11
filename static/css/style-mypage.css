@@ -134,18 +134,33 @@ header #nav {
 
 #mypage_left {
     float: left;
-    width: 350px;
+    width: 310px;
     height: 435px;
 
 }
 
 #left_box {
-    width: 350px;
+    width: 310px;
     height: 90px;
     border-radius: 6px;
     border: 2px solid #dfdfdf;
     padding: 18px;
     box-sizing: border-box;
+}
+
+#user_info {
+    margin-bottom: 13px;
+}
+
+#user_info #name {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#user_info #user_id {
+    color: #747474;
+    font-size: 16px;
 }
 
 #user_email {
@@ -154,28 +169,23 @@ header #nav {
     font-weight: bold;
 }
 
-#userinfo_edit_btn {
+#leaveLetro {
+    width: 293px;
+    height: 70px;
+    padding: 23px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#leaveLetro_btn {
     color: #747474;
     background-color: transparent;
     border: 0;
     appearance: none;
     cursor: pointer;
-    text-decoration: underline;
-    margin: 18px 0 18px 0;
+    margin: 0 auto;
     outline: none;
-}
-
-#logout-btn {
-    width: 293px;
-    height: 70px;
-    padding: 26px;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-#logout-btn span {
     font-size: 14px;
-    cursor: pointer;
 }
 
 #mypage_right {
@@ -187,9 +197,9 @@ header #nav {
 .music_test_banner {
     background-color: #dfdfdf;
     width: 966px;
-    height: 170px;
+    height: 150px;
     margin: 0 auto 0 64px;
-    border-radius: 10px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
 
@@ -215,7 +225,7 @@ header #nav {
     margin: 0 auto;
     height: 170px;
     display: flex;
-    align-items: center;
+    padding-right: 180px;
 }
 
 .music_test_banner .test_text {
@@ -229,7 +239,7 @@ header #nav {
     color: #747474;
     font-size: 14px;
     height: 50px;
-    padding-top: 20px;
+    padding-top: 32px;
 }
 
 .music_test_banner .music_test_left .test_left_middle {
@@ -237,47 +247,15 @@ header #nav {
     font-size: 30px;
     font-weight: 800;
     height: 50px;
-    padding-top: 15px;
+    padding-top: 17px;
 }
 
 .music_test_banner .music_test_left .test_left_bottom {
     color: #191919;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 700;
     height: 50px;
-    padding-top: 10px;
-}
-
-.music_test_banner .music_test_middle {
-    margin: 0 auto;
-    height: 170px;
-    display: flex;
-    align-items: center;
-}
-
-.music_test_banner .music_test_middle .test_middle_top {
-    color: #191919;
-    font-size: 20px;
-    font-weight: 700;
-    height: 35px;
-}
-
-.music_test_banner .music_test_middle .type {
-    color: #191919;
-    font-size: 20px;
-    font-weight: 800;
-    height: 35px;
-    box-sizing: border-box;
-    font-family: "Noto Sans KR", sans-serif;
-    letter-spacing: -0.02em;
-}
-
-.music_test_banner .music_test_middle .test_middle_bottom {
-    color: #191919;
-    font-size: 18px;
-    font-weight: 700;
-    height: 35px;
-    padding-bottom: 70px;
+    padding-top: 15px;
 }
 
 .music_test_banner .music_test_right {
@@ -287,7 +265,7 @@ header #nav {
 
 .music_test_right .music_test_btn {
     background-color: #eb1400;
-    width: 170px;
+    width: 200px;
     height: 48px;
 
     cursor: pointer;
@@ -473,11 +451,18 @@ td button {
     border: none;
     cursor: pointer;
     background-color: transparent;
+    align-items: center;
 }
 
-td button img {
+td button .playbtn {
     width: 25px;
     height: 25px;
+    cursor: pointer;
+}
+
+td button #likebtn {
+    width: 20px;
+    height: 20px;
     cursor: pointer;
 }
 

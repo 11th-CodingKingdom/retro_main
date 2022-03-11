@@ -59,16 +59,19 @@
 </header>
 <div class="mypage_hello">
     <!-- 회원 이름 -->
-    안녕하세요, <span></span>&nbsp;님!
+    안녕하세요, <span class="user_name">임세민</span>&nbsp;님!
 </div>
 <div id="wrap">
     <div id="mypage_left">
         <div id="left_box">
             <!-- 회원 이메일 -->
-            <div id="user_email"></div>
-            <input type="button" id="userinfo_edit_btn" value="수정하기" onclick="showPopup();">
+            <div id="user_info">
+                <span id="name" class="user_name">임세민</span>
+                <span id="user_id">glaemfek</span>
+            </div>
+            <div id="user_email">glaemfek@gmail.com</div>
         </div>
-        <div id="logout-btn"><span>회원탈퇴</span></div>
+        <div id="leaveLetro"><input type="button" id="leaveLetro_btn" value="회원탈퇴" onclick="showPopup();"></div>
     </div>
     <div id="mypage_right">
         <div class="music_test_banner">
@@ -82,13 +85,6 @@
                     <span class="test_left_bottom test_text">꿀음색에 감성 촉촉한 팝 & 발라드</span>
                 </div>
             </div>
-            <div class="music_test_middle">
-                <div class="music_test_txt">
-                    <!-- 성향테스트 타입 / 회원이름 / 성향테스트 추천노래 -->
-                    <span class="test_middle_top test_text"><span class="type"></span>&nbsp;님의 추천 음악</span>
-                    <span class="test_middle_bottom test_text">보고싶다</span>
-                </div>
-            </div>
             <div class="music_test_right">
                 <!-- 성향테스트 추천노래 유튜브링크 -->
                 <div class="music_test_btn">추천 음악 바로 가기</div>
@@ -98,7 +94,7 @@
             <div id="chart-body">
                 <div id="year-btn" class="chart_text">
                     <!-- 연도별 노래 차트 -->
-                    <input type="button" class="btn" btn-active value="1980"/>
+                    <input type="button" class="btn" value="1980"/>
                     <input type="button" class="btn" value="1990"/>
                     <input type="button" class="btn" value="2000"/>
                     <input type="button" class="btn" value="2010"/>
