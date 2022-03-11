@@ -94,8 +94,27 @@
             });
         }
 
-        function showPopup() {
-            window.open("index-mypage-popup.html", "a", "width=400, height=300, left=100, top=50");
+        $(function () {
+            $("#confirm").click(function () {
+                modalClose();
+
+            });
+            $("#modal-open").click(function () {
+                $("#popup").css('display', 'flex').hide().fadeIn();
+            });
+            $("#close").click(function () {
+                modalClose();
+            });
+
+            function modalClose() {
+                $("#popup").fadeOut();
+            }
+        });
+
+        function openPopup() {
+            $("#leaveLetro_btn").click(function () {
+                $("#popup").show();
+            })
         }
     </script>
 
@@ -142,13 +161,52 @@
             </div>
             <div id="user_email">glaemfek@gmail.com</div>
         </div>
-        <div id="leaveLetro"><input type="button" id="leaveLetro_btn" value="회원탈퇴" onclick="showPopup();"></div>
+        <div id="leaveLetro"><input type="button" id="leaveLetro_btn" value="회원탈퇴" onclick="openPopup();"></div>
     </div>
-    <div id="mypage_right">
-        <div class="music_test_banner">
-            <div class="music_test_img">
-                <img src="../static/images/.png" alt="">
+    <!-- popup -->
+    <div class="container">
+        <div class="popup-wrap" id="popup">
+            <div class="note_img">
+                <img src="../static/images/search_icon.png" alt="">
             </div>
+            <div class="popup">
+                <div class="popup-head">
+                    <div>
+                        <p class="head-title">정말...</p>
+                        <p class="head-body">회원 탈퇴 하실 거예요?</p>
+                    </div>
+                </div>
+                <div class="popup-body">
+                    <div class="body-content">
+                        <div class="body-titlebox">
+                            <p>
+                                회원을 탈퇴하시면 모든 정보가 삭제됩니다. <br>
+                                레트로 정보 : 음악 성향 테스트, 좋아요 목록 등 <br>
+                                개인정보 : 이름, 이메일, 아이디, 비밀번호
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-foot">
+                    <div class="popupfoot_btn">
+                        <p class="foot_btn">
+                            <span class="pop-btn close" id="close">그럼...고민 좀 더 해볼게</span>
+                        </p>
+                        <p>
+                            <span class="pop-btn confirm" id="confirm">탈퇴하기</span>
+                        </p>
+                    </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- popup -->
+    <div id="mypage_right">
+        <div class="music_test_img">
+            <img src="../static/images/mypage_bn_test_ok.png" alt="">
+        </div>
+        <div class="music_test_banner">
             <div class="music_test_left">
                 <div class="music_test_txt">
                     <span class="test_left_top test_text">나의 음악 성향 테스트 결과는?</span>
@@ -173,7 +231,7 @@
                 <h1 class="chart_text">MY 플레이리스트</h1>
                 <div id="section_rankchart">
                     <div id="rankchart-box">
-                        <table id="rankchart-table" class="chart_text">
+                        <table id="rankchart-table" class="chart_text table_line">
                             <thead>
                             <tr>
                                 <th scope="col" class="info">곡</th>
