@@ -29,3 +29,20 @@ function loginStatus() {
     });
 
 }
+
+
+// 화면 하단 플레이어 재생, 일시정지 제어함수
+function playing_control(){
+    let playing_active = $('#player_active').text();
+    let temp_html = ``
+    if(playing_active == 1) {
+        temp_html = `<td id="player_active" style="display:none">0</td>`
+        $("iframe")[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+    }
+    else {
+        temp_html = `<td id="player_active" style="display:none">1</td>`
+        $("iframe")[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+    }
+    $('#playbar_control').empty();
+    $('#playbar_control').append(temp_html);
+}
