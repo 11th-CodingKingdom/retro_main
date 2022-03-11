@@ -60,9 +60,10 @@
                         let rank = music_list[i]['rank']
                         let singer = music_list[i]['singer']
                         let title = music_list[i]['title']
+                        let songID = music_list[i]['songID']
                         let albumchart_html = `<div class="albumchart-box" onclick="location.href='#'" style="cursor: pointer;">
                                                     <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
-                                                      <img src="../static/images/palybn_icon_red.png" alt="">
+                                                      <img onclick="main_playing_active(${songID})" src="../static/images/palybn_icon_red.png" alt="">
                                                     </div>
                                                     <div id="albumchart_desc">
                                                       <span id="albumchart_rank">${rank}</span>
@@ -100,6 +101,10 @@
             });
         }
 
+        function temp(songID){
+            alert(songID)
+        }
+
         // 하단 플레이어 작동 기능
         function main_playing_active(songID) {
             $.ajax({
@@ -133,6 +138,24 @@
                     //alert(response["msg"])
                 }
             })
+        }
+
+        // 화면 하단 플레이어 재생, 일시정지 제어함수
+        function palying_control(){
+            let playing_active = $('#player_active').text();
+            let temp_html = ``
+            if(playing_active == 1) {
+                temp_html = `<td id="player_active" style="display:none">0</td>`
+                $("iframe")[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+            }
+            else {
+                temp_html = `<td id="player_active" style="display:none">1</td>`
+                $("iframe")[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+            }
+            $('#playbar_control').empty();
+            $('#playbar_control').append(temp_html);
+
+
         }
 
     </script>
@@ -295,15 +318,13 @@
     </div>
     <!-- 하단 재생 바 -->
     <div class="playbar">
-      <div class="playbar_song">
-        <div class="youtube_movie"></div>
-        <div class="playbar_song_wrap">
-          <div class="playbar_song_title">인생 한잔</div>
-          <div class="playbar_song_artist">정은지</div>
+        <div id="playbar_song" class="playbar_song">
         </div>
       <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">
-      </div>
-      <img src="../static/images/palybn_icon.png" alt="" class="playbtn">
+
+      <img id="playbar_btn" onclick="palying_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">
+        <div id="playbar_control", style="display:none">
+          <td id="player_active" style="display:none">0</td>
     </div>
   </footer>
 </body>

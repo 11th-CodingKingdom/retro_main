@@ -27,6 +27,7 @@ def main_chart():
         music.pop('like', None)
         music.pop('rank_type', None)
         music.pop('year', None)
+        print(music)
         musics.append(music)
 
     return jsonify({'music_list': musics})
