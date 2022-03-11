@@ -105,7 +105,6 @@ def mypage_info():
     year = request.args.get('year')
     userinfo = db.users.find_one({'id':id}, {'_id':False})
     userinfo.pop('pw',None)
-    userinfo.pop('id',None)
     datas = userinfo['likeMusic']
     userinfo.pop('likeMusic', None)
     likeMusics = []

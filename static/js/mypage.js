@@ -43,15 +43,17 @@ function userinfo_get(year) {
       let email = response['userinfo']['email']
       let name = response['userinfo']['name']
       let preferenceResult = response['userinfo']['preferenceResult']
+      let id = response['userinfo']['id']
       let likeMusic = response['likeMusic']
       $('#user_email').text(email)
-      $('.mypage_hello span').text(name)
+      $('#user_id').text(id)
+      $('.user_name').text(name)
       console.log(preferenceResult)
       if(typeof preferenceResult == "undefined" || preferenceResult == null || preferenceResult == ""){
-        $('.type').text("성향평가가 필요!"+' '+name)
+        $('.test_left_middle').text("성향평가가 필요!")
       }
       else{
-        $('.type').text(preferenceResult+' '+name)
+        $('.test_left_middle').text(preferenceResult)
       }
       $('#rankchart-row').empty()
       for (let i=0; i < likeMusic.length; i++){
