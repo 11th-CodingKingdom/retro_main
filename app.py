@@ -101,6 +101,10 @@ def regist():
 
     return jsonify({'msg': msg})
 
+@app.route('/mypage')
+def mypage():
+    return render_template('index-mypage.html')
+
 @app.route('/userinfo', methods=['GET'])
 def mypage_info():
     id = request.args.get('id')

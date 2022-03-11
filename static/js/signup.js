@@ -1,11 +1,12 @@
 $(document).ready(function() {
-    $('#logo img').click(function (){
-        location.href='/';
+    $('#logo img').click(function () {
+        location.href = '/';
     });
     $("#pwCheck").keydown(function (key) {
-    if (key.keyCode == 13) {
-        login();
-    }
+        if (key.keyCode == 13) {
+            regist();
+        }
+    });
 });
 
 function regist() {

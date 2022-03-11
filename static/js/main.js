@@ -46,21 +46,24 @@ function loginStatus() {
         data: {},
         success: function (response) {
             userID = response['id']
+            console.log(userID)
             $('#nav_right').empty()
             if (userID == "") {
                 login_mypage = "로그인"
                 regist_logout = "회원가입"
-                href_login_out = "/login_page"
+                href_login_mypage = "/login_page"
+                href_regist_logout = "/regist_page"
             }
             else{
-                login_out = "마이페이지"
-                regist_mypage = "로그아웃"
-                href_login_out = "/logout"
+                login_mypage = "마이페이지"
+                regist_logout = "로그아웃"
+                href_login_mypage = "/mypage"
+                href_regist_logout = "/logout"
             }
             let login_html = `<ul>
                                 <li><a href="#">RE:TRO 소개</a></li>
-                                <li><a href=${href_login_out}>${login_out}</a></li>
-                                <li><a href='/regist_page'>${regist_mypage}</a></li>
+                                <li><a href=${href_login_mypage}>${login_mypage}</a></li>
+                                <li><a href=${href_regist_logout}>${regist_logout}</a></li>
                               </ul>`
             $('#nav_right').append(login_html)
         }
