@@ -29,8 +29,40 @@ function closePopup() {
 popup.addEventListener('click', closePopup);
 
 // 좋아요 버튼 클릭 시 하트 변경
+// function toggleLike() {
+  // document.getElementById("likebtn").src = "../static/images/like_icon_hover.png";
+// }
+let likecnt = 1;
 function toggleLike() {
-  document.getElementById("likebtn").src = "../static/images/like_icon_hover.png";
+  let like = document.getElementById("likebtn");
+  
+  if(likecnt % 2 == 1) {
+    like.src = '../static/images/like_icon_hover.png';
+  } else {
+    like.src = '../static/images/like_icon.png';
+  }
+  likecnt++;
+}
+
+// 일시정지, 재생 버튼 번갈아 변경
+let playcnt = 1;
+function togglePause() {
+  let play = document.getElementById("playbtn");
+  
+  if(playcnt % 2 == 1) {
+    play.src = '../static/images/playbar_menu_pau.png';
+    play.style.width = '30px';
+    play.style.height = 'auto';
+    play.style.marginTop = '10px';
+    play.style.marginLeft = '10px';
+  } else {
+    play.src = '../static/images/palybn_icon.png';
+    play.style.width = '50px';
+    play.style.height = 'auto';
+    play.style.marginTop = '0px';
+    play.style.marginLeft = '0px';
+  }
+  playcnt++;
 }
 
 // RetroChart 업데이트
@@ -125,4 +157,5 @@ function main_playing_active(songID) {
                     //alert(response["msg"])
                 }
             })
-        }
+}
+
