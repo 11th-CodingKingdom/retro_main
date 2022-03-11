@@ -7,7 +7,6 @@ app.secret_key = "qwertyuiop"
 bcrypt = Bcrypt(app)
 
 client = MongoClient('mongodb://test:test@54.144.213.113:27017')
-# client = MongoClient('localhost', 27017)
 db = client.retro
 
 # HTML 화면 보여주기
@@ -15,19 +14,21 @@ db = client.retro
 def home():
     return render_template('index.html')
 
+@app.route('/login_status')
+def login_status():
+    if 'userID' in session:
+        id = session['userID']
+    else:
+        id = ""
+    return jsonify({'id': id})
+
 @app.route('/main/chart', methods=['GET'])
 def main_chart():
     chart_year = int(request.args.get('chart_year'))
-    datas = list(db.musics.find({'rank_type':"AG", 'year':chart_year},{'_id': False}).limit(6))
+    datas = list(db.musics.find({'rank_type': "AG", 'year': chart_year}, {'_id': False}).sort("like", -1).limit(6))
     musics = []
     for music in datas:
-        music.pop('albumID', None)
-        music.pop('genre', None)
-        music.pop('Region', None)
-        music.pop('like', None)
-        music.pop('rank_type', None)
-        music.pop('year', None)
-        print(music)
+        [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'like', 'rank_type', 'year']]
         musics.append(music)
 
     return jsonify({'music_list': musics})
@@ -42,7 +43,7 @@ def login():
     pw = request.form['pw']
     information = db.users.find_one({'id':id}, {'_id': False})
 
-    if information != None:
+    if information is not None:
         if bcrypt.check_password_hash(information['pw'], pw):
             session['userID'] = id
             msg = "로그인 성공!"
@@ -72,19 +73,19 @@ def regist():
     likeMusic = []
     preferenceResult =""
 
-    if db.users.find_one({'name': name}, {'_id': False}) != None:
+    if db.users.find_one({'name': name}, {'_id': False}) is not None:
         msg = "동일한 사용자가 존재합니다."
 
     elif email.find("@") == -1:
         msg = "올바른 이메일을 입력하세요"
 
-    elif db.users.find_one({'id': id}, {'_id': False}) != None:
+    elif db.users.find_one({'id': id}, {'_id': False}) is not None:
         msg = "입력하신 ID는 다른 사용자가 사용중입니다."
 
     elif len(request.form['pw']) < 10:
         msg = "비밀번호는 10자리 이상이어야 합니다."
 
-    elif bcrypt.check_password_hash(pw, pwCheck) != True:
+    elif bcrypt.check_password_hash(pw, pwCheck) is not True:
         msg = "비밀번호 입력을 다시 확인하세요."
 
     else:
@@ -94,13 +95,25 @@ def regist():
 
     return jsonify({'msg': msg})
 
+@app.route('/mypage')
+def mypage():
+    return render_template('index-mypage.html')
+
 @app.route('/userinfo', methods=['GET'])
 def mypage_info():
-    id = request.args.get('id')
+    id = session['userID']
     userinfo = db.users.find_one({'id':id}, {'_id':False})
     userinfo.pop('pw',None)
-    userinfo.pop('id',None)
-    return jsonify({'userinfo': userinfo})
+    datas = userinfo['likeMusic']
+    userinfo.pop('likeMusic', None)
+    likeMusics = []
+    for d in datas:
+        likeMusic = db.musics.find_one({'songID': d}, {'_id':False})
+        if likeMusic is not None:
+            [likeMusic.pop(key,None) for key in ['songID','rank','Region','albumID','rank_type','like','genre','sondID']]
+            likeMusic['musicPlaySrc'] = db.musicPlaySrc.find_one({'songID': d}, {'_id': False})['musicPlaySrc']
+            likeMusics.append(likeMusic)
+    return jsonify({'userinfo': userinfo, "likeMusic":likeMusics})
 
 @app.route('/userinfo', methods=['POST'])
 def mypage_infoex():
@@ -138,7 +151,6 @@ def mypage_pwex():
     else:
         msg = "로그인 상태가 아닙니다."
     return jsonify({'msg': msg})
-
 
 @app.route('/userinfo/withdraw', methods=['POST'])
 def mypage_withdraw():

@@ -10,101 +10,18 @@
     <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="../static/js/main.js"></script>
-
+    <script defer src="../static/js/common.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
     <script>
         $(document).ready(function () {
             loginStatus();
         });
-
-        function loginStatus(){
-            let userID = "{{ session['userID']}}"
-            let href_login_out = ""
-            $('#nav_right').empty()
-            if (userID =="") {
-                login_out = "로그인"
-                regist_mypage = "회원가입"
-                href_login_out = "/login_page"
-            }
-            else{
-                login_out = "로그아웃"
-                regist_mypage = "마이페이지"
-                href_login_out = "/logout"
-            }
-            let login_html = `<ul>
-                                <li><a href="#">RE:TRO 소개</a></li>
-                                <li><a href=${href_login_out}>${login_out}</a></li>
-                                <li><a href='/regist_page'>${regist_mypage}</a></li>
-                              </ul>`
-            $('#nav_right').append(login_html)
-        }
-
-        function retroChart(chart_year) {
-            $.ajax({
-                type: 'GET',
-                url: '/main/chart',
-                data: {'chart_year':chart_year},
-                success: function (response) {
-                    let music_list = response['music_list']
-                    $('#section_albumchart .albumchart_rowbody:eq(0)').empty()
-                    $('#section_albumchart .albumchart_rowbody:eq(1)').empty()
-                    $('#rankchart-table').empty()
-                    for (let i = 0; i < 6; i ++)
-                    {
-                        let albumImageUrl = music_list[i]['albumImageUrl']
-                        let rank = music_list[i]['rank']
-                        let singer = music_list[i]['singer']
-                        let title = music_list[i]['title']
-                        let songID = music_list[i]['songID']
-                        let albumchart_html = `<div class="albumchart-box" onclick="location.href='#'" style="cursor: pointer;">
-                                                    <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
-                                                      <img onclick="main_playing_active(${songID})" src="../static/images/palybn_icon_red.png" alt="">
-                                                    </div>
-                                                    <div id="albumchart_desc">
-                                                      <span id="albumchart_rank">${rank}</span>
-                                                      <span id="albumchart_song">${title}</span>
-                                                      <span id="albumchart_artist">${singer}</span>
-                                                    </div>
-                                                 </div>`
-                        let rankchart_html = `<tr id="rankchart-row">
-                                                <td>
-                                                  <div id="rankchart_img">
-                                                    <img src='${albumImageUrl}' width="50px" height="50px" style="border-radius:10px"/>
-                                                  </div>
-                                                </td>
-                                                <td>
-                                                  <div id="rankchart_rank">${rank}</div>
-                                                </td>
-                                                <td>
-                                                  <div id="rankchart_desc">
-                                                    <div id="rankchart_song">${title}</div>
-                                                    <div id="rankchart_artist">${singer}</div>
-                                                  </div>
-                                                </td>
-                                              </tr>`
-                        if (i < 3) {
-                            $('#section_albumchart .albumchart_rowbody:eq(0)').append(albumchart_html)
-                            $('#rankchart-table').append(rankchart_html)
-                        }
-                        else{
-                            $('#section_albumchart .albumchart_rowbody:eq(1)').append(albumchart_html)
-                            $('#rankchart-table').append(rankchart_html)
-                        }
-                    }
-
-                }
-            });
-        }
-
-        function temp(songID){
-            alert(songID)
-        }
-
         // 하단 플레이어 작동 기능
         function main_playing_active(songID) {
             $.ajax({
@@ -141,7 +58,7 @@
         }
 
         // 화면 하단 플레이어 재생, 일시정지 제어함수
-        function palying_control(){
+        function playing_control(){
             let playing_active = $('#player_active').text();
             let temp_html = ``
             if(playing_active == 1) {
@@ -165,6 +82,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../static/images/favicon.ico">
 
+    <script>
+            $(document).ready(function () {
+            loginStatus();
+        });
+    </script>
+
 </head>
 <body>
   <section class="banner" style="margin-bottom: 0px;">
@@ -175,7 +98,7 @@
     </div>
   </section>
   <header id="header">
-    <div id="logo" onclick="location.href='index.html'">
+    <div id="logo" onclick="location.href='/'">
       <img src="../static/images/reteo_logo.png" width="91px" height="26px" />
     </div>
     <nav id="nav">
@@ -310,7 +233,7 @@
   <!-- FOOTER -->
   <hr size="1" color="#eeeeee">
   <footer>
-    <div id="footer_logo">
+    <div id="footer_logo" onclick="location.href='/'">
       <img src="../static/images/logo_footer.png"/>
     </div>
     <div id="footer_desc">
@@ -322,7 +245,7 @@
         </div>
       <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">
 
-      <img id="playbar_btn" onclick="palying_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">
+      <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">
         <div id="playbar_control", style="display:none">
           <td id="player_active" style="display:none">0</td>
     </div>

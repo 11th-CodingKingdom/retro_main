@@ -9,6 +9,7 @@
 
     <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="../static/js/login.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style-login.css">
     <link rel="shortcut icon" href="../static/images/favicon.ico">
@@ -16,49 +17,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-
-    <script>
-        $(document).ready(function() {
-            $("#pw").keydown(function (key) {
-                if (key.keyCode == 13) {
-                    login();
-                }
-            });
-            $('#banner_btn').click(function (){
-                location.href='/regist_page';
-            });
-            $('#logo img').click(function (){
-                location.href='/';
-            });
-        });
-
-        function login() {
-            let id = $('#id').val()
-            let pw = $('#pw').val()
-            $.ajax({
-                type: 'POST',
-                url: '/login',
-                data: {'id':id, 'pw':pw},
-                success: function (response) {
-                    let msg = response['msg']
-                    let id = response['id']
-                    if(msg == "로그인 성공!"){
-                        location.href='/';
-                        alert(msg);
-                    }else {
-                        alert(msg);
-                    }
-                    }
-            });
-        }
-
-    </script>
 </head>
 <body>
 <div id="wrap">
     <div id="content">
         <div id="loginbox">
-            <div id="logo">
+            <div id="logo" onclick="location.href='/'">
                 <img src="../static/images/reteo_logo.png" width="91px" height="26px"/>
             </div>
             <div>
@@ -79,7 +43,7 @@
                             <span id="bannerTest-text">아직도 레트로 아이디가 없으시다구요?</span><br>
                             <span id="bannerTest-title">5초만에 회원가입 하러가기</span>
                         </div>
-                        <div id="banner_btn">
+                        <div id="banner_btn" onclick="location.href='/regist_page'">
                             <input type="button" class="banner_btn" value="&#9654;"/>
                         </div>
                     </div>
