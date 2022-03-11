@@ -1,9 +1,6 @@
 * {
   font-family: "Noto Sans KR", sans-serif;
 }
-.banner {
-  
-}
 
 .banner img {
   display: block;
@@ -215,16 +212,16 @@ header #nav {
   margin-bottom: 7px;
 }
 
-/* 플레이 버튼 */
 #albumchart_img img {
   width: 45px;
   height: 45px;
   margin-top: 5px;
   margin-left: 137px;
+  transform: scale(1);
 }
 
-/* 플레이 버튼 hover */
 #albumchart_img img:hover {
+  transition: 1s ease;
 }
 
 #albumchart_desc {
@@ -579,6 +576,7 @@ footer {
 #footer_logo {
   width: 957px;
   margin: 36px auto 14px auto;
+  cursor: pointer;
 }
 
 #footer_desc {
@@ -641,7 +639,7 @@ footer {
   cursor: pointer;
 }
 
-.playbar .playbtn {
+.playbar #playbtn {
   position: absolute;
   top: 20%;
   left: 48%;

@@ -62,7 +62,7 @@
                         let title = music_list[i]['title']
                         let albumchart_html = `<div class="albumchart-box" onclick="location.href='#'" style="cursor: pointer;">
                                                     <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
-                                                      <img src="../static/images/palybn_icon_red.png" alt="">
+                                                      <img src="../static/images/palybn_icon_red.png" alt="" id="albumchart_play" onmouseover="this.src='../static/images/palybn_icon_red_hover.png'" onmouseout="this.src='../static/images/palybn_icon_red.png'">
                                                     </div>
                                                     <div id="albumchart_desc">
                                                       <span id="albumchart_rank">${rank}</span>
@@ -117,7 +117,7 @@
     </div>
   </section>
   <header id="header">
-    <div id="logo" onclick="location.href='index.html'">
+    <div id="logo" onclick="location.href='/'">
       <img src="../static/images/reteo_logo.png" width="91px" height="26px" />
     </div>
     <nav id="nav">
@@ -252,7 +252,7 @@
   <!-- FOOTER -->
   <hr size="1" color="#eeeeee">
   <footer>
-    <div id="footer_logo">
+    <div id="footer_logo" onclick="location.href='/'">
       <img src="../static/images/logo_footer.png"/>
     </div>
     <div id="footer_desc">
@@ -266,9 +266,9 @@
           <div class="playbar_song_title">인생 한잔</div>
           <div class="playbar_song_artist">정은지</div>
         </div>
-      <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">
+      <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()" />
       </div>
-      <img src="../static/images/palybn_icon.png" alt="" class="playbtn">
+      <img src="../static/images/palybn_icon.png" alt="" id="playbtn" onclick="togglePause()" />
     </div>
   </footer>
 </body>
