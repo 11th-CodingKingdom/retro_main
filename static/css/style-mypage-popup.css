@@ -4,83 +4,122 @@
 
 .popup-wrap {
   background-color: rgba(0, 0, 0, 0.3);
-  //배경색과 투명도로 살짝 어둡지만 투명한 배경
-  //허공에 붕 떠있는 느낌을 주고 싶으면 안넣어도 무방
-  justify-content: center; //수평 중앙정렬
-  align-items: center; //수직 중앙정렬
-  position: fixed; // 포지션 픽스, 화면이 스크롤되더라도 고정되기 위함
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; //모든 방향에 0을 주면 화면에 꽉차게 됩니다.
-  display: none;
-  //이벤트가 발생할 때 띄우기 위해 숨김
-  //처음부터 보이게 하는 상황이라면 display:flex;
-  padding: 15px;
-  //반응형의 경우 padding이 없으면 박스가 화면에 붙어서 안이뻐짐
+  /* / 배경색과 투명도로 살짝 어둡지만 투명한 배경 / / 허공에 붕 떠있는 느낌을 주고 싶으면 안넣어도 무방 justify-content: center;
+/ / 수평 중앙정렬 align-items: center;
+/ / 수직 중앙정렬 position: fixed;
+/ / 포지션 픽스, 화면이 스크롤되더라도 고정되기 위함 top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+/ / 모든 방향에 0 을 주면 화면에 꽉차게 됩니다 . display: none;
+/ / 이벤트가 발생할 때 띄우기 위해 숨김 / / 처음부터 보이게 하는 상황이라면 display: flex;
+    padding: 15px;
+/ / 반응형의 경우 padding이 없으면 박스가 화면에 붙어서 안이뻐짐(*/
 }
 
 .popup {
-  width: 100%; //반응형 이기 때문에 가로값은 100%
-  max-width: 400px; //팝업의 최대 크기지정
-  border-radius: 10px; //둥글둥글한 디자인을 위해 각을 없앱니다.
-  overflow: hidden; //각을 없앴을 때 내부 영역이 튀어나오는걸 방지
-  background-color: #264db5; //배경색
-  //팝업이 허공에 떠있는 듯한 느낌을 주기 위한 그림자 효과.
-  box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  /* / 반응형 이기 때문에 가로값은 100 % max-width: 400 px;
+/ / 팝업의 최대 크기지정 border-radius: 10 px;
+/ / 둥글둥글한 디자인을 위해 각을 없앱니다 . overflow: hidden;
+/ / 각을 없앴을 때 내부 영역이 튀어나오는걸 방지 background-color: #264db5;
+/ / 배경색 / / 팝업이 허공에 떠있는 듯한 느낌을 주기 위한 그림자 효과 . box-shadow: 5 px 10 px 10 px 1 px rgba(0, 0, 0, 0.3);
+
+*/
 }
 
 .popup-head {
   width: 100%;
-  //부모요소를 따라가기 때문에 굳이 가로값을 주지 않아도 되지만 일부 ie에서 인식 못하는 문제가 있음
-  height: 50px; //헤드 영역 높이
-  display: flex; //로고 이미지나 텍스트를 중앙 정렬하기 위한 flex 및 정렬
-  align-items: center;
-  justify-content: center;
+  /* / 부모요소를 따라가기 때문에 굳이 가로값을 주지 않아도 되지만 일부 ie에서 인식 못하는 문제가 있음 height: 50 px;
+/ / 헤드 영역 높이 display: flex;
+/ / 로고 이미지나 텍스트를 중앙 정렬하기 위한 flex 및 정렬 align-items: center;
+    justify-content: center;*/
 }
 
 .popup-body {
-  //몸통
-  width: 100%;
-  background-color: #ffffff; //컨텐츠 영역의 배경색
+  /* / 몸통 width: 100 %;
+    background-color: #ffffff;
+/ / 컨텐츠 영역의 배경색*/
 }
+
 .body-content {
-  //몸통 내부 컨텐츠 영역
-  width: 100%;
-  padding: 30px; //좌우에 내용이 붙으면 보기 안좋기 때문에 간격 띄움
+  /* 몸통 내부 컨텐츠 영역 width: 100 %;
+    padding: 30px;
+    좌우에 내용이 붙으면 보기 안좋기 때문에 간격 띄움*/
 }
+
 .body-titlebox {
-  //컨텐츠 타이틀 영역
-  text-align: center; //제목 중앙정렬
-  width: 100%;
-  height: 40px;
-  margin-bottom: 10px; //내용과 간격 조정
+  /* 컨텐츠 타이틀 영역 text-align: center;
+    제목 중앙정렬 width: 100 %;
+    height: 40px;
+    margin-bottom: 10px;
+    내용과 간격 조정*/
 }
+
 .body-contentbox {
-  //컨텐츠 내용 영역
-  word-break: break-word; //단어가 짤리지 않음
-  overflow-y: auto; //내부요소가 지정한 세로 값보다 클 경우 스크롤 생성
-  min-height: 100px; //최소 높이
-  max-height: 200px; //최대 높이
+  /* / 컨텐츠 내용 영역 word-break: break-word;
+/ / 단어가 짤리지 않음 overflow-y: auto;
+/ / 내부요소가 지정한 세로 값보다 클 경우 스크롤 생성 min-height: 100 px;
+/ / 최소 높이 max-height: 200 px;
+/ / 최대 높이 background-color: #dfdfdf;*/
+  width: 966px;
+  height: 150px;
+  margin: 0 auto 0 64px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+
+  vertical-align: middle;
 }
 
 .popup-foot {
-  //다리
   width: 100%;
   height: 50px;
 }
+
 .pop-btn {
-  //각각의 버튼
-  display: inline-flex; //한줄로 나열하기 위한 inline속성과 flex속성 혼합
-  width: 50%; //2개 버튼 각각 50% 영역
-  height: 100%; //50px
-  justify-content: center; //수평정렬
-  align-items: center; //수직정렬
-  float: left; //좌측배치
-  color: #ffffff; //글자색
-  cursor: pointer; //마우스 포인터 효과
+  /* / 각각의 버튼 display: inline-flex;
+/ / 한줄로 나열하기 위한 inline속성과 flex속성 혼합 width: 50 %;
+/ / 2 개 버튼 각각 50 % 영역 height: 100 %;
+/ / 50 px justify-content: center;
+/ / 수평정렬 align-items: center;
+/ / 수직정렬 float: left;
+/ / 좌측배치 color: #ffffff;
+/ / 글자색 cursor: pointer;
+/ / 마우스 포인터 효과 */
 }
+
 .pop-btn.confirm {
-  //확인버튼
-  border-right: 1px solid #3b5fbf; //오른쪽 줄
+  background-color: #747474;
+  width: 200px;
+  height: 48px;
+
+  cursor: pointer;
+
+  color: #dfdfdf;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+
+  text-align: center;
+  line-height: 48px;
+  vertical-align: middle;
+  border-right: 1px solid #3b5fbf;
+}
+
+.pop-btn.close {
+  background-color: #eb1400;
+  width: 200px;
+  height: 48px;
+
+  cursor: pointer;
+
+  color: #dfdfdf;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+
+  text-align: center;
+  line-height: 48px;
+  vertical-align: middle;
 }
