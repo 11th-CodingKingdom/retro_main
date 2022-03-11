@@ -154,5 +154,23 @@ def mypage_withdraw():
         msg = "로그인 상태가 아닙니다."
     return jsonify({'msg': msg})
 
+@app.route('/main/playing', methods=['POST'])
+def main_playing_active(): # 메인페이지 하단 뮤직플레이어 작동 기능
+    songID = request.form['songID_give']
+    music = db.musics.find_one({'songID': songID}, {'_id': False})
+
+    singer = music['singer']
+    title = music['title']
+    temp_music = db.musicPlaySrc.find_one({'songID': songID})
+    musicPlaySrc = temp_music['musicPlaySrc']
+
+    music_info = {
+        'singer': singer,
+        'title': title,
+        'musicPlaySrc': musicPlaySrc
+    }
+
+    return jsonify({'music_info': music_info,'msg': '연결 완료'})
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
