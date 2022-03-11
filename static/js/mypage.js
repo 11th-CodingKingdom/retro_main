@@ -1,10 +1,8 @@
 // 차트에 1980 ~ 2010 버튼 클릭 시 빨간색으로 변경
-$(document).ready(function () {
-  userinfo_get();
-});
-
 let currentBtn;
 let btns = document.querySelectorAll('.btn');
+userinfo_get(2002);
+
 
 function clickBtn() {
   currentBtn = document.querySelector('.btn-active');
@@ -13,8 +11,8 @@ function clickBtn() {
   }
   this.classList.add('btn-active');
   currentBtn = this;
-  chart_year = document.getElementsByClassName("btn-active")[0].value;
-  retroChart(chart_year)
+
+
 }
 for (let i = 0; i < btns.length; i++) {
   btns[i].addEventListener('click', clickBtn);
@@ -36,11 +34,11 @@ function toggleLike() {
 }
 
 // 회원 정보 불러오는 기능
-function userinfo_get() {
+function userinfo_get(year) {
   $.ajax({
     type: 'GET',
     url: '/userinfo',
-    data: {},
+    data: {'year': year},
     success: function (response) {
       let email = response['userinfo']['email']
       let name = response['userinfo']['name']

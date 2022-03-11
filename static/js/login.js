@@ -1,17 +1,13 @@
 $(document).ready(function() {
+    // pw입력 후 Enter누르면 로그인 시도
     $("#pw").keydown(function (key) {
         if (key.keyCode == 13) {
             login();
         }
     });
-    $('#banner_btn').click(function (){
-        location.href='/regist_page';
-    });
-    $('#logo img').click(function (){
-        location.href='/';
-    });
 });
 
+// login 기능
 function login() {
     let id = $('#id').val()
     let pw = $('#pw').val()

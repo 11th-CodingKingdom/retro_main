@@ -10,7 +10,7 @@
     <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="../static/js/main.js"></script>
-
+    <script defer src="../static/js/common.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 
@@ -22,6 +22,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../static/images/favicon.ico">
+
+    <script>
+            $(document).ready(function () {
+            loginStatus();
+        });
+    </script>
 
 </head>
 <body>
@@ -168,7 +174,7 @@
   <!-- FOOTER -->
   <hr size="1" color="#eeeeee">
   <footer>
-    <div id="footer_logo">
+    <div id="footer_logo" onclick="location.href='/'">
       <img src="../static/images/logo_footer.png"/>
     </div>
     <div id="footer_desc">
