@@ -102,14 +102,13 @@ def mypage():
 @app.route('/userinfo', methods=['GET'])
 def mypage_info():
     id = session['userID']
-    year = request.args.get('year')
     userinfo = db.users.find_one({'id':id}, {'_id':False})
     userinfo.pop('pw',None)
     datas = userinfo['likeMusic']
     userinfo.pop('likeMusic', None)
     likeMusics = []
     for d in datas:
-        likeMusic = db.musics.find_one({'songID': d,'year': {"$gte": int(year),"$lt":int(year)+10}}, {'_id':False})
+        likeMusic = db.musics.find_one({'songID': d}, {'_id':False})
         if likeMusic is not None:
             [likeMusic.pop(key,None) for key in ['songID','rank','Region','albumID','rank_type','like','genre','sondID']]
             likeMusic['musicPlaySrc'] = db.musicPlaySrc.find_one({'songID': d}, {'_id': False})['musicPlaySrc']
