@@ -14,6 +14,15 @@ db = client.retro
 def home():
     return render_template('index.html')
 
+@app.route('/login_status')
+def login_status():
+    if 'userID' in session:
+        id = session['userID']
+    else:
+        id = ""
+    return jsonify({'id': id})
+
+
 @app.route('/main/chart', methods=['GET'])
 def main_chart():
     chart_year = int(request.args.get('chart_year'))

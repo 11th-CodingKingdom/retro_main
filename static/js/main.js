@@ -38,28 +38,37 @@ function toggleLike() {
 }
 
 
+// 로그인 상태 업데이트
+function loginStatus() {
+    $.ajax({
+        type: 'GET',
+        url: '/login_status',
+        data: {},
+        success: function (response) {
+            userID = response['id']
+            $('#nav_right').empty()
+            if (userID == "") {
+                login_mypage = "로그인"
+                regist_logout = "회원가입"
+                href_login_out = "/login_page"
+            }
+            else{
+                login_out = "마이페이지"
+                regist_mypage = "로그아웃"
+                href_login_out = "/logout"
+            }
+            let login_html = `<ul>
+                                <li><a href="#">RE:TRO 소개</a></li>
+                                <li><a href=${href_login_out}>${login_out}</a></li>
+                                <li><a href='/regist_page'>${regist_mypage}</a></li>
+                              </ul>`
+            $('#nav_right').append(login_html)
+        }
+    });
 
-function loginStatus(){
-    let userID = $('.session').get("userID")
-    $('#nav_right').empty()
-    if (typeof userID === "undefined") {
-        login_out = "로그인"
-        regist_mypage = "회원가입"
-        href_login_out = "/login_page"
-    }
-    else{
-        login_out = "로그아웃"
-        regist_mypage = "마이페이지"
-        href_login_out = "/logout"
-    }
-    let login_html = `<ul>
-                        <li><a href="#">RE:TRO 소개</a></li>
-                        <li><a href=${href_login_out}>${login_out}</a></li>
-                        <li><a href='/regist_page'>${regist_mypage}</a></li>
-                      </ul>`
-    $('#nav_right').append(login_html)
 }
 
+// RetroChart 업데이트
 function retroChart(chart_year) {
     $.ajax({
         type: 'GET',
