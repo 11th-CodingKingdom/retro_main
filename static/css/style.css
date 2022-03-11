@@ -516,21 +516,18 @@ td {
   width: 300px;
   height: 300px;
   border-radius: 10px;
-}
-#pick-box .pick-box-img {
-  width: 300px;
-  height: 300px;
-  background-image: url('https://cdn.music-flo.com/poc/p/image/channel/rep/20220225/22d67f1d58ce4801b544c69f9e211baa.png/dims/resize/500x500/quality/90');
-  background-size: cover;
-  border-radius: 10px;
+  cursor: pointer;
 }
 
-#pick-box .pick-box-img img {
+#pick-box .pick-box-play {
+  background-image: url('../images/palybn_icon.png');
+  background-size: cover;
   width: 60px;
   height: 60px;
   position: relative;
-  top: 240px;
+  top: -65px;
   left: 240px;
+  cursor: pointer;
 }
 
 #pick_title {
