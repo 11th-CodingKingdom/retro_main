@@ -107,11 +107,23 @@ def mypage():
 
 @app.route('/userinfo', methods=['GET'])
 def mypage_info():
-    id = request.args.get('id')
+    id = session['userID']
     userinfo = db.users.find_one({'id':id}, {'_id':False})
     userinfo.pop('pw',None)
     userinfo.pop('id',None)
-    return jsonify({'userinfo': userinfo})
+    datas = userinfo['likeMusic']
+    likeMusics = []
+    for d in datas:
+        likeMusic = db.musics.find_one({'songID':d}, {'_id':False})
+        likeMusic.pop('rank',None)
+        likeMusic.pop('Region', None)
+        likeMusic.pop('albumID', None)
+        likeMusic.pop('rank_type', None)
+        likeMusic.pop('like', None)
+        likeMusic.pop('genre', None)
+        likeMusic['musicPlaySrc'] = db.musicPlaySrc.find_one({'songID': d}, {'_id': False})['musicPlaySrc']
+        likeMusics.append(likeMusic)
+    return jsonify({'userinfo': userinfo, "likeMusic":likeMusics})
 
 @app.route('/userinfo', methods=['POST'])
 def mypage_infoex():

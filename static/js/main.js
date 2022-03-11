@@ -37,7 +37,6 @@ function toggleLike() {
   document.getElementById("likebtn").src = "../static/images/like_icon_hover.png";
 }
 
-
 // 로그인 상태 업데이트
 function loginStatus() {
     $.ajax({
@@ -46,7 +45,6 @@ function loginStatus() {
         data: {},
         success: function (response) {
             userID = response['id']
-            console.log(userID)
             $('#nav_right').empty()
             if (userID == "") {
                 login_mypage = "로그인"
