@@ -32,14 +32,14 @@
 }
 
 .note_img img {
-    width: 100px;
-    height: 100px;
+    width: 841px;
+    height: 595px;
 }
 
 .popup {
-    margin: auto;
-    height: 380px;
-    width: 350px;
+    margin: 50px auto;
+    height: 560px;
+    width: 543px;
     padding: 20px;
     overflow: hidden;
     background-color: white;
@@ -52,13 +52,13 @@
     height: 50px;
     display: flex;
     text-align: left;
-    margin: 20px;
+    margin: 40px auto 20px 40px;
     letter-spacing: -0.02em;
     font-family: "Noto Sans KR", sans-serif;
 }
 
 .popup-head p {
-    margin: 15px;
+    margin: 20px;
 }
 
 .head {
@@ -69,15 +69,17 @@
 
 .head-title {
     width: 100%;
-    font-size: 25px;
-    font-weight: 600;
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: -0.05em;
 
 }
 
 .head-body {
     width: 100%;
-    font-size: 25px;
-    font-weight: 800;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.05em;
 }
 
 .popup-body {
@@ -88,9 +90,12 @@
 .body-content {
     width: 100%;
     padding: 30px;
+    margin-top: 50px;
+    margin-left: 30px;
 }
 
 .body-titlebox {
+    color: #a3a3a3;
     text-align: center;
     width: 100%;
     height: 40px;
@@ -101,9 +106,9 @@
     padding-top: 10px;
     text-align: left;
     color: #afafaf;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
     letter-spacing: -0.02em;
     font-family: "Noto Sans KR", sans-serif;
 }
@@ -125,7 +130,7 @@
 
 .popupfoot_btn {
     margin: 0 auto;
-    width: 200.59px;
+    width: 271px;
     height: 80px;
 }
 
@@ -137,8 +142,8 @@
 
 .pop-btn {
     display: inline-flex;
-    width: 200px;
-    height: 48px;
+    width: 270px;
+    height: 70px;
     justify-content: center;
     align-items: center;
     float: left;
@@ -148,17 +153,18 @@
 }
 
 .pop-btn.close {
-    background-color: #eb1400;
-    width: 200px;
-    height: 48px;
-    margin: 20px 0 20px 0;
+    background-color: #e60012;
+    width: 270px;
+    height: 70px;
+    margin: 80px 0 20px 0;
 
     cursor: pointer;
 
     color: #dfdfdf;
     font-family: "Noto Sans KR", sans-serif;
-    font-weight: bold;
-    font-size: 14px;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -0.02em;
 
     text-align: center;
     line-height: 48px;
@@ -171,16 +177,17 @@
 }
 
 .pop-btn.confirm {
-    background-color: #dfdfdf;
-    width: 200px;
-    height: 48px;
+    background-color: #d4d4d4;
+    width: 270px;
+    height: 70px;
 
     cursor: pointer;
 
     color: #747474;
     font-family: "Noto Sans KR", sans-serif;
-    font-weight: bold;
-    font-size: 14px;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: -0.02em;
 
     text-align: center;
     line-height: 48px;
@@ -545,6 +552,34 @@ header #nav {
     margin-right: 0;
 }
 
+/* 노래 추가 안했을 때 버튼 */
+#list-img {
+    position: relative;
+}
+
+#list-img .list_btn {
+    position: absolute;
+    top: 270px;
+    left: 350px;
+
+    background-color: #eb1400;
+    width: 200px;
+    height: 48px;
+
+    cursor: pointer;
+
+    color: #dfdfdf;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: -0.05em;
+
+    text-align: center;
+    line-height: 48px;
+    vertical-align: middle;
+}
+/* 노래 추가 안했을 때 버튼 */
+
 #chart-body h1 {
     font-size: 24px;
     font-weight: 500;
@@ -646,6 +681,36 @@ td #rankchart_img {
     line-height: 72px;
 }
 
+#section_rankchart {
+    background-color: #747474;
+}
+
+#list-img {
+    position: relative;
+}
+
+#list-img .list_btn {
+    position: absolute;
+    top: 250px;
+    left: 350px;
+
+    background-color: #eb1400;
+    width: 200px;
+    height: 48px;
+
+    cursor: pointer;
+
+    color: #dfdfdf;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: -0.05em;
+
+    text-align: center;
+    line-height: 48px;
+    vertical-align: middle;
+}
+
 #rankchart-row:first-child {
     width: 966px;
     height: 76px;
@@ -706,61 +771,61 @@ footer {
 
 /* 하단 재생 바 */
 .playbar {
-  width: 100vw;
-  height: 79px;
-  background-color: #191919;
-  position: fixed;
-  bottom: 0;
+    width: 100vw;
+    height: 79px;
+    background-color: #191919;
+    position: fixed;
+    bottom: 0;
 }
 
 .playbar .playbar_song {
-  display: flex;
-  width: 500px;
-  height: 79px;
+    display: flex;
+    width: 500px;
+    height: 79px;
 }
 
 .playbar_song .youtube_movie {
-  width: 100px;
-  height: 50px;
-  background-color: #fff;
-  margin: 15px 20px;
+    width: 100px;
+    height: 50px;
+    background-color: #fff;
+    margin: 15px 20px;
 }
 
 .playbar_song .playbar_song_wrap {
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  justify-content: center;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
 }
 
 .playbar_song .playbar_song_wrap .playbar_song_title {
-  font-family: 'Noto Sans KR', sans-serif;
-  color: #fff;
-  font-size: 16px;
-  margin-bottom: 8px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 8px;
 }
 
 .playbar_song .playbar_song_wrap .playbar_song_artist {
-  font-family: 'Noto Sans KR', sans-serif;
-  color: #fff;
-  font-size: 13px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #fff;
+    font-size: 13px;
 }
 
 .playbar_song #likebtn {
-  position: absolute;
-  right: 3%;
-  width: 25px;
-  height: 25px;
-  margin-top: 25px;
-  cursor: pointer;
+    position: absolute;
+    right: 3%;
+    width: 25px;
+    height: 25px;
+    margin-top: 25px;
+    cursor: pointer;
 }
 
 .playbar #playbtn {
-  position: absolute;
-  top: 20%;
-  left: 48%;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
+    position: absolute;
+    top: 20%;
+    left: 48%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
 }

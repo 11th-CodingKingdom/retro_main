@@ -90,10 +90,15 @@ function update_info(chart_year) {
     }
   }
     else {
+        let temp_html = `<div id="list-img">
+                            <img id="theImg" src="../static/images/mypage_bn_like_no.png" />
+                            <div class="list_btn">추천 음악 바로 가기</div>
+                        </div>`
+
         $('#year-btn').remove();
         $('.chart_text').remove();
         $('#section_rankchart').remove();
-        $('#chart-body').append('<img id="theImg" src="../static/images/mypage_bn_like_no.png" />')
+        $('#chart-body').append(temp_html)
     }
 }
 
