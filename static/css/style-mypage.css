@@ -57,7 +57,6 @@ header #nav {
 
 #searchbox_wrap {
     display: inline-block;
-    margin-left: 40px;
     position: relative;
 }
 
@@ -70,7 +69,7 @@ header #nav {
 }
 
 #searchbox_wrap #searchbox {
-    width: 346px;
+    width: 355px;
     height: 30px;
     margin-top: 12px;
     border: 2px solid #eb1400;
@@ -86,13 +85,14 @@ header #nav {
     /* background-color: #a4a4a4; */
     height: 30px;
     margin-top: 22px;
-    margin-left: 300px;
+    margin-left: 355px;
 }
 
 #nav_right ul {
     position: relative;
     top: 1px;
     display: flex;
+    padding-left: 30px;
 }
 
 #nav_right ul li {
@@ -109,7 +109,7 @@ header #nav {
 }
 
 .mypage_hello {
-    width: 1435px;
+    width: 1476px;
     height: 40px;
     font-size: 36px;
     font-weight: 400;
@@ -121,11 +121,12 @@ header #nav {
 
 .mypage_hello span {
     font-weight: 700;
+    font-family: "Noto Sans KR", sans-serif;
 }
 
 #wrap {
     /* background-color: antiquewhite; */
-    width: 1435px;
+    width: 1476px;
     margin: 0 auto;
     display: flex;
 }
@@ -134,15 +135,16 @@ header #nav {
     float: left;
     width: 310px;
     height: 435px;
+    font-family: "Noto Sans KR", sans-serif;
 
 }
 
 #left_box {
     width: 310px;
-    height: 90px;
+    height: 85px;
     border-radius: 6px;
     border: 2px solid #a0a0a0;
-    padding: 16px;
+    padding: 14px;
     box-sizing: border-box;
 }
 
@@ -155,6 +157,7 @@ header #nav {
     font-size: 16px;
     font-weight: 700;
     letter-spacing: -0.05em;
+    margin-right: 5px;
 }
 
 #user_info #user_id {
@@ -168,7 +171,7 @@ header #nav {
     color: black;
     font-size: 16px;
     font-weight: 400;
-    letter-spacing: 0px;
+    letter-spacing: 0;
 
 }
 
@@ -380,29 +383,30 @@ header #nav {
     height: 1000px;
 }
 
+#mypage_right .music_test_img {
+    padding-bottom: 34px;
+}
+
 .music_test_banner {
-    background-color: #dfdfdf;
     width: 966px;
     height: 150px;
     margin: 0 auto 0 64px;
     border-radius: 8px;
     display: flex;
     align-items: center;
-
     vertical-align: middle;
+
+    position: relative;
 }
 
 .music_test_img {
-    width: 900px;
-    height: 165px;
-    padding-left: 10px;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
 }
 
 .music_test_banner img {
-    width: 170px;
-    height: 100px;
     margin: 0 auto;
     display: block;
 }
@@ -412,6 +416,10 @@ header #nav {
     height: 170px;
     display: flex;
     padding-right: 180px;
+
+    position: absolute;
+    top: -8px;
+    left: 250px;
 }
 
 .music_test_banner .test_text {
@@ -436,7 +444,7 @@ header #nav {
     font-weight: 700;
     letter-spacing: -0.05em;
     height: 50px;
-    padding-top: 17px;
+    padding-top: 20px;
 }
 
 .music_test_banner .music_test_left .test_left_bottom {
@@ -451,6 +459,10 @@ header #nav {
 .music_test_banner .music_test_right {
     margin-right: 64px;
     margin-left: auto;
+
+    position: absolute;
+    top: 55px;
+    right: -130px;
 }
 
 .music_test_right .music_test_btn {
@@ -494,15 +506,15 @@ header #nav {
 
 #chart-body #year-btn {
     /* background-color: aliceblue; */
-    width: 324px;
+    width: 380px;
     text-align: center;
     align-items: center;
     padding-bottom: 10px;
-    padding-top: 5px;
+    padding-top: 20px;
 }
 
 .btn {
-    width: 72px;
+    width: 85px;
     height: 30px;
     border: 2px solid #afafaf;
     border-radius: 14px;
@@ -514,6 +526,7 @@ header #nav {
     margin-right: 6px;
     cursor: pointer;
     background-color: #dfdfdf;
+    vertical-align: middle;
 }
 
 .btn-active {
