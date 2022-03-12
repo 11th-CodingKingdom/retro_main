@@ -23,8 +23,24 @@
             loginStatus();
         });
 
-        function showPopup() {
-            window.open("index-mypage-popup.html", "a", "width=400, height=300, left=100, top=50");
+        $(function () {
+            $("#confirm").click(function () {
+                modalClose();
+            });
+            $("#modal-open").click(function () {
+                $("#popup").css('display', 'flex').hide().fadeIn();
+            });
+            $("#close").click(function () {
+                modalClose();
+            });
+
+            function modalClose() {
+                $("#popup").fadeOut();
+            }
+        });
+
+        function openPopup() {
+                $("#popup").show();
         }
     </script>
 
@@ -37,6 +53,45 @@
 
 </head>
 <body>
+    <!-- popup -->
+    <div class="container">
+        <div class="popup-wrap" id="popup">
+            <div class="note_img">
+                <img src="../static/images/레트로캐릭터_노트_디자인_v5.png" alt="">
+            </div>
+            <div class="popup">
+                <div class="popup-head">
+                    <div>
+                        <p class="head-title">정말...</p>
+                        <p class="head-body">회원 탈퇴 하실 거예요?</p>
+                    </div>
+                </div>
+                <div class="popup-body">
+                    <div class="body-content">
+                        <div class="body-titlebox">
+                            <p>
+                                회원을 탈퇴하시면 모든 정보가 삭제됩니다. <br>
+                                레트로 정보 : 음악 성향 테스트, 좋아요 목록 등 <br>
+                                개인정보 : 이름, 이메일, 아이디, 비밀번호
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-foot">
+                    <div class="popupfoot_btn">
+                        <p class="foot_btn">
+                            <span class="pop-btn close" id="close">그럼...고민 좀 더 해볼게</span>
+                        </p>
+                        <p>
+                            <span class="pop-btn confirm" id="confirm" onclick="withdraw()">탈퇴하기</span>
+                        </p>
+                    </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- popup -->
 <header id="header">
     <div id="logo" onclick="location.href='#'">
         <img src="../static/images/reteo_logo.png" width="91px" height="26px"/>
@@ -59,35 +114,36 @@
 </header>
 <div class="mypage_hello">
     <!-- 회원 이름 -->
-    안녕하세요, <span class="user_name"></span> 님!
+    안녕하세요, <span class="user_name">{{ session['name']}}</span> 님!
 </div>
 <div id="wrap">
     <div id="mypage_left">
         <div id="left_box">
             <!-- 회원 이메일 -->
             <div id="user_info">
-                <span id="name" class="user_name"></span>
-                <span id="user_id"></span>
+                <span id="name" class="user_name">{{ session['name']}}</span>
+                <span id="user_id">{{ session['userID']}}</span>
             </div>
-            <div id="user_email"></div>
+            <div id="user_email">{{ session['email']}}</div>
         </div>
-        <div id="leaveLetro"><input type="button" id="leaveLetro_btn" value="회원탈퇴" onclick="showPopup();"></div>
+        <div id="leaveLetro"><input type="button" id="leaveLetro_btn" value="회원탈퇴" onclick="openPopup();"></div>
     </div>
+
     <div id="mypage_right">
         <div class="music_test_banner">
             <div class="music_test_img">
-                <img src="../static/images/.png" alt="">
+                <img src="../static/images/mypage_bn_test_ok.png" alt="">
             </div>
             <div class="music_test_left">
                 <div class="music_test_txt">
                     <span class="test_left_top test_text">나의 음악 성향 테스트 결과는?</span>
-                    <span class="test_left_middle test_text">감성 타입</span>
+                    <span class="test_left_middle test_text"></span>
                     <span class="test_left_bottom test_text">꿀음색에 감성 촉촉한 팝 & 발라드</span>
                 </div>
             </div>
             <div class="music_test_right">
                 <!-- 성향테스트 추천노래 유튜브링크 -->
-                <div class="music_test_btn">추천 음악 바로 가기</div>
+                <div class="music_test_btn"></div>
             </div>
         </div>
         <div id="chart">
@@ -102,7 +158,7 @@
                 <h1 class="chart_text">MY 플레이리스트</h1>
                 <div id="section_rankchart">
                     <div id="rankchart-box">
-                        <table id="rankchart-table" class="chart_text">
+                        <table id="rankchart-table" class="chart_text table_line">
                             <thead>
                             <tr>
                                 <th scope="col" class="info">곡</th>
@@ -113,34 +169,7 @@
                             </tr>
                             </thead>
                             <tbody id="rankchart-row">
-                            <tr class="rankchart-row-box table_line">
-                                <td>
-                                    <div id="rankchart_img">
-                                        <img src='${albumImageUrl}' width="50px" height="50px"
-                                             style="border-radius:10px"/>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div id="rankchart_song"></div>
-                                </td>
-                                <td>
-                                    <div id="rankchart_artist"></div>
-                                </td>
-                                <td>
-                                    <!-- 재생버튼 -->
-                                    <button type="button">
-                                        <img src="../static/images/palybn_icon_red_hover.png" alt=""
-                                             class="playbtn">
-                                    </button>
-                                </td>
-                                <td>
-                                    <!-- 좋아요 버튼 -->
-                                    <button type="button">
-                                        <img src="../static/images/like_icon_hover.png" alt="" id="likebtn"
-                                             onclick="toggleLike()">
-                                    </button>
-                                </td>
-                            </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -161,15 +190,15 @@
     </div>
     <!-- 하단 재생 바 -->
     <div class="playbar">
-        <div class="playbar_song">
-            <div class="youtube_movie"></div>
-            <div class="playbar_song_wrap">
-                <div class="playbar_song_title">인생 한잔</div>
-                <div class="playbar_song_artist">정은지</div>
-            </div>
-            <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">
-        </div>
-        <img src="../static/images/palybn_icon.png" alt="" class="playbtn">
+      <div id="playbar_song" class="playbar_song">
+        <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()" />
+      </div>
+      <img src="../static/images/palybn_icon.png" alt="" id="playbtn" onclick="togglePause()" />
+      <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">
+{#      <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">#}
+      <div id="playbar_control" , style="display:none">
+        <td id="player_active" style="display:none">0</td>
+      </div>
     </div>
 </footer>
 </body>
