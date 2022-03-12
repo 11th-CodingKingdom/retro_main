@@ -132,6 +132,12 @@ function main_playing_active(songID) {
                     $('#playbar_control').empty();
                     $('#playbar_control').append(temp_html);
 
+                    let play = document.getElementById("playbtn");
+                    play.src = '../static/images/playbar_menu_pau.png';
+                    play.style.width = '30px';
+                    play.style.height = 'auto';
+                    play.style.marginTop = '10px';
+                    play.style.marginLeft = '10px';
                     //alert(response["msg"])
                 }
             })

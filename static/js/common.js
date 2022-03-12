@@ -56,10 +56,10 @@ function playing_control(){
 function togglePause() {
     playing_control()
 
-
+        let playing_active = $('#player_active').text();
   let play = document.getElementById("playbtn");
 
-  if(playcnt % 2 == 1) {
+  if(playing_active == 1) {
     play.src = '../static/images/playbar_menu_pau.png';
     play.style.width = '30px';
     play.style.height = 'auto';
