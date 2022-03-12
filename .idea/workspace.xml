@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06386f5f-9b52-42ea-a3f6-127bd51ba677" name="Changes" comment="마이페이지 upload속도개선">
+    <list default="true" id="06386f5f-9b52-42ea-a3f6-127bd51ba677" name="Changes" comment="회원탈퇴 기능 추가&#10;회원탈퇴 후 Main page로 이동">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/mypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/mypage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index-mypage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index-mypage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +187,8 @@
       <workItem from="1646904209295" duration="5721000" />
       <workItem from="1646911992864" duration="5228000" />
       <workItem from="1647050635910" duration="1134000" />
-      <workItem from="1647051987600" duration="4818000" />
+      <workItem from="1647051987600" duration="5365000" />
+      <workItem from="1647058239383" duration="914000" />
     </task>
     <task id="LOCAL-00001" summary="Retro chart list 6개로 변경">
       <created>1646750837883</created>
@@ -253,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647055886066</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="회원탈퇴 기능 추가&#10;회원탈퇴 후 Main page로 이동">
+      <created>1647057530756</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1647057530756</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,11 +299,12 @@
     <MESSAGE value="로그인 시 PW입력 후 Enter누르면 로그인 완료됨" />
     <MESSAGE value="로그인 페이지에서 회원가입 이동할수 있도록 수정" />
     <MESSAGE value="마이페이지 upload속도개선" />
-    <option name="LAST_COMMIT_MESSAGE" value="마이페이지 upload속도개선" />
+    <MESSAGE value="회원탈퇴 기능 추가&#10;회원탈퇴 후 Main page로 이동" />
+    <option name="LAST_COMMIT_MESSAGE" value="회원탈퇴 기능 추가&#10;회원탈퇴 후 Main page로 이동" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/retro_frontend$Flask__temp_py_.coverage" NAME="Flask (temp.py) 커버리지 결과" MODIFIED="1647054733329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/retro_frontend$retro_frontend.coverage" NAME="retro_frontend 커버리지 결과" MODIFIED="1647053821414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/retro_frontend$Flask__app_py_.coverage" NAME="Flask (app.py) 커버리지 결과" MODIFIED="1647057246443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/retro_frontend$Flask__app_py_.coverage" NAME="Flask (app.py) 커버리지 결과" MODIFIED="1647059108833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

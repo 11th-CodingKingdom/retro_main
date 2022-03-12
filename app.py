@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request, session
+from flask import Flask, render_template, jsonify, request, session, redirect
 from pymongo import MongoClient
 from flask_bcrypt import Bcrypt
 
@@ -63,7 +63,7 @@ def login():
 @app.route('/logout')
 def logout():
     session.clear()
-    return render_template('index.html')
+    return redirect('/')
 
 @app.route('/regist_page')
 def regist_page():
@@ -103,7 +103,10 @@ def regist():
 
 @app.route('/mypage')
 def mypage():
-    return render_template('index-mypage.html')
+    if 'userID' in session:
+        return render_template('index-mypage.html')
+    else :
+        return redirect('/login_page')
 
 @app.route('/userinfo', methods=['GET'])
 def mypage_info():
