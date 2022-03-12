@@ -24,11 +24,14 @@ def login_status():
 
 @app.route('/main/chart', methods=['GET'])
 def main_chart():
-    chart_year = int(request.args.get('chart_year'))
-    datas = list(db.musics.find({'rank_type': "AG", 'year': chart_year}, {'_id': False}).sort("like", -1).limit(6))
+    data_1980 = list(db.musics.find({'rank_type': "AG", 'year': 1980}, {'_id': False}).sort("like", -1).limit(6))
+    data_1990 = list(db.musics.find({'rank_type': "AG", 'year': 1990}, {'_id': False}).sort("like", -1).limit(6))
+    data_2000 = list(db.musics.find({'rank_type': "AG", 'year': 2000}, {'_id': False}).sort("like", -1).limit(6))
+    data_2010 = list(db.musics.find({'rank_type': "AG", 'year': 2010}, {'_id': False}).sort("like", -1).limit(6))
+    datas = data_1980+data_1990+data_2000+data_2010
     musics = []
     for music in datas:
-        [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'like', 'rank_type', 'year']]
+        [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'rank_type']]
         musics.append(music)
 
     return jsonify({'music_list': musics})
@@ -76,8 +79,8 @@ def regist():
     id = request.form['id']
     pw = bcrypt.generate_password_hash(request.form['pw'])
     pwCheck = request.form['pwCheck']
-    likeMusic = []
     preferenceResult =""
+    information = {'id': id, 'pw': pw, 'email': email, 'name': name, 'preferenceResult': preferenceResult}
 
     if db.users.find_one({'name': name}, {'_id': False}) is not None:
         msg = "동일한 사용자가 존재합니다."
@@ -95,7 +98,6 @@ def regist():
         msg = "비밀번호 입력을 다시 확인하세요."
 
     else:
-        information = {'id': id, 'pw': pw, 'email': email, 'name': name, 'likeMusic':likeMusic, 'preferenceResult': preferenceResult}
         db.users.insert_one(information)
         msg = "회원가입 완료!"
 

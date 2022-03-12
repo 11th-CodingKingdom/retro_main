@@ -12,7 +12,7 @@ function clickBtn() {
   this.classList.add('btn-active');
   currentBtn = this;
   chart_year = document.getElementsByClassName("btn-active")[0].value;
-  retroChart(chart_year)
+  retroChart_update(chart_year)
 }
 for (let i = 0; i < btns.length; i++) {
   btns[i].addEventListener('click', clickBtn);
@@ -44,35 +44,46 @@ function toggleLike() {
   likecnt++;
 }
 
-// RetroChart 업데이트
+// RetroChart 불러오기 (메인페이지 새로고침)
+var music_list;
 function retroChart(chart_year) {
   $.ajax({
       type: 'GET',
       url: '/main/chart',
-      data: {'chart_year':chart_year},
+      data: {},
       success: function (response) {
-          let music_list = response['music_list']
-          $('#section_albumchart .albumchart_rowbody:eq(0)').empty()
-          $('#section_albumchart .albumchart_rowbody:eq(1)').empty()
-          $('#rankchart-table').empty()
-          for (let i = 0; i < 6; i ++)
-          {
-              let albumImageUrl = music_list[i]['albumImageUrl']
-              let rank = music_list[i]['rank']
-              let singer = music_list[i]['singer']
-              let title = music_list[i]['title']
-              let songID = music_list[i]['songID']
-              let albumchart_html = `<div class="albumchart-box" onclick="location.href='#'">
-                                          <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
-                                            <img onclick="main_playing_active(${songID})" src="../static/images/palybn_icon_red.png" alt="" id="albumchart_play" onmouseover="this.src='../static/images/palybn_icon_red_hover.png'" onmouseout="this.src='../static/images/palybn_icon_red.png'">
-                                          </div>
-                                          <div id="albumchart_desc">
-                                            <span id="albumchart_rank">${rank}</span>
-                                            <span id="albumchart_song">${title}</span>
-                                            <span id="albumchart_artist">${singer}</span>
-                                          </div>
-                                       </div>`
-              let rankchart_html = `<tr id="rankchart-row">
+          music_list = response['music_list']
+          retroChart_update(chart_year)
+      }
+  });
+}
+
+// RetroChart Update (년도 변경 시 Chart update)
+function retroChart_update(chart_year) {
+    $('#section_albumchart .albumchart_rowbody:eq(0)').empty()
+    $('#section_albumchart .albumchart_rowbody:eq(1)').empty()
+    $('#rankchart-table').empty()
+    ranks = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]
+    for (let i = 0; i < music_list.length; i++) {
+        let albumImageUrl = music_list[i]['albumImageUrl']
+        let rank = ranks[i]
+        let singer = music_list[i]['singer']
+        let title = music_list[i]['title']
+        let songID = music_list[i]['songID']
+        let year = music_list[i]['year']
+        chart_year = parseInt(chart_year)
+        if (year == chart_year) {
+            let albumchart_html = `<div class="albumchart-box" onclick="location.href='#'">
+                                      <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
+                                        <img onclick="main_playing_active(${songID})" src="../static/images/palybn_icon_red.png" alt="" id="albumchart_play" onmouseover="this.src='../static/images/palybn_icon_red_hover.png'" onmouseout="this.src='../static/images/palybn_icon_red.png'">
+                                      </div>
+                                      <div id="albumchart_desc">
+                                        <span id="albumchart_rank">${rank}</span>
+                                        <span id="albumchart_song">${title}</span>
+                                        <span id="albumchart_artist">${singer}</span>
+                                      </div>
+                                   </div>`
+            let rankchart_html = `<tr id="rankchart-row">
                                       <td>
                                         <div id="rankchart_img">
                                           <img src='${albumImageUrl}' width="50px" height="50px" style="border-radius:10px"/>
@@ -88,18 +99,15 @@ function retroChart(chart_year) {
                                         </div>
                                       </td>
                                     </tr>`
-              if (i < 3) {
-                  $('#section_albumchart .albumchart_rowbody:eq(0)').append(albumchart_html)
-                  $('#rankchart-table').append(rankchart_html)
-              }
-              else{
-                  $('#section_albumchart .albumchart_rowbody:eq(1)').append(albumchart_html)
-                  $('#rankchart-table').append(rankchart_html)
-              }
-          }
-
-      }
-  });
+            if (rank < 4) {
+                $('#section_albumchart .albumchart_rowbody:eq(0)').append(albumchart_html)
+                $('#rankchart-table').append(rankchart_html)
+            } else {
+                $('#section_albumchart .albumchart_rowbody:eq(1)').append(albumchart_html)
+                $('#rankchart-table').append(rankchart_html)
+            }
+        }
+    }
 }
 
 // 하단 플레이어 작동 기능
