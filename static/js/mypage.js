@@ -41,7 +41,8 @@ function userinfo_get(chart_year) {
       $('#user_id').text(id)
       $('.user_name').text(name)
       if (typeof preferenceResult == "undefined" || preferenceResult == null || preferenceResult == "") {
-        $('.test_left_middle').text("성향평가가 필요!")
+        $('.test_left_middle').text("아직 음악 성향 테스트를 안하셨네요?")
+        $('.test_left_bottom').text("테스트를 진행해보고, 나에게 맞는 음악을 추천 받아보세요!")
       }
       else {
         $('.test_left_middle').text(preferenceResult)
@@ -97,4 +98,39 @@ function update_info(chart_year) {
       $('#rankchart-row').append(temp_html)
     }
   }
+}
+
+// 하단 플레이어 작동 기능
+function main_playing_active(songID) {
+            $.ajax({
+                type: 'POST',
+                url: '/main/playing',
+                data: { songID_give: songID
+                },
+                success: function (response) {
+                    singer = response['music_info']['singer']
+                    title = response['music_info']['title']
+                    musicPlaySrc = response['music_info']['musicPlaySrc']
+
+                    console.log(singer, title, musicPlaySrc)
+                    let temp_html = `<div class="youtube_movie">
+                                        <iframe width="100" height="75" src="${musicPlaySrc}?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                     </div>
+                                     <div class="playbar_song_wrap">
+                                        <div class="playbar_song_title">${title}</div>
+                                        <div class="playbar_song_artist">${singer}</div>
+                                     </div>
+                                     <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">`
+
+
+                    $('#playbar_song').empty()
+                    $('#playbar_song').append(temp_html)
+
+                    temp_html = `<td id="player_active" style="display:none">1</td>`
+                    $('#playbar_control').empty();
+                    $('#playbar_control').append(temp_html);
+
+                    //alert(response["msg"])
+                }
+            })
 }
