@@ -1,6 +1,6 @@
 
 // 하단 playbar에서 play 버튼 <-> pause 버튼 변경을 위한 변수
-let playcnt = 1;
+//let playcnt = 1;
 
 // 로그인 상태 업데이트
 function loginStatus() {
@@ -56,7 +56,6 @@ function playing_control(){
 function togglePause() {
     playing_control()
 
-
   let play = document.getElementById("playbtn");
 
   if(playcnt % 2 == 1) {
@@ -72,5 +71,5 @@ function togglePause() {
     play.style.marginTop = '0px';
     play.style.marginLeft = '0px';
   }
-  playcnt++;
+  //playcnt++;
 }
