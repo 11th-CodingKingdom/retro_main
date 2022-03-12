@@ -1,11 +1,9 @@
 #retrochart_wrap {
-  background-color: rgb(101, 101, 255);
   width: 1476px;
   margin: 0 auto;
 }
 
 #retrochart-year-btn {
-  background-color: aqua;
   width: 324px;
   margin-left: 20px;
   margin-bottom: 30px;
@@ -39,7 +37,7 @@
 }
 
 #retrochart_table table {
-  border: 1px solid black;
+  border-bottom: 0.5px solid b5b6b5;
   width: 1436px;
   margin: 0 auto;
   font-family: "Noto Sans KR", sans-serif;
@@ -59,11 +57,13 @@
   border-bottom: 0.5px solid #c8c8c8;
 }
 
-#retrochart_table thead th {
+.retrochart_col {
+  text-align: left;
+  position: relative;
+  left: 36px;
 }
 
 #retrochart_table tbody tr {
-  background-color: aliceblue;
   height: 100px;
 }
 
