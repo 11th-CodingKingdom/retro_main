@@ -41,9 +41,7 @@
         });
 
         function openPopup() {
-            $("#leaveLetro_btn").click(function () {
-                $("#popup").show();
-            })
+            $("#popup").show();
         }
     </script>
 
@@ -90,7 +88,7 @@
             </div>
             <div id="user_email">{{ session['email']}}</div>
         </div>
-        <div id="leaveLetro"><input type="button" id="leaveLetro_btn" value="회원탈퇴" onclick="openPopup();"></div>
+        <div id="leaveLetro"><input type="button" id="leaveLetro_btn" value="회원탈퇴" onclick="openPopup()"></div>
     </div>
     <!-- popup -->
     <div class="container">
@@ -122,7 +120,7 @@
                             <span class="pop-btn close" id="close">그럼...고민 좀 더 해볼게</span>
                         </p>
                         <p>
-                            <span class="pop-btn confirm" id="confirm">탈퇴하기</span>
+                            <span class="pop-btn confirm" id="confirm" onclick="withdraw()">탈퇴하기</span>
                         </p>
                     </div>
                     </ul>

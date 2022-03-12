@@ -113,56 +113,13 @@ def mypage_info():
     return jsonify({"likeMusic":likeMusics, "preferenceResult":preferenceResult})
 
 @app.route('/userinfo', methods=['POST'])
-def mypage_infoex():
-    id = request.form['id']
-    pw = request.form['pw']
-    email_new = request.form['email_new']
-    information = db.users.find_one({'id':id}, {'_id': False})
-    if information != None:
-        if bcrypt.check_password_hash(information['pw'], pw):
-            db.users.update_one({'id':id}, {"$set":{"email":email_new}})
-            msg = "회원정보 수정이 완료되었습니다."
-        else:
-            msg = '비밀번호를 다시 확인해주세요'
-    else:
-        msg = "로그인 상태가 아닙니다."
-    return jsonify({'msg': msg})
-
-@app.route('/userinfo/pw', methods=['POST'])
-def mypage_pwex():
-    id = request.form['id']
-    pw = request.form['pw']
-    pw_new = bcrypt.generate_password_hash(request.form['pw_new'])
-    pwCheck_new = request.form['pwCheck_new']
-    information = db.users.find_one({'id':id}, {'_id': False})
-
-    if information != None:
-        if bcrypt.check_password_hash(information['pw'], pw):
-            if bcrypt.check_password_hash(pw_new, pwCheck_new):
-                db.users.update_one({'id':id}, {"$set":{"pw":pw_new}})
-                msg = "비밀번호 변경이 완료되었습니다."
-            else :
-                msg = "비밀번호 입력을 다시 확인하세요."
-        else:
-            msg = '기존 비밀번호를 다시 확인하세요'
-    else:
-        msg = "로그인 상태가 아닙니다."
-    return jsonify({'msg': msg})
-
-@app.route('/userinfo/withdraw', methods=['POST'])
 def mypage_withdraw():
-    id = request.form['id']
-    pw = request.form['pw']
+    id = session['userID']
     information = db.users.find_one({'id':id}, {'_id': False})
     if information != None:
-        if bcrypt.check_password_hash(information['pw'], pw):
-            db.users.delete_one({'id':id})
-            msg = "회원탈퇴가 완료되었습니다."
-        else:
-            msg = '비밀번호를 다시 확인해주세요.'
-    else:
-        msg = "로그인 상태가 아닙니다."
-    return jsonify({'msg': msg})
+        db.users.delete_one({'id':id})
+        session.clear()
+    return jsonify({"msg": "회원탈퇴 완료"})
 
 @app.route('/main/playing', methods=['POST'])
 def main_playing_active(): # 메인페이지 하단 뮤직플레이어 작동 기능

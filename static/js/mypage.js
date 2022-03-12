@@ -1,4 +1,4 @@
-// 차트에 1980 ~ 2010 버튼 클릭 시 빨간색으로 변경
+// 마이페이지 년도 변경 시 button update 및 노래 update 함수연결
 let currentBtn;
 let btns = document.querySelectorAll('.btn');
 var chart_year = document.getElementsByClassName("btn-active")[0].value;
@@ -17,7 +17,6 @@ function clickBtn() {
 for (let i = 0; i < btns.length; i++) {
   btns[i].addEventListener('click', clickBtn);
 }
-
 
 // 상단 팝업 닫기
 let popup = document.querySelector('.close');
@@ -53,7 +52,7 @@ function userinfo_get(chart_year) {
   });
 }
 
-//불러온 회원 정보 update (년도 선택 시)
+//년도에 따른 좋아요 노래 update
 function update_info(chart_year) {
   $('#rankchart-row').empty()
   for (let i = 0; i < likeMusic.length; i++) {
@@ -95,4 +94,17 @@ function update_info(chart_year) {
       $('#rankchart-row').append(temp_html)
     }
   }
+}
+
+//회원탈퇴
+function withdraw() {
+  $.ajax({
+    type: 'POST',
+    url: '/userinfo',
+    data: {},
+    success: function (response) {
+      console.log(response)
+      location.href='/';
+    }
+  });
 }
