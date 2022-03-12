@@ -49,56 +49,56 @@ function userinfo_get(chart_year) {
 //년도에 따른 좋아요 노래 update
 function update_info(chart_year) {
     $('#rankchart-row').empty()
-    if (likeMusic.length >= 1) {
-        let albumImageUrl = likeMusic[i]['albumImageUrl']
-        let singer = likeMusic[i]['singer']
-        let title = likeMusic[i]['title']
-        let musicPlaySrc = likeMusic[i]['musicPlaySrc']
-        let year = likeMusic[i]['year']
-        chart_year = parseInt(chart_year)
-        if ( year >= chart_year && year < chart_year+10 ){
-            let temp_html = `<tr class="rankchart-row-box table_line">
-                                    <td>
-                                        <div id="rankchart_img">
-                                            <img src='${albumImageUrl}' width="50px" height="50px"
-                                                 style="border-radius:10px"/>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div id="rankchart_song">${title}</div>
-                                    </td>
-                                    <td>
-                                        <div id="rankchart_artist">${singer}</div>
-                                    </td>
-                                    <td>
-                                        <!-- 재생버튼 -->
-                                        <button type="button">
-                                            <img src="../static/images/palybn_icon_red_hover.png" alt=""
-                                                 class="playbtn">
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <!-- 좋아요 버튼 -->
-                                        <button type="button">
-                                            <img src="../static/images/like_icon_hover.png" alt="" id="likebtn"
-                                                 onclick="toggleLike()">
-                                        </button>
-                                    </td>
-                                </tr>`
-            $('#rankchart-row').append(temp_html)
-
-    }
-  }
-    else {
-        let temp_html = `<div id="list-img">
-                            <img id="theImg" src="../static/images/mypage_bn_like_no.png" />
-                            <div class="list_btn">추천 음악 바로 가기</div>
-                        </div>`
-
-        $('#year-btn').remove();
-        $('.chart_text').remove();
-        $('#section_rankchart').remove();
-        $('#chart-body').append(temp_html)
+    for (let i =0; i<likeMusic.length; i++) {
+        if (likeMusic.length >= 1) {
+            let albumImageUrl = likeMusic[i]['albumImageUrl']
+            let singer = likeMusic[i]['singer']
+            let title = likeMusic[i]['title']
+            let musicPlaySrc = likeMusic[i]['musicPlaySrc']
+            let year = likeMusic[i]['year']
+            chart_year = parseInt(chart_year)
+            if (year >= chart_year && year < chart_year + 10) {
+                console.log(title)
+                let temp_html = `<tr class="rankchart-row-box table_line">
+                                        <td>
+                                            <div id="rankchart_img">
+                                                <img src='${albumImageUrl}' width="50px" height="50px"
+                                                     style="border-radius:10px"/>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div id="rankchart_song">${title}</div>
+                                        </td>
+                                        <td>
+                                            <div id="rankchart_artist">${singer}</div>
+                                        </td>
+                                        <td>
+                                            <!-- 재생버튼 -->
+                                            <button type="button">
+                                                <img src="../static/images/palybn_icon_red_hover.png" alt=""
+                                                     class="playbtn">
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <!-- 좋아요 버튼 -->
+                                            <button type="button">
+                                                <img src="../static/images/like_icon_hover.png" alt="" id="likebtn"
+                                                     onclick="toggleLike()">
+                                            </button>
+                                        </td>
+                                    </tr>`
+                $('#rankchart-row').append(temp_html)
+            }
+        } else {
+            let temp_html = `<div id="list-img">
+                                <img id="theImg" src="../static/images/mypage_bn_like_no.png" />
+                                <div class="list_btn">추천 음악 바로 가기</div>
+                            </div>`
+            $('#year-btn').remove();
+            $('.chart_text').remove();
+            $('#section_rankchart').remove();
+            $('#chart-body').append(temp_html)
+        }
     }
 }
 
