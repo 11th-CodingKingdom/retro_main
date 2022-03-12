@@ -26,7 +26,6 @@
         $(function () {
             $("#confirm").click(function () {
                 modalClose();
-
             });
             $("#modal-open").click(function () {
                 $("#popup").css('display', 'flex').hide().fadeIn();
@@ -41,9 +40,7 @@
         });
 
         function openPopup() {
-            $("#leaveLetro_btn").click(function () {
                 $("#popup").show();
-            })
         }
     </script>
 
@@ -117,17 +114,17 @@
 </header>
 <div class="mypage_hello">
     <!-- 회원 이름 -->
-    안녕하세요, <span class="user_name"></span> 님!
+    안녕하세요, <span class="user_name">{{ session['name']}}</span> 님!
 </div>
 <div id="wrap">
     <div id="mypage_left">
         <div id="left_box">
             <!-- 회원 이메일 -->
             <div id="user_info">
-                <span id="name" class="user_name"></span>
-                <span id="user_id"></span>
+                <span id="name" class="user_name">{{ session['name']}}</span>
+                <span id="user_id">{{ session['userID']}}</span>
             </div>
-            <div id="user_email"></div>
+            <div id="user_email">{{ session['email']}}</div>
         </div>
         <div id="leaveLetro"><input type="button" id="leaveLetro_btn" value="회원탈퇴" onclick="openPopup();"></div>
     </div>
@@ -146,7 +143,7 @@
             </div>
             <div class="music_test_right">
                 <!-- 성향테스트 추천노래 유튜브링크 -->
-                <div class="music_test_btn">추천 음악 바로 가기</div>
+                <div class="music_test_btn"></div>
             </div>
         </div>
         <div id="chart">
