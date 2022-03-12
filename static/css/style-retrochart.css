@@ -65,6 +65,7 @@
 
 #retrochart_table tbody tr {
   height: 100px;
+  border-bottom: 1px solid #f6f6f6;
 }
 
 #retrochart_table tbody td {
@@ -91,12 +92,13 @@
 #retrochart_song_desc {
   text-align: left;
   margin-left: 36px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 #retrochart_song {
   font-size: 16px;
   font-weight: 200;
+  margin-bottom: 10px;
 }
 
 #retrochart_album {
