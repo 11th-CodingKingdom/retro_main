@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="RE:TRO | 그때 그 시절, 당신의 음악" />
+
+    <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="../static/js/main.js"></script>
+    <script defer src="../static/js/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style-retrochart.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <script>
+        $(document).ready(function () {
+            loginStatus();
+        });
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../static/images/favicon.ico">
+
+    <script>
+            $(document).ready(function () {
+            loginStatus();
+        });
+    </script>
+
+</head>
+<body>
+  <header id="header">
+    <div id="logo" onclick="location.href='/'">
+      <img src="../static/images/reteo_logo.png" width="91px" height="26px" />
+    </div>
+    <nav id="nav">
+      <div id="nav_left">
+        <ul>
+          <li><a href="#">음악성향테스트</a></li>
+          <li><a href="#">보관함</a></li>
+        </ul>
+      </div>
+      <div id="searchbox_wrap">
+        <img src="../static/images/search_icon.png" alt="">
+        <input type="text" id="searchbox" placeholder="검색어를 입력하세요.">
+      </div>
+      <div id="nav_right">
+      </div>
+    </nav>
+  </header>
+  <!-- RE:TRO 차트 -->
+  <div id="retrochart_wrap">
+    <!-- 1980-2010 버튼 4개 -->
+    <div id="retrochart-year-btn">
+      <input type="button" class="btn btn-active" value="1980" style="border-radius:20px"/>
+      <input type="button" class="btn" value="1990" style="border-radius:20px"/>
+      <input type="button" class="btn" value="2000" style="border-radius:20px"/>
+      <input type="button" class="btn" value="2010" style="border-radius:20px"/>
+    </div>
+    <!-- RE:TRO 차트 타이틀-->
+    <div id="retrochart_head">
+      <h1>RE:TRO 차트</h1>
+      <span>100위 집계</span>
+    </div>
+    <!-- RE:TRO 차트 목록 -->
+    <div id="retrochart_table">
+      <table>
+        <thead>
+          <tr>
+            <th width="60px">순위</th>
+            <th width="450px">곡</th>
+            <th width="806px">아티스트</th>
+            <th width="60px">듣기</th>
+            <th width="60px">좋아요</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div id="retrochart_rank">1</div>
+            </td>
+            <td>
+              <div id="retrochart_song_wrap">
+                <img src="https://cdn.music-flo.com/image/v2/album/065/520/07/04/407520065_62046e9b_s.jpg?1644457630716/dims/resize/140x140/quality/90"/>
+                <div id="retrochart_song_desc">
+                  <div id="retrochart_song">INVU</div>
+                  <div id="retrochart_album">INVU - The 3rd Album</div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div id="retrochart_artist">태연(TAEYEON)</div>
+            </td>
+            <td><img src="../static/images/playbn_icon_black.png" width="40px" height="40px"/></td>
+            <td><img src="../static/images/like_icon.png" width="30px" height="30px"/></td>
+          </div>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <hr size="1" color="#eeeeee">
+  <footer>
+    <div id="footer_logo" onclick="location.href='/'">
+      <img src="../static/images/logo_footer.png"/>
+    </div>
+    <div id="footer_desc">
+      Copyrights © 2022 - Coding Kingdom Team, All Rights Reserved.
+    </div>
+    <!-- 하단 재생 바 -->
+    <div class="playbar">
+      <div id="playbar_song" class="playbar_song">
+        <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()" />
+      </div>
+      <img src="../static/images/palybn_icon.png" alt="" id="playbtn" onclick="togglePause()" />
+      <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">
+{#      <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">#}
+      <div id="playbar_control" , style="display:none">
+        <td id="player_active" style="display:none">0</td>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
