@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06386f5f-9b52-42ea-a3f6-127bd51ba677" name="Changes" comment="">
+    <list default="true" id="06386f5f-9b52-42ea-a3f6-127bd51ba677" name="Changes" comment="mypage 변경사항에 대해 JS 수정 진행">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/mypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/mypage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index-mypage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index-mypage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -160,6 +163,10 @@
       <workItem from="1646894043083" duration="50000" />
       <workItem from="1646904209295" duration="5721000" />
       <workItem from="1646911992864" duration="5228000" />
+      <workItem from="1646978759146" duration="4240000" />
+      <workItem from="1646983407146" duration="637000" />
+      <workItem from="1646992241866" duration="8762000" />
+      <workItem from="1647002269718" duration="1992000" />
     </task>
     <task id="LOCAL-00001" summary="Retro chart list 6개로 변경">
       <created>1646750837883</created>
@@ -217,7 +224,42 @@
       <option name="project" value="LOCAL" />
       <updated>1646916977844</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="마이페이지 클릭 시 index-mypage.html 연결">
+      <created>1646972662294</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1646972662294</updated>
+    </task>
+    <task id="LOCAL-00010" summary="마이페이지 &#10;- 이메일, 이름, 좋아요 노래, 성향 서버연동완료">
+      <created>1646981976717</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1646981976717</updated>
+    </task>
+    <task id="LOCAL-00011" summary="메인페이지 &#10;- 좋아요 순으로 rank 변환">
+      <created>1646983020492</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1646983020492</updated>
+    </task>
+    <task id="LOCAL-00012" summary="코드정리 &#10;많은 html에서 사용될 JS는 Common.js에 입력하는 것이 코드 중복없을듯 &gt; 유지보수 용이">
+      <created>1646997917908</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1646997917908</updated>
+    </task>
+    <task id="LOCAL-00013" summary="mypage 변경사항에 대해 JS 수정 진행">
+      <created>1646998841639</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1646998841639</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,10 +297,16 @@
     <MESSAGE value="RetroChart 년도 클릭 시 적용되게 수정" />
     <MESSAGE value="로그인 시 PW입력 후 Enter누르면 로그인 완료됨" />
     <MESSAGE value="로그인 페이지에서 회원가입 이동할수 있도록 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="로그인 페이지에서 회원가입 이동할수 있도록 수정" />
+    <MESSAGE value="마이페이지 클릭 시 index-mypage.html 연결" />
+    <MESSAGE value="마이페이지 &#10;- 이메일, 이름, 좋아요 노래, 성향 서버연동완료" />
+    <MESSAGE value="메인페이지 &#10;- 좋아요 순으로 rank 변환" />
+    <MESSAGE value="코드정리 &#10;많은 html에서 사용될 JS는 Common.js에 입력하는 것이 코드 중복없을듯 &gt; 유지보수 용이" />
+    <MESSAGE value="mypage 변경사항에 대해 JS 수정 진행" />
+    <option name="LAST_COMMIT_MESSAGE" value="mypage 변경사항에 대해 JS 수정 진행" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+<<<<<<< HEAD
+    <SUITE FILE_PATH="coverage/retro_frontend$retro_frontend.coverage" NAME="retro_frontend 커버리지 결과" MODIFIED="1647004072724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/retro_frontend$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1646645389000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/retro_frontend$retro_frontend.coverage" NAME="retro_frontend 커버리지 결과" MODIFIED="1646917150431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

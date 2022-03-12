@@ -1,0 +1,5 @@
+flask
+flask-bcrypt
+bs4
+requests
+pymongo

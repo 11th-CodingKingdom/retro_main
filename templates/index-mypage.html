@@ -10,7 +10,7 @@
     <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="../static/js/mypage.js"></script>
-
+    <script defer src="../static/js/common.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style-mypage.css">
 
@@ -21,78 +21,7 @@
     <script>
         $(document).ready(function () {
             loginStatus();
-            retroChart()
         });
-
-        function loginStatus() {
-            let userID = "{{ session['userID']}}"
-            let loginText = ""
-            let href_login_out = ""
-            if (userID == "") {
-                login_logout = "로그인"
-                regist_mypage = "회원가입"
-                href_login_out = "/login_page"
-            } else {
-                login_logout = "로그아웃"
-                regist_mypage = "마이페이지"
-                href_login_out = "/logout"
-            }
-            let login_html = `<ul>
-                                <li><a href="#">RE:TRO 소개</a></li>
-                                <li><a href='/regist_page'>${regist_mypage}</a></li>
-                                <li><a href=${href_login_out}>${login_logout}</a></li>
-                              </ul>`
-            $('#nav_right').append(login_html)
-        }
-
-        function retroChart() {
-            let chart_year = '2010'
-            $.ajax({
-                type: 'GET',
-                url: '/main/chart',
-                data: {'chart_year': chart_year},
-                success: function (response) {
-                    let music_list = response['music_list']
-                    for (let i = 0; i < 6; i++) {
-                        let albumImageUrl = music_list[i]['albumImageUrl']
-                        let singer = music_list[i]['singer']
-                        let title = music_list[i]['title']
-                        let rankchart_html = `<tr class="rankchart-row-box table_line">
-                                    <td>
-                                        <div id="rankchart_img">
-                                            <img src='${albumImageUrl}' width="50px" height="50px"
-                                                 style="border-radius:10px"/>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div id="rankchart_song">${title}</div>
-                                    </td>
-                                    <td>
-                                        <div id="rankchart_artist">${singer}</div>
-                                    </td>
-                                    <td>
-                                        <button type="button">
-                                            <img src="../static/images/palybn_icon_red_hover.png" alt=""
-                                                 class="playbtn">
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button type="button">
-                                            <img src="../static/images/like_icon_hover.png" alt="" id="likebtn"
-                                                 onclick="toggleLike()">
-                                        </button>
-                                    </td>
-                                </tr>`
-                        if (i < 3) {
-                            $('#rankchart-table').append(rankchart_html)
-                        } else {
-                            $('#rankchart-table').append(rankchart_html)
-                        }
-                    }
-
-                }
-            });
-        }
 
         $(function () {
             $("#confirm").click(function () {
@@ -149,17 +78,17 @@
 </header>
 <div class="mypage_hello">
     <!-- 회원 이름 -->
-    안녕하세요, <span class="user_name">임세민</span>&nbsp;님!
+    안녕하세요, <span class="user_name"></span> 님!
 </div>
 <div id="wrap">
     <div id="mypage_left">
         <div id="left_box">
             <!-- 회원 이메일 -->
             <div id="user_info">
-                <span id="name" class="user_name">임세민</span>
-                <span id="user_id">glaemfek</span>
+                <span id="name" class="user_name"></span>
+                <span id="user_id"></span>
             </div>
-            <div id="user_email">glaemfek@gmail.com</div>
+            <div id="user_email"></div>
         </div>
         <div id="leaveLetro"><input type="button" id="leaveLetro_btn" value="회원탈퇴" onclick="openPopup();"></div>
     </div>
@@ -250,10 +179,10 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div id="rankchart_song">INVU</div>
+                                    <div id="rankchart_song"></div>
                                 </td>
                                 <td>
-                                    <div id="rankchart_artist">태연</div>
+                                    <div id="rankchart_artist"></div>
                                 </td>
                                 <td>
                                     <!-- 재생버튼 -->
@@ -264,58 +193,6 @@
                                 </td>
                                 <td>
                                     <!-- 좋아요 버튼 -->
-                                    <button type="button">
-                                        <img src="../static/images/like_icon_hover.png" alt="" id="likebtn"
-                                             onclick="toggleLike()">
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="rankchart-row-box table_line">
-                                <td>
-                                    <div id="rankchart_img">
-                                        <img src='${albumImageUrl}' width="50px" height="50px"
-                                             style="border-radius:10px"/>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div id="rankchart_song">INVU</div>
-                                </td>
-                                <td>
-                                    <div id="rankchart_artist">태연</div>
-                                </td>
-                                <td>
-                                    <button type="button">
-                                        <img src="../static/images/palybn_icon_red_hover.png" alt=""
-                                             class="playbtn">
-                                    </button>
-                                </td>
-                                <td>
-                                    <button type="button">
-                                        <img src="../static/images/like_icon_hover.png" alt="" id="likebtn"
-                                             onclick="toggleLike()">
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="rankchart-row-box table_line">
-                                <td>
-                                    <div id="rankchart_img">
-                                        <img src='${albumImageUrl}' width="50px" height="50px"
-                                             style="border-radius:10px"/>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div id="rankchart_song">INVU</div>
-                                </td>
-                                <td>
-                                    <div id="rankchart_artist">태연</div>
-                                </td>
-                                <td>
-                                    <button type="button">
-                                        <img src="../static/images/palybn_icon_red_hover.png" alt=""
-                                             class="playbtn">
-                                    </button>
-                                </td>
-                                <td>
                                     <button type="button">
                                         <img src="../static/images/like_icon_hover.png" alt="" id="likebtn"
                                              onclick="toggleLike()">
