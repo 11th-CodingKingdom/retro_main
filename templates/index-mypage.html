@@ -169,34 +169,6 @@
                             </tr>
                             </thead>
                             <tbody id="rankchart-row">
-                            <tr class="rankchart-row-box table_line">
-                                <td>
-                                    <div id="rankchart_img">
-                                        <img src='${albumImageUrl}' width="50px" height="50px"
-                                             style="border-radius:10px"/>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div id="rankchart_song"></div>
-                                </td>
-                                <td>
-                                    <div id="rankchart_artist"></div>
-                                </td>
-                                <td>
-                                    <!-- 재생버튼 -->
-                                    <button type="button">
-                                        <img src="../static/images/palybn_icon_red_hover.png" alt=""
-                                             class="playbtn">
-                                    </button>
-                                </td>
-                                <td>
-                                    <!-- 좋아요 버튼 -->
-                                    <button type="button">
-                                        <img src="../static/images/like_icon_hover.png" alt="" id="likebtn"
-                                             onclick="toggleLike()">
-                                    </button>
-                                </td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -209,7 +181,7 @@
 <!-- FOOTER -->
 <hr size="1" color="#eeeeee">
 <footer>
-    <div id="footer_logo">
+    <div id="footer_logo" onclick="location.href='/'">
         <img src="../static/images/logo_footer.png"/>
     </div>
     <div id="footer_desc">

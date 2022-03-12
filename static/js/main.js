@@ -73,38 +73,81 @@ function retroChart_update(chart_year) {
         let year = music_list[i]['year']
         chart_year = parseInt(chart_year)
         if (year == chart_year) {
-            let albumchart_html = `<div class="albumchart-box" onclick="location.href='#'">
-                                      <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
-                                        <img onclick="main_playing_active(${songID})" src="../static/images/palybn_icon_red.png" alt="" id="albumchart_play" onmouseover="this.src='../static/images/palybn_icon_red_hover.png'" onmouseout="this.src='../static/images/palybn_icon_red.png'">
-                                      </div>
-                                      <div id="albumchart_desc">
-                                        <span id="albumchart_rank">${rank}</span>
-                                        <span id="albumchart_song">${title}</span>
-                                        <span id="albumchart_artist">${singer}</span>
-                                      </div>
-                                   </div>`
-            let rankchart_html = `<tr id="rankchart-row">
-                                      <td>
-                                        <div id="rankchart_img">
-                                          <img src='${albumImageUrl}' width="50px" height="50px" style="border-radius:10px"/>
-                                        </div>
-                                      </td>
-                                      <td>
-                                        <div id="rankchart_rank">${rank}</div>
-                                      </td>
-                                      <td>
-                                        <div id="rankchart_desc">
-                                          <div id="rankchart_song">${title}</div>
-                                          <div id="rankchart_artist">${singer}</div>
-                                        </div>
-                                      </td>
-                                    </tr>`
-            if (rank < 4) {
-                $('#section_albumchart .albumchart_rowbody:eq(0)').append(albumchart_html)
-                $('#rankchart-table').append(rankchart_html)
-            } else {
-                $('#section_albumchart .albumchart_rowbody:eq(1)').append(albumchart_html)
-                $('#rankchart-table').append(rankchart_html)
+            if (title.length > 10){
+                let albumchart_html = `<div class="albumchart-box" onclick="location.href='#'">
+                                          <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
+                                            <img onclick="main_playing_active(${songID})" src="../static/images/palybn_icon_red.png" alt="" id="albumchart_play" onmouseover="this.src='../static/images/palybn_icon_red_hover.png'" onmouseout="this.src='../static/images/palybn_icon_red.png'">
+                                          </div>
+                                          <div id="albumchart_desc">
+                                            <span id="albumchart_rank">${rank}</span>
+                                            <span id="albumchart_song">
+                                                <MARQUEE width="168" height="18" scrollamount="5">${title}</MARQUEE>
+                                            </span>
+                                            <span id="albumchart_artist">${singer}</span>
+                                          </div>
+                                       </div>`
+                let rankchart_html = `<tr id="rankchart-row">
+                                          <td>
+                                            <div id="rankchart_img">
+                                              <img src='${albumImageUrl}' width="50px" height="50px" style="border-radius:10px"/>
+                                            </div>
+                                          </td>
+                                          <td>
+                                            <div id="rankchart_rank">${rank}</div>
+                                          </td>
+                                          <td>
+                                            <div id="rankchart_desc">
+                                              <div id="rankchart_song">
+                                                  <MARQUEE width="168" height="18" scrollamount="5">${title}</MARQUEE>
+                                              </div>
+                                              <div id="rankchart_artist">${singer}</div>
+                                            </div>
+                                          </td>
+                                        </tr>`
+                if (rank < 4) {
+                    $('#section_albumchart .albumchart_rowbody:eq(0)').append(albumchart_html)
+                    $('#rankchart-table').append(rankchart_html)
+                } else {
+                    $('#section_albumchart .albumchart_rowbody:eq(1)').append(albumchart_html)
+                    $('#rankchart-table').append(rankchart_html)
+                }
+                }
+            else {
+                let albumchart_html = `<div class="albumchart-box" onclick="location.href='#'">
+                                          <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
+                                            <img onclick="main_playing_active(${songID})" src="../static/images/palybn_icon_red.png" alt="" id="albumchart_play" onmouseover="this.src='../static/images/palybn_icon_red_hover.png'" onmouseout="this.src='../static/images/palybn_icon_red.png'">
+                                          </div>
+                                          <div id="albumchart_desc">
+                                            <span id="albumchart_rank">${rank}</span>
+                                            <span id="albumchart_song">
+                                                ${title}
+                                            </span>
+                                            <span id="albumchart_artist">${singer}</span>
+                                          </div>
+                                       </div>`
+                let rankchart_html = `<tr id="rankchart-row">
+                                          <td>
+                                            <div id="rankchart_img">
+                                              <img src='${albumImageUrl}' width="50px" height="50px" style="border-radius:10px"/>
+                                            </div>
+                                          </td>
+                                          <td>
+                                            <div id="rankchart_rank">${rank}</div>
+                                          </td>
+                                          <td>
+                                            <div id="rankchart_desc">
+                                              <div id="rankchart_song">${title}</div>
+                                              <div id="rankchart_artist">${singer}</div>
+                                            </div>
+                                          </td>
+                                        </tr>`
+                if (rank < 4) {
+                    $('#section_albumchart .albumchart_rowbody:eq(0)').append(albumchart_html)
+                    $('#rankchart-table').append(rankchart_html)
+                } else {
+                    $('#section_albumchart .albumchart_rowbody:eq(1)').append(albumchart_html)
+                    $('#rankchart-table').append(rankchart_html)
+                }
             }
         }
     }
