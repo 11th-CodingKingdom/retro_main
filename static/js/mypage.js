@@ -33,23 +33,15 @@ function toggleLike() {
   document.getElementById("likebtn").src = "../static/images/like_icon_hover.png";
 }
 
-// 회원 정보 불러오는 기능
-var email, id, name, likeMusic, preferenceResult;
+//마이페이지 새로고침 (좋아요 노래, 성향테스트 결과 표시)
 function userinfo_get(chart_year) {
   $.ajax({
     type: 'GET',
     url: '/userinfo',
     data: {},
     success: function (response) {
-      email = response['userinfo']['email']
-      name = response['userinfo']['name']
-      preferenceResult = response['userinfo']['preferenceResult']
-      id = response['userinfo']['id']
       likeMusic = response['likeMusic']
-
-      $('#user_email').text(email)
-      $('#user_id').text(id)
-      $('.user_name').text(name)
+      preferenceResult = response['preferenceResult']
       if (typeof preferenceResult == "undefined" || preferenceResult == null || preferenceResult == "") {
         $('.test_left_middle').text("성향평가가 필요!")
       }
@@ -72,10 +64,6 @@ function update_info(chart_year) {
     let year = likeMusic[i]['year']
     chart_year = parseInt(chart_year)
     if ( year >= chart_year && year < chart_year+10 ){
-      console.log(year >= chart_year)
-      console.log(year < chart_year+10)
-      console.log(year)
-      console.log(chart_year)
       let temp_html = `<tr class="rankchart-row-box table_line">
                                 <td>
                                     <div id="rankchart_img">

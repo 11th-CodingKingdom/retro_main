@@ -45,7 +45,13 @@ def login():
 
     if information is not None:
         if bcrypt.check_password_hash(information['pw'], pw):
+            email = information['email']
+            name = information['name']
+            preferenceResult = information['preferenceResult']
             session['userID'] = id
+            session['email'] = email
+            session['name'] = name
+            session['preferenceResult'] = preferenceResult
             msg = "로그인 성공!"
         else:
             msg = "ID 혹은 비밀번호를 확인하세요"
@@ -102,18 +108,9 @@ def mypage():
 @app.route('/userinfo', methods=['GET'])
 def mypage_info():
     id = session['userID']
-    userinfo = db.users.find_one({'id':id}, {'_id':False})
-    userinfo.pop('pw',None)
-    datas = userinfo['likeMusic']
-    userinfo.pop('likeMusic', None)
-    likeMusics = []
-    for d in datas:
-        likeMusic = db.musics.find_one({'songID': d}, {'_id':False})
-        if likeMusic is not None:
-            [likeMusic.pop(key,None) for key in ['songID','rank','Region','albumID','rank_type','like','genre','sondID']]
-            likeMusic['musicPlaySrc'] = db.musicPlaySrc.find_one({'songID': d}, {'_id': False})['musicPlaySrc']
-            likeMusics.append(likeMusic)
-    return jsonify({'userinfo': userinfo, "likeMusic":likeMusics})
+    preferenceResult =session['preferenceResult']
+    likeMusics = list(db.likeMusic.find({'id': id}, {'_id': False}))
+    return jsonify({"likeMusic":likeMusics, "preferenceResult":preferenceResult})
 
 @app.route('/userinfo', methods=['POST'])
 def mypage_infoex():
