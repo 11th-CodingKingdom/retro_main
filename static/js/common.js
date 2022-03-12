@@ -1,6 +1,8 @@
-
 // 하단 playbar에서 play 버튼 <-> pause 버튼 변경을 위한 변수
 let playcnt = 1;
+$("#nav_left ul li a:eq(1)").attr("href", "/mypage")
+$("#logo").attr("onclick", "location.href='/'")
+$("#footer_logo").attr("onclick", "location.href='/'")
 
 // 로그인 상태 업데이트
 function loginStatus() {
@@ -33,7 +35,6 @@ function loginStatus() {
     });
 
 }
-
 
 // 화면 하단 플레이어 재생, 일시정지 제어함수
 function playing_control(){

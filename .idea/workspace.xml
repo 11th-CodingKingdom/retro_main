@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06386f5f-9b52-42ea-a3f6-127bd51ba677" name="Changes" comment="메인페이지 년도 변경 시 빠르게 data 전환할 수 있도록 수정">
+    <list default="true" id="06386f5f-9b52-42ea-a3f6-127bd51ba677" name="Changes" comment="메인페이지 제목 2줄안되게 (텍스트이동....;;)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index-login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index-login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index-mypage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index-mypage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index-signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index-signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +195,7 @@
       <workItem from="1647051987600" duration="5365000" />
       <workItem from="1647058239383" duration="914000" />
       <workItem from="1647062496479" duration="4296000" />
-      <workItem from="1647067781717" duration="1503000" />
+      <workItem from="1647067781717" duration="2864000" />
     </task>
     <task id="LOCAL-00001" summary="Retro chart list 6개로 변경">
       <created>1646750837883</created>
@@ -276,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647066451420</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="메인페이지 제목 2줄안되게 (텍스트이동....;;)">
+      <created>1647069529419</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1647069529419</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,11 +322,12 @@
     <MESSAGE value="마이페이지 upload속도개선" />
     <MESSAGE value="회원탈퇴 기능 추가&#10;회원탈퇴 후 Main page로 이동" />
     <MESSAGE value="메인페이지 년도 변경 시 빠르게 data 전환할 수 있도록 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="메인페이지 년도 변경 시 빠르게 data 전환할 수 있도록 수정" />
+    <MESSAGE value="메인페이지 제목 2줄안되게 (텍스트이동....;;)" />
+    <option name="LAST_COMMIT_MESSAGE" value="메인페이지 제목 2줄안되게 (텍스트이동....;;)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/retro_frontend$Flask__temp_py_.coverage" NAME="Flask (temp.py) 커버리지 결과" MODIFIED="1647054733329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/retro_frontend$retro_frontend.coverage" NAME="retro_frontend 커버리지 결과" MODIFIED="1647053821414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/retro_frontend$Flask__app_py_.coverage" NAME="Flask (app.py) 커버리지 결과" MODIFIED="1647069294855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/retro_frontend$Flask__app_py_.coverage" NAME="Flask (app.py) 커버리지 결과" MODIFIED="1647070665445" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
