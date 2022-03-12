@@ -177,7 +177,7 @@ header #nav {
   margin-left: 20px;
 }
 
-#year-btn {
+#year-btn_wrap {
   /* background-color: aliceblue; */
   width: 324px;
   margin-left: 465px;
@@ -323,7 +323,7 @@ td {
   width: 72px;
   height: 30px;
   border: 2px solid #c0c0c0;
-  border-radius: 8px;
+  border-radius: 20px;
   display: inline-block;
   font-size: 16px;
   font-weight: 500;
