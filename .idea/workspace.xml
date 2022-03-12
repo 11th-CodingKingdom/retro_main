@@ -4,22 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06386f5f-9b52-42ea-a3f6-127bd51ba677" name="Changes" comment="temp">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/retro_frontend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/retro_frontend.iml" afterDir="false" />
+    <list default="true" id="06386f5f-9b52-42ea-a3f6-127bd51ba677" name="Changes" comment="mypage 변경사항에 대해 JS 수정 진행">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/mypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/mypage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index-mypage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index-mypage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
   </component>
   <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
     <envs>
@@ -64,7 +58,6 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -75,12 +68,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\onlyo\OneDrive\바탕 화면\라면대마왕마이콜\스파르타코딩클럽_웹개발종합반\Retro\retro_frontend" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Python.collection">
+  <component name="RunManager" selected="Python.retro_frontend">
     <configuration name="MelonCrawling" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="retro_frontend" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -95,28 +83,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../Supplement/MelonCrawling/MelonCrawling.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="collection" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="retro_frontend" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/collection.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -154,22 +120,7 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Flask" type="Python.FlaskServer" temporary="true" nameIsGenerated="true">
-      <module name="retro_frontend" />
-      <option name="target" value="$PROJECT_DIR$/temp.py" />
-      <option name="targetType" value="PATH" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -179,8 +130,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.collection" />
-        <item itemvalue="Flask 서버.Flask (app.py)" />
         <item itemvalue="Python.MelonCrawling" />
       </list>
     </recent_temporary>
@@ -214,14 +163,10 @@
       <workItem from="1646894043083" duration="50000" />
       <workItem from="1646904209295" duration="5721000" />
       <workItem from="1646911992864" duration="5228000" />
-      <workItem from="1647050635910" duration="1134000" />
-      <workItem from="1647051987600" duration="5365000" />
-      <workItem from="1647058239383" duration="914000" />
-      <workItem from="1647062496479" duration="4296000" />
-      <workItem from="1647067781717" duration="3158000" />
-      <workItem from="1647071042901" duration="28000" />
-      <workItem from="1647077299212" duration="5212000" />
-      <workItem from="1647086873824" duration="3214000" />
+      <workItem from="1646978759146" duration="4240000" />
+      <workItem from="1646983407146" duration="637000" />
+      <workItem from="1646992241866" duration="8762000" />
+      <workItem from="1647002269718" duration="1992000" />
     </task>
     <task id="LOCAL-00001" summary="Retro chart list 6개로 변경">
       <created>1646750837883</created>
@@ -279,63 +224,42 @@
       <option name="project" value="LOCAL" />
       <updated>1646916977844</updated>
     </task>
-    <task id="LOCAL-00009" summary="마이페이지 upload속도개선">
-      <created>1647055886066</created>
+    <task id="LOCAL-00009" summary="마이페이지 클릭 시 index-mypage.html 연결">
+      <created>1646972662294</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1647055886066</updated>
+      <updated>1646972662294</updated>
     </task>
-    <task id="LOCAL-00010" summary="회원탈퇴 기능 추가&#10;회원탈퇴 후 Main page로 이동">
-      <created>1647057530756</created>
+    <task id="LOCAL-00010" summary="마이페이지 &#10;- 이메일, 이름, 좋아요 노래, 성향 서버연동완료">
+      <created>1646981976717</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1647057530756</updated>
+      <updated>1646981976717</updated>
     </task>
-    <task id="LOCAL-00011" summary="메인페이지 년도 변경 시 빠르게 data 전환할 수 있도록 수정">
-      <created>1647066451420</created>
+    <task id="LOCAL-00011" summary="메인페이지 &#10;- 좋아요 순으로 rank 변환">
+      <created>1646983020492</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1647066451420</updated>
+      <updated>1646983020492</updated>
     </task>
-    <task id="LOCAL-00012" summary="메인페이지 제목 2줄안되게 (텍스트이동....;;)">
-      <created>1647069529419</created>
+    <task id="LOCAL-00012" summary="코드정리 &#10;많은 html에서 사용될 JS는 Common.js에 입력하는 것이 코드 중복없을듯 &gt; 유지보수 용이">
+      <created>1646997917908</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1647069529419</updated>
+      <updated>1646997917908</updated>
     </task>
-    <task id="LOCAL-00013" summary="logo, 하단 log 클릭 시 home으로 &#10;- common.js에 적용하여 모든 html에서 적용됨&#10;- 요소마다, html마다 적용할 필요 없음">
-      <created>1647070845291</created>
+    <task id="LOCAL-00013" summary="mypage 변경사항에 대해 JS 수정 진행">
+      <created>1646998841639</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1647070845291</updated>
+      <updated>1646998841639</updated>
     </task>
-    <task id="LOCAL-00014" summary="logo, 하단 log 클릭 시 home으로 &#10;- common.js에 적용하여 모든 html에서 적용됨&#10;- 요소마다, html마다 적용할 필요 없음">
-      <created>1647070920896</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1647070920896</updated>
-    </task>
-    <task id="LOCAL-00015" summary="js 설명추가">
-      <created>1647079060497</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1647079060497</updated>
-    </task>
-    <task id="LOCAL-00016" summary="temp">
-      <created>1647087319061</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1647087319061</updated>
-    </task>
-    <option name="localTasksCounter" value="17" />
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,19 +297,16 @@
     <MESSAGE value="RetroChart 년도 클릭 시 적용되게 수정" />
     <MESSAGE value="로그인 시 PW입력 후 Enter누르면 로그인 완료됨" />
     <MESSAGE value="로그인 페이지에서 회원가입 이동할수 있도록 수정" />
-    <MESSAGE value="마이페이지 upload속도개선" />
-    <MESSAGE value="회원탈퇴 기능 추가&#10;회원탈퇴 후 Main page로 이동" />
-    <MESSAGE value="메인페이지 년도 변경 시 빠르게 data 전환할 수 있도록 수정" />
-    <MESSAGE value="메인페이지 제목 2줄안되게 (텍스트이동....;;)" />
-    <MESSAGE value="logo, 하단 log 클릭 시 home으로 &#10;- common.js에 적용하여 모든 html에서 적용됨&#10;- 요소마다, html마다 적용할 필요 없음" />
-    <MESSAGE value="js 설명추가" />
-    <MESSAGE value="temp" />
-    <option name="LAST_COMMIT_MESSAGE" value="temp" />
+    <MESSAGE value="마이페이지 클릭 시 index-mypage.html 연결" />
+    <MESSAGE value="마이페이지 &#10;- 이메일, 이름, 좋아요 노래, 성향 서버연동완료" />
+    <MESSAGE value="메인페이지 &#10;- 좋아요 순으로 rank 변환" />
+    <MESSAGE value="코드정리 &#10;많은 html에서 사용될 JS는 Common.js에 입력하는 것이 코드 중복없을듯 &gt; 유지보수 용이" />
+    <MESSAGE value="mypage 변경사항에 대해 JS 수정 진행" />
+    <option name="LAST_COMMIT_MESSAGE" value="mypage 변경사항에 대해 JS 수정 진행" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/retro_frontend$Flask__temp_py_.coverage" NAME="Flask (temp.py) 커버리지 결과" MODIFIED="1647054733329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/retro_frontend$retro_frontend.coverage" NAME="retro_frontend 커버리지 결과" MODIFIED="1647087649077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/retro_frontend$collection.coverage" NAME="collection 커버리지 결과" MODIFIED="1647089503093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/retro_frontend$Flask__app_py_.coverage" NAME="Flask (app.py) 커버리지 결과" MODIFIED="1647087499542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+<<<<<<< HEAD
+    <SUITE FILE_PATH="coverage/retro_frontend$retro_frontend.coverage" NAME="retro_frontend 커버리지 결과" MODIFIED="1647004072724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/retro_frontend$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1646645389000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

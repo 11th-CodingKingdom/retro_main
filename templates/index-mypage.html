@@ -41,7 +41,9 @@
         });
 
         function openPopup() {
-            $("#popup").show();
+            $("#leaveLetro_btn").click(function () {
+                $("#popup").show();
+            })
         }
     </script>
 
@@ -54,42 +56,6 @@
 
 </head>
 <body>
-<header id="header">
-    <div id="logo">
-        <img src="../static/images/reteo_logo.png" width="91px" height="26px"/>
-    </div>
-    <nav id="nav">
-        <div id="nav_left">
-            <ul>
-                <!-- 성향테스트 -->
-                <li><a href="#">음악성향테스트</a></li>
-                <li><a href="#">보관함</a></li>
-            </ul>
-        </div>
-        <div id="searchbox_wrap">
-            <img src="../static/images/search_icon.png" alt="">
-            <input type="text" id="searchbox" placeholder="검색어를 입력하세요.">
-        </div>
-        <div id="nav_right">
-        </div>
-    </nav>
-</header>
-<div class="mypage_hello">
-    <!-- 회원 이름 -->
-    안녕하세요, <span class="user_name">{{ session['name']}}</span> 님!
-</div>
-<div id="wrap">
-    <div id="mypage_left">
-        <div id="left_box">
-            <!-- 회원 이메일 -->
-            <div id="user_info">
-                <span id="name" class="user_name">{{ session['name']}}</span>
-                <span id="user_id">{{ session['userID']}}</span>
-            </div>
-            <div id="user_email">{{ session['email']}}</div>
-        </div>
-        <div id="leaveLetro"><input type="button" id="leaveLetro_btn" value="회원탈퇴" onclick="openPopup()"></div>
-    </div>
     <!-- popup -->
     <div class="container">
         <div class="popup-wrap" id="popup">
@@ -129,11 +95,48 @@
         </div>
     </div>
     <!-- popup -->
-    <div id="mypage_right">
-        <div class="music_test_img">
-            <img src="../static/images/mypage_bn_test_ok.png" alt="">
+<header id="header">
+    <div id="logo" onclick="location.href='#'">
+        <img src="../static/images/reteo_logo.png" width="91px" height="26px"/>
+    </div>
+    <nav id="nav">
+        <div id="nav_left">
+            <ul>
+                <!-- 성향테스트 -->
+                <li><a href="#">음악성향테스트</a></li>
+                <li><a href="#">보관함</a></li>
+            </ul>
         </div>
+        <div id="searchbox_wrap">
+            <img src="../static/images/search_icon.png" alt="">
+            <input type="text" id="searchbox" placeholder="검색어를 입력하세요.">
+        </div>
+        <div id="nav_right">
+        </div>
+    </nav>
+</header>
+<div class="mypage_hello">
+    <!-- 회원 이름 -->
+    안녕하세요, <span class="user_name"></span> 님!
+</div>
+<div id="wrap">
+    <div id="mypage_left">
+        <div id="left_box">
+            <!-- 회원 이메일 -->
+            <div id="user_info">
+                <span id="name" class="user_name"></span>
+                <span id="user_id"></span>
+            </div>
+            <div id="user_email"></div>
+        </div>
+        <div id="leaveLetro"><input type="button" id="leaveLetro_btn" value="회원탈퇴" onclick="openPopup();"></div>
+    </div>
+
+    <div id="mypage_right">
         <div class="music_test_banner">
+            <div class="music_test_img">
+                <img src="../static/images/mypage_bn_test_ok.png" alt="">
+            </div>
             <div class="music_test_left">
                 <div class="music_test_txt">
                     <span class="test_left_top test_text">나의 음악 성향 테스트 결과는?</span>
@@ -169,6 +172,7 @@
                             </tr>
                             </thead>
                             <tbody id="rankchart-row">
+
                             </tbody>
                         </table>
                     </div>
@@ -181,7 +185,7 @@
 <!-- FOOTER -->
 <hr size="1" color="#eeeeee">
 <footer>
-    <div id="footer_logo" onclick="location.href='/'">
+    <div id="footer_logo">
         <img src="../static/images/logo_footer.png"/>
     </div>
     <div id="footer_desc">
@@ -189,15 +193,15 @@
     </div>
     <!-- 하단 재생 바 -->
     <div class="playbar">
-        <div class="playbar_song">
-            <div class="youtube_movie"></div>
-            <div class="playbar_song_wrap">
-                <div class="playbar_song_title">인생 한잔</div>
-                <div class="playbar_song_artist">정은지</div>
-            </div>
-            <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">
-        </div>
-        <img src="../static/images/palybn_icon.png" alt="" class="playbtn">
+      <div id="playbar_song" class="playbar_song">
+        <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()" />
+      </div>
+      <img src="../static/images/palybn_icon.png" alt="" id="playbtn" onclick="togglePause()" />
+      <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">
+{#      <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">#}
+      <div id="playbar_control" , style="display:none">
+        <td id="player_active" style="display:none">0</td>
+      </div>
     </div>
 </footer>
 </body>
