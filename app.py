@@ -111,14 +111,14 @@ def mypage():
         return redirect('/login_page')
 
 @app.route('/userinfo', methods=['GET'])
-def mypage_info():
+def userinfo():
     id = session['userID']
     preferenceResult =session['preferenceResult']
     likeMusics = list(db.likeMusic.find({'id': id}, {'_id': False}))
     return jsonify({"likeMusic":likeMusics, "preferenceResult":preferenceResult})
 
 @app.route('/userinfo', methods=['POST'])
-def mypage_withdraw():
+def withdraw():
     id = session['userID']
     information = db.users.find_one({'id':id}, {'_id': False})
     if information != None:
