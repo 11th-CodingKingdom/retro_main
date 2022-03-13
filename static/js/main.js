@@ -30,14 +30,21 @@ popup.addEventListener('click', closePopup);
 
 // RetroChart 업데이트
 function retroChart(chart_year) {
-  $.ajax({
-      type: 'GET',
-      url: '/main/chart',
-      data: {},
-      success: function (response) {
-          music_list = response['music_list']
-          localStorage.setItem('music_list',music_list)
-          retroChart_update(chart_year)
+    localStorage.clear()
+    $.ajax({
+        type: 'GET',
+        url: '/main/chart',
+        data: {},
+        success: function (response) {
+            musics_1980 = JSON.stringify(response['musics_1980'])
+            localStorage.setItem('musics_1980',JSON.stringify(musics_1980))
+            musics_1990 = JSON.stringify(response['musics_1990'])
+            localStorage.setItem('musics_1990',JSON.stringify(musics_1990))
+            musics_2000 = JSON.stringify(response['musics_2000'])
+            localStorage.setItem('musics_2000',JSON.stringify(musics_2000))
+            musics_2010 = JSON.stringify(response['musics_2010'])
+            localStorage.setItem('musics_2010',JSON.stringify(musics_2010))
+            retroChart_update(chart_year)
       }
   });
 }
@@ -54,11 +61,16 @@ function button_banner_btn_click() {
 
 // RetroChart Update (년도 변경 시 Chart update)
 function retroChart_update(chart_year) {
+    musics_1980 = JSON.parse(localStorage.getItem('musics_1980'))
+    console.log(musics_1980)
     $('#section_albumchart .albumchart_rowbody:eq(0)').empty()
     $('#section_albumchart .albumchart_rowbody:eq(1)').empty()
     $('#rankchart-table').empty()
-    ranks = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]
-    for (let i = 0; i < music_list.length; i++) {
+    chart_year = parseInt(chart_year)
+    if (chart_year == 1980) {
+        console.log(typeof musics_1980)
+    }
+    for (let i = 0; i < 7; i++) {
         let albumImageUrl = music_list[i]['albumImageUrl']
         let rank = ranks[i]
         let singer = music_list[i]['singer']
