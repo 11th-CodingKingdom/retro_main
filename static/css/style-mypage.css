@@ -2,6 +2,200 @@
     font-family: "Noto Sans KR", sans-serif;
 }
 
+/*popup*/
+.container {
+    position: fixed;
+    z-index: 15050;
+}
+
+.popup-wrap {
+    background-color: rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /*display: show;*/
+    display: none;
+    padding: 15px;
+}
+
+.note_img {
+    width: auto;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.note_img img {
+    width: 841px;
+    height: 595px;
+}
+
+.popup {
+    margin: 50px auto;
+    height: 560px;
+    width: 543px;
+    padding: 20px;
+    overflow: hidden;
+    background-color: white;
+    border: #eb1400 2.5px solid;
+    box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+.popup-head {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    text-align: left;
+    margin: 40px auto 20px 40px;
+    letter-spacing: -0.02em;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.popup-head p {
+    margin: 20px;
+}
+
+.head {
+    margin: 20px;
+    letter-spacing: -0.02em;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.head-title {
+    width: 100%;
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: -0.05em;
+
+}
+
+.head-body {
+    width: 100%;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+}
+
+.popup-body {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.body-content {
+    width: 100%;
+    padding: 30px;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.body-titlebox {
+    color: #a3a3a3;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.body-titlebox p {
+    padding-top: 10px;
+    text-align: left;
+    color: #afafaf;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: -0.02em;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.body-contentbox {
+    word-break: break-word;
+    overflow-y: auto;
+    min-height: 100px;
+    max-height: 200px;
+    background-color: #dfdfdf;
+}
+
+.popup-foot {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.popupfoot_btn {
+    margin: 0 auto;
+    width: 271px;
+    height: 80px;
+}
+
+.popupfoot_btn .foot_btn {
+    width: 300px;
+    height: 50px;
+    align-items: center;
+}
+
+.pop-btn {
+    display: inline-flex;
+    width: 270px;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    color: #ffffff;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.pop-btn.close {
+    background-color: #e60012;
+    width: 270px;
+    height: 70px;
+    margin: 80px 0 20px 0;
+
+    cursor: pointer;
+
+    color: #dfdfdf;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+
+    text-align: center;
+    line-height: 48px;
+    vertical-align: middle;
+    border-right: 1px solid #3b5fbf;
+}
+
+.foot_btn #confirm {
+    cursor: pointer;
+}
+
+.pop-btn.confirm {
+    background-color: #d4d4d4;
+    width: 270px;
+    height: 70px;
+
+    cursor: pointer;
+
+    color: #747474;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+
+    text-align: center;
+    line-height: 48px;
+    vertical-align: middle;
+}
+
+/*popup*/
+
 header {
     /* background-color: lightgray; */
     width: 1476px;
@@ -57,7 +251,6 @@ header #nav {
 
 #searchbox_wrap {
     display: inline-block;
-    margin-left: 40px;
     position: relative;
 }
 
@@ -70,7 +263,7 @@ header #nav {
 }
 
 #searchbox_wrap #searchbox {
-    width: 346px;
+    width: 355px;
     height: 30px;
     margin-top: 12px;
     border: 2px solid #eb1400;
@@ -86,13 +279,14 @@ header #nav {
     /* background-color: #a4a4a4; */
     height: 30px;
     margin-top: 22px;
-    margin-left: 300px;
+    margin-left: 350px;
 }
 
 #nav_right ul {
     position: relative;
     top: 1px;
     display: flex;
+    padding-left: 30px;
 }
 
 #nav_right ul li {
@@ -109,42 +303,42 @@ header #nav {
 }
 
 .mypage_hello {
-    width: 1435px;
+    width: 1476px;
     height: 40px;
-    font-size: 35px;
-    font-weight: 500;
+    font-size: 36px;
+    font-weight: 400;
     margin: 0 auto;
-    padding-bottom: 26px;
-    letter-spacing: -0.07em;
+    padding-bottom: 40px;
+    letter-spacing: -0.05em;
     font-family: "Noto Sans KR", sans-serif;
 }
 
 .mypage_hello span {
-    font-weight: bolder;
-
+    font-weight: 700;
+    font-family: "Noto Sans KR", sans-serif;
 }
 
 #wrap {
     /* background-color: antiquewhite; */
-    width: 1435px;
+    width: 1476px;
     margin: 0 auto;
     display: flex;
-    font-family: "Noto Sans KR", sans-serifs;
 }
 
 #mypage_left {
     float: left;
     width: 310px;
     height: 435px;
+    font-family: "Noto Sans KR", sans-serif;
 
 }
 
 #left_box {
     width: 310px;
-    height: 90px;
+    height: 85px;
     border-radius: 6px;
-    border: 2px solid #dfdfdf;
-    padding: 18px;
+    border: 2px solid #a0a0a0;
+    padding: 14px;
     box-sizing: border-box;
 }
 
@@ -155,18 +349,24 @@ header #nav {
 #user_info #name {
     color: black;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    margin-right: 5px;
 }
 
 #user_info #user_id {
-    color: #747474;
-    font-size: 16px;
+    color: #bcbcbc;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.05em;
 }
 
 #user_email {
     color: black;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 400;
+    letter-spacing: 0;
+
 }
 
 #leaveLetro {
@@ -178,14 +378,16 @@ header #nav {
 }
 
 #leaveLetro_btn {
-    color: #747474;
+    color: #919191;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.05em;
     background-color: transparent;
     border: 0;
     appearance: none;
     cursor: pointer;
     margin: 0 auto;
     outline: none;
-    font-size: 14px;
 }
 
 #mypage_right {
@@ -194,29 +396,30 @@ header #nav {
     height: 1000px;
 }
 
+#mypage_right .music_test_img {
+    padding-bottom: 34px;
+}
+
 .music_test_banner {
-    background-color: #dfdfdf;
     width: 966px;
     height: 150px;
     margin: 0 auto 0 64px;
     border-radius: 8px;
     display: flex;
     align-items: center;
-
     vertical-align: middle;
+
+    position: relative;
 }
 
 .music_test_img {
-    width: 180px;
-    height: 170px;
-    padding-left: 10px;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
 }
 
 .music_test_banner img {
-    width: 170px;
-    height: 100px;
     margin: 0 auto;
     display: block;
 }
@@ -226,6 +429,10 @@ header #nav {
     height: 170px;
     display: flex;
     padding-right: 180px;
+
+    position: absolute;
+    top: -8px;
+    left: 250px;
 }
 
 .music_test_banner .test_text {
@@ -238,29 +445,37 @@ header #nav {
 .music_test_banner .music_test_left .test_left_top {
     color: #747474;
     font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.05em;
     height: 50px;
-    padding-top: 32px;
+    padding-top: 40px;
 }
 
 .music_test_banner .music_test_left .test_left_middle {
     color: #191919;
     font-size: 30px;
-    font-weight: 800;
+    font-weight: 700;
+    letter-spacing: -0.05em;
     height: 50px;
-    padding-top: 17px;
+    padding-top: 20px;
 }
 
 .music_test_banner .music_test_left .test_left_bottom {
     color: #191919;
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.05em;
     height: 50px;
     padding-top: 15px;
 }
 
 .music_test_banner .music_test_right {
-    margin-right: 44px;
+    margin-right: 64px;
     margin-left: auto;
+
+    position: absolute;
+    top: 55px;
+    right: -130px;
 }
 
 .music_test_right .music_test_btn {
@@ -272,8 +487,9 @@ header #nav {
 
     color: #dfdfdf;
     font-family: "Noto Sans KR", sans-serif;
-    font-weight: bold;
-    font-size: 14px;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: -0.05em;
 
     text-align: center;
     line-height: 48px;
@@ -303,25 +519,27 @@ header #nav {
 
 #chart-body #year-btn {
     /* background-color: aliceblue; */
-    width: 324px;
+    width: 380px;
     text-align: center;
     align-items: center;
     padding-bottom: 10px;
+    padding-top: 20px;
 }
 
 .btn {
-    width: 72px;
+    width: 85px;
     height: 30px;
-    border: 2px solid #c0c0c0;
+    border: 2px solid #afafaf;
     border-radius: 14px;
     display: inline-block;
-    font-size: 14px;
+    font-size: 16px;
     color: #747474;
-    font-weight: bold;
+    font-weight: 500;
     margin-top: 15px;
     margin-right: 6px;
     cursor: pointer;
     background-color: #dfdfdf;
+    vertical-align: middle;
 }
 
 .btn-active {
@@ -334,12 +552,40 @@ header #nav {
     margin-right: 0;
 }
 
+/* 노래 추가 안했을 때 버튼 */
+#list-img {
+    position: relative;
+}
+
+#list-img .list_btn {
+    position: absolute;
+    top: 270px;
+    left: 350px;
+
+    background-color: #eb1400;
+    width: 200px;
+    height: 48px;
+
+    cursor: pointer;
+
+    color: #dfdfdf;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: -0.05em;
+
+    text-align: center;
+    line-height: 48px;
+    vertical-align: middle;
+}
+/* 노래 추가 안했을 때 버튼 */
+
 #chart-body h1 {
-    font-size: 23px;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: 500;
     width: 676px;
     height: 42px;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 #chart-body #section_rankchart {
@@ -351,21 +597,23 @@ header #nav {
 }
 
 #rankchart-table thead th {
-    font-size: 12px;
-    color: #a4a4a4;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.05em;
+    color: #a0a0a0;
     height: 25px;
 }
 
 #rankchart-box {
-    width: 966px;
-    height: 455px;
+    width: 1089px;
+    height: 488px;
     margin: 0 auto;
     position: absolute;
     top: 10px;
 }
 
 #rankchart-table {
-    width: 966px;
+    width: 1089px;
     text-align: left;
 }
 
@@ -380,10 +628,15 @@ tr {
 
 #rankchart-table .song {
     width: 34%;
+    font-weight: 500;
+    font-size: 16px;
 }
 
 #rankchart-table .artist {
     width: 39%;
+    font-weight: 500;
+    font-size: 16px;
+
 }
 
 #rankchart-table .listen {
@@ -397,7 +650,7 @@ tr {
 #rankchart-row {
     width: 966px;
     height: 76px;
-    border-top: 0.5px solid #747474;
+    border-top: 1px solid #dfdfdf;
     cursor: pointer;
 }
 
@@ -412,6 +665,7 @@ tr {
 td {
     position: relative;
     text-align: left;
+    vertical-align: middle;
 }
 
 td #rankchart_img {
@@ -425,6 +679,32 @@ td #rankchart_img {
     height: 72px;
     text-align: center;
     line-height: 72px;
+}
+
+#list-img {
+    position: relative;
+}
+
+#list-img .list_btn {
+    position: absolute;
+    top: 250px;
+    left: 350px;
+
+    background-color: #eb1400;
+    width: 200px;
+    height: 48px;
+
+    cursor: pointer;
+
+    color: #dfdfdf;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: -0.05em;
+
+    text-align: center;
+    line-height: 48px;
+    vertical-align: middle;
 }
 
 #rankchart-row:first-child {
@@ -452,6 +732,7 @@ td button {
     cursor: pointer;
     background-color: transparent;
     align-items: center;
+    padding-left: 0;
 }
 
 td button .playbtn {
@@ -464,6 +745,7 @@ td button #likebtn {
     width: 20px;
     height: 20px;
     cursor: pointer;
+    padding-left: 7px;
 }
 
 footer {
@@ -490,7 +772,6 @@ footer {
     background-color: #191919;
     position: fixed;
     bottom: 0;
-    text-align: center;
 }
 
 .playbar .playbar_song {
@@ -528,15 +809,18 @@ footer {
 }
 
 .playbar_song #likebtn {
+    position: absolute;
+    right: 3%;
     width: 25px;
     height: 25px;
     margin-top: 25px;
     cursor: pointer;
 }
 
-.playbar .playbtn {
+.playbar #playbtn {
     position: absolute;
     top: 20%;
+    left: 48%;
     width: 50px;
     height: 50px;
     cursor: pointer;
