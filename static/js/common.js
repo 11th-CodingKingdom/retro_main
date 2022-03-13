@@ -79,3 +79,29 @@ function togglePause() {
   }
   playcnt++;
 }
+
+// 하단 플레이어바에서 좋아요버튼 클릭시 기능
+function likeclick(userID, title, singer) {
+
+    $.ajax({
+        type: 'POST',
+        url: '/playing/likeclick',
+        data: {
+            id_give: userID,
+            title_give: title,
+            singer_give: singer
+        },
+        success: function (response) {
+            let like = response['like']
+            let likebtn = document.getElementById("likebtn");
+
+            if (like == 1) {
+                likebtn.src = '../static/images/like_icon_hover.png';
+            } else {
+                likebtn.src = '../static/images/like_icon.png';
+            }
+            alert(response['msg'])
+        }
+    });
+
+}
