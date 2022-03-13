@@ -18,22 +18,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
-    <script>
-        $(document).ready(function () {
-            loginStatus();
-        });
-    </script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../static/images/favicon.ico">
-
-    <script>
-            $(document).ready(function () {
-            loginStatus();
-        });
-    </script>
 
 </head>
 <body>
@@ -45,14 +33,14 @@
     </div>
   </section>
   <header id="header">
-    <div id="logo" onclick="location.href='/'">
+    <div id="logo">
       <img src="../static/images/reteo_logo.png" width="91px" height="26px" />
     </div>
     <nav id="nav">
       <div id="nav_left">
         <ul>
           <li><a href="#">음악성향테스트</a></li>
-          <li><a href="#">보관함</a></li>
+          <li><a href="/">보관함</a></li>
         </ul>
       </div>
       <div id="searchbox_wrap">
@@ -156,7 +144,7 @@
         </div>
       </section>
       <div class="bottom_banner">
-        <div class="bottom_banner_btn">선택하러 가기</div>
+        <div class="bottom_banner_btn" onclick="button_banner_btn_click()">선택하러 가기</div>
       </div>
   </div>
   <!-- FOOTER -->
