@@ -33,6 +33,7 @@ body {
     height: 30px;
     display: inline-block;
     margin: 90px auto 20px 305px;
+    cursor: pointer;
 }
 
 #login_img {
@@ -100,6 +101,7 @@ input::placeholder {
     margin: 40px auto 0 305px;
     text-align: center;
     font-weight: 600;
+    cursor: pointer;
 }
 
 #login_img {
@@ -115,6 +117,7 @@ input::placeholder {
 #footer_logo {
     width: 957px;
     margin: 36px auto 14px auto;
+    cursor: pointer;
 }
 
 #footer_desc {

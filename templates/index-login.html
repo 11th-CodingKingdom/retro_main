@@ -10,6 +10,7 @@
     <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="../static/js/login.js"></script>
+    <script defer src="../static/js/common.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style-login.css">
     <link rel="shortcut icon" href="../static/images/favicon.ico">
@@ -22,18 +23,18 @@
 <div id="wrap">
     <div id="content">
         <div id="loginbox">
-            <div id="logo" onclick="location.href='/'">
+            <div id="logo">
                 <img src="../static/images/reteo_logo.png" width="91px" height="26px"/>
             </div>
             <div>
                 <span class="id_span">ID 로그인</span>
                 <div class="idpw_box">
-                    <img src="../static/images/search_icon.png" alt="">
+                    <img src="../static/images/login_01.png" alt="">
                     <input type="text" class="idpw_input" id='id' placeholder="아이디">
                 </div>
                 <br>
                 <div class="idpw_box">
-                    <img src="../static/images/search_icon.png" alt="">
+                    <img src="../static/images/password_01.png" alt="">
                     <input type="password" class="idpw_input" id='pw' placeholder="비밀번호">
                 </div>
                 <input type="button" class="login_btn" onclick ="login()" value="로그인"/>
@@ -57,7 +58,7 @@
 </div>
 <hr size="1" color="#eeeeee" style="margin-top: 0;">
 <footer>
-    <div id="footer_logo">
+    <div id="footer_logo" onclick="location.href='/'">
         <img src="../static/images/logo_footer.png"/>
     </div>
     <div id="footer_desc">

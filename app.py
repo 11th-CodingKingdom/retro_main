@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request, session
+from flask import Flask, render_template, jsonify, request, session, redirect
 from pymongo import MongoClient
 from flask_bcrypt import Bcrypt
 
@@ -24,11 +24,14 @@ def login_status():
 
 @app.route('/main/chart', methods=['GET'])
 def main_chart():
-    chart_year = int(request.args.get('chart_year'))
-    datas = list(db.musics.find({'rank_type': "AG", 'year': chart_year}, {'_id': False}).sort("like", -1).limit(6))
+    data_1980 = list(db.musics.find({'rank_type': "AG", 'year': 1980}, {'_id': False}).sort("like", -1).limit(6))
+    data_1990 = list(db.musics.find({'rank_type': "AG", 'year': 1990}, {'_id': False}).sort("like", -1).limit(6))
+    data_2000 = list(db.musics.find({'rank_type': "AG", 'year': 2000}, {'_id': False}).sort("like", -1).limit(6))
+    data_2010 = list(db.musics.find({'rank_type': "AG", 'year': 2010}, {'_id': False}).sort("like", -1).limit(6))
+    datas = data_1980+data_1990+data_2000+data_2010
     musics = []
     for music in datas:
-        [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'like', 'rank_type', 'year']]
+        [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'rank_type']]
         musics.append(music)
 
     return jsonify({'music_list': musics})
@@ -45,7 +48,13 @@ def login():
 
     if information is not None:
         if bcrypt.check_password_hash(information['pw'], pw):
+            email = information['email']
+            name = information['name']
+            preferenceResult = information['preferenceResult']
             session['userID'] = id
+            session['email'] = email
+            session['name'] = name
+            session['preferenceResult'] = preferenceResult
             msg = "로그인 성공!"
         else:
             msg = "ID 혹은 비밀번호를 확인하세요"
@@ -57,7 +66,7 @@ def login():
 @app.route('/logout')
 def logout():
     session.clear()
-    return render_template('index.html')
+    return redirect('/')
 
 @app.route('/regist_page')
 def regist_page():
@@ -70,8 +79,8 @@ def regist():
     id = request.form['id']
     pw = bcrypt.generate_password_hash(request.form['pw'])
     pwCheck = request.form['pwCheck']
-    likeMusic = []
     preferenceResult =""
+    information = {'id': id, 'pw': pw, 'email': email, 'name': name, 'preferenceResult': preferenceResult}
 
     if db.users.find_one({'name': name}, {'_id': False}) is not None:
         msg = "동일한 사용자가 존재합니다."
@@ -89,7 +98,6 @@ def regist():
         msg = "비밀번호 입력을 다시 확인하세요."
 
     else:
-        information = {'id': id, 'pw': pw, 'email': email, 'name': name, 'likeMusic':likeMusic, 'preferenceResult': preferenceResult}
         db.users.insert_one(information)
         msg = "회원가입 완료!"
 
@@ -97,75 +105,27 @@ def regist():
 
 @app.route('/mypage')
 def mypage():
-    return render_template('index-mypage.html')
+    if 'userID' in session:
+        return render_template('index-mypage.html')
+    else :
+        return redirect('/login_page')
 
 @app.route('/userinfo', methods=['GET'])
-def mypage_info():
+def userinfo():
     id = session['userID']
-    userinfo = db.users.find_one({'id':id}, {'_id':False})
-    userinfo.pop('pw',None)
-    datas = userinfo['likeMusic']
-    userinfo.pop('likeMusic', None)
-    likeMusics = []
-    for d in datas:
-        likeMusic = db.musics.find_one({'songID': d}, {'_id':False})
-        if likeMusic is not None:
-            [likeMusic.pop(key,None) for key in ['songID','rank','Region','albumID','rank_type','like','genre','sondID']]
-            likeMusic['musicPlaySrc'] = db.musicPlaySrc.find_one({'songID': d}, {'_id': False})['musicPlaySrc']
-            likeMusics.append(likeMusic)
-    return jsonify({'userinfo': userinfo, "likeMusic":likeMusics})
+    preferenceResult =session['preferenceResult']
+    likeMusics = list(db.likeMusic.find({'id': id}, {'_id': False}))
+    return jsonify({"likeMusic":likeMusics, "preferenceResult":preferenceResult})
 
 @app.route('/userinfo', methods=['POST'])
-def mypage_infoex():
-    id = request.form['id']
-    pw = request.form['pw']
-    email_new = request.form['email_new']
+def withdraw():
+    id = session['userID']
     information = db.users.find_one({'id':id}, {'_id': False})
     if information != None:
-        if bcrypt.check_password_hash(information['pw'], pw):
-            db.users.update_one({'id':id}, {"$set":{"email":email_new}})
-            msg = "회원정보 수정이 완료되었습니다."
-        else:
-            msg = '비밀번호를 다시 확인해주세요'
-    else:
-        msg = "로그인 상태가 아닙니다."
-    return jsonify({'msg': msg})
-
-@app.route('/userinfo/pw', methods=['POST'])
-def mypage_pwex():
-    id = request.form['id']
-    pw = request.form['pw']
-    pw_new = bcrypt.generate_password_hash(request.form['pw_new'])
-    pwCheck_new = request.form['pwCheck_new']
-    information = db.users.find_one({'id':id}, {'_id': False})
-
-    if information != None:
-        if bcrypt.check_password_hash(information['pw'], pw):
-            if bcrypt.check_password_hash(pw_new, pwCheck_new):
-                db.users.update_one({'id':id}, {"$set":{"pw":pw_new}})
-                msg = "비밀번호 변경이 완료되었습니다."
-            else :
-                msg = "비밀번호 입력을 다시 확인하세요."
-        else:
-            msg = '기존 비밀번호를 다시 확인하세요'
-    else:
-        msg = "로그인 상태가 아닙니다."
-    return jsonify({'msg': msg})
-
-@app.route('/userinfo/withdraw', methods=['POST'])
-def mypage_withdraw():
-    id = request.form['id']
-    pw = request.form['pw']
-    information = db.users.find_one({'id':id}, {'_id': False})
-    if information != None:
-        if bcrypt.check_password_hash(information['pw'], pw):
-            db.users.delete_one({'id':id})
-            msg = "회원탈퇴가 완료되었습니다."
-        else:
-            msg = '비밀번호를 다시 확인해주세요.'
-    else:
-        msg = "로그인 상태가 아닙니다."
-    return jsonify({'msg': msg})
+        db.users.delete_one({'id':id})
+        db.likeMusic.delete_many({'id': id})
+        session.clear()
+    return jsonify({"msg": "회원탈퇴 완료"})
 
 @app.route('/main/playing', methods=['POST'])
 def main_playing_active(): # 메인페이지 하단 뮤직플레이어 작동 기능
@@ -174,16 +134,59 @@ def main_playing_active(): # 메인페이지 하단 뮤직플레이어 작동 �
 
     singer = music['singer']
     title = music['title']
+    id = session['userID']
     temp_music = db.musicPlaySrc.find_one({'songID': songID})
+    temp_like = db.likeMusic.find_one({'id': id, 'title': title, 'singer': singer})
     musicPlaySrc = temp_music['musicPlaySrc']
 
+    if (temp_like == None) :
+        like = 0
+    else :
+        like = 1
+
     music_info = {
+        'id': id,
         'singer': singer,
         'title': title,
-        'musicPlaySrc': musicPlaySrc
+        'musicPlaySrc': musicPlaySrc,
+        'like': like
     }
 
     return jsonify({'music_info': music_info,'msg': '연결 완료'})
+
+@app.route('/playing/likeclick', methods=['POST'])
+def player_likeclik(): # 하단 뮤직플레이어에서 좋아요 클릭했을 때
+    id = request.form['id_give']
+    title = request.form['title_give']
+    singer = request.form['singer_give']
+
+    temp_like = db.likeMusic.find_one({'id': id, 'title': title, 'singer': singer})
+
+    if (temp_like == None) :
+        # 좋아요 안한 상태에서 클릭했을때
+        like = 1
+        music = db.musics.find_one({'title': title, 'singer': singer})
+        music_src = db.musicPlaySrc.find_one({'title': title, 'singer':singer})
+
+        temp_music = {
+            'title': title,
+            'singer': singer,
+            'id': id,
+            'year': music['year'],
+            'albumImageUrl': music['albumImageUrl'],
+            'musicPlaySrc': music_src['musicPlaySrc']
+        }
+        db.likeMusic.insert_one(temp_music)
+
+    else :
+        # 좋아요 한 상태에서 클릭했을때
+        like = 0
+        db.likeMusic.delete_one({'id': id, 'title': title, 'singer': singer})
+
+    return jsonify({'like': like, 'msg': '좋아요 변경 완료'})
+
+
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
