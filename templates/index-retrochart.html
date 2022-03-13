@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="RE:TRO | 그때 그 시절, 당신의 음악" />
+
+    <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="../static/js/main.js"></script>
+    <script defer src="../static/js/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style-retrochart.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <script>
+        $(document).ready(function () {
+            loginStatus();
+        });
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../static/images/favicon.ico">
+
+    <script>
+            $(document).ready(function () {
+            loginStatus();
+        });
+    </script>
+
+</head>
+<body>
+  <header id="header">
+    <div id="logo">
+      <img src="../static/images/reteo_logo.png" width="91px" height="26px" />
+    </div>
+    <nav id="nav">
+      <div id="nav_left">
+        <ul>
+          <li><a href="#">음악성향테스트</a></li>
+          <li><a href="#">보관함</a></li>
+        </ul>
+      </div>
+      <div id="searchbox_wrap">
+        <img src="../static/images/search_icon.png" alt="">
+        <input type="text" id="searchbox" placeholder="검색어를 입력하세요.">
+      </div>
+      <div id="nav_right">
+      </div>
+    </nav>
+  </header>
+
+  <div id="retrochart_wrap">
+    <!-- 1980-2010 버튼 4개 -->
+    <div id="retrochart-year-btn">
+      <input type="button" class="btn btn-active" value="1980" />
+      <input type="button" class="btn" value="1990" />
+      <input type="button" class="btn" value="2000" />
+      <input type="button" class="btn" value="2010" />
+    </div>
+    <div id="retrochart_head">
+      <h1>RE:TRO 차트</h1>
+      <span>100위 집계</span>
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <hr size="1" color="#eeeeee">
+  <footer>
+    <div id="footer_logo" onclick="location.href='/'">
+      <img src="../static/images/logo_footer.png"/>
+    </div>
+    <div id="footer_desc">
+      Copyrights © 2022 - Coding Kingdom Team, All Rights Reserved.
+    </div>
+    <!-- 하단 재생 바 -->
+    <div class="playbar">
+      <div id="playbar_song" class="playbar_song">
+        <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()" />
+      </div>
+      <img src="../static/images/palybn_icon.png" alt="" id="playbtn" onclick="togglePause()" />
+      <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">
+{#      <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">#}
+      <div id="playbar_control" , style="display:none">
+        <td id="player_active" style="display:none">0</td>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

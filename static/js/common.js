@@ -1,8 +1,14 @@
 
 // 하단 playbar에서 play 버튼 <-> pause 버튼 변경을 위한 변수
 let playcnt = 1;
+// 보관함 클릭 시 mypage이동 (로그인 상태 아닐 땐 로그인 페이지로 이동)
+$("#nav_left ul li a:eq(1)").attr("href", "/mypage")
+// 상단 로고 클릭 시 Home으로 이동
+$("#logo").attr("onclick", "location.href='/'")
+// 하단 로고 클릭 시 Home으로 이동
+$("#footer_logo").attr("onclick", "location.href='/'")
 
-// 로그인 상태 업데이트
+// 로그인 상태확인 후 상단 우측(로그인/회원가입, 마이페이지/로그아웃) ITEM 수정
 function loginStatus() {
     $.ajax({
         type: 'GET',
@@ -34,7 +40,6 @@ function loginStatus() {
 
 }
 
-
 // 화면 하단 플레이어 재생, 일시정지 제어함수
 function playing_control(){
 
@@ -56,10 +61,10 @@ function playing_control(){
 function togglePause() {
     playing_control()
 
-
+        let playing_active = $('#player_active').text();
   let play = document.getElementById("playbtn");
 
-  if(playcnt % 2 == 1) {
+  if(playing_active == 1) {
     play.src = '../static/images/playbar_menu_pau.png';
     play.style.width = '30px';
     play.style.height = 'auto';
