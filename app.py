@@ -36,6 +36,7 @@ def login_page():
 def login():
     id = request.form['id']
     pw = request.form['pw']
+    userinfo = {}
     information = db.users.find_one({'id':id}, {'_id': False})
     if information is not None:
         if bcrypt.check_password_hash(information['pw'], pw):
@@ -49,7 +50,7 @@ def login():
     else:
         msg = "ID 혹은 비밀번호를 확인하세요"
 
-    return jsonify({'msg': msg,'userinfo':userinfo})
+    return jsonify({'msg': msg,'userinfo': userinfo})
 
 @app.route('/regist_page')
 def regist_page():
@@ -108,18 +109,14 @@ def withdraw():
 @app.route('/main/playing', methods=['POST'])
 def main_playing_active(): # 메인페이지 하단 뮤직플레이어 작동 기능
     songID = request.form['songID_give']
+    userID = request.form['userID_give']
     music = db.musics.find_one({'songID': songID}, {'_id': False})
 
     singer = music['singer']
     title = music['title']
     temp_music = db.musicPlaySrc.find_one({'songID': songID})
 
-    if 'userID' in session:
-        id = session['userID']
-    else:
-        id = ""
-
-    temp_like = db.likeMusic.find_one({'id': id, 'title': title, 'singer': singer})
+    temp_like = db.likeMusic.find_one({'id': userID, 'title': title, 'singer': singer})
     musicPlaySrc = temp_music['musicPlaySrc']
 
     if (temp_like == None) :
@@ -128,7 +125,6 @@ def main_playing_active(): # 메인페이지 하단 뮤직플레이어 작동 �
         like = 1
 
     music_info = {
-        'id': id,
         'singer': singer,
         'title': title,
         'musicPlaySrc': musicPlaySrc,
@@ -143,7 +139,8 @@ def player_likeclick(): # 하단 뮤직플레이어에서 좋아요 클릭했을
     title = request.form['title_give']
     singer = request.form['singer_give']
 
-    if (id != "") :
+    print(id)
+    if (id != 'null') :
         temp_like = db.likeMusic.find_one({'id': id, 'title': title, 'singer': singer})
 
         if (temp_like == None) :
