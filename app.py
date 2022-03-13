@@ -108,16 +108,59 @@ def main_playing_active(): # 메인페이지 하단 뮤직플레이어 작동 �
 
     singer = music['singer']
     title = music['title']
+    id = session['userID']
     temp_music = db.musicPlaySrc.find_one({'songID': songID})
+    temp_like = db.likeMusic.find_one({'id': id, 'title': title, 'singer': singer})
     musicPlaySrc = temp_music['musicPlaySrc']
 
+    if (temp_like == None) :
+        like = 0
+    else :
+        like = 1
+
     music_info = {
+        'id': id,
         'singer': singer,
         'title': title,
-        'musicPlaySrc': musicPlaySrc
+        'musicPlaySrc': musicPlaySrc,
+        'like': like
     }
 
     return jsonify({'music_info': music_info,'msg': '연결 완료'})
+
+@app.route('/playing/likeclick', methods=['POST'])
+def player_likeclik(): # 하단 뮤직플레이어에서 좋아요 클릭했을 때
+    id = request.form['id_give']
+    title = request.form['title_give']
+    singer = request.form['singer_give']
+
+    temp_like = db.likeMusic.find_one({'id': id, 'title': title, 'singer': singer})
+
+    if (temp_like == None) :
+        # 좋아요 안한 상태에서 클릭했을때
+        like = 1
+        music = db.musics.find_one({'title': title, 'singer': singer})
+        music_src = db.musicPlaySrc.find_one({'title': title, 'singer':singer})
+
+        temp_music = {
+            'title': title,
+            'singer': singer,
+            'id': id,
+            'year': music['year'],
+            'albumImageUrl': music['albumImageUrl'],
+            'musicPlaySrc': music_src['musicPlaySrc']
+        }
+        db.likeMusic.insert_one(temp_music)
+
+    else :
+        # 좋아요 한 상태에서 클릭했을때
+        like = 0
+        db.likeMusic.delete_one({'id': id, 'title': title, 'singer': singer})
+
+    return jsonify({'like': like, 'msg': '좋아요 변경 완료'})
+
+
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)

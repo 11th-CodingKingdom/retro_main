@@ -28,24 +28,7 @@ function closePopup() {
 }
 popup.addEventListener('click', closePopup);
 
-// 좋아요 버튼 클릭 시 하트 변경
-// function toggleLike() {
-  // document.getElementById("likebtn").src = "../static/images/like_icon_hover.png";
-// }
-let likecnt = 1;
-function toggleLike() {
-  let like = document.getElementById("likebtn");
-  
-  if(likecnt % 2 == 1) {
-    like.src = '../static/images/like_icon_hover.png';
-  } else {
-    like.src = '../static/images/like_icon.png';
-  }
-  likecnt++;
-}
-
-// RetroChart 불러오기 (메인페이지 새로고침)
-var music_list;
+// RetroChart 업데이트
 function retroChart(chart_year) {
   $.ajax({
       type: 'GET',
@@ -171,9 +154,11 @@ function main_playing_active(songID) {
                 data: { songID_give: songID
                 },
                 success: function (response) {
-                    singer = response['music_info']['singer']
-                    title = response['music_info']['title']
-                    musicPlaySrc = response['music_info']['musicPlaySrc']
+                    let userID = response['music_info']['id']
+                    let singer = response['music_info']['singer']
+                    let title = response['music_info']['title']
+                    let musicPlaySrc = response['music_info']['musicPlaySrc']
+                    let like = response['music_info']['like']
 
                     console.log(singer, title, musicPlaySrc)
                     let temp_html = `<div class="youtube_movie">
@@ -182,12 +167,17 @@ function main_playing_active(songID) {
                                      <div class="playbar_song_wrap">
                                         <div class="playbar_song_title">${title}</div>
                                         <div class="playbar_song_artist">${singer}</div>
-                                     </div>
-                                     <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">`
-
+                                     </div>`
+                    let temp_html2 = ``
+                    if (like == 0) {
+                        temp_html2 = `<img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
+                    } else {
+                        temp_html2 = `<img src="../static/images/like_icon_hover.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
+                    }
 
                     $('#playbar_song').empty()
                     $('#playbar_song').append(temp_html)
+                    $('#playbar_song').append(temp_html2)
 
                     temp_html = `<td id="player_active" style="display:none">1</td>`
                     $('#playbar_control').empty();
