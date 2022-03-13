@@ -82,7 +82,6 @@ function togglePause() {
 
 // 하단 플레이어바에서 좋아요버튼 클릭시 기능
 function likeclick(userID, title, singer) {
-
     $.ajax({
         type: 'POST',
         url: '/playing/likeclick',

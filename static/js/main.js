@@ -56,14 +56,16 @@ function retroChart_update(chart_year) {
         let year = music_list[i]['year']
         chart_year = parseInt(chart_year)
         if (year == chart_year) {
+            localStorage.setItem('retrochart_year', year)
+            console.log('setItem', year)
             if (title.length > 10){
-                let albumchart_html = `<div class="albumchart-box" onclick="location.href='#'">
+                let albumchart_html = `<div class="albumchart-box">
                                           <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
                                             <img onclick="main_playing_active(${songID})" src="../static/images/palybn_icon_red.png" alt="" id="albumchart_play" onmouseover="this.src='../static/images/palybn_icon_red_hover.png'" onmouseout="this.src='../static/images/palybn_icon_red.png'">
                                           </div>
                                           <div id="albumchart_desc">
                                             <span id="albumchart_rank">${rank}</span>
-                                            <span id="albumchart_song">
+                                            <span id="albumchart_song" onclick="location.href='/retrochart_page';">
                                                 <MARQUEE width="168" height="18" scrollamount="5">${title}</MARQUEE>
                                             </span>
                                             <span id="albumchart_artist">${singer}</span>
@@ -72,7 +74,7 @@ function retroChart_update(chart_year) {
                 let rankchart_html = `<tr id="rankchart-row">
                                           <td>
                                             <div id="rankchart_img">
-                                              <img src='${albumImageUrl}' width="50px" height="50px" style="border-radius:10px"/>
+                                              <img src='${albumImageUrl}' width="50px" height="50px" style="border-radius:10px" onclick="location.href='/retrochart_page'"/>
                                             </div>
                                           </td>
                                           <td>
@@ -80,7 +82,7 @@ function retroChart_update(chart_year) {
                                           </td>
                                           <td>
                                             <div id="rankchart_desc">
-                                              <div id="rankchart_song">
+                                              <div id="rankchart_song" onclick="location.href='/retrochart_page'">
                                                   <MARQUEE width="168" height="18" scrollamount="5">${title}</MARQUEE>
                                               </div>
                                               <div id="rankchart_artist">${singer}</div>
@@ -96,13 +98,13 @@ function retroChart_update(chart_year) {
                 }
                 }
             else {
-                let albumchart_html = `<div class="albumchart-box" onclick="location.href='#'">
+                let albumchart_html = `<div class="albumchart-box">
                                           <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
                                             <img onclick="main_playing_active(${songID})" src="../static/images/palybn_icon_red.png" alt="" id="albumchart_play" onmouseover="this.src='../static/images/palybn_icon_red_hover.png'" onmouseout="this.src='../static/images/palybn_icon_red.png'">
                                           </div>
                                           <div id="albumchart_desc">
                                             <span id="albumchart_rank">${rank}</span>
-                                            <span id="albumchart_song">
+                                            <span id="albumchart_song" onclick="location.href='/retrochart_page';">
                                                 ${title}
                                             </span>
                                             <span id="albumchart_artist">${singer}</span>
