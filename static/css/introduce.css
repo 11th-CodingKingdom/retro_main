@@ -1,0 +1,46 @@
+.introduce {
+  width: 100%;
+}
+
+.intro-last {
+  background-image: url("../images/retro_id_01_03.png");
+  background-size: cover;
+  height: 100vh;
+}
+
+.intro-last .intro-btn1 {
+  width: 200px;
+  height: 50px;
+  background-color: #eb1400;
+
+  text-align: center;
+  line-height: 50px;
+  vertical-align: middle;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #fff;
+
+  position: relative;
+  top: 300px;
+  left: 275px;
+  cursor: pointer;
+}
+
+.intro-last .intro-btn2 {
+  width: 200px;
+  height: 50px;
+  background-color: #fff;
+  border: 1px solid #eb1400;
+  box-sizing: border-box;
+
+  text-align: center;
+  line-height: 50px;
+  vertical-align: middle;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #eb1400;
+
+  position: relative;
+  top: 320px;
+  left: 275px;
+  display: inline-block;
+  cursor: pointer;
+}
