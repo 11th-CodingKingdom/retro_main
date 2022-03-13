@@ -17,13 +17,18 @@ function login() {
         data: {'id':id, 'pw':pw},
         success: function (response) {
             let msg = response['msg']
-            let id = response['id']
+            console.log(msg)
             if(msg == "로그인 성공!"){
+                sessionStorage.setItem('id',response['userinfo']['id'])
+                sessionStorage.setItem('email',response['userinfo']['email'])
+                sessionStorage.setItem('name',response['userinfo']['name'])
+                sessionStorage.setItem('preferenceResult',response['userinfo']['preferenceResult'])
                 location.href='/';
                 alert(msg);
-            }else {
+            }
+            else {
                 alert(msg);
             }
-            }
+        }
     });
 }
