@@ -36,7 +36,6 @@ function retroChart(chart_year) {
       data: {},
       success: function (response) {
           music_list = response['music_list']
-          localStorage.setItem('music_list',music_list)
           retroChart_update(chart_year)
       }
   });
@@ -68,7 +67,6 @@ function retroChart_update(chart_year) {
         chart_year = parseInt(chart_year)
         if (year == chart_year) {
             localStorage.setItem('retrochart_year', year)
-            console.log('setItem', year)
             if (title.length > 10){
                 let albumchart_html = `<div class="albumchart-box">
                                           <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
