@@ -177,7 +177,7 @@ header #nav {
   margin-left: 20px;
 }
 
-#year-btn {
+#year-btn_wrap {
   /* background-color: aliceblue; */
   width: 324px;
   margin-left: 465px;
@@ -323,11 +323,11 @@ td {
   width: 72px;
   height: 30px;
   border: 2px solid #c0c0c0;
-  border-radius: 8px;
+  border-radius: 20px;
   display: inline-block;
   font-size: 16px;
+  font-weight: 500;
   color: #747474;
-  font-weight: bold;
   margin-top: 10px;
   margin-right: 6px;
   cursor: pointer;
@@ -520,7 +520,7 @@ td {
 }
 
 #pick-box .pick-box-play {
-  background-image: url('../images/palybn_icon.png');
+  background-image: url("../images/palybn_icon.png");
   background-size: cover;
   width: 60px;
   height: 60px;
@@ -616,14 +616,14 @@ footer {
 }
 
 .playbar_song .playbar_song_wrap .playbar_song_title {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   color: #fff;
   font-size: 16px;
   margin-bottom: 8px;
 }
 
 .playbar_song .playbar_song_wrap .playbar_song_artist {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   color: #fff;
   font-size: 13px;
 }
