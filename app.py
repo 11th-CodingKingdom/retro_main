@@ -20,7 +20,16 @@ def main_chart():
     music_1990 = list(db.musics.find({'rank_type': "AG", 'year': 1990}, {'_id': False}).sort("like", -1))
     music_2000 = list(db.musics.find({'rank_type': "AG", 'year': 2000}, {'_id': False}).sort("like", -1))
     music_2010 = list(db.musics.find({'rank_type': "AG", 'year': 2010}, {'_id': False}).sort("like", -1))
-    musics_1980, musics_1990, musics_2000, musics_2010 = []
+    data_1980 = list(db.musics.find({'rank_type': "AG", 'year': 1980}, {'_id': False}).sort("like", -1).limit(6))
+    data_1990 = list(db.musics.find({'rank_type': "AG", 'year': 1990}, {'_id': False}).sort("like", -1).limit(6))
+    data_2000 = list(db.musics.find({'rank_type': "AG", 'year': 2000}, {'_id': False}).sort("like", -1).limit(6))
+    data_2010 = list(db.musics.find({'rank_type': "AG", 'year': 2010}, {'_id': False}).sort("like", -1).limit(6))
+    musics_1980 = []
+    musics_1990 = []
+    musics_2000 = []
+    musics_2010 = []
+    music_list = []
+    data = data_1980+data_1990+data_2000+data_2010
     for music in music_1980:
         [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'rank_type']]
         musics_1980.append(music)
@@ -33,8 +42,11 @@ def main_chart():
     for music in music_2010:
         [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'rank_type']]
         musics_2010.append(music)
+    for music in data:
+        [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'rank_type']]
+        music_list.append(music)
 
-    return jsonify({'musics_1980': musics_1980,'musics_1990': musics_1990,'musics_2000': musics_2000,'musics_2010': musics_2010})
+    return jsonify({'musics_1980': musics_1980,'musics_1990': musics_1990,'musics_2000': musics_2000,'musics_2010': musics_2010, "music_list": music_list})
 
 @app.route('/login_page')
 def login_page():
