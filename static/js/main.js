@@ -36,6 +36,7 @@ function retroChart(chart_year) {
       data: {},
       success: function (response) {
           music_list = response['music_list']
+          localStorage.setItem('music_list',music_list)
           retroChart_update(chart_year)
       }
   });
