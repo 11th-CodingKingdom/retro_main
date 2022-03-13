@@ -1,0 +1,421 @@
+* {
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+header {
+    /* background-color: lightgray; */
+    width: 1476px;
+    height: 98px;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+#logo {
+    margin: 0 20px 0 20px;
+    cursor: pointer;
+}
+
+ul {
+    position: absolute;
+    list-style: none;
+    /* background-color: darkgray; */
+}
+
+li {
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    color: #505050;
+    font-weight: 700;
+}
+
+header #nav {
+    /* background-color: lightgray; */
+    width: 1342px;
+    height: 59px;
+    margin: 0 auto;
+    display: flex;
+}
+
+#nav_left {
+    width: 280px;
+    height: 18px;
+    margin-top: 22px;
+}
+
+#nav_left ul li {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 16px;
+    margin-left: 34px;
+}
+
+#searchbox_wrap {
+    display: inline-block;
+    position: relative;
+}
+
+#searchbox_wrap img {
+    position: absolute;
+    left: 7px;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+}
+
+#searchbox_wrap #searchbox {
+    width: 355px;
+    height: 30px;
+    margin-top: 12px;
+    border: 2px solid #eb1400;
+    border-radius: 20px;
+    padding-left: 30px;
+}
+
+#searchbox_wrap #searchbox:focus {
+    outline: none;
+}
+
+#nav_right {
+    /* background-color: #a4a4a4; */
+    height: 30px;
+    margin-top: 22px;
+    margin-left: 350px;
+}
+
+#nav_right ul {
+    position: relative;
+    top: 1px;
+    display: flex;
+    padding-left: 30px;
+}
+
+#nav_right ul li {
+    font-size: 14px;
+    margin: 0 10px 0 0;
+}
+
+#nav_right ul li a {
+    font-size: 14px;
+    font-family: "Noto Sans KR", sans-serif;
+    color: #989898;
+    width: 200px;
+    margin: 0 20px 0 0;
+}
+
+#wrap {
+    /* background-color: antiquewhite; */
+    width: 1476px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+#playlist_contents {
+    float: right;
+    width: 1476px;
+    overflow: hidden;
+    display: block;
+}
+
+#playlist_contents .playlist_top {
+    width: 966px;
+    height: 240px;
+    margin: 0 auto 40px 50px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+#playlist_contents .playlist_top .playlist_img {
+    width: 240px;
+    height: 240px;
+    background-color: #a4a4a4;
+    display: flex;
+    align-items: center;
+}
+
+#playlist_contents .playlist_top .playlist_img img {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+.playlist_top .playlist_text {
+    margin: 0 auto 0 38px;
+    height: 240px;
+    padding-right: 180px;
+}
+
+.playlist_top .test_text {
+    display: block;
+    box-sizing: border-box;
+    font-family: "Noto Sans KR", sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.playlist_top .playlist_text .text_top {
+    color: #505050;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    height: 24px;
+    padding-top: 38px;
+    padding-bottom: 24px;
+    box-sizing: border-box;
+}
+
+.playlist_top .playlist_text .text_middle {
+    color: #747474;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.05em;
+    height: 50px;
+    margin-top: 24px;
+    box-sizing: border-box;
+}
+
+.playlist_top .playlist_text .text_bottom {
+    color: #a8a8a8;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.05em;
+    height: 50px;
+    padding-top: 45px;
+}
+
+#chart {
+
+}
+
+#chart-body {
+    width: 1476px;
+    margin: 0 auto 64px 28px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    top: 10px;
+}
+
+#chart-body #section_rankchart {
+    /* background-color: blanchedalmond; */
+    margin: 0px auto;
+    width: 1476px;
+}
+
+#chart-body .chart_text {
+    font-family: "Noto Sans KR", sans-serif;
+    letter-spacing: -0.02em;
+}
+
+#rankchart-table thead th {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.05em;
+    color: #a0a0a0;
+    height: 25px;
+}
+
+#rankchart-box {
+    width: 1476px;
+    margin: 0 auto;
+}
+
+#rankchart-table {
+    width: 1476px;
+    text-align: left;
+}
+
+tr {
+    width: 966px;
+}
+
+#rankchart-table .info {
+    padding-left: 40px;
+    width: 8%;
+}
+
+#rankchart-table .song {
+    width: 36%;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+#rankchart-table .artist {
+    width: 46%;
+    font-weight: 500;
+    font-size: 16px;
+
+}
+
+#rankchart-table .listen {
+    width: 5%;
+}
+
+#rankchart-table .like {
+    width: 5%;
+}
+
+#rankchart-row {
+    width: 966px;
+    border-top: 1px solid #dfdfdf;
+    cursor: pointer;
+}
+
+.rankchart-row-box {
+    height: 80px;
+}
+
+.table_line {
+    border-bottom: 1px solid #dfdfdf;
+}
+
+td {
+    position: relative;
+    text-align: left;
+    vertical-align: middle;
+}
+
+td #rankchart_img {
+    padding-left: 30px;
+    width: 76px;
+    height: 76px;
+}
+
+#rankchart_img {
+    width: 72px;
+    height: 72px;
+    text-align: center;
+    line-height: 72px;
+}
+
+#rankchart-row:first-child {
+    width: 966px;
+    height: 76px;
+    border-top: none;
+}
+
+#rankchart_img > img {
+    vertical-align: middle;
+}
+
+#rankchart_song {
+    margin-top: 7px;
+    color: #747474;
+}
+
+#rankchart_artist {
+    margin-top: 7px;
+    color: #747474;
+}
+
+td button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    align-items: center;
+    padding-left: 0;
+}
+
+td button .playbtn {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    padding-left: 3px;
+}
+
+td button #likebtn {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    padding-left: 7px;
+}
+
+footer {
+    height: 200px;
+}
+
+#footer_logo {
+    width: 957px;
+    margin: 36px auto 14px auto;
+}
+
+#footer_desc {
+    width: 957px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #a4a4a4;
+    margin: 0 auto 64px auto;
+}
+
+/* 하단 재생 바 */
+.playbar {
+    width: 100vw;
+    height: 79px;
+    background-color: #191919;
+    position: fixed;
+    bottom: 0;
+}
+
+.playbar .playbar_song {
+    display: flex;
+    width: 500px;
+    height: 79px;
+}
+
+.playbar_song .youtube_movie {
+    width: 100px;
+    height: 50px;
+    background-color: #fff;
+    margin: 15px 20px;
+}
+
+.playbar_song .playbar_song_wrap {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+}
+
+.playbar_song .playbar_song_wrap .playbar_song_title {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.playbar_song .playbar_song_wrap .playbar_song_artist {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #fff;
+    font-size: 13px;
+}
+
+.playbar_song #likebtn {
+    position: absolute;
+    right: 3%;
+    width: 25px;
+    height: 25px;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.playbar #playbtn {
+    position: absolute;
+    top: 20%;
+    left: 48%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}

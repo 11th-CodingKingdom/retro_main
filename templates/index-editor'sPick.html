@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="RE:TRO | 그때 그 시절, 당신의 음악"/>
+
+    <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="../static/js/editor'sPick.js"></script>
+    <script defer src="../static/js/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style-editor'sPick.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <script>
+        $(document).ready(function () {
+            loginStatus();
+        });
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+
+    <link rel="shortcut icon" href="../favicon.ico">
+
+</head>
+<body>
+<header id="header">
+    <div id="logo" onclick="location.href='#'">
+        <img src="../static/images/reteo_logo.png" width="91px" height="26px"/>
+    </div>
+    <nav id="nav">
+        <div id="nav_left">
+            <ul>
+                <!-- 성향테스트 -->
+                <li><a href="#">음악성향테스트</a></li>
+                <li><a href="#">보관함</a></li>
+            </ul>
+        </div>
+        <div id="searchbox_wrap">
+            <img src="../static/images/search_icon.png" alt="">
+            <input type="text" id="searchbox" placeholder="검색어를 입력하세요.">
+        </div>
+        <div id="nav_right">
+        </div>
+    </nav>
+</header>
+<div id="wrap">
+    <div id="playlist_contents">
+        <div class="playlist_top">
+            <div class="playlist_img">
+                <img src="../static/images/.png" alt="">
+            </div>
+            <div class="playlist_text">
+                <span class="text_top test_text">팬덤문화 일으킨 1세대 아이돌 모실게요</span>
+                <span class="text_middle test_text">그때 그 시절 아이돌 모음집</span>
+                <span class="text_bottom test_text">총 11곡</span>
+            </div>
+        </div>
+        <div id="chart">
+            <div id="chart-body">
+                <div id="section_rankchart">
+                    <div id="rankchart-box">
+                        <table id="rankchart-table" class="chart_text table_line">
+                            <thead>
+                            <tr>
+                                <th scope="col" class="info">곡</th>
+                                <th scope="col" class="song"></th>
+                                <th scope="col" class="artist">아티스트</th>
+                                <th scope="col" class="listen">듣기</th>
+                                <th scope="col" class="like">좋아요</th>
+                            </tr>
+                            </thead>
+                            <tbody id="rankchart-row">
+                            <tr class="rankchart-row-box table_line">
+                                <td>
+                                    <div id="rankchart_img">
+                                        <img src='${albumImageUrl}' width="50px" height="50px"
+                                             style="border-radius:10px"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="rankchart_song">${title}아</div>
+                                </td>
+                                <td>
+                                    <div id="rankchart_artist">${singer}아</div>
+                                </td>
+                                <td>
+                                    <!-- 재생버튼 -->
+                                    <button type="button">
+                                        <img src="../static/images/playbn_icon_black.png" alt=""
+                                             class="playbtn">
+                                    </button>
+                                </td>
+                                <td>
+                                    <!-- 좋아요 버튼 -->
+                                    <button type="button">
+                                        <img src="../static/images/like_icon_hover.png" alt="" id="likebtn"
+                                             onclick="toggleLike()">
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- FOOTER -->
+<hr size="1" color="#eeeeee">
+<footer>
+    <div id="footer_logo">
+        <img src="../static/images/logo_footer.png"/>
+    </div>
+    <div id="footer_desc">
+        Copyrights © 2022 - Coding Kingdom Team, All Rights Reserved.
+    </div>
+    <!-- 하단 재생 바 -->
+    <div class="playbar">
+        <div id="playbar_song" class="playbar_song">
+            <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()"/>
+        </div>
+        <img src="../static/images/palybn_icon.png" alt="" id="playbtn" onclick="togglePause()"/>
+        <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">
+        {# <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt=""
+                class="playbtn">#}
+        <div id="playbar_control" , style="display:none">
+            <td id="player_active" style="display:none">0</td>
+        </div>
+    </div>
+</footer>
+</body>
+
+</html>
