@@ -19,10 +19,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
     <script>
-        $(document).ready(function () {
-            loginStatus();
-        });
-
         $(function () {
             $("#confirm").click(function () {
                 modalClose();
@@ -114,17 +110,17 @@
 </header>
 <div class="mypage_hello">
     <!-- 회원 이름 -->
-    안녕하세요, <span class="user_name">{{ session['name']}}</span> 님!
+    안녕하세요, <span class="user_name"></span> 님!
 </div>
 <div id="wrap">
     <div id="mypage_left">
         <div id="left_box">
             <!-- 회원 이메일 -->
             <div id="user_info">
-                <span id="name" class="user_name">{{ session['name']}}</span>
-                <span id="user_id">{{ session['userID']}}</span>
+                <span id="name" class="user_name"></span>
+                <span id="user_id"></span>
             </div>
-            <div id="user_email">{{ session['email']}}</div>
+            <div id="user_email"></div>
         </div>
         <div id="leaveLetro"><input type="button" id="leaveLetro_btn" value="회원탈퇴" onclick="openPopup();"></div>
     </div>
