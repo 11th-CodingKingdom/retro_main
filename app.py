@@ -20,7 +20,10 @@ def main_chart():
     music_1990 = list(db.musics.find({'rank_type': "AG", 'year': 1990}, {'_id': False}).sort("like", -1))
     music_2000 = list(db.musics.find({'rank_type': "AG", 'year': 2000}, {'_id': False}).sort("like", -1))
     music_2010 = list(db.musics.find({'rank_type': "AG", 'year': 2010}, {'_id': False}).sort("like", -1))
-    musics_1980, musics_1990, musics_2000, musics_2010 = []
+    musics_1980= []
+    musics_1990= []
+    musics_2000= []
+    musics_2010 = []
     for music in music_1980:
         [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'rank_type']]
         musics_1980.append(music)

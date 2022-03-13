@@ -30,14 +30,21 @@ popup.addEventListener('click', closePopup);
 
 // RetroChart 업데이트
 function retroChart(chart_year) {
-  $.ajax({
-      type: 'GET',
-      url: '/main/chart',
-      data: {},
-      success: function (response) {
-          music_list = response['music_list']
-          localStorage.setItem('music_list',music_list)
-          retroChart_update(chart_year)
+    localStorage.clear()
+    $.ajax({
+        type: 'GET',
+        url: '/main/chart',
+        data: {},
+        success: function (response) {
+            musics_1980 = response['musics_1980']
+            localStorage.setItem('musics_1980',musics_1980)
+            musics_1990 = response['musics_1990']
+            localStorage.setItem('musics_1990',musics_1990)
+            musics_2000 = response['musics_2000']
+            localStorage.setItem('musics_2000',musics_2000)
+            musics_2010 = response['musics_2010']
+            localStorage.setItem('musics_2010',musics_2010)
+            retroChart_update(chart_year)
       }
   });
 }
@@ -57,8 +64,10 @@ function retroChart_update(chart_year) {
     $('#section_albumchart .albumchart_rowbody:eq(0)').empty()
     $('#section_albumchart .albumchart_rowbody:eq(1)').empty()
     $('#rankchart-table').empty()
-    ranks = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]
-    for (let i = 0; i < music_list.length; i++) {
+    if (chart_year 1980) {
+
+    }
+    for (let i = 0; i < 7; i++) {
         let albumImageUrl = music_list[i]['albumImageUrl']
         let rank = ranks[i]
         let singer = music_list[i]['singer']
