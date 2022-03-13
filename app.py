@@ -123,6 +123,7 @@ def withdraw():
     information = db.users.find_one({'id':id}, {'_id': False})
     if information != None:
         db.users.delete_one({'id':id})
+        db.likeMusic.delete_many({'id': id})
         session.clear()
     return jsonify({"msg": "회원탈퇴 완료"})
 
