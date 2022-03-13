@@ -37,25 +37,15 @@ def login():
     id = request.form['id']
     pw = request.form['pw']
     information = db.users.find_one({'id':id}, {'_id': False})
-    userinfo = {}
     if information is not None:
         if bcrypt.check_password_hash(information['pw'], pw):
-            email = information['email']
-            name = information['name']
-            preferenceResult = information['preferenceResult']
-            userinfo = {'id': id, 'email':email, 'name': name, 'preferenceResult':preferenceResult}
             msg = "로그인 성공!"
         else:
             msg = "ID 혹은 비밀번호를 확인하세요"
     else:
         msg = "ID 혹은 비밀번호를 확인하세요"
 
-    return jsonify({'msg': msg, 'userinfo':userinfo})
-
-@app.route('/logout')
-def logout():
-    session.clear()
-    return redirect('/')
+    return jsonify({'msg': msg})
 
 @app.route('/regist_page')
 def regist_page():
@@ -104,12 +94,11 @@ def userinfo():
 
 @app.route('/userinfo', methods=['POST'])
 def withdraw():
-    id = session['userID']
+    id = request.form['id']
     information = db.users.find_one({'id':id}, {'_id': False})
     if information != None:
         db.users.delete_one({'id':id})
         db.likeMusic.delete_many({'id': id})
-        session.clear()
     return jsonify({"msg": "회원탈퇴 완료"})
 
 @app.route('/main/playing', methods=['POST'])

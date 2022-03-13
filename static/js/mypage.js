@@ -110,12 +110,14 @@ function update_info(chart_year) {
 
 //회원탈퇴
 function withdraw() {
+    id = sessionStorage.getItem('id')
   $.ajax({
     type: 'POST',
     url: '/userinfo',
-    data: {},
+    data: {'id':id},
     success: function (response) {
-      location.href='/';
+        sessionStorage.clear()
+        location.href='/';
     }
   });
 }
