@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="RE:TRO | 그때 그 시절, 당신의 음악" />
+
+    <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="../static/js/main.js"></script>
+    <script defer src="../static/js/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/common.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style-search.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../static/images/favicon.ico">
+
+    <script>
+            $(document).ready(function () {
+            loginStatus();
+        });
+    </script>
+
+</head>
+<body>
+  <header id="header">
+    <div id="logo" onclick="location.href='/'">
+      <img src="../static/images/reteo_logo.png" width="91px" height="26px" />
+    </div>
+    <nav id="nav">
+      <div id="nav_left">
+        <ul>
+          <li><a href="#">음악성향테스트</a></li>
+          <li><a href="#">보관함</a></li>
+        </ul>
+      </div>
+      <div id="searchbox_wrap">
+        <img src="../static/images/search_icon.png" alt="">
+        <input type="text" id="searchbox" value="INVU">
+      </div>
+      <div id="nav_right">
+      </div>
+    </nav>
+  </header>
+
+  <div class="search-txt">'INVU' 검색결과</div>
+  <div class="search-title">곡</div>
+
+  <!-- 곡 리스트 -->
+  <div class="song-list">
+    <!-- 곡 리스트 첫줄 -->
+    <div class="song-list-top">
+      <div class="song">곡</div>
+      <div class="artist">아티스트</div>
+      <div class="play">듣기</div>
+      <div class="like">좋아요</div>
+    </div>
+    <!-- 곡 리스트 wrap -->
+    <div id="song-list-wrap">
+      <!-- 곡 리스트 한 줄 -->
+      <div class="song-list-line">
+        <div class="line-song">
+          <div class="song-left">
+            <img src="https://cdnimg.melon.co.kr/cm2/album/images/108/63/559/10863559_20220214160739_1000.jpg?42c2b52a394ac94dad21d64aec2c577d/melon/quality/80/optimize" alt="">
+          </div>
+          <div class="song-right">
+            <div class="song-title">INVU</div>
+          </div>
+        </div>
+        <div class="line-artist">태연(TAEYEON)</div>
+        <div class="line-play">
+          <img src="../static/images/playbn_icon_black.png" alt="">
+        </div>
+        <div class="line-like">
+          <img src="../static/images/like_icon.png" id="likebtn" onclick="toggleLike()">
+        </div>
+      </div>
+      <div class="song-list-line">
+        <div class="line-song">
+          <div class="song-left">
+            <img src="https://cdnimg.melon.co.kr/cm2/album/images/108/63/559/10863559_20220214160739_1000.jpg?42c2b52a394ac94dad21d64aec2c577d/melon/quality/80/optimize" alt="">
+          </div>
+          <div class="song-right">
+            <div class="song-title">INVU</div>
+          </div>
+        </div>
+        <div class="line-artist">태연(TAEYEON)</div>
+        <div class="line-play">
+          <img src="../static/images/playbn_icon_black.png" alt="">
+        </div>
+        <div class="line-like">
+          <img src="../static/images/like_icon.png" id="likebtn" onclick="toggleLike()">
+        </div>
+      </div>
+      <div class="song-list-line">
+        <div class="line-song">
+          <div class="song-left">
+            <img src="https://cdnimg.melon.co.kr/cm2/album/images/108/63/559/10863559_20220214160739_1000.jpg?42c2b52a394ac94dad21d64aec2c577d/melon/quality/80/optimize" alt="">
+          </div>
+          <div class="song-right">
+            <div class="song-title">INVU</div>
+          </div>
+        </div>
+        <div class="line-artist">태연(TAEYEON)</div>
+        <div class="line-play">
+          <img src="../static/images/playbn_icon_black.png" alt="">
+        </div>
+        <div class="line-like">
+          <img src="../static/images/like_icon.png" id="likebtn" onclick="toggleLike()">
+        </div>
+      </div>
+      <div class="song-list-line">
+        <div class="line-song">
+          <div class="song-left">
+            <img src="https://cdnimg.melon.co.kr/cm2/album/images/108/63/559/10863559_20220214160739_1000.jpg?42c2b52a394ac94dad21d64aec2c577d/melon/quality/80/optimize" alt="">
+          </div>
+          <div class="song-right">
+            <div class="song-title">INVU</div>
+          </div>
+        </div>
+        <div class="line-artist">태연(TAEYEON)</div>
+        <div class="line-play">
+          <img src="../static/images/playbn_icon_black.png" alt="">
+        </div>
+        <div class="line-like">
+          <img src="../static/images/like_icon.png" id="likebtn" onclick="toggleLike()">
+        </div>
+      </div>
+      <div class="song-list-line">
+        <div class="line-song">
+          <div class="song-left">
+            <img src="https://cdnimg.melon.co.kr/cm2/album/images/108/63/559/10863559_20220214160739_1000.jpg?42c2b52a394ac94dad21d64aec2c577d/melon/quality/80/optimize" alt="">
+          </div>
+          <div class="song-right">
+            <div class="song-title">INVU</div>
+          </div>
+        </div>
+        <div class="line-artist">태연(TAEYEON)</div>
+        <div class="line-play">
+          <img src="../static/images/playbn_icon_black.png" alt="">
+        </div>
+        <div class="line-like">
+          <img src="../static/images/like_icon.png" id="likebtn" onclick="toggleLike()">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <hr size="1" color="#eeeeee">
+  <footer>
+    <div id="footer_logo" onclick="location.href='/'">
+      <img src="../static/images/logo_footer.png"/>
+    </div>
+    <div id="footer_desc">
+      Copyrights © 2022 - Coding Kingdom Team, All Rights Reserved.
+    </div>
+    <!-- 하단 재생 바 -->
+    <div class="playbar">
+      <div id="playbar_song" class="playbar_song">
+        <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()" />
+      </div>
+      <img src="../static/images/palybn_icon.png" alt="" id="playbtn" onclick="togglePause()" />
+      <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">
+      <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">#}
+      <div id="playbar_control" , style="display:none">
+        <td id="player_active" style="display:none">0</td>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

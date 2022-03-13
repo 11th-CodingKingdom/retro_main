@@ -34,9 +34,6 @@ for (let i = 0; i < btns.length; i++) {
   btns[i].addEventListener('click', clickBtn);
 }
 
-
-
-
 //RE:TRO 차트페이지에서 차트 새로고침 (좋아요 노래, 성향테스트 결과 표시)
 function retro_chart_loading(chart_year) {
   $.ajax({
