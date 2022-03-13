@@ -3,6 +3,9 @@ let currentBtn;
 let btns = document.querySelectorAll('.btn');
 var chart_year = document.getElementsByClassName("btn-active")[0].value;
 userinfo_get(chart_year);
+$('.user_name').text(sessionStorage.getItem('name'))
+$('#user_id').text(sessionStorage.getItem('id'))
+$('#user_email').text(sessionStorage.getItem('email'))
 
 function clickBtn() {
   currentBtn = document.querySelector('.btn-active');
@@ -25,25 +28,27 @@ function toggleLike() {
 
 //마이페이지 새로고침 (좋아요 노래, 성향테스트 결과 표시)
 function userinfo_get(chart_year) {
-  $.ajax({
-    type: 'GET',
-    url: '/userinfo',
-    data: {},
-    success: function (response) {
-      likeMusic = response['likeMusic']
-      preferenceResult = response['preferenceResult']
-      if (typeof preferenceResult == "undefined" || preferenceResult == null || preferenceResult == "") {
-        $('.test_left_middle').text("아직 음악 성향 테스트를 안하셨네요?")
-        $('.test_left_bottom').text("테스트를 진행해보고, 나에게 맞는 음악을 추천 받아보세요!")
-        $('.music_test_btn').text("테스트 바로가기")
-      }
-      else {
-        $('.test_left_middle').text(preferenceResult)
-          $('.music_test_btn').text("추천 음악 바로 가기")
-      }
-      update_info(chart_year)
-    }
-  });
+    id = sessionStorage.getItem('id')
+    $.ajax({
+        type: 'GET',
+        url: '/userinfo',
+        data: {'id':id},
+        success: function (response) {
+            likeMusic = response['likeMusic']
+            preferenceResult = sessionStorage.getItem('preferenceResult')
+            console.log(preferenceResult)
+            if (typeof preferenceResult == "undefined" || preferenceResult == null || preferenceResult == "") {
+                $('.test_left_middle').text("아직 음악 성향 테스트를 안하셨네요?")
+                $('.test_left_bottom').text("테스트를 진행해보고, 나에게 맞는 음악을 추천 받아보세요!")
+                $('.music_test_btn').text("테스트 바로가기")
+            }
+            else {
+                $('.test_left_middle').text(preferenceResult)
+                $('.music_test_btn').text("추천 음악 바로 가기")
+            }
+            update_info(chart_year)
+        }
+    });
 }
 
 //년도에 따른 좋아요 노래 update
@@ -59,7 +64,6 @@ function update_info(chart_year) {
             let year = likeMusic[i]['year']
             chart_year = parseInt(chart_year)
             if (year >= chart_year && year < chart_year + 10) {
-                console.log(title)
                 let temp_html = `<tr class="rankchart-row-box table_line">
                                         <td>
                                             <div id="rankchart_img">
@@ -111,7 +115,6 @@ function withdraw() {
     url: '/userinfo',
     data: {},
     success: function (response) {
-      console.log(response)
       location.href='/';
     }
   });
@@ -129,8 +132,6 @@ function main_playing_active(songID) {
                     singer = response['music_info']['singer']
                     title = response['music_info']['title']
                     musicPlaySrc = response['music_info']['musicPlaySrc']
-
-                    console.log(singer, title, musicPlaySrc)
                     let temp_html = `<div class="youtube_movie">
                                         <iframe width="100" height="75" src="${musicPlaySrc}?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                      </div>

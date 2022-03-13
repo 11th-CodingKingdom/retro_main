@@ -14,14 +14,6 @@ db = client.retro
 def home():
     return render_template('index.html')
 
-@app.route('/login_status')
-def login_status():
-    if 'userID' in session:
-        id = session['userID']
-    else:
-        id = ""
-    return jsonify({'id': id})
-
 @app.route('/main/chart', methods=['GET'])
 def main_chart():
     data_1980 = list(db.musics.find({'rank_type': "AG", 'year': 1980}, {'_id': False}).sort("like", -1).limit(6))
@@ -45,23 +37,20 @@ def login():
     id = request.form['id']
     pw = request.form['pw']
     information = db.users.find_one({'id':id}, {'_id': False})
-
+    userinfo = {}
     if information is not None:
         if bcrypt.check_password_hash(information['pw'], pw):
             email = information['email']
             name = information['name']
             preferenceResult = information['preferenceResult']
-            session['userID'] = id
-            session['email'] = email
-            session['name'] = name
-            session['preferenceResult'] = preferenceResult
+            userinfo = {'id': id, 'email':email, 'name': name, 'preferenceResult':preferenceResult}
             msg = "로그인 성공!"
         else:
             msg = "ID 혹은 비밀번호를 확인하세요"
     else:
         msg = "ID 혹은 비밀번호를 확인하세요"
 
-    return jsonify({'msg': msg})
+    return jsonify({'msg': msg, 'userinfo':userinfo})
 
 @app.route('/logout')
 def logout():
@@ -105,17 +94,13 @@ def regist():
 
 @app.route('/mypage')
 def mypage():
-    if 'userID' in session:
-        return render_template('index-mypage.html')
-    else :
-        return redirect('/login_page')
+    return render_template('index-mypage.html')
 
 @app.route('/userinfo', methods=['GET'])
 def userinfo():
-    id = session['userID']
-    preferenceResult =session['preferenceResult']
+    id = request.args.get('id')
     likeMusics = list(db.likeMusic.find({'id': id}, {'_id': False}))
-    return jsonify({"likeMusic":likeMusics, "preferenceResult":preferenceResult})
+    return jsonify({"likeMusic":likeMusics})
 
 @app.route('/userinfo', methods=['POST'])
 def withdraw():

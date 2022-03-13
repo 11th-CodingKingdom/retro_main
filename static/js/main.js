@@ -58,6 +58,16 @@ function retroChart(chart_year) {
   });
 }
 
+//login 상태에 따라서 버튼 클릭 시 이동되는 페이지 변화
+function button_banner_btn_click() {
+    userID = sessionStorage.getItem('id')
+    if (userID === null) {
+        location.href='/login_page';
+    } else {
+        location.href='/mypage';
+    }
+}
+
 // RetroChart Update (년도 변경 시 Chart update)
 function retroChart_update(chart_year) {
     $('#section_albumchart .albumchart_rowbody:eq(0)').empty()
