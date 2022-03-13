@@ -9,38 +9,21 @@
 
     <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="../static/js/main.js"></script>
+    <script defer src="../static/js/retrochart.js"></script>
     <script defer src="../static/js/common.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/common.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style-retrochart.css">
-
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-
-    <script>
-        $(document).ready(function () {
-            loginStatus();
-        });
-    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../static/images/favicon.ico">
-
-    <script>
-            $(document).ready(function () {
-            loginStatus();
-        });
-    </script>
-
 </head>
 <body>
   <header id="header">
-    <div id="logo">
+    <div id="logo" onclick="location.href='/'">
       <img src="../static/images/reteo_logo.png" width="91px" height="26px" />
     </div>
     <nav id="nav">
@@ -58,18 +41,35 @@
       </div>
     </nav>
   </header>
-
+  <!-- RE:TRO 차트 -->
   <div id="retrochart_wrap">
     <!-- 1980-2010 버튼 4개 -->
     <div id="retrochart-year-btn">
-      <input type="button" class="btn btn-active" value="1980" />
-      <input type="button" class="btn" value="1990" />
-      <input type="button" class="btn" value="2000" />
-      <input type="button" class="btn" value="2010" />
+      <input type="button" class="btn" value="1980" style="border-radius:20px"/>
+      <input type="button" class="btn" value="1990" style="border-radius:20px"/>
+      <input type="button" class="btn" value="2000" style="border-radius:20px"/>
+      <input type="button" class="btn" value="2010" style="border-radius:20px"/>
     </div>
+    <!-- RE:TRO 차트 타이틀-->
     <div id="retrochart_head">
       <h1>RE:TRO 차트</h1>
       <span>100위 집계</span>
+    </div>
+    <!-- RE:TRO 차트 목록 -->
+    <div id="retrochart_table">
+      <table>
+        <thead>
+          <tr>
+            <th width="60px">순위</th>
+            <th class="retrochart_col" width="450px">곡</th>
+            <th class="retrochart_col" width="806px">아티스트</th>
+            <th width="60px">듣기</th>
+            <th width="60px">좋아요</th>
+          </tr>
+        </thead>
+        <tbody id="chart_body">
+        </tbody>
+      </table>
     </div>
   </div>
   <!-- FOOTER -->

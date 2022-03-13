@@ -14,14 +14,6 @@ db = client.retro
 def home():
     return render_template('index.html')
 
-@app.route('/login_status')
-def login_status():
-    if 'userID' in session:
-        id = session['userID']
-    else:
-        id = ""
-    return jsonify({'id': id})
-
 @app.route('/main/chart', methods=['GET'])
 def main_chart():
     data_1980 = list(db.musics.find({'rank_type': "AG", 'year': 1980}, {'_id': False}).sort("like", -1).limit(6))
@@ -44,29 +36,21 @@ def login_page():
 def login():
     id = request.form['id']
     pw = request.form['pw']
+    userinfo = {}
     information = db.users.find_one({'id':id}, {'_id': False})
-
     if information is not None:
         if bcrypt.check_password_hash(information['pw'], pw):
             email = information['email']
             name = information['name']
             preferenceResult = information['preferenceResult']
-            session['userID'] = id
-            session['email'] = email
-            session['name'] = name
-            session['preferenceResult'] = preferenceResult
+            userinfo = {'id': id, 'email':email, 'name': name, 'preferenceResult':preferenceResult}
             msg = "로그인 성공!"
         else:
             msg = "ID 혹은 비밀번호를 확인하세요"
     else:
         msg = "ID 혹은 비밀번호를 확인하세요"
 
-    return jsonify({'msg': msg})
-
-@app.route('/logout')
-def logout():
-    session.clear()
-    return redirect('/')
+    return jsonify({'msg': msg,'userinfo': userinfo})
 
 @app.route('/regist_page')
 def regist_page():
@@ -105,44 +89,102 @@ def regist():
 
 @app.route('/mypage')
 def mypage():
-    if 'userID' in session:
-        return render_template('index-mypage.html')
-    else :
-        return redirect('/login_page')
+    return render_template('index-mypage.html')
 
 @app.route('/userinfo', methods=['GET'])
 def userinfo():
-    id = session['userID']
-    preferenceResult =session['preferenceResult']
+    id = request.args.get('id')
     likeMusics = list(db.likeMusic.find({'id': id}, {'_id': False}))
-    return jsonify({"likeMusic":likeMusics, "preferenceResult":preferenceResult})
+    return jsonify({"likeMusic":likeMusics})
 
 @app.route('/userinfo', methods=['POST'])
 def withdraw():
-    id = session['userID']
+    id = request.form['id']
     information = db.users.find_one({'id':id}, {'_id': False})
-    if information != None:
+    if information is not None:
         db.users.delete_one({'id':id})
-        session.clear()
+        db.likeMusic.delete_many({'id': id})
     return jsonify({"msg": "회원탈퇴 완료"})
 
 @app.route('/main/playing', methods=['POST'])
 def main_playing_active(): # 메인페이지 하단 뮤직플레이어 작동 기능
     songID = request.form['songID_give']
+    userID = request.form['userID_give']
     music = db.musics.find_one({'songID': songID}, {'_id': False})
 
     singer = music['singer']
     title = music['title']
     temp_music = db.musicPlaySrc.find_one({'songID': songID})
+
+    temp_like = db.likeMusic.find_one({'id': userID, 'title': title, 'singer': singer})
     musicPlaySrc = temp_music['musicPlaySrc']
+
+    if (temp_like == None) :
+        like = 0
+    else :
+        like = 1
 
     music_info = {
         'singer': singer,
         'title': title,
-        'musicPlaySrc': musicPlaySrc
+        'musicPlaySrc': musicPlaySrc,
+        'like': like
     }
 
     return jsonify({'music_info': music_info,'msg': '연결 완료'})
+
+@app.route('/playing/likeclick', methods=['POST'])
+def player_likeclick(): # 하단 뮤직플레이어에서 좋아요 클릭했을 때
+    id = request.form['id_give']
+    title = request.form['title_give']
+    singer = request.form['singer_give']
+
+    print(id)
+    if (id != 'null') :
+        temp_like = db.likeMusic.find_one({'id': id, 'title': title, 'singer': singer})
+
+        if (temp_like == None) :
+            # 좋아요 안한 상태에서 클릭했을때
+            like = 1
+            music = db.musics.find_one({'title': title, 'singer': singer})
+            music_src = db.musicPlaySrc.find_one({'title': title, 'singer':singer})
+
+            temp_music = {
+                'title': title,
+                'singer': singer,
+                'id': id,
+                'year': music['year'],
+                'albumImageUrl': music['albumImageUrl'],
+                'musicPlaySrc': music_src['musicPlaySrc']
+            }
+            db.likeMusic.insert_one(temp_music)
+            msg = '좋아요 변경 완료'
+        else :
+            # 좋아요 한 상태에서 클릭했을때
+            like = 0
+            db.likeMusic.delete_one({'id': id, 'title': title, 'singer': singer})
+            msg = '좋아요 변경 완료'
+    else :
+        like = 0
+        msg = '로그인을 해주세요'
+
+    return jsonify({'like': like, 'msg': msg})
+
+@app.route('/retrochart_page')
+def retro_chart_page():
+    return render_template('index-retrochart.html')
+
+@app.route('/chart', methods=['POST'])
+def retro_chart_update():
+    year = request.form['year_give']
+    datas = list(db.musics.find({'rank_type': "AG", 'year': int(year)}, {'_id': False}).sort("like", -1).limit(100))
+    musics = []
+    for music in datas:
+        [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'rank_type']]
+        musics.append(music)
+
+    return jsonify({'music_list': musics,'msg': '연결 완료'})
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)

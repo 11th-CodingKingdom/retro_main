@@ -3,6 +3,9 @@ let currentBtn;
 let btns = document.querySelectorAll('.btn');
 var chart_year = document.getElementsByClassName("btn-active")[0].value;
 userinfo_get(chart_year);
+$('.user_name').text(sessionStorage.getItem('name'))
+$('#user_id').text(sessionStorage.getItem('id'))
+$('#user_email').text(sessionStorage.getItem('email'))
 
 function clickBtn() {
   currentBtn = document.querySelector('.btn-active');
@@ -25,76 +28,79 @@ function toggleLike() {
 
 //마이페이지 새로고침 (좋아요 노래, 성향테스트 결과 표시)
 function userinfo_get(chart_year) {
-  $.ajax({
-    type: 'GET',
-    url: '/userinfo',
-    data: {},
-    success: function (response) {
-      likeMusic = response['likeMusic']
-      preferenceResult = response['preferenceResult']
-      if (typeof preferenceResult == "undefined" || preferenceResult == null || preferenceResult == "") {
-        $('.test_left_middle').text("아직 음악 성향 테스트를 안하셨네요?")
-        $('.test_left_bottom').text("테스트를 진행해보고, 나에게 맞는 음악을 추천 받아보세요!")
-        $('.music_test_btn').text("테스트 바로가기")
-      }
-      else {
-        $('.test_left_middle').text(preferenceResult)
-          $('.music_test_btn').text("추천 음악 바로 가기")
-      }
-      update_info(chart_year)
-    }
-  });
+    id = sessionStorage.getItem('id')
+    $.ajax({
+        type: 'GET',
+        url: '/userinfo',
+        data: {'id':id},
+        success: function (response) {
+            likeMusic = response['likeMusic']
+            preferenceResult = sessionStorage.getItem('preferenceResult')
+            console.log(preferenceResult)
+            if (typeof preferenceResult == "undefined" || preferenceResult == null || preferenceResult == "") {
+                $('.test_left_middle').text("아직 음악 성향 테스트를 안하셨네요?")
+                $('.test_left_bottom').text("테스트를 진행해보고, 나에게 맞는 음악을 추천 받아보세요!")
+                $('.music_test_btn').text("테스트 바로가기")
+            }
+            else {
+                $('.test_left_middle').text(preferenceResult)
+                $('.music_test_btn').text("추천 음악 바로 가기")
+            }
+            update_info(chart_year)
+        }
+    });
 }
 
 //년도에 따른 좋아요 노래 update
 function update_info(chart_year) {
     $('#rankchart-row').empty()
-    if (likeMusic.length >= 1) {
-        let albumImageUrl = likeMusic[i]['albumImageUrl']
-        let singer = likeMusic[i]['singer']
-        let title = likeMusic[i]['title']
-        let musicPlaySrc = likeMusic[i]['musicPlaySrc']
-        let year = likeMusic[i]['year']
-        chart_year = parseInt(chart_year)
-        if ( year >= chart_year && year < chart_year+10 ){
-            let temp_html = `<tr class="rankchart-row-box table_line">
-                                    <td>
-                                        <div id="rankchart_img">
-                                            <img src='${albumImageUrl}' width="50px" height="50px"
-                                                 style="border-radius:10px"/>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div id="rankchart_song">${title}</div>
-                                    </td>
-                                    <td>
-                                        <div id="rankchart_artist">${singer}</div>
-                                    </td>
-                                    <td>
-                                        <!-- 재생버튼 -->
-                                        <button type="button">
-                                            <img src="../static/images/palybn_icon_red_hover.png" alt=""
-                                                 class="playbtn">
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <!-- 좋아요 버튼 -->
-                                        <button type="button">
-                                            <img src="../static/images/like_icon_hover.png" alt="" id="likebtn"
-                                                 onclick="toggleLike()">
-                                        </button>
-                                    </td>
-                                </tr>`
-            $('#rankchart-row').append(temp_html)
 
+    if (likeMusic.length >= 1) {
+        for (let i =0; i<likeMusic.length; i++) {
+            let albumImageUrl = likeMusic[i]['albumImageUrl']
+            let singer = likeMusic[i]['singer']
+            let title = likeMusic[i]['title']
+            let musicPlaySrc = likeMusic[i]['musicPlaySrc']
+            let year = likeMusic[i]['year']
+            chart_year = parseInt(chart_year)
+            if (year >= chart_year && year < chart_year + 10) {
+                let temp_html = `<tr class="rankchart-row-box table_line">
+                                        <td>
+                                            <div id="rankchart_img">
+                                                <img src='${albumImageUrl}' width="50px" height="50px"
+                                                     style="border-radius:10px"/>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div id="rankchart_song">${title}</div>
+                                        </td>
+                                        <td>
+                                            <div id="rankchart_artist">${singer}</div>
+                                        </td>
+                                        <td>
+                                            <!-- 재생버튼 -->
+                                            <button type="button">
+                                                <img src="../static/images/palybn_icon_red_hover.png" alt=""
+                                                     class="playbtn">
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <!-- 좋아요 버튼 -->
+                                            <button type="button">
+                                                <img src="../static/images/like_icon_hover.png" alt="" id="likebtn"
+                                                     onclick="toggleLike()">
+                                            </button>
+                                        </td>
+                                    </tr>`
+                $('#rankchart-row').append(temp_html)
+            }
+        }
     }
-  }
     else {
         let temp_html = `<div id="list-img">
                             <img id="theImg" src="../static/images/mypage_bn_like_no.png" />
                             <div class="list_btn">추천 음악 바로 가기</div>
                         </div>`
-
         $('#year-btn').remove();
         $('.chart_text').remove();
         $('#section_rankchart').remove();
@@ -104,13 +110,14 @@ function update_info(chart_year) {
 
 //회원탈퇴
 function withdraw() {
+    id = sessionStorage.getItem('id')
   $.ajax({
     type: 'POST',
     url: '/userinfo',
-    data: {},
+    data: {'id':id},
     success: function (response) {
-      console.log(response)
-      location.href='/';
+        sessionStorage.clear()
+        location.href='/';
     }
   });
 }
@@ -127,8 +134,6 @@ function main_playing_active(songID) {
                     singer = response['music_info']['singer']
                     title = response['music_info']['title']
                     musicPlaySrc = response['music_info']['musicPlaySrc']
-
-                    console.log(singer, title, musicPlaySrc)
                     let temp_html = `<div class="youtube_movie">
                                         <iframe width="100" height="75" src="${musicPlaySrc}?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                      </div>

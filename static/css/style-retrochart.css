@@ -1,16 +1,20 @@
 #retrochart_wrap {
-  background-color: rgb(101, 101, 255);
   width: 1476px;
   margin: 0 auto;
 }
 
 #retrochart-year-btn {
-  background-color: aqua;
   width: 324px;
   margin-left: 20px;
   margin-bottom: 30px;
   text-align: center;
   align-items: center;
+}
+
+#retrochart_head {
+  width: 1476px;
+  display: flex;
+  margin-bottom: 24px;
 }
 
 #retrochart_head h1 {
@@ -19,4 +23,93 @@
   font-weight: 500;
   letter-spacing: -0.05em;
   margin-left: 20px;
+}
+
+#retrochart_head span {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #c8c8c8;
+  letter-spacing: -0.05em;
+  position: relative;
+  top: 5px;
+  left: 10px;
+}
+
+#retrochart_table table {
+  border-bottom: 0.5px solid b5b6b5;
+  width: 1436px;
+  margin: 0 auto;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+#retrochart_table thead {
+  height: 40px;
+  line-height: 40px;
+}
+
+#retrochart_table thead tr {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #a0a0a0;
+  letter-spacing: -0.05em;
+  border-bottom: 0.5px solid #c8c8c8;
+}
+
+.retrochart_col {
+  text-align: left;
+  position: relative;
+  left: 36px;
+}
+
+#retrochart_table tbody tr {
+  height: 100px;
+  border-bottom: 1px solid #f6f6f6;
+}
+
+#retrochart_table tbody td {
+  vertical-align: middle;
+}
+
+#retrochart_rank {
+  font-size: 16px;
+  font-weight: 200;
+}
+
+#retrochart_song_wrap {
+  display: flex;
+  margin-left: 36px;
+  text-align: left;
+}
+
+#retrochart_song_wrap img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
+
+#retrochart_song_desc {
+  text-align: left;
+  margin-left: 36px;
+  margin-top: 10px;
+}
+
+#retrochart_song {
+  font-size: 16px;
+  font-weight: 200;
+  margin-bottom: 10px;
+}
+
+#retrochart_album {
+  color: #b5b6b5;
+  font-size: 14px;
+  font-weight: 200;
+}
+
+#retrochart_artist {
+  font-size: 16px;
+  font-weight: 200;
+  margin-left: 36px;
+  text-align: left;
 }
