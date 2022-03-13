@@ -49,8 +49,9 @@ function userinfo_get(chart_year) {
 //년도에 따른 좋아요 노래 update
 function update_info(chart_year) {
     $('#rankchart-row').empty()
-    for (let i =0; i<likeMusic.length; i++) {
-        if (likeMusic.length >= 1) {
+
+    if (likeMusic.length >= 1) {
+        for (let i =0; i<likeMusic.length; i++) {
             let albumImageUrl = likeMusic[i]['albumImageUrl']
             let singer = likeMusic[i]['singer']
             let title = likeMusic[i]['title']
@@ -89,16 +90,17 @@ function update_info(chart_year) {
                                     </tr>`
                 $('#rankchart-row').append(temp_html)
             }
-        } else {
-            let temp_html = `<div id="list-img">
-                                <img id="theImg" src="../static/images/mypage_bn_like_no.png" />
-                                <div class="list_btn">추천 음악 바로 가기</div>
-                            </div>`
-            $('#year-btn').remove();
-            $('.chart_text').remove();
-            $('#section_rankchart').remove();
-            $('#chart-body').append(temp_html)
         }
+    }
+    else {
+        let temp_html = `<div id="list-img">
+                            <img id="theImg" src="../static/images/mypage_bn_like_no.png" />
+                            <div class="list_btn">추천 음악 바로 가기</div>
+                        </div>`
+        $('#year-btn').remove();
+        $('.chart_text').remove();
+        $('#section_rankchart').remove();
+        $('#chart-body').append(temp_html)
     }
 }
 
