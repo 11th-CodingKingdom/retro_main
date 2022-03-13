@@ -61,14 +61,15 @@ function button_banner_btn_click() {
 
 // RetroChart Update (년도 변경 시 Chart update)
 function retroChart_update(chart_year) {
-    musics_1980 = JSON.parse(localStorage.getItem('musics_1980'))
+    musics_1980 = list(JSON.parse(localStorage.getItem('musics_1980')))
     console.log(musics_1980)
+    console.log(musics_1980.length)
+    console.log(musics_1980[0])
     $('#section_albumchart .albumchart_rowbody:eq(0)').empty()
     $('#section_albumchart .albumchart_rowbody:eq(1)').empty()
     $('#rankchart-table').empty()
     chart_year = parseInt(chart_year)
     if (chart_year == 1980) {
-        console.log(typeof musics_1980)
     }
     for (let i = 0; i < 7; i++) {
         let albumImageUrl = music_list[i]['albumImageUrl']
