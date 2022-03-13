@@ -119,7 +119,6 @@ header #nav {
 #playlist_contents {
     float: right;
     width: 1476px;
-    height: 1000px;
     overflow: hidden;
     display: block;
 }
@@ -206,15 +205,13 @@ header #nav {
     display: flex;
     align-items: center;
     box-sizing: border-box;
-    position: relative;
+    top: 10px;
 }
 
 #chart-body #section_rankchart {
     /* background-color: blanchedalmond; */
     margin: 0px auto;
     width: 1476px;
-    height: 455px;
-    position: relative;
 }
 
 #chart-body .chart_text {
@@ -232,10 +229,7 @@ header #nav {
 
 #rankchart-box {
     width: 1476px;
-    height: 488px;
     margin: 0 auto;
-    position: absolute;
-    top: 10px;
 }
 
 #rankchart-table {
@@ -275,7 +269,6 @@ tr {
 
 #rankchart-row {
     width: 966px;
-    height: 76px;
     border-top: 1px solid #dfdfdf;
     cursor: pointer;
 }

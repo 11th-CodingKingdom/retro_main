@@ -96,35 +96,7 @@
                                 <td>
                                     <!-- 재생버튼 -->
                                     <button type="button">
-                                        <img src="../static/images/palybn_icon_red_hover.png" alt=""
-                                             class="playbtn">
-                                    </button>
-                                </td>
-                                <td>
-                                    <!-- 좋아요 버튼 -->
-                                    <button type="button">
-                                        <img src="../static/images/like_icon_hover.png" alt="" id="likebtn"
-                                             onclick="toggleLike()">
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="rankchart-row-box table_line">
-                                <td>
-                                    <div id="rankchart_img">
-                                        <img src='${albumImageUrl}' width="50px" height="50px"
-                                             style="border-radius:10px"/>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div id="rankchart_song">${title}아</div>
-                                </td>
-                                <td>
-                                    <div id="rankchart_artist">${singer}아</div>
-                                </td>
-                                <td>
-                                    <!-- 재생버튼 -->
-                                    <button type="button">
-                                        <img src="../static/images/palybn_icon_red_hover.png" alt=""
+                                        <img src="../static/images/playbn_icon_black.png" alt=""
                                              class="playbtn">
                                     </button>
                                 </td>
@@ -161,7 +133,8 @@
         </div>
         <img src="../static/images/palybn_icon.png" alt="" id="playbtn" onclick="togglePause()"/>
         <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">
-        {#      <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">#}
+        {# <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt=""
+                class="playbtn">#}
         <div id="playbar_control" , style="display:none">
             <td id="player_active" style="display:none">0</td>
         </div>
