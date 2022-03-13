@@ -90,7 +90,6 @@ function likeclick(userID, title, singer) {
             let like = response['like']
             let likebtn = document.getElementById("likebtn");
 
-            console.log(like)
             if (like == 1) {
                 likebtn.src = '../static/images/like_icon_hover.png';
             } else {

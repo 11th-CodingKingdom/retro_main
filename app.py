@@ -204,7 +204,6 @@ def player_likeclik(): # 하단 뮤직플레이어에서 좋아요 클릭했을 
 
     if (temp_like == None) :
         # 좋아요 안한 상태에서 클릭했을때
-        print('like == 0')
         like = 1
         music = db.musics.find_one({'title': title, 'singer': singer})
         music_src = db.musicPlaySrc.find_one({'title': title, 'singer':singer})
@@ -222,7 +221,6 @@ def player_likeclik(): # 하단 뮤직플레이어에서 좋아요 클릭했을 
     else :
         # 좋아요 한 상태에서 클릭했을때
         like = 0
-        print('like == 1')
         db.likeMusic.delete_one({'id': id, 'title': title, 'singer': singer})
 
     return jsonify({'like': like, 'msg': '좋아요 변경 완료'})
