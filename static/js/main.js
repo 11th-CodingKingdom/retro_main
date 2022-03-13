@@ -92,7 +92,7 @@ function retroChart_update(chart_year) {
                                           </td>
                                           <td>
                                             <div id="rankchart_desc">
-                                              <div id="rankchart_song" onclick="location.href='/retrochart_page'">
+                                              <div id="rankchart_song" onclick="location.href='/retrochart_page';">
                                                   <MARQUEE width="168" height="18" scrollamount="5">${title}</MARQUEE>
                                               </div>
                                               <div id="rankchart_artist">${singer}</div>
@@ -131,7 +131,7 @@ function retroChart_update(chart_year) {
                                           </td>
                                           <td>
                                             <div id="rankchart_desc">
-                                              <div id="rankchart_song">${title}</div>
+                                              <div id="rankchart_song" onclick="location.href='/retrochart_page';">${title}</div>
                                               <div id="rankchart_artist">${singer}</div>
                                             </div>
                                           </td>
@@ -151,7 +151,6 @@ function retroChart_update(chart_year) {
 // 하단 플레이어 작동 기능
 function main_playing_active(songID) {
     let userID = sessionStorage.getItem('id')
-
     $.ajax({
         type: 'POST',
         url: '/main/playing',
