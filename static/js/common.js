@@ -40,7 +40,6 @@ function nav_update() {
 
 // 화면 하단 플레이어 재생, 일시정지 제어함수
 function playing_control(){
-
     let playing_active = $('#player_active').text();
     let temp_html = ``
     if(playing_active == 1) {
