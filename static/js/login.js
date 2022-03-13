@@ -17,6 +17,7 @@ function login() {
         data: {'id':id, 'pw':pw},
         success: function (response) {
             let msg = response['msg']
+            console.log(msg)
             if(msg == "로그인 성공!"){
                 sessionStorage.setItem('id',response['userinfo']['id'])
                 sessionStorage.setItem('email',response['userinfo']['email'])
@@ -24,9 +25,10 @@ function login() {
                 sessionStorage.setItem('preferenceResult',response['userinfo']['preferenceResult'])
                 location.href='/';
                 alert(msg);
-            }else {
+            }
+            else {
                 alert(msg);
             }
-            }
+        }
     });
 }
