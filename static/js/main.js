@@ -200,3 +200,12 @@ function main_playing_active(songID) {
     })
 }
 
+//RE:RRO 모음집 연도 저장
+function collection_year(year){
+    let main_link = document.location.href;
+    let collect_link = main_link + 'retrocollection_page';
+
+    localStorage.setItem('retrocollection_year', year);
+
+    location.href= collect_link;
+}
