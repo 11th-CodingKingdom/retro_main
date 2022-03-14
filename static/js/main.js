@@ -66,14 +66,15 @@ function retroChart_update(chart_year) {
         let year = music_list[i]['year']
         chart_year = parseInt(chart_year)
         if (year == chart_year) {
+            localStorage.setItem('retrochart_year', year)
             if (title.length > 10){
-                let albumchart_html = `<div class="albumchart-box" onclick="location.href='#'">
+                let albumchart_html = `<div class="albumchart-box">
                                           <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
                                             <img onclick="main_playing_active(${songID})" src="../static/images/palybn_icon_red.png" alt="" id="albumchart_play" onmouseover="this.src='../static/images/palybn_icon_red_hover.png'" onmouseout="this.src='../static/images/palybn_icon_red.png'">
                                           </div>
                                           <div id="albumchart_desc">
                                             <span id="albumchart_rank">${rank}</span>
-                                            <span id="albumchart_song">
+                                            <span id="albumchart_song" onclick="location.href='/retrochart_page';">
                                                 <MARQUEE width="168" height="18" scrollamount="5">${title}</MARQUEE>
                                             </span>
                                             <span id="albumchart_artist">${singer}</span>
@@ -82,7 +83,7 @@ function retroChart_update(chart_year) {
                 let rankchart_html = `<tr id="rankchart-row">
                                           <td>
                                             <div id="rankchart_img">
-                                              <img src='${albumImageUrl}' width="50px" height="50px" style="border-radius:10px"/>
+                                              <img src='${albumImageUrl}' width="50px" height="50px" style="border-radius:10px" onclick="location.href='/retrochart_page'"/>
                                             </div>
                                           </td>
                                           <td>
@@ -90,7 +91,7 @@ function retroChart_update(chart_year) {
                                           </td>
                                           <td>
                                             <div id="rankchart_desc">
-                                              <div id="rankchart_song">
+                                              <div id="rankchart_song" onclick="location.href='/retrochart_page';">
                                                   <MARQUEE width="168" height="18" scrollamount="5">${title}</MARQUEE>
                                               </div>
                                               <div id="rankchart_artist">${singer}</div>
@@ -106,13 +107,13 @@ function retroChart_update(chart_year) {
                 }
                 }
             else {
-                let albumchart_html = `<div class="albumchart-box" onclick="location.href='#'">
+                let albumchart_html = `<div class="albumchart-box">
                                           <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
                                             <img onclick="main_playing_active(${songID})" src="../static/images/palybn_icon_red.png" alt="" id="albumchart_play" onmouseover="this.src='../static/images/palybn_icon_red_hover.png'" onmouseout="this.src='../static/images/palybn_icon_red.png'">
                                           </div>
                                           <div id="albumchart_desc">
                                             <span id="albumchart_rank">${rank}</span>
-                                            <span id="albumchart_song">
+                                            <span id="albumchart_song" onclick="location.href='/retrochart_page';">
                                                 ${title}
                                             </span>
                                             <span id="albumchart_artist">${singer}</span>
@@ -129,7 +130,7 @@ function retroChart_update(chart_year) {
                                           </td>
                                           <td>
                                             <div id="rankchart_desc">
-                                              <div id="rankchart_song">${title}</div>
+                                              <div id="rankchart_song" onclick="location.href='/retrochart_page';">${title}</div>
                                               <div id="rankchart_artist">${singer}</div>
                                             </div>
                                           </td>
@@ -148,49 +149,51 @@ function retroChart_update(chart_year) {
 
 // 하단 플레이어 작동 기능
 function main_playing_active(songID) {
-            $.ajax({
-                type: 'POST',
-                url: '/main/playing',
-                data: { songID_give: songID
-                },
-                success: function (response) {
-                    let userID = response['music_info']['id']
-                    let singer = response['music_info']['singer']
-                    let title = response['music_info']['title']
-                    let musicPlaySrc = response['music_info']['musicPlaySrc']
-                    let like = response['music_info']['like']
+    let userID = sessionStorage.getItem('id')
+    $.ajax({
+        type: 'POST',
+        url: '/main/playing',
+        data: {
+            songID_give: songID,
+            userID_give: userID
+        },
+        success: function (response) {
+            let singer = response['music_info']['singer']
+            let title = response['music_info']['title']
+            let musicPlaySrc = response['music_info']['musicPlaySrc']
+            let like = response['music_info']['like']
 
-                    console.log(singer, title, musicPlaySrc)
-                    let temp_html = `<div class="youtube_movie">
-                                        <iframe width="100" height="75" src="${musicPlaySrc}?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                     </div>
-                                     <div class="playbar_song_wrap">
-                                        <div class="playbar_song_title">${title}</div>
-                                        <div class="playbar_song_artist">${singer}</div>
-                                     </div>`
-                    let temp_html2 = ``
-                    if (like == 0) {
-                        temp_html2 = `<img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
-                    } else {
-                        temp_html2 = `<img src="../static/images/like_icon_hover.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
-                    }
+            console.log(singer, title, musicPlaySrc)
+            let temp_html = `<div class="youtube_movie">
+                                <iframe width="100" height="75" src="${musicPlaySrc}?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                             </div>
+                             <div class="playbar_song_wrap">
+                                <div class="playbar_song_title">${title}</div>
+                                <div class="playbar_song_artist">${singer}</div>
+                             </div>`
+            let temp_html2 = ``
+            if (like == 0) {
+                temp_html2 = `<img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
+            } else {
+                temp_html2 = `<img src="../static/images/like_icon_hover.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
+            }
 
-                    $('#playbar_song').empty()
-                    $('#playbar_song').append(temp_html)
-                    $('#playbar_song').append(temp_html2)
+            $('#playbar_song').empty()
+            $('#playbar_song').append(temp_html)
+            $('#playbar_song').append(temp_html2)
 
-                    temp_html = `<td id="player_active" style="display:none">1</td>`
-                    $('#playbar_control').empty();
-                    $('#playbar_control').append(temp_html);
+            temp_html = `<td id="player_active" style="display:none">1</td>`
+            $('#playbar_control').empty();
+            $('#playbar_control').append(temp_html);
 
-                    let play = document.getElementById("playbtn");
-                    play.src = '../static/images/playbar_menu_pau.png';
-                    play.style.width = '30px';
-                    play.style.height = 'auto';
-                    play.style.marginTop = '10px';
-                    play.style.marginLeft = '10px';
-                    //alert(response["msg"])
-                }
-            })
+            let play = document.getElementById("playbtn");
+            play.src = '../static/images/playbar_menu_pau.png';
+            play.style.width = '30px';
+            play.style.height = 'auto';
+            play.style.marginTop = '10px';
+            play.style.marginLeft = '10px';
+            //alert(response["msg"])
+        }
+    })
 }
 

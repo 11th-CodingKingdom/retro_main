@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -11,12 +11,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="../static/js/main.js"></script>
     <script defer src="../static/js/common.js"></script>
+    <script defer src="../static/js/search.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/common.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,7 +43,7 @@
       </div>
       <div id="searchbox_wrap">
         <img src="../static/images/search_icon.png" alt="">
-        <input type="text" id="searchbox" placeholder="검색어를 입력하세요.">
+        <input type="text" id="searchbox" placeholder="검색어를 입력하세요." onkeyup="enterkey()" />
       </div>
       <div id="nav_right">
       </div>
@@ -55,7 +53,7 @@
   <div id="wrap">
       <section id="chart">
         <section id="section_head">
-          <h1>RE:TRO 차트</h1>
+          <h1 onclick="location.href='/retrochart_page';">RE:TRO 차트</h1>
           <span>NEW</span>
           <!-- 1980-2010 버튼 4개 -->
           <div id="year-btn_wrap">
@@ -162,8 +160,7 @@
         <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()" />
       </div>
       <img src="../static/images/palybn_icon.png" alt="" id="playbtn" onclick="togglePause()" />
-      <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">
-{#      <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">#}
+      <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">
       <div id="playbar_control" , style="display:none">
         <td id="player_active" style="display:none">0</td>
       </div>
