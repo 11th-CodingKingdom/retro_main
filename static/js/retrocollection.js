@@ -110,7 +110,7 @@ function retro_collection_loading(chart_year) {
                                 <td>
                                   <div id="retrocollect_artist">${singer}</div>
                                 </td>
-                                <td><img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" width="40px" height="40px"/></td>
+                                <td><img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" width="40px" height="40px" id="play_collection" /></td>
                                 <td><img src="../static/images/like_icon.png" width="30px" height="30px" id="like_collection" onclick="likeclick_retrocollection('${userID}', '${title}', '${singer}', '${rank}')"/></td>
                               </tr>`
             } else {
@@ -127,7 +127,7 @@ function retro_collection_loading(chart_year) {
                                 <td>
                                   <div id="retrocollect_artist">${singer}</div>
                                 </td>
-                                <td><img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" width="40px" height="40px"/></td>
+                                <td><img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" width="40px" height="40px" id="play_collection" /></td>
                                 <td><img src="../static/images/like_icon_hover.png" width="30px" height="30px" id="like_collection" onclick="likeclick_retrocollection('${userID}', '${title}', '${singer}', '${rank}')"/></td>
                               </tr>`
 
