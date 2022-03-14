@@ -34,13 +34,22 @@ for (let i = 0; i < btns.length; i++) {
   btns[i].addEventListener('click', clickBtn);
 }
 
+
+$(document).ready(function () {
+    localStorage.setItem('playbar_title', '')
+    localStorage.setItem('playbar_singer', '')
+    localStorage.setItem('retrochart_year', '1980')
+})
+
 //RE:TRO 차트페이지에서 차트 새로고침 (좋아요 노래, 성향테스트 결과 표시)
 function retro_chart_loading(chart_year) {
+    let userID = sessionStorage.getItem('id')
   $.ajax({
     type: 'POST',
     url: '/chart',
     data: {
-        year_give : chart_year
+        year_give : chart_year,
+        userID_give : userID
     },
     success: function (response) {
         let music_list = response['music_list']
@@ -52,8 +61,32 @@ function retro_chart_loading(chart_year) {
             let title = music_list[i]['title']
             let songID = music_list[i]['songID']
             let year = music_list[i]['year']
+            let like = music_list[i]['like']
+            let albumtitle = music_list[i]['albumtitle']
 
-            let temp_html = `<tr>
+            let temp_html = ``
+            if (like == 0){
+                temp_html = `<tr>
+                                <td>
+                                  <div id="retrochart_rank">${rank}</div>
+                                </td>
+                                <td>
+                                  <div id="retrochart_song_wrap">
+                                    <img src="${albumImageUrl}"/>
+                                    <div id="retrochart_song_desc">
+                                      <div id="retrochart_song">${title}</div>
+                                      <div id="retrochart_album">${albumtitle}</div>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div id="retrochart_artist">${singer}</div>
+                                </td>
+                                <td><img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" width="40px" height="40px"/></td>
+                                <td><img src="../static/images/like_icon.png" width="30px" height="30px" id="like_chart" onclick="likeclick_retrochart('${userID}', '${title}', '${singer}', '${rank}')"/></td>
+                              </tr>`
+            } else {
+                temp_html = `<tr>
                             <td>
                               <div id="retrochart_rank">${rank}</div>
                             </td>
@@ -62,19 +95,75 @@ function retro_chart_loading(chart_year) {
                                 <img src="${albumImageUrl}"/>
                                 <div id="retrochart_song_desc">
                                   <div id="retrochart_song">${title}</div>
-                                  <div id="retrochart_album"></div>
+                                  <div id="retrochart_album">${albumtitle}</div>
                                 </div>
                               </div>
                             </td>
                             <td>
                               <div id="retrochart_artist">${singer}</div>
                             </td>
-                            <td><img src="../static/images/playbn_icon_black.png" width="40px" height="40px"/></td>
-                            <td><img src="../static/images/like_icon.png" width="30px" height="30px" id="likebtn"/></td>
+                            <td><img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" width="40px" height="40px"/></td>
+                            <td><img src="../static/images/like_icon_hover.png" width="30px" height="30px" id="like_chart" onclick="likeclick_retrochart('${userID}', '${title}', '${singer}', '${rank}')"/></td>
                           </tr>`
+            }
             $('#chart_body').append(temp_html)
-
         }
+    }
+  });
+}
+
+//RE:TRO 차트페이지에서 좋아요 클릭
+function likeclick_retrochart(userID, title, singer, rank) {
+  $.ajax({
+    type: 'POST',
+    url: '/chart/likeclick',
+    data: {
+        id_give: userID,
+        title_give: title,
+        singer_give: singer
+    },
+    success: function (response) {
+        let like = response['like']
+        let likebtn;
+        let likebtns = document.querySelectorAll('#like_chart');
+        for (let i = 0; i < likebtns.length; i++){
+            if(rank == i+1) {
+                likebtn = likebtns[i]
+                console.log('like click rank')
+            }
+        }
+
+        let playbar_title;
+        let playbar_singer;
+        let playbar_likebtn;
+        if(localStorage.getItem('playbar_title')) {
+            playbar_title= localStorage.getItem('playbar_title')
+        } else {
+            playbar_title = ''
+        }
+        if (localStorage.getItem('playbar_singer')) {
+            playbar_singer = localStorage.getItem('playbar_singer')
+        } else {
+            playbar_singer = ''
+        }
+
+        if (like == 1) {
+            likebtn.src = '../static/images/like_icon_hover.png';
+            if (title == playbar_title && singer == playbar_singer) {
+                playbar_likebtn = document.querySelector('#likebtn');
+                playbar_likebtn.src = '../static/images/like_icon_hover.png';
+                console.log('playbar like on')
+            }
+        } else {
+            likebtn.src = '../static/images/like_icon.png';
+            if (title == playbar_title && singer == playbar_singer) {
+                playbar_likebtn = document.querySelector('#likebtn');
+                playbar_likebtn.src = '../static/images/like_icon.png';
+                console.log('playbar like off')
+            }
+        }
+
+        alert(response['msg'])
     }
   });
 }
