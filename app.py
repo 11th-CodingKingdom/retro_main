@@ -251,6 +251,41 @@ def retro_collection_page():
 def retro_introduce_page():
     return render_template('index-introduce.html')
 
+@app.route('/collection', methods=['POST'])
+def retro_collection_update():
+    year = request.form['year_give']
+    userID = request.form['userID_give']
+    datas = list(db.music.find({'rank_type': "YE", 'year': int(year)}, {'_id': False}).sort("like", -1).limit(200))
+    musics = []
+    likes = []
+
+    user_musics = list(db.likeMusic.find({'id': userID}, {'_id':False}))
+
+    for music in user_musics:
+        [music.pop(key, None) for key in ['id', 'year', 'albumImageUrl', 'musicPlaySrc']]
+        likes.append(music)
+
+
+    for music in datas:
+        [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'rank_type']]
+        songID = music['songID']
+        title = music['title']
+        singer = music['singer']
+
+        music_temp = {'title': title, 'singer': singer}
+        #temp_like = None
+        if music_temp in likes:
+            like = 1
+        else:
+            like = 0
+
+        music['like'] = like
+        musics.append(music)
+
+    return jsonify({'music_list': musics,'msg': '연결 완료'})
+
+
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
