@@ -61,6 +61,7 @@
   top: 14px;
   left: 12px;
   cursor: pointer;
+  letter-spacing: -0.01em;
 }
 
 #section_head span {
@@ -155,7 +156,7 @@
 }
 
 #rankchart-box {
-  border: 2px solid #afafaf;
+  border: 1px solid #000;
   border-radius: 15px;
   width: 320px;
   height: 500px;
@@ -218,7 +219,7 @@ td {
 .btn {
   width: 72px;
   height: 30px;
-  border: 2px solid #c0c0c0;
+  border: 1px solid #c0c0c0;
   border-radius: 20px;
   display: inline-block;
   font-size: 16px;
@@ -231,7 +232,7 @@ td {
 
 .btn-active {
   background-color: #eb1400;
-  border: 2px solid #eb1400;
+  border: 1px solid #eb1400;
   color: #fff;
 }
 
@@ -270,6 +271,7 @@ td {
   color: #fff;
   font-weight: 700;
   font-size: 24px;
+  letter-spacing: -0.02em;
 }
 
 .music_test_banner .music_test_right {
@@ -314,6 +316,7 @@ td {
   font-weight: bold;
   font-family: "Noto Sans KR", sans-serif;
   cursor: pointer;
+  letter-spacing: -0.01em;
 }
 
 #yearchart_title span {
@@ -397,6 +400,7 @@ td {
   font-family: "Noto Sans KR", sans-serif;
   position: relative;
   top: 20px;
+  letter-spacing: -0.01em;
 }
 
 #pick_body {
