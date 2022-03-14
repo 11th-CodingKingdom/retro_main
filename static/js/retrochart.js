@@ -62,6 +62,7 @@ function retro_chart_loading(chart_year) {
             let songID = music_list[i]['songID']
             let year = music_list[i]['year']
             let like = music_list[i]['like']
+            let albumtitle = music_list[i]['albumtitle']
 
             let temp_html = ``
             if (like == 0){
@@ -74,7 +75,7 @@ function retro_chart_loading(chart_year) {
                                     <img src="${albumImageUrl}"/>
                                     <div id="retrochart_song_desc">
                                       <div id="retrochart_song">${title}</div>
-                                      <div id="retrochart_album"></div>
+                                      <div id="retrochart_album">${albumtitle}</div>
                                     </div>
                                   </div>
                                 </td>
@@ -94,7 +95,7 @@ function retro_chart_loading(chart_year) {
                                 <img src="${albumImageUrl}"/>
                                 <div id="retrochart_song_desc">
                                   <div id="retrochart_song">${title}</div>
-                                  <div id="retrochart_album"></div>
+                                  <div id="retrochart_album">${albumtitle}</div>
                                 </div>
                               </div>
                             </td>

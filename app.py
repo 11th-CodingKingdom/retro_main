@@ -186,10 +186,11 @@ def retro_chart_update():
     for music in user_musics:
         [music.pop(key, None) for key in ['id', 'year', 'albumImageUrl', 'musicPlaySrc']]
         likes.append(music)
-    print(userID)
-    print(likes)
+
+
     for music in datas:
         [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'rank_type']]
+        print(music)
         songID = music['songID']
         title = music['title']
         singer = music['singer']
