@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="../static/js/main.js"></script>
     <script defer src="../static/js/common.js"></script>
+    <script defer src="../static/js/search.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../static/css/common.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
@@ -42,7 +43,7 @@
       </div>
       <div id="searchbox_wrap">
         <img src="../static/images/search_icon.png" alt="">
-        <input type="text" id="searchbox" placeholder="검색어를 입력하세요.">
+        <input type="text" id="searchbox" placeholder="검색어를 입력하세요." onkeyup="enterkey()" />
       </div>
       <div id="nav_right">
       </div>
