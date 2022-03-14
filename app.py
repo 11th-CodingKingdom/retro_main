@@ -190,7 +190,6 @@ def retro_chart_update():
 
     for music in datas:
         [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'rank_type']]
-        print(music)
         songID = music['songID']
         title = music['title']
         singer = music['singer']
@@ -243,6 +242,14 @@ def retro_chart_likeclick():
         msg = '로그인을 해주세요'
 
     return jsonify({'like': like, 'msg': msg})
+
+@app.route('/retrocollection_page')
+def retro_collection_page():
+    return render_template('index-retrocollection.html')
+
+@app.route('/intro_page')
+def retro_introduce_page():
+    return render_template('index-introduce.html')
 
 
 if __name__ == '__main__':
