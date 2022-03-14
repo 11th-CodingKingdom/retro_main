@@ -333,6 +333,21 @@ def retro_collection_likeclick():
 
     return jsonify({'like': like, 'msg': msg})
 
+@app.route('/search_page')
+def retro_search_page():
+    return render_template('index-search.html')
+
+@app.route('/search', methods=['POST'])
+def retro_search():
+    word = request.form['word_give']
+
+    music_list = list(db.music.find({'rank_type': "YE", 'title': {'$regex': word}}, {'_id': False}).limit(10))
+
+    msg = '검색 완료'
+    return jsonify({'music_list': music_list,'msg': msg})
+
+
+
 
 
 if __name__ == '__main__':
