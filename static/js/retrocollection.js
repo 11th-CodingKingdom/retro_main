@@ -21,6 +21,7 @@ for(let i=0; i<yearsBtns.length; i++){
 function changeYearBtnText(cur_yearsBtn){
   if(cur_yearsBtn.innerHTML === "전체 곡"){
     document.getElementById("retrocollect-year-btn").style.display ="none";
+    retro_collection_loading('all')
   } else {
     document.getElementById("retrocollect-year-btn").style.display ="block";
     changeText();  
@@ -45,6 +46,8 @@ function clickYearBtnHandler() {
   }
   this.classList.add('year-btn-active');
   cur_yearBtn = this;
+  collect_year = document.getElementsByClassName("year-btn-active")[0].value;
+  retro_collection_loading(collect_year);
 }
 
 for(let i=0; i<yearBtns.length; i++){

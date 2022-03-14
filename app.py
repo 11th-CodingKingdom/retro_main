@@ -1,6 +1,7 @@
 from flask import Flask, render_template, jsonify, request, session, redirect
 from pymongo import MongoClient
 from flask_bcrypt import Bcrypt
+import random
 
 app = Flask(__name__)
 app.secret_key = "qwertyuiop"
@@ -255,7 +256,19 @@ def retro_introduce_page():
 def retro_collection_update():
     year = request.form['year_give']
     userID = request.form['userID_give']
-    datas = list(db.music.find({'rank_type': "YE", 'year': int(year)}, {'_id': False}).sort("like", -1).limit(200))
+    datas= []
+
+    if (year == 'all'):
+        years = [1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989,
+                 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
+                 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
+                 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019]
+        random_years = random.sample(years, 10)
+        for temp_year in random_years:
+            data = list(db.music.find({'rank_type': "YE", 'year': temp_year}, {'_id': False}).sort("like", -1).limit(40))
+            datas = datas + data
+    else:
+        datas = list(db.music.find({'rank_type': "YE", 'year': int(year)}, {'_id': False}).sort("like", -1).limit(200))
     musics = []
     likes = []
 
@@ -264,7 +277,6 @@ def retro_collection_update():
     for music in user_musics:
         [music.pop(key, None) for key in ['id', 'year', 'albumImageUrl', 'musicPlaySrc']]
         likes.append(music)
-
 
     for music in datas:
         [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'rank_type']]
