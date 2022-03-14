@@ -178,6 +178,8 @@ function main_playing_active(songID) {
                 temp_html2 = `<img src="../static/images/like_icon_hover.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
             }
 
+            console.log(temp_html2)
+
             $('#playbar_song').empty()
             $('#playbar_song').append(temp_html)
             $('#playbar_song').append(temp_html2)
@@ -193,6 +195,7 @@ function main_playing_active(songID) {
             play.style.marginTop = '10px';
             play.style.marginLeft = '10px';
             //alert(response["msg"])
+
         }
     })
 }

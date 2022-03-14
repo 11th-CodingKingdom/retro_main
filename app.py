@@ -296,6 +296,42 @@ def retro_collection_update():
 
     return jsonify({'music_list': musics,'msg': '연결 완료'})
 
+@app.route('/collection/likeclick', methods=['POST'])
+def retro_collection_likeclick():
+    id = request.form['id_give']
+    title = request.form['title_give']
+    singer = request.form['singer_give']
+
+    if (id != 'null'):
+        temp_like = db.likeMusic.find_one({'id': id, 'title': title, 'singer': singer})
+
+        if (temp_like == None):
+            # 좋아요 안한 상태에서 클릭했을때
+            like = 1
+            music = db.musics.find_one({'title': title, 'singer': singer})
+            music_src = db.musicPlaySrc.find_one({'title': title, 'singer': singer})
+
+            temp_music = {
+                'title': title,
+                'singer': singer,
+                'id': id,
+                'year': music['year'],
+                'albumImageUrl': music['albumImageUrl'],
+                'musicPlaySrc': music_src['musicPlaySrc']
+            }
+            db.likeMusic.insert_one(temp_music)
+            msg = '좋아요 설정 완료'
+
+        else:
+            # 좋아요 한 상태에서 클릭했을때
+            like = 0
+            db.likeMusic.delete_one({'id': id, 'title': title, 'singer': singer})
+            msg = '좋아요 삭제 완료'
+    else:
+        like = 0
+        msg = '로그인을 해주세요'
+
+    return jsonify({'like': like, 'msg': msg})
 
 
 

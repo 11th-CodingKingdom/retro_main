@@ -21,7 +21,6 @@ for(let i=0; i<yearsBtns.length; i++){
 function changeYearBtnText(cur_yearsBtn){
   if(cur_yearsBtn.innerHTML === "전체 곡"){
     document.getElementById("retrocollect-year-btn").style.display ="none";
-    retro_collection_loading('all')
   } else {
     document.getElementById("retrocollect-year-btn").style.display ="block";
     changeText();  
@@ -75,6 +74,7 @@ $(document).ready(function () {
 //RE:TRO 모음집 이지에서 차트 새로고침 (좋아요 노래, 성향테스트 결과 표시)
 function retro_collection_loading(chart_year) {
     let userID = sessionStorage.getItem('id')
+    localStorage.setItem('retrocollect_year', chart_year)
   $.ajax({
     type: 'POST',
     url: '/collection',
@@ -111,7 +111,7 @@ function retro_collection_loading(chart_year) {
                                   <div id="retrocollect_artist">${singer}</div>
                                 </td>
                                 <td><img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" width="40px" height="40px"/></td>
-                                <td><img src="../static/images/like_icon.png" width="30px" height="30px" id="like_chart" onclick="likeclick_retrochart('${userID}', '${title}', '${singer}', '${rank}')"/></td>
+                                <td><img src="../static/images/like_icon.png" width="30px" height="30px" id="like_collection" onclick="likeclick_retrocollection('${userID}', '${title}', '${singer}', '${rank}')"/></td>
                               </tr>`
             } else {
                 temp_html = `<tr>
@@ -128,13 +128,12 @@ function retro_collection_loading(chart_year) {
                                   <div id="retrocollect_artist">${singer}</div>
                                 </td>
                                 <td><img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" width="40px" height="40px"/></td>
-                                <td><img src="../static/images/like_icon.png" width="30px" height="30px" id="like_chart" onclick="likeclick_retrochart('${userID}', '${title}', '${singer}', '${rank}')"/></td>
+                                <td><img src="../static/images/like_icon_hover.png" width="30px" height="30px" id="like_collection" onclick="likeclick_retrocollection('${userID}', '${title}', '${singer}', '${rank}')"/></td>
                               </tr>`
 
             }
             $('#collection_body').append(temp_html)
         }
-        console.log('complete.')
     }
   });
 }
@@ -143,7 +142,7 @@ function retro_collection_loading(chart_year) {
 function likeclick_retrocollection(userID, title, singer, rank) {
   $.ajax({
     type: 'POST',
-    url: '/chart/likeclick',
+    url: '/collection/likeclick',
     data: {
         id_give: userID,
         title_give: title,
@@ -152,11 +151,10 @@ function likeclick_retrocollection(userID, title, singer, rank) {
     success: function (response) {
         let like = response['like']
         let likebtn;
-        let likebtns = document.querySelectorAll('#like_chart');
+        let likebtns = document.querySelectorAll('#like_collection');
         for (let i = 0; i < likebtns.length; i++){
             if(rank == i+1) {
                 likebtn = likebtns[i]
-                console.log('like click rank')
             }
         }
 

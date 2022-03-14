@@ -101,11 +101,14 @@ function likeclick(userID, title, singer) {
             let page = temp[temp.length -1]
 
             if(page == '') {
-            }
-            else if (page == 'retrochart_page') {
+            } else if (page == 'retrochart_page') {
                 chart_year = document.getElementsByClassName("btn-active")[0].value;
                 console.log(chart_year)
                 retro_chart_loading(chart_year)
+            } else if (page == 'retrocollection_page') {
+                chart_year = document.getElementsByClassName("year-btn-active")[0].value;
+                console.log(chart_year)
+                retro_collection_loading(chart_year)
             }
 
 
