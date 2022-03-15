@@ -409,6 +409,45 @@ def retro_search_likeclick():
 
     return jsonify({'like': like, 'msg': msg})
 
+@app.route('/recommend_page')
+def retro_recommend_page():
+    return render_template('index-Playlist.html')
+
+@app.route('/recommend', methods=['POST'])
+def retro_recommend():
+    person = request.form['who_give']
+    userID = request.form['userID_give']
+
+    datas = list(db.recommendation.find({'listname': person}, {'_id': False}))
+    print(datas)
+
+    musics = []
+    likes = []
+
+    user_musics = list(db.likeMusic.find({'id': userID}, {'_id':False}))
+
+    for music in user_musics:
+        [music.pop(key, None) for key in ['id', 'year', 'albumImageUrl', 'musicPlaySrc']]
+        likes.append(music)
+
+    for music in datas:
+        [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'rank_type']]
+        title = music['title']
+        singer = music['singer']
+
+        music_temp = {'title': title, 'singer': singer}
+        #temp_like = None
+        if music_temp in likes:
+            like = 1
+        else:
+            like = 0
+
+        music['like'] = like
+        musics.append(music)
+
+    msg = '연결 완료'
+    return jsonify({'music_list': musics,'msg': msg})
+
 
 
 if __name__ == '__main__':
