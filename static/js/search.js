@@ -1,13 +1,31 @@
-function search(target) {
+$(document).ready(function () {
+    $('#searchbox').attr('value', search_word);
+})
+
+
+let search_word;
+if(localStorage.getItem('search_word')){
+    search_word = localStorage.getItem('search_word')
+}
+else{
+    search_word = ''
+}
+
+search_loading(search_word);
+
+
+
+function search_self(target) {
   if (window.event.keyCode == 13) {
     // 엔터키를 누르면
-    let word = target.value;
-    console.log(word);
+    search_word = target.value;
+    console.log(search_word);
 
-    // 검색 실행
-    search_loading(word);
+    localStorage.setItem('search_word', search_word);
+    search_loading(search_word);
   }
 }
+
 
 function search_loading(word) {
   $.ajax({
@@ -19,7 +37,7 @@ function search_loading(word) {
     success: function (response) {
         // response가 어떤 정보를 가지고있는지 확인하시고 코드 작성하시면 됩니다.
         console.log(response);
-        let music_list = respose['music_list'];
+        let music_list = response['music_list'];
         $('#song-list-wrap').empty()
         for(let i =0; i < music_list.length; i++) {
           let albumImageUrl = music_list[i]['albumImageUrl']
@@ -47,13 +65,13 @@ function search_loading(word) {
                             <img src="../static/images/playbn_icon_black.png" alt="">
                           </div>
                           <div class="line-like">
-                            <img src="../static/images/like_icon.png" id="likebtn" onclick="toggleLike()">
+                            <img src="../static/images/like_icon.png" id="likebtn">
                           </div>
                         </div>`;
           }
           $('#song-list-wrap').append(temp_html);
         }
-
+        $('.search-txt').text('\''+search_word+'\' 검색결과')
         alert(response['msg'])
     }
   });
