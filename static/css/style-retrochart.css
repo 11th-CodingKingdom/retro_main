@@ -1,17 +1,9 @@
 #retrochart_wrap {
-<<<<<<< HEAD
-  background-color: rgb(101, 101, 255);
-=======
->>>>>>> fae78fcc602b5027e35eecbe1171a71d72fb531a
   width: 1476px;
   margin: 0 auto;
 }
 
 #retrochart-year-btn {
-<<<<<<< HEAD
-  background-color: aqua;
-=======
->>>>>>> fae78fcc602b5027e35eecbe1171a71d72fb531a
   width: 324px;
   margin-left: 20px;
   margin-bottom: 30px;
@@ -19,15 +11,12 @@
   align-items: center;
 }
 
-<<<<<<< HEAD
-=======
 #retrochart_head {
   width: 1476px;
   display: flex;
   margin-bottom: 24px;
 }
 
->>>>>>> fae78fcc602b5027e35eecbe1171a71d72fb531a
 #retrochart_head h1 {
   font-size: 24px;
   font-family: "Noto Sans KR", sans-serif;
@@ -35,8 +24,6 @@
   letter-spacing: -0.05em;
   margin-left: 20px;
 }
-<<<<<<< HEAD
-=======
 
 #retrochart_head span {
   font-family: "Noto Sans KR", sans-serif;
@@ -50,7 +37,7 @@
 }
 
 #retrochart_table table {
-  border-bottom: 0.5px solid b5b6b5;
+  border-bottom: 0.5px solid #b5b6b5;
   width: 1436px;
   margin: 0 auto;
   font-family: "Noto Sans KR", sans-serif;
@@ -134,4 +121,3 @@
 #play_chart {
   cursor: pointer;
 }
->>>>>>> fae78fcc602b5027e35eecbe1171a71d72fb531a
