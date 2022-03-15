@@ -29,8 +29,8 @@ li {
 a {
   text-decoration: none;
   outline: none;
-  color: #505050;
-  font-weight: 700;
+  color: #000;
+  font-weight: 400;
 }
 
 header #nav {
@@ -101,6 +101,7 @@ header #nav {
 #nav_right ul li a {
   font-size: 14px;
   font-family: "Noto Sans KR", sans-serif;
+  letter-spacing: 0.02em;
   color: #989898;
   width: 200px;
   margin: 0 20px 0 0;

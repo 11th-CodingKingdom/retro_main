@@ -31,7 +31,7 @@ function nav_update() {
         $("#nav_left ul li a:eq(1)").attr("href", "/mypage")
     }
     let login_html = `<ul>
-                        <li><a href="#">RE:TRO 소개</a></li>
+                        <li><a href="/intro_page">RE:TRO 소개</a></li>
                         <li><a href=${href_login_mypage}>${login_mypage}</a></li>
                         <li><a href=${href_regist_logout} onclick="logout()">${regist_logout}</a></li>
                       </ul>`
@@ -101,13 +101,23 @@ function likeclick(userID, title, singer) {
             let page = temp[temp.length -1]
 
             if(page == '') {
-            }
-            else if (page == 'retrochart_page') {
+            } else if (page == 'retrochart_page') {
                 chart_year = document.getElementsByClassName("btn-active")[0].value;
                 console.log(chart_year)
                 retro_chart_loading(chart_year)
+            } else if (page == 'retrocollection_page') {
+                chart_year = document.getElementsByClassName("year-btn-active")[0].value;
+                console.log(chart_year)
+                retro_collection_loading(chart_year)
+            } else if (page == 'search_page') {
+                search_word = localStorage.getItem('search_word')
+                console.log(search_word)
+                search_loading(search_word);
+            } else if (page == 'recommend_page') {
+                recommend_name = localStorage.getItem('recommend_name')
+                console.log(recommend_name)
+                retro_recommend_loading(recommend_name);
             }
-
 
             alert(response['msg'])
         }

@@ -61,6 +61,7 @@
   top: 14px;
   left: 12px;
   cursor: pointer;
+  letter-spacing: -0.01em;
 }
 
 #section_head span {
@@ -155,7 +156,7 @@
 }
 
 #rankchart-box {
-  border: 2px solid #afafaf;
+  border: 1px solid #000;
   border-radius: 15px;
   width: 320px;
   height: 500px;
@@ -218,7 +219,7 @@ td {
 .btn {
   width: 72px;
   height: 30px;
-  border: 2px solid #c0c0c0;
+  border: 1px solid #c0c0c0;
   border-radius: 20px;
   display: inline-block;
   font-size: 16px;
@@ -231,7 +232,7 @@ td {
 
 .btn-active {
   background-color: #eb1400;
-  border: 2px solid #eb1400;
+  border: 1px solid #eb1400;
   color: #fff;
 }
 
@@ -270,6 +271,7 @@ td {
   color: #fff;
   font-weight: 700;
   font-size: 24px;
+  letter-spacing: -0.02em;
 }
 
 .music_test_banner .music_test_right {
@@ -314,6 +316,7 @@ td {
   font-weight: bold;
   font-family: "Noto Sans KR", sans-serif;
   cursor: pointer;
+  letter-spacing: -0.01em;
 }
 
 #yearchart_title span {
@@ -397,6 +400,7 @@ td {
   font-family: "Noto Sans KR", sans-serif;
   position: relative;
   top: 20px;
+  letter-spacing: -0.01em;
 }
 
 #pick_body {
@@ -461,4 +465,89 @@ td {
   vertical-align: middle;
 
   cursor: pointer;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+}
+
+footer {
+  height: 200px;
+}
+
+#footer_logo {
+  width: 957px;
+  margin: 36px auto 14px auto;
+  cursor: pointer;
+}
+
+#footer_desc {
+  width: 957px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #a4a4a4;
+  margin: 0 auto 64px auto;
+}
+
+/* 하단 재생 바 */
+.playbar {
+  width: 100vw;
+  height: 79px;
+  background-color: #191919;
+  position: fixed;
+  bottom: 0;
+}
+
+.playbar .playbar_song {
+  display: flex;
+  width: 500px;
+  height: 79px;
+}
+
+.playbar_song .youtube_movie {
+  width: 100px;
+  height: 50px;
+  background-color: #fff;
+  margin: 15px 20px;
+}
+
+.playbar_song .playbar_song_wrap {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+}
+
+.playbar_song .playbar_song_wrap .playbar_song_title {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.playbar_song .playbar_song_wrap .playbar_song_artist {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #fff;
+  font-size: 13px;
+}
+
+.playbar_song #likebtn {
+  position: absolute;
+  right: 3%;
+  width: 25px;
+  height: 25px;
+  margin-top: 25px;
+  cursor: pointer;
+}
+
+.playbar #playbtn {
+  position: absolute;
+  top: 20%;
+  left: 48%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+=======
+>>>>>>> fae78fcc602b5027e35eecbe1171a71d72fb531a
+>>>>>>> cdfb33b8d96d2aee0bc1d21dcd0a76c5997a98a9
 }

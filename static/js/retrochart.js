@@ -82,8 +82,8 @@ function retro_chart_loading(chart_year) {
                                 <td>
                                   <div id="retrochart_artist">${singer}</div>
                                 </td>
-                                <td><img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" width="40px" height="40px"/></td>
-                                <td><img src="../static/images/like_icon.png" width="30px" height="30px" id="like_chart" onclick="likeclick_retrochart('${userID}', '${title}', '${singer}', '${rank}')"/></td>
+                                <td><img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" width="40px" height="40px" id="play_chart" /></td>
+                                <td><img src="../static/images/like_icon.png" width="25px" height="25px" id="like_chart" onclick="likeclick_retrochart('${userID}', '${title}', '${singer}', '${rank}')"/></td>
                               </tr>`
             } else {
                 temp_html = `<tr>
@@ -102,8 +102,8 @@ function retro_chart_loading(chart_year) {
                             <td>
                               <div id="retrochart_artist">${singer}</div>
                             </td>
-                            <td><img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" width="40px" height="40px"/></td>
-                            <td><img src="../static/images/like_icon_hover.png" width="30px" height="30px" id="like_chart" onclick="likeclick_retrochart('${userID}', '${title}', '${singer}', '${rank}')"/></td>
+                            <td><img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" width="40px" height="40px" id="play_chart" /></td>
+                            <td><img src="../static/images/like_icon_hover.png" width="25px" height="25px" id="like_chart" onclick="likeclick_retrochart('${userID}', '${title}', '${singer}', '${rank}')"/></td>
                           </tr>`
             }
             $('#chart_body').append(temp_html)

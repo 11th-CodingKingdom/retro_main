@@ -1,9 +1,23 @@
 #retrochart_wrap {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  background-color: rgb(101, 101, 255);
+=======
+>>>>>>> fae78fcc602b5027e35eecbe1171a71d72fb531a
+>>>>>>> cdfb33b8d96d2aee0bc1d21dcd0a76c5997a98a9
   width: 1476px;
   margin: 0 auto;
 }
 
 #retrochart-year-btn {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  background-color: aqua;
+=======
+>>>>>>> fae78fcc602b5027e35eecbe1171a71d72fb531a
+>>>>>>> cdfb33b8d96d2aee0bc1d21dcd0a76c5997a98a9
   width: 324px;
   margin-left: 20px;
   margin-bottom: 30px;
@@ -11,12 +25,21 @@
   align-items: center;
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> cdfb33b8d96d2aee0bc1d21dcd0a76c5997a98a9
 #retrochart_head {
   width: 1476px;
   display: flex;
   margin-bottom: 24px;
 }
 
+<<<<<<< HEAD
+=======
+>>>>>>> fae78fcc602b5027e35eecbe1171a71d72fb531a
+>>>>>>> cdfb33b8d96d2aee0bc1d21dcd0a76c5997a98a9
 #retrochart_head h1 {
   font-size: 24px;
   font-family: "Noto Sans KR", sans-serif;
@@ -24,6 +47,11 @@
   letter-spacing: -0.05em;
   margin-left: 20px;
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> cdfb33b8d96d2aee0bc1d21dcd0a76c5997a98a9
 
 #retrochart_head span {
   font-family: "Noto Sans KR", sans-serif;
@@ -113,3 +141,15 @@
   margin-left: 36px;
   text-align: left;
 }
+<<<<<<< HEAD
+=======
+
+#like_chart {
+  cursor: pointer;
+}
+
+#play_chart {
+  cursor: pointer;
+}
+>>>>>>> fae78fcc602b5027e35eecbe1171a71d72fb531a
+>>>>>>> cdfb33b8d96d2aee0bc1d21dcd0a76c5997a98a9
