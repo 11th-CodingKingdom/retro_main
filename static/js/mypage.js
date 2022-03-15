@@ -99,13 +99,19 @@ function update_info(chart_year) {
     else {
         let temp_html = `<div id="list-img">
                             <img id="theImg" src="../static/images/mypage_bn_like_no.png" />
-                            <div class="list_btn">추천 음악 바로 가기</div>
+                            <div onclick="playlist_banner_btn_click()" class="list_btn">추천 음악 바로 가기</div>
                         </div>`
         $('#year-btn').remove();
         $('.chart_text').remove();
         $('#section_rankchart').remove();
         $('#chart-body').append(temp_html)
     }
+}
+
+
+//login 상태에 따라서 버튼 클릭 시 이동되는 페이지 변화
+function playlist_banner_btn_click() {
+        location.href='/retrochart_page';
 }
 
 //회원탈퇴
