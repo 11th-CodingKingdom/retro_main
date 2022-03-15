@@ -11,9 +11,11 @@ else{
     search_word = ''
 }
 
-search_loading(search_word);
-
-
+if (search_word && search_word != '') {
+    search_loading(search_word);
+} else {
+    search_loading('@@@@@@');
+}
 
 function search_self(target) {
   if (window.event.keyCode == 13) {
@@ -22,17 +24,24 @@ function search_self(target) {
     console.log(search_word);
 
     localStorage.setItem('search_word', search_word);
-    search_loading(search_word);
+    if(search_word && search_word != '') {
+        search_loading(search_word);
+    } else {
+        search_loading('@@@@@@');
+    }
+
   }
 }
 
 
 function search_loading(word) {
+    let userID = sessionStorage.getItem('id')
   $.ajax({
     type: 'POST',
     url: '/search',
     data: {
-        word_give: word
+        word_give: word,
+        userID_give: userID
     },
     success: function (response) {
         // response가 어떤 정보를 가지고있는지 확인하시고 코드 작성하시면 됩니다.
@@ -71,8 +80,13 @@ function search_loading(word) {
           }
           $('#song-list-wrap').append(temp_html);
         }
-        $('.search-txt').text('\''+search_word+'\' 검색결과')
-        alert(response['msg'])
+        if (search_word) {
+            $('.search-txt').text(search_word + ' 검색결과')
+        } else {
+            $('.search-txt').text(' 검색결과')
+        }
+
+        //alert(response['msg'])
     }
   });
 }

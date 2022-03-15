@@ -340,11 +340,37 @@ def retro_search_page():
 @app.route('/search', methods=['POST'])
 def retro_search():
     word = request.form['word_give']
+    userID = request.form['userID_give']
 
-    music_list = list(db.music.find({'rank_type': "YE", 'title': {'$regex': word}}, {'_id': False}).limit(10))
+    datas = list(db.music.find({'rank_type': "YE", 'title': {'$regex': word}}, {'_id': False}).limit(10))
+
+    musics = []
+    likes = []
+
+    user_musics = list(db.likeMusic.find({'id': userID}, {'_id': False}))
+
+    for music in user_musics:
+        [music.pop(key, None) for key in ['id', 'year', 'albumImageUrl', 'musicPlaySrc']]
+        likes.append(music)
+
+    for music in datas:
+        [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'rank_type']]
+        songID = music['songID']
+        title = music['title']
+        singer = music['singer']
+
+        music_temp = {'title': title, 'singer': singer}
+        # temp_like = None
+        if music_temp in likes:
+            like = 1
+        else:
+            like = 0
+
+        music['like'] = like
+        musics.append(music)
 
     msg = '검색 완료'
-    return jsonify({'music_list': music_list,'msg': msg})
+    return jsonify({'music_list': musics,'msg': msg})
 
 
 
