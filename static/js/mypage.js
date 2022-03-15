@@ -26,7 +26,7 @@ function toggleLike() {
   document.getElementById("likebtn").src = "../static/images/like_icon_hover.png";
 }
 
-//필요 부분
+//필요 사항
 // 차트페이지 좋아요 클릭
 // 하단 재생바 활성화
 // 새로고침시 좋아요 노래 없을 때 - RE:TR0 차트 바로가기 버튼 활성화
