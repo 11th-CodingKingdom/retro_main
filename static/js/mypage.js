@@ -25,69 +25,7 @@ for (let i = 0; i < btns.length; i++) {
 function toggleLike() {
   document.getElementById("likebtn").src = "../static/images/like_icon_hover.png";
 }
-
-//필요 사항
-// 차트페이지 좋아요 클릭
-// 하단 재생바 활성화
-// 새로고침시 좋아요 노래 없을 때 - RE:TR0 차트 바로가기 버튼 활성화
-
-//아직 연결 안됨
-//mypage 차트페이지에서 좋아요 클릭
-function toggleLike(userID, title, singer, rank) {
-    $.ajax({
-        type: 'POST',
-        url: '/mypage/likeclick',
-        data: {
-            id_give: userID,
-            title_give: title,
-            singer_give: singer
-        },
-        success: function (response) {
-            let like = response['like']
-            let likebtn;
-            let likebtns = document.querySelectorAll('#like_chart');
-            for (let i = 0; i < likebtns.length; i++) {
-                if (rank == i + 1) {
-                    likebtn = likebtns[i]
-                    console.log('like click rank')
-                }
-            }
-
-            let playbar_title;
-            let playbar_singer;
-            let playbar_likebtn;
-            if (localStorage.getItem('playbar_title')) {
-                playbar_title = localStorage.getItem('playbar_title')
-            } else {
-                playbar_title = ''
-            }
-            if (localStorage.getItem('playbar_singer')) {
-                playbar_singer = localStorage.getItem('playbar_singer')
-            } else {
-                playbar_singer = ''
-            }
-
-            if (like == 1) {
-                likebtn.src = '../static/images/like_icon_hover.png';
-                if (title == playbar_title && singer == playbar_singer) {
-                    playbar_likebtn = document.querySelector('#likebtn');
-                    playbar_likebtn.src = '../static/images/like_icon_hover.png';
-                    console.log('playbar like on')
-                }
-            } else {
-                likebtn.src = '../static/images/like_icon.png';
-                if (title == playbar_title && singer == playbar_singer) {
-                    playbar_likebtn = document.querySelector('#likebtn');
-                    playbar_likebtn.src = '../static/images/like_icon.png';
-                    console.log('playbar like off')
-                }
-            }
-
-            alert(response['msg'])
-        }
-    });
-}
-
+let likeMusic;
 //마이페이지 새로고침 (좋아요 노래, 성향테스트 결과 표시)
 function userinfo_get(chart_year) {
     id = sessionStorage.getItem('id')
@@ -97,7 +35,7 @@ function userinfo_get(chart_year) {
         data: {'id':id},
         success: function (response) {
             likeMusic = response['likeMusic']
-            preferenceResult = sessionStorage.getItem('preferenceResult')
+            let preferenceResult = sessionStorage.getItem('preferenceResult')
             console.log(preferenceResult)
             if (typeof preferenceResult == "undefined" || preferenceResult == null || preferenceResult == "") {
                 $('.test_left_middle').text("아직 음악 성향 테스트를 안하셨네요?")
@@ -116,7 +54,7 @@ function userinfo_get(chart_year) {
 //년도에 따른 좋아요 노래 update
 function update_info(chart_year) {
     $('#rankchart-row').empty()
-
+    let userID = sessionStorage.getItem('id')
     if (likeMusic.length >= 1) {
         for (let i =0; i<likeMusic.length; i++) {
             let albumImageUrl = likeMusic[i]['albumImageUrl']
@@ -124,6 +62,8 @@ function update_info(chart_year) {
             let title = likeMusic[i]['title']
             let musicPlaySrc = likeMusic[i]['musicPlaySrc']
             let year = likeMusic[i]['year']
+            let rank = i+1
+
             chart_year = parseInt(chart_year)
             if (year >= chart_year && year < chart_year + 10) {
                 let temp_html = `<tr class="rankchart-row-box table_line">
@@ -142,15 +82,13 @@ function update_info(chart_year) {
                                         <td>
                                             <!-- 재생버튼 -->
                                             <button type="button">
-                                                <img src="../static/images/palybn_icon_red_hover.png" alt=""
-                                                     class="playbtn" onclick="main_playing_active(${musicPlaySrc})">
+                                                <img onclick="main_playing_active_3('${title}', '${singer}')" id="play_mypage" src="../static/images/palybn_icon_red_hover.png" alt="" class="playbtn">
                                             </button>
                                         </td>
                                         <td>
                                             <!-- 좋아요 버튼 -->
                                             <button type="button">
-                                                <img src="../static/images/like_icon_hover.png" alt="" id="likebtn"
-                                                     onclick="toggleLike()">
+                                                <img src="../static/images/like_icon_hover.png" alt="" width="30px" height="30px" id="like_mypage" onclick="likeclick_mypage('${userID}', '${title}', '${singer}', '${rank}')">
                                             </button>
                                         </td>
                                     </tr>`
@@ -173,13 +111,68 @@ function update_info(chart_year) {
 //회원탈퇴
 function withdraw() {
     id = sessionStorage.getItem('id')
-    $.ajax({
-        type: 'POST',
-        url: '/userinfo',
-        data: {'id': id},
-        success: function (response) {
-            sessionStorage.clear()
-            location.href = '/';
+  $.ajax({
+    type: 'POST',
+    url: '/userinfo',
+    data: {'id':id},
+    success: function (response) {
+        sessionStorage.clear()
+        location.href='/';
+    }
+  });
+}
+
+//mypage에서 좋아요 클릭
+function likeclick_mypage(userID, title, singer, rank) {
+  $.ajax({
+    type: 'POST',
+    url: '/mypage/likeclick',
+    data: {
+        id_give: userID,
+        title_give: title,
+        singer_give: singer
+    },
+    success: function (response) {
+        let like = response['like']
+        let likebtn;
+        let likebtns = document.querySelectorAll('#like_mypage');
+        for (let i = 0; i < likebtns.length; i++){
+            if(rank == i+1) {
+                likebtn = likebtns[i]
+            }
         }
-    });
+
+        let playbar_title;
+        let playbar_singer;
+        let playbar_likebtn;
+        if(localStorage.getItem('playbar_title')) {
+            playbar_title= localStorage.getItem('playbar_title')
+        } else {
+            playbar_title = ''
+        }
+        if (localStorage.getItem('playbar_singer')) {
+            playbar_singer = localStorage.getItem('playbar_singer')
+        } else {
+            playbar_singer = ''
+        }
+
+        if (like == 1) {
+            userinfo_get(chart_year)
+            if (title == playbar_title && singer == playbar_singer) {
+                playbar_likebtn = document.querySelector('#likebtn');
+                playbar_likebtn.src = '../static/images/like_icon_hover.png';
+                console.log('playbar like on')
+            }
+        } else {
+            userinfo_get(chart_year)
+            if (title == playbar_title && singer == playbar_singer) {
+                playbar_likebtn = document.querySelector('#likebtn');
+                playbar_likebtn.src = '../static/images/like_icon.png';
+                console.log('playbar like off')
+            }
+        }
+
+        alert(response['msg'])
+    }
+  });
 }

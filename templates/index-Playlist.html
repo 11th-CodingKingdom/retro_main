@@ -9,7 +9,7 @@
 
     <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="../static/js/editor'sPick.js"></script>
+    <script defer src="../static/js/recommend.js"></script>
     <script defer src="../static/js/common.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style-Playlist.css">
@@ -17,12 +17,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-
-    <script>
-        $(document).ready(function () {
-            loginStatus();
-        });
-    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +42,7 @@
             </div>
             <div id="searchbox_wrap">
                 <img src="../static/images/search_icon.png" alt="">
-                <input type="text" id="searchbox" placeholder="검색어를 입력하세요.">
+                <input type="text" id="searchbox" placeholder="검색어를 입력하세요." onkeyup="search_main(this)">
             </div>
             <div id="nav_right">
             </div>
@@ -57,14 +51,6 @@
     <div id="wrap">
         <div id="playlist_contents">
             <div class="playlist_top">
-                <div class="playlist_img">
-                    <img src="../static/images/.png" alt="">
-                </div>
-                <div class="playlist_text">
-                    <span class="text_top test_text">어디선가 들어본 그 시절 노래</span>
-                    <span class="text_middle test_text">한번씩은 들어본 이문세 모음집</span>
-                    <span class="text_bottom test_text">총 8곡</span>
-                </div>
             </div>
             <div id="chart">
                 <div id="chart-body">
@@ -81,34 +67,6 @@
                                 </tr>
                                 </thead>
                                 <tbody id="rankchart-row">
-                                <tr class="rankchart-row-box table_line">
-                                    <td>
-                                        <div id="rankchart_img">
-                                            <img src='${albumImageUrl}' width="50px" height="50px"
-                                                 style="border-radius:10px"/>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div id="rankchart_song">${title}아</div>
-                                    </td>
-                                    <td>
-                                        <div id="rankchart_artist">${singer}아</div>
-                                    </td>
-                                    <td>
-                                        <!-- 재생버튼 -->
-                                        <button type="button">
-                                            <img src="../static/images/playbn_icon_black.png" alt=""
-                                                 class="playbtn">
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <!-- 좋아요 버튼 -->
-                                        <button type="button">
-                                            <img src="../static/images/like_icon_hover.png" alt="" id="likebtn"
-                                                 onclick="toggleLike()">
-                                        </button>
-                                    </td>
-                                </tr>
                                 </tbody>
                             </table>
                         </div>

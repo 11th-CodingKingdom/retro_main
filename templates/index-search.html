@@ -35,14 +35,14 @@
       </div>
       <div id="searchbox_wrap">
         <img src="../static/images/search_icon.png" alt="">
-        <input type="text" id="searchbox" value="INVU">
+        <input type="text" id="searchbox" value="" onkeyup="search_self(this);" />
       </div>
       <div id="nav_right">
       </div>
     </nav>
   </header>
 
-  <div class="search-txt">'INVU' 검색결과</div>
+  <div class="search-txt">검색결과</div>
   <div class="search-title">곡</div>
 
   <!-- 곡 리스트 -->
@@ -57,96 +57,6 @@
     <!-- 곡 리스트 wrap -->
     <div id="song-list-wrap">
       <!-- 곡 리스트 한 줄 -->
-      <div class="song-list-line">
-        <div class="line-song">
-          <div class="song-left">
-            <img src="https://cdnimg.melon.co.kr/cm2/album/images/108/63/559/10863559_20220214160739_1000.jpg?42c2b52a394ac94dad21d64aec2c577d/melon/quality/80/optimize" alt="">
-          </div>
-          <div class="song-right">
-            <div class="song-title">INVU</div>
-            <div class="album-title">INVU - The 3rd Album</div>
-          </div>
-        </div>
-        <div class="line-artist">태연(TAEYEON)</div>
-        <div class="line-play">
-          <img src="../static/images/playbn_icon_black.png" alt="">
-        </div>
-        <div class="line-like">
-          <img src="../static/images/like_icon.png" id="likebtn" onclick="toggleLike()">
-        </div>
-      </div>
-      <div class="song-list-line">
-        <div class="line-song">
-          <div class="song-left">
-            <img src="https://cdnimg.melon.co.kr/cm2/album/images/108/63/559/10863559_20220214160739_1000.jpg?42c2b52a394ac94dad21d64aec2c577d/melon/quality/80/optimize" alt="">
-          </div>
-          <div class="song-right">
-            <div class="song-title">INVU</div>
-            <div class="album-title">INVU - The 3rd Album</div>
-          </div>
-        </div>
-        <div class="line-artist">태연(TAEYEON)</div>
-        <div class="line-play">
-          <img src="../static/images/playbn_icon_black.png" alt="">
-        </div>
-        <div class="line-like">
-          <img src="../static/images/like_icon.png" id="likebtn" onclick="toggleLike()">
-        </div>
-      </div>
-      <div class="song-list-line">
-        <div class="line-song">
-          <div class="song-left">
-            <img src="https://cdnimg.melon.co.kr/cm2/album/images/108/63/559/10863559_20220214160739_1000.jpg?42c2b52a394ac94dad21d64aec2c577d/melon/quality/80/optimize" alt="">
-          </div>
-          <div class="song-right">
-            <div class="song-title">INVU</div>
-            <div class="album-title">INVU - The 3rd Album</div>
-          </div>
-        </div>
-        <div class="line-artist">태연(TAEYEON)</div>
-        <div class="line-play">
-          <img src="../static/images/playbn_icon_black.png" alt="">
-        </div>
-        <div class="line-like">
-          <img src="../static/images/like_icon.png" id="likebtn" onclick="toggleLike()">
-        </div>
-      </div>
-      <div class="song-list-line">
-        <div class="line-song">
-          <div class="song-left">
-            <img src="https://cdnimg.melon.co.kr/cm2/album/images/108/63/559/10863559_20220214160739_1000.jpg?42c2b52a394ac94dad21d64aec2c577d/melon/quality/80/optimize" alt="">
-          </div>
-          <div class="song-right">
-            <div class="song-title">INVU</div>
-            <div class="album-title">INVU - The 3rd Album</div>
-          </div>
-        </div>
-        <div class="line-artist">태연(TAEYEON)</div>
-        <div class="line-play">
-          <img src="../static/images/playbn_icon_black.png" alt="">
-        </div>
-        <div class="line-like">
-          <img src="../static/images/like_icon.png" id="likebtn" onclick="toggleLike()">
-        </div>
-      </div>
-      <div class="song-list-line">
-        <div class="line-song">
-          <div class="song-left">
-            <img src="https://cdnimg.melon.co.kr/cm2/album/images/108/63/559/10863559_20220214160739_1000.jpg?42c2b52a394ac94dad21d64aec2c577d/melon/quality/80/optimize" alt="">
-          </div>
-          <div class="song-right">
-            <div class="song-title">INVU</div>
-            <div class="album-title">INVU - The 3rd Album</div>
-          </div>
-        </div>
-        <div class="line-artist">태연(TAEYEON)</div>
-        <div class="line-play">
-          <img src="../static/images/playbn_icon_black.png" alt="">
-        </div>
-        <div class="line-like">
-          <img src="../static/images/like_icon.png" id="likebtn" onclick="toggleLike()">
-        </div>
-      </div>
     </div>
   </div>
 
@@ -162,10 +72,8 @@
     <!-- 하단 재생 바 -->
     <div class="playbar">
       <div id="playbar_song" class="playbar_song">
-        <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()" />
       </div>
       <img src="../static/images/palybn_icon.png" alt="" id="playbtn" onclick="togglePause()" />
-      <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">
       <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">#}
       <div id="playbar_control" , style="display:none">
         <td id="player_active" style="display:none">0</td>

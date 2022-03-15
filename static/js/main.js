@@ -18,13 +18,6 @@ for (let i = 0; i < btns.length; i++) {
   btns[i].addEventListener('click', clickBtn);
 }
 
-function enterkey() {
-  if (window.event.keyCode == 13) {
-       // 엔터키가 눌렸을 때 실행할 내용
-       console.log("엔터키 입력");
-  }
-}
-
 // 상단 팝업 닫기
 let popup = document.querySelector('.close');
 let banner = document.querySelector('.banner');
@@ -206,12 +199,22 @@ function main_playing_active(songID) {
     })
 }
 
-//RE:RRO 모음집 연도 저장
+//RE:RRO 모음집 연도 저장 후 이동
 function collection_year(year){
-    let main_link = document.location.href;
+    let main_link = main_page_link;
     let collect_link = main_link + 'retrocollection_page';
-
+    console.log(main_link, collect_link)
     localStorage.setItem('retrocollection_year', year);
+
+    location.href= collect_link;
+}
+
+//RE:RRO 추천플레이리스트 종류 저장 후 이동
+function recommend_name(name){
+    let main_link = main_page_link;
+    let collect_link = main_link + 'recommend_page';
+    console.log(main_link, collect_link)
+    localStorage.setItem('recommend_name', name);
 
     location.href= collect_link;
 }
