@@ -18,13 +18,6 @@ for (let i = 0; i < btns.length; i++) {
   btns[i].addEventListener('click', clickBtn);
 }
 
-function enterkey() {
-  if (window.event.keyCode == 13) {
-       // 엔터키가 눌렸을 때 실행할 내용
-       console.log("엔터키 입력");
-  }
-}
-
 // 상단 팝업 닫기
 let popup = document.querySelector('.close');
 let banner = document.querySelector('.banner');
@@ -208,9 +201,9 @@ function main_playing_active(songID) {
 
 //RE:RRO 모음집 연도 저장 후 이동
 function collection_year(year){
-    let main_link = document.location.href;
+    let main_link = main_page_link;
     let collect_link = main_link + 'retrocollection_page';
-
+    console.log(main_link, collect_link)
     localStorage.setItem('retrocollection_year', year);
 
     location.href= collect_link;
@@ -218,27 +211,10 @@ function collection_year(year){
 
 //RE:RRO 추천플레이리스트 종류 저장 후 이동
 function recommend_name(name){
-    let main_link = document.location.href;
+    let main_link = main_page_link;
     let collect_link = main_link + 'recommend_page';
-
+    console.log(main_link, collect_link)
     localStorage.setItem('recommend_name', name);
 
     location.href= collect_link;
-}
-
-// 검색 단어 저장 후 이동
-function search_main(target) {
-  if (window.event.keyCode == 13) {
-    // 엔터키를 누르면
-    let word = target.value;
-    console.log(word);
-
-    // 페이지 이동
-    let main_link = document.location.href;
-    let search_link = main_link + 'search_page';
-
-    localStorage.setItem('search_word', word);
-
-    location.href= search_link;
-  }
 }

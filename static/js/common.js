@@ -1,3 +1,7 @@
+//main 페이지 주소 저장
+localStorage.setItem('main_page_link', 'http://172.30.1.14:5000/');
+let main_page_link = 'http://172.30.1.14:5000/'
+
 // 하단 playbar에서 play 버튼 <-> pause 버튼 변경을 위한 변수
 let playcnt = 1;
 // 상단 로고 클릭 시 Home으로 이동
@@ -236,4 +240,19 @@ function main_playing_active_3(title, singer) {
             //alert(response["msg"])
         }
     })
+}
+
+// 검색 단어 저장 후 이동
+function search_main(target) {
+  if (window.event.keyCode == 13) {
+    // 엔터키를 누르면
+    let word = target.value;
+
+    // 페이지 이동
+    let main_link = main_page_link;
+    let search_link = main_link + 'search_page';
+    localStorage.setItem('search_word', word);
+
+    location.href= search_link;
+  }
 }
