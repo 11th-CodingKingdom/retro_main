@@ -31,7 +31,7 @@ function nav_update() {
         $("#nav_left ul li a:eq(1)").attr("href", "/mypage")
     }
     let login_html = `<ul>
-                        <li><a href="#">RE:TRO 소개</a></li>
+                        <li><a href="/intro_page">RE:TRO 소개</a></li>
                         <li><a href=${href_login_mypage}>${login_mypage}</a></li>
                         <li><a href=${href_regist_logout} onclick="logout()">${regist_logout}</a></li>
                       </ul>`
