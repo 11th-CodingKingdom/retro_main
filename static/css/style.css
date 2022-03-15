@@ -43,6 +43,8 @@
   display: flex;
   align-items: center;
   margin-bottom: 64px;
+  font-family: "Noto Sans KR", sans-serif;
+  letter-spacing: -0.05em;
 }
 
 #section_head {
@@ -137,6 +139,7 @@
 #albumchart_song {
   font-size: 16px;
   font-weight: 500;
+  margin-left: 5px;
 }
 
 #albumchart_artist {
@@ -145,6 +148,7 @@
   font-weight: 400;
   color: #747474;
   padding: 3px 0 0 11px;
+  margin-left: 5px;
 }
 
 #section_rankchart {
@@ -208,7 +212,11 @@ td {
   font-family: "Noto Sans KR", sans-serif;
   margin-left: 15px;
   position: relative;
-  bottom: 13px;
+  bottom: 12px;
+}
+
+#rankchart_song {
+  font-weight: 500;
 }
 
 #rankchart_artist {
@@ -465,7 +473,6 @@ td {
   vertical-align: middle;
 
   cursor: pointer;
-<<<<<<< HEAD
 }
 
 footer {
@@ -545,6 +552,4 @@ footer {
   width: 50px;
   height: 50px;
   cursor: pointer;
-=======
->>>>>>> fae78fcc602b5027e35eecbe1171a71d72fb531a
 }
