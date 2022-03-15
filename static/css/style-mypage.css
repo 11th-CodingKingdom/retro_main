@@ -744,6 +744,7 @@ footer {
 #footer_logo {
     width: 957px;
     margin: 36px auto 14px auto;
+    cursor: pointer;
 }
 
 #footer_desc {
