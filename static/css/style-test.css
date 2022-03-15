@@ -1,0 +1,180 @@
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+.test_wrap {
+  width: 400px;
+  margin: 0 auto;
+}
+
+#test_logo {
+  text-align: center;
+}
+
+#test_logo img {
+  margin: 94px 0 109px 0;
+}
+
+#test_title {
+  text-align: center;
+}
+
+#test_title h1 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  margin-bottom: 24px;
+}
+
+#test_title p {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  color: #808080;
+}
+
+#test_body {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#test_body p {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  color: #808080;
+  margin-bottom: 14px;
+}
+
+#test-btn_wrap {
+  text-align: center;
+}
+
+#test-btn {
+  width: 300px;
+  height: 59px;
+  background-color: #eb1400;
+  display: inline-block;
+  line-height: 59px;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  border-radius: 28px;
+  margin-bottom: 20px;
+}
+
+#share-btn {
+  width: 300px;
+  height: 59px;
+  background-color: #c8c8c8;
+  display: inline-block;
+  line-height: 59px;
+  color: #808080;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  border-radius: 28px;
+  margin-bottom: 90px;
+}
+
+/* test */
+
+#test_head {
+  text-align: left;
+}
+#test_num {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  margin: 170px 0 20px 50px;
+}
+
+#test_q {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 35px;
+  margin-left: 50px;
+  margin-bottom: 100px;
+}
+
+#test_a_wrap {
+  text-align: center;
+}
+
+#test_a {
+  width: 300px;
+  height: 59px;
+  background-color: #eb1400;
+  display: inline-block;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 59px;
+  margin-bottom: 20px;
+}
+
+#test_b {
+  width: 300px;
+  height: 59px;
+  background-color: #e0e0e0;
+  display: inline-block;
+  color: #808080;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 59px;
+  margin-bottom: 20px;
+}
+
+#test_footer {
+  text-align: center;
+  margin: 150px 0 100px 0;
+}
+
+/* 테스트 결과 페이지*/
+#test_output_logo {
+  text-align: center;
+}
+
+#test_output_logo img {
+  margin: 40px 0 50px 0;
+}
+
+#test_output_body {
+  text-align: center;
+}
+
+#test_output p {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  color: #808080;
+  margin-bottom: 10px;
+}
+
+#test_output h1 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+
+#test_output_video {
+  margin: 40px 0 30px 0;
+}
+
+#home-btn {
+  width: 200px;
+  min-height: 40px;
+  background-color: #eb1400;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 40px;
+  border-radius: 28px;
+  margin: 50px 0 80px 0;
+}

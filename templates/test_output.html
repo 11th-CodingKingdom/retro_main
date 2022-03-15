@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="RE:TRO | 그때 그 시절, 당신의 음악" />
+
+    <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="../static/js/common.js"></script>
+    <script defer src="../static/js/test.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style-test.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../static/images/favicon.ico">
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function(){
+        let temp = location.href.split("?");
+        let output = temp[1];
+        changeOutput(output);
+      });
+    </script>
+
+</head>
+<body>
+  <div class="test_wrap">
+    <div id="test_output_logo">
+      <img src="../static/images/reteo_logo.png" width="80px"/>
+    </div>
+    <div id="test_output_body">
+      <div id="test_output">
+        <p>나의 성격 유형에 맞는 음악 성향은?</p>
+        <h1>비주얼 타입</h1>
+        <img id="test_output_img" src="../static/images/NOTE_IMG/retro_NOTE_3.png" width="350px"/>
+        <p>노래실력+비주얼=만족도 200%</p>
+        <div id="test_output_video">
+          <iframe width="400" height="220" src="https://www.youtube.com/embed/Z8E0apklL2w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p>이런 노래는 어때요?</p>
+        <h1>백예린 - 그건 아마 우리의 잘못은 아닐거야</h1>
+      </div>
+      <div id="home-btn" onclick="location.href='/'">RE:TRO 홈으로 돌아가기</div>
+    </div>
+  </div>
+</body>
+</html>
