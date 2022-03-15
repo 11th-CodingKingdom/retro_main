@@ -113,6 +113,10 @@ function likeclick(userID, title, singer) {
                 search_word = localStorage.getItem('search_word')
                 console.log(search_word)
                 search_loading(search_word);
+            } else if (page == 'recommend_page') {
+                recommend_name = localStorage.getItem('recommend_name')
+                console.log(recommend_name)
+                retro_recommend_loading(recommend_name);
             }
 
             alert(response['msg'])

@@ -206,7 +206,7 @@ function main_playing_active(songID) {
     })
 }
 
-//RE:RRO 모음집 연도 저장
+//RE:RRO 모음집 연도 저장 후 이동
 function collection_year(year){
     let main_link = document.location.href;
     let collect_link = main_link + 'retrocollection_page';
@@ -216,6 +216,17 @@ function collection_year(year){
     location.href= collect_link;
 }
 
+//RE:RRO 추천플레이리스트 종류 저장 후 이동
+function recommend_name(name){
+    let main_link = document.location.href;
+    let collect_link = main_link + 'recommend_page';
+
+    localStorage.setItem('recommend_name', name);
+
+    location.href= collect_link;
+}
+
+// 검색 단어 저장 후 이동
 function search_main(target) {
   if (window.event.keyCode == 13) {
     // 엔터키를 누르면

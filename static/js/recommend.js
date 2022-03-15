@@ -1,15 +1,19 @@
 
+let recommend_name;
+if(localStorage.getItem('recommend_name')){
+    recommend_name = localStorage.getItem('recommend_name')
+}
+else{
+    localStorage.setItem('recommend_name', '1')
+    recommend_name = localStorage.getItem('recommend_name')
+}
 
 
-
-
-
-retro_recommend_loading('2')
+retro_recommend_loading(recommend_name)
 
 $(document).ready(function () {
     localStorage.setItem('playbar_title', '')
     localStorage.setItem('playbar_singer', '')
-    localStorage.setItem('retrocollect_year', '1980')
 })
 
 //추천플레이리스트 페이지에서 차트 새로고침
@@ -51,7 +55,7 @@ function retro_recommend_loading(who) {
         } else if (who == 'son') {
             image_cover = 'sub_bn_02.png'
         }
-        
+
         let temp_html2 = ``
         temp_html2 = `  <div class="playlist_img">
                             <img src="../static/images/${image_cover}" alt="">
@@ -91,13 +95,13 @@ function retro_recommend_loading(who) {
                                 <td>
                                     <!-- 재생버튼 -->
                                     <button type="button">
-                                        <img src="../static/images/playbn_icon_black.png"  alt="" class="playbtn">
+                                        <img onclick="main_playing_active_2('${title}', '${singer}')" id="play_collection" src="../static/images/playbn_icon_black.png"  alt="" class="playbtn">
                                     </button>
                                 </td>
                                 <td>
                                     <!-- 좋아요 버튼 -->
                                     <button type="button">
-                                        <img src="../static/images/like_icon.png" width="30px" height="30px" alt="" id="like_recommend"/>
+                                        <img src="../static/images/like_icon.png" width="30px" height="30px" alt="" id="like_recommend" onclick="likeclick_recommend('${userID}', '${title}', '${singer}', '${rank}')"/>
                                     </button>
                                 </td>
                             </tr>`
@@ -118,13 +122,13 @@ function retro_recommend_loading(who) {
                                 <td>
                                     <!-- 재생버튼 -->
                                     <button type="button">
-                                        <img src="../static/images/playbn_icon_black.png" alt="" class="playbtn">
+                                        <img onclick="main_playing_active_2('${title}', '${singer}')" id="play_collection" src="../static/images/playbn_icon_black.png" alt="" class="playbtn">
                                     </button>
                                 </td>
                                 <td>
                                     <!-- 좋아요 버튼 -->
                                     <button type="button">
-                                        <img src="../static/images/like_icon_hover.png" width="30px" height="30px" alt="" id="like_recommend"/>
+                                        <img src="../static/images/like_icon_hover.png" width="30px" height="30px" alt="" id="like_recommend" onclick="likeclick_recommend('${userID}', '${title}', '${singer}', '${rank}')"/>
                                     </button>
                                 </td>
                             </tr>`
@@ -138,58 +142,114 @@ function retro_recommend_loading(who) {
   });
 }
 
-// //RE:TRO 모음집 페이지에서 좋아요 클릭
-// function likeclick_retrocollection(userID, title, singer, rank) {
-//   $.ajax({
-//     type: 'POST',
-//     url: '/collection/likeclick',
-//     data: {
-//         id_give: userID,
-//         title_give: title,
-//         singer_give: singer
-//     },
-//     success: function (response) {
-//         let like = response['like']
-//         let likebtn;
-//         let likebtns = document.querySelectorAll('#like_collection');
-//         for (let i = 0; i < likebtns.length; i++){
-//             if(rank == i+1) {
-//                 likebtn = likebtns[i]
-//             }
-//         }
-//
-//         let playbar_title;
-//         let playbar_singer;
-//         let playbar_likebtn;
-//         if(localStorage.getItem('playbar_title')) {
-//             playbar_title= localStorage.getItem('playbar_title')
-//         } else {
-//             playbar_title = ''
-//         }
-//         if (localStorage.getItem('playbar_singer')) {
-//             playbar_singer = localStorage.getItem('playbar_singer')
-//         } else {
-//             playbar_singer = ''
-//         }
-//
-//         if (like == 1) {
-//             likebtn.src = '../static/images/like_icon_hover.png';
-//             if (title == playbar_title && singer == playbar_singer) {
-//                 playbar_likebtn = document.querySelector('#likebtn');
-//                 playbar_likebtn.src = '../static/images/like_icon_hover.png';
-//                 console.log('playbar like on')
-//             }
-//         } else {
-//             likebtn.src = '../static/images/like_icon.png';
-//             if (title == playbar_title && singer == playbar_singer) {
-//                 playbar_likebtn = document.querySelector('#likebtn');
-//                 playbar_likebtn.src = '../static/images/like_icon.png';
-//                 console.log('playbar like off')
-//             }
-//         }
-//
-//         alert(response['msg'])
-//     }
-//   });
-// }
+// 하단 플레이어 작동 기능
+function main_playing_active_2(title, singer) {
+    let userID = sessionStorage.getItem('id')
+    $.ajax({
+        type: 'POST',
+        url: '/recommend/playing',
+        data: {
+            title_give: title,
+            singer_give: singer,
+            listname_give: recommend_name,
+            userID_give: userID
+        },
+        success: function (response) {
+            let singer = response['music_info']['singer']
+            let title = response['music_info']['title']
+            let musicPlaySrc = response['music_info']['musicPlaySrc']
+            let like = response['music_info']['like']
+
+            localStorage.setItem('playbar_title', title)
+            localStorage.setItem('playbar_singer', singer)
+
+            let temp_html = `<div class="youtube_movie">
+                                <iframe width="100" height="75" src="${musicPlaySrc}?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                             </div>
+                             <div class="playbar_song_wrap">
+                                <div class="playbar_song_title">${title}</div>
+                                <div class="playbar_song_artist">${singer}</div>
+                             </div>
+                             <div id="like_control"></div>`
+            let temp_html2 = ``
+            if (like == 0) {
+                temp_html2 = `<img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
+            } else {
+                temp_html2 = `<img src="../static/images/like_icon_hover.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
+            }
+
+            $('#playbar_song').empty()
+            $('#playbar_song').append(temp_html)
+            $('#like_control').empty()
+            $('#like_control').append(temp_html2)
+
+            temp_html = `<td id="player_active" style="display:none">1</td>`
+            $('#playbar_control').empty();
+            $('#playbar_control').append(temp_html);
+
+            let play = document.getElementById("playbtn");
+            play.src = '../static/images/playbar_menu_pau.png';
+            play.style.width = '30px';
+            play.style.height = 'auto';
+            play.style.marginTop = '10px';
+            play.style.marginLeft = '10px';
+            //alert(response["msg"])
+        }
+    })
+}
+
+//RE:TRO 모음집 페이지에서 좋아요 클릭
+function likeclick_recommend(userID, title, singer, rank) {
+  $.ajax({
+    type: 'POST',
+    url: '/recommend/likeclick',
+    data: {
+        id_give: userID,
+        title_give: title,
+        singer_give: singer
+    },
+    success: function (response) {
+        let like = response['like']
+        let likebtn;
+        let likebtns = document.querySelectorAll('#like_recommend');
+        for (let i = 0; i < likebtns.length; i++){
+            if(rank == i+1) {
+                likebtn = likebtns[i]
+            }
+        }
+
+        let playbar_title;
+        let playbar_singer;
+        let playbar_likebtn;
+        if(localStorage.getItem('playbar_title')) {
+            playbar_title= localStorage.getItem('playbar_title')
+        } else {
+            playbar_title = ''
+        }
+        if (localStorage.getItem('playbar_singer')) {
+            playbar_singer = localStorage.getItem('playbar_singer')
+        } else {
+            playbar_singer = ''
+        }
+
+        if (like == 1) {
+            likebtn.src = '../static/images/like_icon_hover.png';
+            if (title == playbar_title && singer == playbar_singer) {
+                playbar_likebtn = document.querySelector('#likebtn');
+                playbar_likebtn.src = '../static/images/like_icon_hover.png';
+                console.log('playbar like on')
+            }
+        } else {
+            likebtn.src = '../static/images/like_icon.png';
+            if (title == playbar_title && singer == playbar_singer) {
+                playbar_likebtn = document.querySelector('#likebtn');
+                playbar_likebtn.src = '../static/images/like_icon.png';
+                console.log('playbar like off')
+            }
+        }
+
+        alert(response['msg'])
+    }
+  });
+}
 
