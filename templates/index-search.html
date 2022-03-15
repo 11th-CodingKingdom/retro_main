@@ -9,17 +9,17 @@
 
     <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="../static/js/retrochart.js"></script>
     <script defer src="../static/js/common.js"></script>
+    <script defer src="../static/js/search.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     <link rel="stylesheet" type="text/css" href="../static/css/common.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/style-retrochart.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style-search.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../static/images/favicon.ico">
+
 </head>
 <body>
   <header id="header">
@@ -35,43 +35,31 @@
       </div>
       <div id="searchbox_wrap">
         <img src="../static/images/search_icon.png" alt="">
-        <input type="text" id="searchbox" placeholder="검색어를 입력하세요.">
+        <input type="text" id="searchbox" value="" onkeyup="search_self(this);" />
       </div>
       <div id="nav_right">
       </div>
     </nav>
   </header>
-  <!-- RE:TRO 차트 -->
-  <div id="retrochart_wrap">
-    <!-- 1980-2010 버튼 4개 -->
-    <div id="retrochart-year-btn">
-      <input type="button" class="btn" value="1980" style="border-radius:20px"/>
-      <input type="button" class="btn" value="1990" style="border-radius:20px"/>
-      <input type="button" class="btn" value="2000" style="border-radius:20px"/>
-      <input type="button" class="btn" value="2010" style="border-radius:20px"/>
+
+  <div class="search-txt">검색결과</div>
+  <div class="search-title">곡</div>
+
+  <!-- 곡 리스트 -->
+  <div class="song-list">
+    <!-- 곡 리스트 첫줄 -->
+    <div class="song-list-top">
+      <div class="song">곡</div>
+      <div class="artist">아티스트</div>
+      <div class="play">듣기</div>
+      <div class="like">좋아요</div>
     </div>
-    <!-- RE:TRO 차트 타이틀-->
-    <div id="retrochart_head">
-      <h1>RE:TRO 차트</h1>
-      <span>100위 집계</span>
-    </div>
-    <!-- RE:TRO 차트 목록 -->
-    <div id="retrochart_table">
-      <table>
-        <thead>
-          <tr>
-            <th width="60px">순위</th>
-            <th class="retrochart_col" width="450px">곡</th>
-            <th class="retrochart_col" width="806px">아티스트</th>
-            <th width="60px">듣기</th>
-            <th width="60px">좋아요</th>
-          </tr>
-        </thead>
-        <tbody id="chart_body">
-        </tbody>
-      </table>
+    <!-- 곡 리스트 wrap -->
+    <div id="song-list-wrap">
+      <!-- 곡 리스트 한 줄 -->
     </div>
   </div>
+
   <!-- FOOTER -->
   <hr size="1" color="#eeeeee">
   <footer>
@@ -84,10 +72,9 @@
     <!-- 하단 재생 바 -->
     <div class="playbar">
       <div id="playbar_song" class="playbar_song">
-<!--        <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()" />-->
       </div>
       <img src="../static/images/palybn_icon.png" alt="" id="playbtn" onclick="togglePause()" />
-{#      <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">#}
+      <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">#}
       <div id="playbar_control" , style="display:none">
         <td id="player_active" style="display:none">0</td>
       </div>

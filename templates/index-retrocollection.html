@@ -9,17 +9,21 @@
 
     <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="../static/js/retrochart.js"></script>
     <script defer src="../static/js/common.js"></script>
+    <script defer src="../static/js/retrocollection.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     <link rel="stylesheet" type="text/css" href="../static/css/common.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/style-retrochart.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style-retrocollection.css">
 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../static/images/favicon.ico">
+
 </head>
 <body>
   <header id="header">
@@ -41,33 +45,45 @@
       </div>
     </nav>
   </header>
-  <!-- RE:TRO 차트 -->
-  <div id="retrochart_wrap">
-    <!-- 1980-2010 버튼 4개 -->
-    <div id="retrochart-year-btn">
-      <input type="button" class="btn" value="1980" style="border-radius:20px"/>
-      <input type="button" class="btn" value="1990" style="border-radius:20px"/>
-      <input type="button" class="btn" value="2000" style="border-radius:20px"/>
-      <input type="button" class="btn" value="2010" style="border-radius:20px"/>
+  <!-- RE:TRO 모음집 -->
+  <div id="retrocollect_wrap">
+    <!--년도 선택-->
+    <div id="yearcollect_wrap">
+      <div class="years-btn years-btn-active">1980년대</div>
+      <div class="years-btn">1990년대</div>
+      <div class="years-btn">2000년대</div>
+      <div class="years-btn">2010년대</div>
+      <div class="years-btn">전체 곡</div>
     </div>
-    <!-- RE:TRO 차트 타이틀-->
-    <div id="retrochart_head">
-      <h1>RE:TRO 차트</h1>
-      <span>100위 집계</span>
+    <!-- 년도별 버튼 10개 -->
+    <div id="retrocollect-year-btn">
+      <input type="button" class="year-btn year-btn-active" value="1980"/>
+      <input type="button" class="year-btn" value="1981"/>
+      <input type="button" class="year-btn" value="1982"/>
+      <input type="button" class="year-btn" value="1983"/>
+      <input type="button" class="year-btn" value="1984"/>
+      <input type="button" class="year-btn" value="1985"/>
+      <input type="button" class="year-btn" value="1986"/>
+      <input type="button" class="year-btn" value="1987"/>
+      <input type="button" class="year-btn" value="1988"/>
+      <input type="button" class="year-btn" value="1989"/>
     </div>
-    <!-- RE:TRO 차트 목록 -->
-    <div id="retrochart_table">
+    <!-- RE:TRO 모음집 타이틀-->
+    <div id="retrocollect_head">
+      <h1>RE:TRO 모음집</h1>
+    </div>
+    <!-- RE:TRO 모음집 목록 -->
+    <div id="retrocollect_table">
       <table>
         <thead>
           <tr>
-            <th width="60px">순위</th>
-            <th class="retrochart_col" width="450px">곡</th>
-            <th class="retrochart_col" width="806px">아티스트</th>
+            <th class="retrocollect_col" width="450px">곡</th>
+            <th class="retrocollect_col" width="806px">아티스트</th>
             <th width="60px">듣기</th>
             <th width="60px">좋아요</th>
           </tr>
         </thead>
-        <tbody id="chart_body">
+        <tbody id="collection_body">
         </tbody>
       </table>
     </div>
@@ -84,9 +100,9 @@
     <!-- 하단 재생 바 -->
     <div class="playbar">
       <div id="playbar_song" class="playbar_song">
-<!--        <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()" />-->
       </div>
       <img src="../static/images/palybn_icon.png" alt="" id="playbtn" onclick="togglePause()" />
+<!--      <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">-->
 {#      <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">#}
       <div id="playbar_control" , style="display:none">
         <td id="player_active" style="display:none">0</td>
