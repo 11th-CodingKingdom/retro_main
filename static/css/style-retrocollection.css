@@ -140,3 +140,11 @@
   margin-left: 36px;
   text-align: left;
 }
+
+#like_collection {
+  cursor: pointer;
+}
+
+#play_collection {
+  cursor: pointer;
+}

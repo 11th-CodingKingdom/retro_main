@@ -1,3 +1,7 @@
+//main 페이지 주소 저장
+localStorage.setItem('main_page_link', 'http://172.30.1.14:5000/');
+let main_page_link = 'http://172.30.1.14:5000/'
+
 // 하단 playbar에서 play 버튼 <-> pause 버튼 변경을 위한 변수
 let playcnt = 1;
 // 상단 로고 클릭 시 Home으로 이동
@@ -31,7 +35,7 @@ function nav_update() {
         $("#nav_left ul li a:eq(1)").attr("href", "/mypage")
     }
     let login_html = `<ul>
-                        <li><a href="#">RE:TRO 소개</a></li>
+                        <li><a href="/intro_page">RE:TRO 소개</a></li>
                         <li><a href=${href_login_mypage}>${login_mypage}</a></li>
                         <li><a href=${href_regist_logout} onclick="logout()">${regist_logout}</a></li>
                       </ul>`
@@ -40,7 +44,6 @@ function nav_update() {
 
 // 화면 하단 플레이어 재생, 일시정지 제어함수
 function playing_control(){
-
     let playing_active = $('#player_active').text();
     let temp_html = ``
     if(playing_active == 1) {
@@ -97,8 +100,159 @@ function likeclick(userID, title, singer) {
             } else {
                 likebtn.src = '../static/images/like_icon.png';
             }
+            var link = document.location.href;
+            let temp = link.split('/')
+            let page = temp[temp.length -1]
+
+            if(page == '') {
+            } else if (page == 'retrochart_page') {
+                chart_year = document.getElementsByClassName("btn-active")[0].value;
+                console.log(chart_year)
+                retro_chart_loading(chart_year)
+            } else if (page == 'retrocollection_page') {
+                chart_year = document.getElementsByClassName("year-btn-active")[0].value;
+                console.log(chart_year)
+                retro_collection_loading(chart_year)
+            } else if (page == 'search_page') {
+                search_word = localStorage.getItem('search_word')
+                console.log(search_word)
+                search_loading(search_word);
+            } else if (page == 'recommend_page') {
+                recommend_name = localStorage.getItem('recommend_name')
+                console.log(recommend_name)
+                retro_recommend_loading(recommend_name);
+            } else if (page == 'mypage') {
+                chart_year = document.getElementsByClassName("btn-active")[0].value;
+                userinfo_get(chart_year)
+                console.log('mypage', chart_year)
+            }
+
             alert(response['msg'])
         }
     });
+}
 
+// 하단 플레이어 작동 기능
+function main_playing_active(songID) {
+    let userID = sessionStorage.getItem('id')
+    $.ajax({
+        type: 'POST',
+        url: '/main/playing',
+        data: {
+            songID_give: songID,
+            userID_give: userID
+        },
+        success: function (response) {
+            let singer = response['music_info']['singer']
+            let title = response['music_info']['title']
+            let musicPlaySrc = response['music_info']['musicPlaySrc']
+            let like = response['music_info']['like']
+
+            localStorage.setItem('playbar_title', title)
+            localStorage.setItem('playbar_singer', singer)
+
+            let temp_html = `<div class="youtube_movie">
+                                <iframe width="100" height="75" src="${musicPlaySrc}?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                             </div>
+                             <div class="playbar_song_wrap">
+                                <div class="playbar_song_title">${title}</div>
+                                <div class="playbar_song_artist">${singer}</div>
+                             </div>
+                             <div id="like_control"></div>`
+            let temp_html2 = ``
+            if (like == 0) {
+                temp_html2 = `<img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
+            } else {
+                temp_html2 = `<img src="../static/images/like_icon_hover.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
+            }
+
+            $('#playbar_song').empty()
+            $('#playbar_song').append(temp_html)
+            $('#like_control').empty()
+            $('#like_control').append(temp_html2)
+
+            temp_html = `<td id="player_active" style="display:none">1</td>`
+            $('#playbar_control').empty();
+            $('#playbar_control').append(temp_html);
+
+            let play = document.getElementById("playbtn");
+            play.src = '../static/images/playbar_menu_pau.png';
+            play.style.width = '30px';
+            play.style.height = 'auto';
+            play.style.marginTop = '10px';
+            play.style.marginLeft = '10px';
+            //alert(response["msg"])
+        }
+    })
+}
+
+// mypage에서 하단 플레이어 작동 기능
+function main_playing_active_3(title, singer) {
+    let userID = sessionStorage.getItem('id')
+    $.ajax({
+        type: 'POST',
+        url: '/mypage/playing',
+        data: {
+            title_give: title,
+            singer_give: singer,
+            userID_give: userID
+        },
+        success: function (response) {
+            let singer = response['music_info']['singer']
+            let title = response['music_info']['title']
+            let musicPlaySrc = response['music_info']['musicPlaySrc']
+            let like = response['music_info']['like']
+
+            localStorage.setItem('playbar_title', title)
+            localStorage.setItem('playbar_singer', singer)
+
+            let temp_html = `<div class="youtube_movie">
+                                <iframe width="100" height="75" src="${musicPlaySrc}?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                             </div>
+                             <div class="playbar_song_wrap">
+                                <div class="playbar_song_title">${title}</div>
+                                <div class="playbar_song_artist">${singer}</div>
+                             </div>
+                             <div id="like_control"></div>`
+            let temp_html2 = ``
+            if (like == 0) {
+                temp_html2 = `<img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
+            } else {
+                temp_html2 = `<img src="../static/images/like_icon_hover.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
+            }
+
+            $('#playbar_song').empty()
+            $('#playbar_song').append(temp_html)
+            $('#like_control').empty()
+            $('#like_control').append(temp_html2)
+
+            temp_html = `<td id="player_active" style="display:none">1</td>`
+            $('#playbar_control').empty();
+            $('#playbar_control').append(temp_html);
+
+            let play = document.getElementById("playbtn");
+            play.src = '../static/images/playbar_menu_pau.png';
+            play.style.width = '30px';
+            play.style.height = 'auto';
+            play.style.marginTop = '10px';
+            play.style.marginLeft = '10px';
+            //console.log(response)
+            //alert(response["msg"])
+        }
+    })
+}
+
+// 검색 단어 저장 후 이동
+function search_main(target) {
+  if (window.event.keyCode == 13) {
+    // 엔터키를 누르면
+    let word = target.value;
+
+    // 페이지 이동
+    let main_link = main_page_link;
+    let search_link = main_link + 'search_page';
+    localStorage.setItem('search_word', word);
+
+    location.href= search_link;
+  }
 }

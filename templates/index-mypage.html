@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../static/images/favicon.ico">
 
     <script>
         $(function () {
@@ -82,7 +83,6 @@
                             <span class="pop-btn confirm" id="confirm" onclick="withdraw()">탈퇴하기</span>
                         </p>
                     </div>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -102,7 +102,7 @@
         </div>
         <div id="searchbox_wrap">
             <img src="../static/images/search_icon.png" alt="">
-            <input type="text" id="searchbox" placeholder="검색어를 입력하세요.">
+            <input type="text" id="searchbox" placeholder="검색어를 입력하세요." onkeyup="search_main(this)">
         </div>
         <div id="nav_right">
         </div>
@@ -110,69 +110,69 @@
 </header>
 <div class="mypage_hello">
     <!-- 회원 이름 -->
-    안녕하세요, <span class="user_name"></span> 님!
 </div>
 <div id="wrap">
-    <div id="mypage_left">
-        <div id="left_box">
-            <!-- 회원 이메일 -->
-            <div id="user_info">
-                <span id="name" class="user_name"></span>
-                <span id="user_id"></span>
+    <div id="contents">
+        <div id="mypage_left">
+            <div id="left_box">
+                <!-- 회원 이메일 -->
+                <div id="user_info">
+                    <span id="name" class="user_name">{{ session['name']}}</span>
+                    <span id="user_id">{{ session['userID']}}</span>
+                </div>
+                <div id="user_email">{{ session['email']}}</div>
             </div>
-            <div id="user_email"></div>
+            <div id="leaveLetro"><input type="button" id="leaveLetro_btn" value="회원탈퇴" onclick="openPopup();"></div>
         </div>
-        <div id="leaveLetro"><input type="button" id="leaveLetro_btn" value="회원탈퇴" onclick="openPopup();"></div>
-    </div>
 
-    <div id="mypage_right">
-        <div class="music_test_banner">
-            <div class="music_test_img">
-                <img src="../static/images/mypage_bn_test_ok.png" alt="">
-            </div>
-            <div class="music_test_left">
-                <div class="music_test_txt">
-                    <span class="test_left_top test_text">나의 음악 성향 테스트 결과는?</span>
-                    <span class="test_left_middle test_text"></span>
-                    <span class="test_left_bottom test_text">꿀음색에 감성 촉촉한 팝 & 발라드</span>
+        <div id="mypage_right">
+            <div class="music_test_banner">
+                <div class="music_test_img">
+                    <img src="../static/images/mypage_bn_test_ok.png" alt="">
+                </div>
+                <div class="music_test_left">
+                    <div class="music_test_txt">
+                        <span class="test_left_top test_text">나의 음악 성향 테스트 결과는?</span>
+                        <span class="test_left_middle test_text"></span>
+                        <span class="test_left_bottom test_text">꿀음색에 감성 촉촉한 팝 & 발라드</span>
+                    </div>
+                </div>
+                <div class="music_test_right">
+                    <!-- 성향테스트 추천노래 유튜브링크 -->
+                    <div class="music_test_btn"></div>
                 </div>
             </div>
-            <div class="music_test_right">
-                <!-- 성향테스트 추천노래 유튜브링크 -->
-                <div class="music_test_btn"></div>
-            </div>
-        </div>
-        <div id="chart">
-            <div id="chart-body">
-                <div id="year-btn" class="chart_text">
-                    <!-- 연도별 노래 차트 -->
-                    <input type="button" class="btn btn-active" value="1980"/>
-                    <input type="button" class="btn" value="1990"/>
-                    <input type="button" class="btn" value="2000"/>
-                    <input type="button" class="btn" value="2010"/>
-                </div>
-                <h1 class="chart_text">MY 플레이리스트</h1>
-                <div id="section_rankchart">
-                    <div id="rankchart-box">
-                        <table id="rankchart-table" class="chart_text table_line">
-                            <thead>
-                            <tr>
-                                <th scope="col" class="info">곡</th>
-                                <th scope="col" class="song"></th>
-                                <th scope="col" class="artist">아티스트</th>
-                                <th scope="col" class="listen">듣기</th>
-                                <th scope="col" class="like">좋아요</th>
-                            </tr>
-                            </thead>
-                            <tbody id="rankchart-row">
-                            </tbody>
-                        </table>
+            <div id="chart">
+                <div id="chart-body">
+                    <div id="year-btn" class="chart_text">
+                        <!-- 연도별 노래 차트 -->
+                        <input type="button" class="btn btn-active" value="1980"/>
+                        <input type="button" class="btn" value="1990"/>
+                        <input type="button" class="btn" value="2000"/>
+                        <input type="button" class="btn" value="2010"/>
+                    </div>
+                    <h1 class="chart_text">MY 플레이리스트</h1>
+                    <div id="section_rankchart">
+                        <div id="rankchart-box">
+                            <table id="rankchart-table" class="chart_text table_line">
+                                <thead>
+                                <tr>
+                                    <th scope="col" class="info">곡</th>
+                                    <th scope="col" class="song"></th>
+                                    <th scope="col" class="artist">아티스트</th>
+                                    <th scope="col" class="listen">듣기</th>
+                                    <th scope="col" class="like">좋아요</th>
+                                </tr>
+                                </thead>
+                                <tbody id="rankchart-row">
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <!-- FOOTER -->
 <hr size="1" color="#eeeeee">
@@ -186,10 +186,8 @@
     <!-- 하단 재생 바 -->
     <div class="playbar">
       <div id="playbar_song" class="playbar_song">
-        <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()" />
       </div>
       <img src="../static/images/palybn_icon.png" alt="" id="playbtn" onclick="togglePause()" />
-      <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">
 {#      <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">#}
       <div id="playbar_control" , style="display:none">
         <td id="player_active" style="display:none">0</td>

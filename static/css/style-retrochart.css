@@ -113,3 +113,11 @@
   margin-left: 36px;
   text-align: left;
 }
+
+#like_chart {
+  cursor: pointer;
+}
+
+#play_chart {
+  cursor: pointer;
+}

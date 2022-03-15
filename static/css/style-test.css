@@ -102,7 +102,7 @@ body {
   text-align: center;
 }
 
-#test_a1 {
+#test_a {
   width: 300px;
   height: 59px;
   background-color: #eb1400;
@@ -115,7 +115,7 @@ body {
   margin-bottom: 20px;
 }
 
-#test_a2 {
+#test_b {
   width: 300px;
   height: 59px;
   background-color: #e0e0e0;

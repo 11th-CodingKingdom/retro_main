@@ -10,28 +10,31 @@
     <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="../static/js/common.js"></script>
+    <script defer src="../static/js/test.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style-test.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../static/images/favicon.ico">
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function(){
+        changeQnA(0);
+      });
+    </script>
 </head>
 <body>
   <div class="test_wrap">
     <div class="test_head">
       <div id="test_num">Q1</div>
       <div id="test_q">
-        노래를 들을 때 <br/>
-        제일 먼저 들리는 건?
       </div>
     </div>
     <div id="test_a_wrap">
-      <div id="test_a1">
-        멜로디부터 바로 들리던데?
+      <div id="test_a" onclick="select('a')">
       </div>
-      <div id="test_a2">
-        작사가와 영접하여 가사를 이해하려 한다
+      <div id="test_b" onclick="select('b')">
       </div>      
     </div>
     <div id="test_footer">

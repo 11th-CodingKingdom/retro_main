@@ -18,7 +18,6 @@ for (let i = 0; i < btns.length; i++) {
   btns[i].addEventListener('click', clickBtn);
 }
 
-
 // 상단 팝업 닫기
 let popup = document.querySelector('.close');
 let banner = document.querySelector('.banner');
@@ -67,7 +66,6 @@ function retroChart_update(chart_year) {
         chart_year = parseInt(chart_year)
         if (year == chart_year) {
             localStorage.setItem('retrochart_year', year)
-            console.log('setItem', year)
             if (title.length > 10){
                 let albumchart_html = `<div class="albumchart-box">
                                           <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
@@ -92,7 +90,7 @@ function retroChart_update(chart_year) {
                                           </td>
                                           <td>
                                             <div id="rankchart_desc">
-                                              <div id="rankchart_song" onclick="location.href='/retrochart_page'">
+                                              <div id="rankchart_song" onclick="location.href='/retrochart_page';">
                                                   <MARQUEE width="168" height="18" scrollamount="5">${title}</MARQUEE>
                                               </div>
                                               <div id="rankchart_artist">${singer}</div>
@@ -131,7 +129,7 @@ function retroChart_update(chart_year) {
                                           </td>
                                           <td>
                                             <div id="rankchart_desc">
-                                              <div id="rankchart_song">${title}</div>
+                                              <div id="rankchart_song" onclick="location.href='/retrochart_page';">${title}</div>
                                               <div id="rankchart_artist">${singer}</div>
                                             </div>
                                           </td>
@@ -150,49 +148,73 @@ function retroChart_update(chart_year) {
 
 // 하단 플레이어 작동 기능
 function main_playing_active(songID) {
-            $.ajax({
-                type: 'POST',
-                url: '/main/playing',
-                data: { songID_give: songID
-                },
-                success: function (response) {
-                    let userID = response['music_info']['id']
-                    let singer = response['music_info']['singer']
-                    let title = response['music_info']['title']
-                    let musicPlaySrc = response['music_info']['musicPlaySrc']
-                    let like = response['music_info']['like']
+    let userID = sessionStorage.getItem('id')
+    $.ajax({
+        type: 'POST',
+        url: '/main/playing',
+        data: {
+            songID_give: songID,
+            userID_give: userID
+        },
+        success: function (response) {
+            let singer = response['music_info']['singer']
+            let title = response['music_info']['title']
+            let musicPlaySrc = response['music_info']['musicPlaySrc']
+            let like = response['music_info']['like']
 
-                    console.log(singer, title, musicPlaySrc)
-                    let temp_html = `<div class="youtube_movie">
-                                        <iframe width="100" height="75" src="${musicPlaySrc}?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                     </div>
-                                     <div class="playbar_song_wrap">
-                                        <div class="playbar_song_title">${title}</div>
-                                        <div class="playbar_song_artist">${singer}</div>
-                                     </div>`
-                    let temp_html2 = ``
-                    if (like == 0) {
-                        temp_html2 = `<img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
-                    } else {
-                        temp_html2 = `<img src="../static/images/like_icon_hover.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
-                    }
+            console.log(singer, title, musicPlaySrc)
+            let temp_html = `<div class="youtube_movie">
+                                <iframe width="100" height="75" src="${musicPlaySrc}?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                             </div>
+                             <div class="playbar_song_wrap">
+                                <div class="playbar_song_title">${title}</div>
+                                <div class="playbar_song_artist">${singer}</div>
+                             </div>`
+            let temp_html2 = ``
+            if (like == 0) {
+                temp_html2 = `<img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
+            } else {
+                temp_html2 = `<img src="../static/images/like_icon_hover.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
+            }
 
-                    $('#playbar_song').empty()
-                    $('#playbar_song').append(temp_html)
-                    $('#playbar_song').append(temp_html2)
+            console.log(temp_html2)
 
-                    temp_html = `<td id="player_active" style="display:none">1</td>`
-                    $('#playbar_control').empty();
-                    $('#playbar_control').append(temp_html);
+            $('#playbar_song').empty()
+            $('#playbar_song').append(temp_html)
+            $('#playbar_song').append(temp_html2)
 
-                    let play = document.getElementById("playbtn");
-                    play.src = '../static/images/playbar_menu_pau.png';
-                    play.style.width = '30px';
-                    play.style.height = 'auto';
-                    play.style.marginTop = '10px';
-                    play.style.marginLeft = '10px';
-                    //alert(response["msg"])
-                }
-            })
+            temp_html = `<td id="player_active" style="display:none">1</td>`
+            $('#playbar_control').empty();
+            $('#playbar_control').append(temp_html);
+
+            let play = document.getElementById("playbtn");
+            play.src = '../static/images/playbar_menu_pau.png';
+            play.style.width = '30px';
+            play.style.height = 'auto';
+            play.style.marginTop = '10px';
+            play.style.marginLeft = '10px';
+            //alert(response["msg"])
+
+        }
+    })
 }
 
+//RE:RRO 모음집 연도 저장 후 이동
+function collection_year(year){
+    let main_link = main_page_link;
+    let collect_link = main_link + 'retrocollection_page';
+    console.log(main_link, collect_link)
+    localStorage.setItem('retrocollection_year', year);
+
+    location.href= collect_link;
+}
+
+//RE:RRO 추천플레이리스트 종류 저장 후 이동
+function recommend_name(name){
+    let main_link = main_page_link;
+    let collect_link = main_link + 'recommend_page';
+    console.log(main_link, collect_link)
+    localStorage.setItem('recommend_name', name);
+
+    location.href= collect_link;
+}

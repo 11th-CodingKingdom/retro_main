@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -9,14 +9,11 @@
 
     <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="../static/js/main.js"></script>
     <script defer src="../static/js/common.js"></script>
+    <script defer src="../static/js/main.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/common.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +31,7 @@
   </section>
   <header id="header">
     <div id="logo">
-      <img src="../static/images/reteo_logo.png" width="91px" height="26px" />
+      <img src="../static/images/reteo_logo.png" width="92px" height="30px" />
     </div>
     <nav id="nav">
       <div id="nav_left">
@@ -45,7 +42,7 @@
       </div>
       <div id="searchbox_wrap">
         <img src="../static/images/search_icon.png" alt="">
-        <input type="text" id="searchbox" placeholder="검색어를 입력하세요.">
+        <input type="text" id="searchbox" placeholder="검색어를 입력하세요." onkeyup="search_main(this)" />
       </div>
       <div id="nav_right">
       </div>
@@ -55,7 +52,7 @@
   <div id="wrap">
       <section id="chart">
         <section id="section_head">
-          <h1>RE:TRO 차트</h1>
+          <h1 onclick="location.href='/retrochart_page';">RE:TRO 차트</h1>
           <span>NEW</span>
           <!-- 1980-2010 버튼 4개 -->
           <div id="year-btn_wrap">
@@ -95,19 +92,19 @@
           <span>HOT</span>
         </div>
         <div id="yearchart_body">
-          <div class="yearchart_btn" style="background-image: url(../static/images/retro_con1980.png);">1980</div>
-          <div class="yearchart_btn" style="background-image: url(../static/images/retro_con1990.png);">1990</div>
-          <div class="yearchart_btn" style="background-image: url(../static/images/retro_con2000.png);">2000</div>
-          <div class="yearchart_btn" style="background-image: url(../static/images/retro_con2010.png);">2010</div>
-          <div class="yearchart_btn" style="background-image: url(../static/images/retro_con_all.png);">전곡 모음집</div>
+          <div onclick="collection_year('1980');" class="yearchart_btn" style="background-image: url(../static/images/retro_con1980.png);">1980</div>
+          <div onclick="collection_year('1990');" class="yearchart_btn" style="background-image: url(../static/images/retro_con1990.png);">1990</div>
+          <div onclick="collection_year('2000');" class="yearchart_btn" style="background-image: url(../static/images/retro_con2000.png);">2000</div>
+          <div onclick="collection_year('2010');" class="yearchart_btn" style="background-image: url(../static/images/retro_con2010.png);">2010</div>
+          <div onclick="collection_year('all');" class="yearchart_btn" style="background-image: url(../static/images/retro_con_all.png);">전곡 모음집</div>
         </div>
       </section>
       <div class="section_playlist">
         <div class="playlist_left">
-          <img src="../static/images/sub_bn_01.png" alt="leemoonsae">
+          <img src="../static/images/sub_bn_01.png" alt="leemoonsae" onclick="recommend_name('moon');">
         </div>
         <div class="playlist_right">
-          <img src="../static/images/sub_bn_02.png" alt="leesunhee">
+          <img src="../static/images/sub_bn_02.png" alt="leesunhee" onclick="recommend_name('sun');">
         </div>
       </div>
       <section id="section_pick">
@@ -116,29 +113,29 @@
         </div>
         <div id="pick_body">
           <div id="pick-box">
-            <img src="../static/images/Editor_01.png" alt="" onclick="location.href='/'" />
+            <img src="../static/images/Editor_01.png" alt="" onclick="recommend_name('1');" />
             <div class="pick-box-play"></div>
           </div>
           <div id="pick-box">
-            <img src="../static/images/Editor_02.png" alt="" onclick="location.href='/'" />
+            <img src="../static/images/Editor_02.png" alt="" onclick="recommend_name('2');" />
             <div class="pick-box-play"></div>
           </div>
           <div id="pick-box">
-            <img src="../static/images/Editor_03.png" alt="" onclick="location.href='/'" />
+            <img src="../static/images/Editor_03.png" alt="" onclick="recommend_name('3');" />
             <div class="pick-box-play"></div>
           </div>
         </div>
         <div id="pick_body">
           <div id="pick-box">
-            <img src="../static/images/Editor_04.png" alt="" onclick="location.href='/'" />
+            <img src="../static/images/Editor_04.png" alt="" onclick="recommend_name('4');" />
             <div class="pick-box-play"></div>
           </div>
           <div id="pick-box">
-            <img src="../static/images/Editor_05.png" alt="" onclick="location.href='/'" />
+            <img src="../static/images/Editor_05.png" alt="" onclick="recommend_name('5');" />
             <div class="pick-box-play"></div>
           </div>
           <div id="pick-box">
-            <img src="../static/images/Editor_06.png" alt="" onclick="location.href='/'" />
+            <img src="../static/images/Editor_06.png" alt="" onclick="recommend_name('6');" />
             <div class="pick-box-play"></div>
           </div>
         </div>
@@ -162,8 +159,7 @@
         <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()" />
       </div>
       <img src="../static/images/palybn_icon.png" alt="" id="playbtn" onclick="togglePause()" />
-      <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">
-{#      <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">#}
+      <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">
       <div id="playbar_control" , style="display:none">
         <td id="player_active" style="display:none">0</td>
       </div>

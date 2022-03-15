@@ -1,0 +1,139 @@
+.search-txt {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+
+  width: 1342px;
+  margin-left: 50px;
+  margin-bottom: 64px;
+}
+
+.search-title {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
+.song-list {
+  /* background-color: antiquewhite; */
+  width: 1342px;
+  height: auto;
+  margin-left: 50px;
+  margin-bottom: 100px;
+}
+
+.song-list .song-list-top {
+  display: flex;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+  border-bottom: 1px solid #e2e2e2;
+
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #a0a0a0;
+  letter-spacing: -0.05em;
+}
+
+.song-list .song-list-top .song {
+  flex: 0.3;
+  padding-left: 36px;
+  /* background-color: rgb(208, 208, 226); */
+}
+
+.song-list .song-list-top .artist {
+  flex: 0.5;
+  /* background-color: rgb(233, 210, 233); */
+}
+
+.song-list .song-list-top .play {
+  flex: 0.1;
+  /* background-color: rgb(218, 184, 184); */
+}
+
+.song-list .song-list-top .like {
+  flex: 0.1;
+  /* background-color: rgb(235, 235, 197); */
+}
+
+#song-list-wrap .song-list-line {
+  display: flex;
+  height: 70px;
+  padding-top: 10px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.song-list-line .line-song {
+  flex: 0.3;
+  display: flex;
+  /* background-color: lightblue; */
+}
+
+/* .song-list-line .line-song .song-left {
+  
+} */
+
+.song-list-line .line-song .song-left img {
+  width: 50px;
+  height: 50px;
+  margin-left: 36px;
+  border-radius: 5px;
+}
+
+.song-list-line .line-song .song-right {
+  margin-left: 36px;
+  padding-top: 5px;
+  /* display: flex; */
+}
+
+.song-list-line .line-song .song-right .song-title {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  margin-bottom: 10px;
+}
+
+.song-list-line .line-song .song-right .album-title {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+  color: #b5b6b5;
+}
+
+.song-list-line .line-artist {
+  flex: 0.5;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  margin-left: 36px;
+  margin-top: 17px;
+}
+
+.song-list-line .line-play {
+  flex: 0.1;
+}
+
+.song-list-line .line-play img {
+  margin-top: 10px;
+  margin-left: -1px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.song-list-line .line-like {
+  flex: 0.1;
+}
+
+.song-list-line .line-like img {
+  margin-top: 15px;
+  margin-left: 7px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
