@@ -33,7 +33,7 @@ function search_self(target) {
   }
 }
 
-
+// 검색 결과를 보여주는 기능
 function search_loading(word) {
     let userID = sessionStorage.getItem('id')
   $.ajax({
@@ -54,29 +54,51 @@ function search_loading(word) {
           let title = music_list[i]['title']
           let albumtitle = music_list[i]['albumtitle']
           let songID = music_list[i]['songID']
+            let rank = i + 1
           let year = music_list[i]['year']
           let like = music_list[i]['like']
 
           let temp_html = ``
           if(title.includes(word)) {
-            temp_html = `<div class="song-list-line">
-                          <div class="line-song">
-                            <div class="song-left">
-                              <img src="${albumImageUrl}" alt="">
-                            </div>
-                            <div class="song-right">
-                              <div class="song-title">${title}</div>
-                              <div class="album-title">${albumtitle}</div>
-                            </div>
-                          </div>
-                          <div class="line-artist">${singer}</div>
-                          <div class="line-play">
-                            <img src="../static/images/playbn_icon_black.png" alt="">
-                          </div>
-                          <div class="line-like">
-                            <img src="../static/images/like_icon.png" id="likebtn">
-                          </div>
-                        </div>`;
+            if (like == 0){
+                 temp_html = `<div class="song-list-line">
+                                  <div class="line-song">
+                                    <div class="song-left">
+                                      <img src="${albumImageUrl}" alt="">
+                                    </div>
+                                    <div class="song-right">
+                                      <div class="song-title">${title}</div>
+                                      <div class="album-title">${albumtitle}</div>
+                                    </div>
+                                  </div>
+                                  <div class="line-artist">${singer}</div>
+                                  <div class="line-play">
+                                    <img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" alt="">
+                                  </div>
+                                  <div class="line-like">
+                                    <img src="../static/images/like_icon.png" id="like_search" onclick="likeclick_search('${userID}', '${title}', '${singer}', '${rank}')"/>
+                                  </div>
+                                </div>`;
+            } else {
+                temp_html = `<div class="song-list-line">
+                                  <div class="line-song">
+                                    <div class="song-left">
+                                      <img src="${albumImageUrl}" alt="">
+                                    </div>
+                                    <div class="song-right">
+                                      <div class="song-title">${title}</div>
+                                      <div class="album-title">${albumtitle}</div>
+                                    </div>
+                                  </div>
+                                  <div class="line-artist">${singer}</div>
+                                  <div class="line-play">
+                                    <img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" alt="">
+                                  </div>
+                                  <div class="line-like">
+                                    <img src="../static/images/like_icon_hover.png" id="like_search" onclick="likeclick_search('${userID}', '${title}', '${singer}', '${rank}')"/>
+                                  </div>
+                                </div>`;
+            }
           }
           $('#song-list-wrap').append(temp_html);
         }
@@ -87,6 +109,60 @@ function search_loading(word) {
         }
 
         //alert(response['msg'])
+    }
+  });
+}
+
+function likeclick_search(userID, title, singer, rank) {
+  $.ajax({
+    type: 'POST',
+    url: '/search/likeclick',
+    data: {
+        id_give: userID,
+        title_give: title,
+        singer_give: singer
+    },
+    success: function (response) {
+        let like = response['like']
+        let likebtn;
+        let likebtns = document.querySelectorAll('#like_search');
+        for (let i = 0; i < likebtns.length; i++){
+            if(rank == i+1) {
+                likebtn = likebtns[i]
+            }
+        }
+
+        let playbar_title;
+        let playbar_singer;
+        let playbar_likebtn;
+        if(localStorage.getItem('playbar_title')) {
+            playbar_title= localStorage.getItem('playbar_title')
+        } else {
+            playbar_title = ''
+        }
+        if (localStorage.getItem('playbar_singer')) {
+            playbar_singer = localStorage.getItem('playbar_singer')
+        } else {
+            playbar_singer = ''
+        }
+
+        if (like == 1) {
+            likebtn.src = '../static/images/like_icon_hover.png';
+            if (title == playbar_title && singer == playbar_singer) {
+                playbar_likebtn = document.querySelector('#likebtn');
+                playbar_likebtn.src = '../static/images/like_icon_hover.png';
+                console.log('playbar like on')
+            }
+        } else {
+            likebtn.src = '../static/images/like_icon.png';
+            if (title == playbar_title && singer == playbar_singer) {
+                playbar_likebtn = document.querySelector('#likebtn');
+                playbar_likebtn.src = '../static/images/like_icon.png';
+                console.log('playbar like off')
+            }
+        }
+
+        alert(response['msg'])
     }
   });
 }
