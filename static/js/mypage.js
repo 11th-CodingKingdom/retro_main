@@ -82,7 +82,7 @@ function update_info(chart_year) {
                                         <td>
                                             <!-- 재생버튼 -->
                                             <button type="button">
-                                                <img onclick="main_playing_active_3('${title}', '${singer}')" id="play_mypage" src="../static/images/palybn_icon_red_hover.png" alt="" class="playbtn">
+                                                <img onclick="main_playing_active_3('${title}', '${singer}')" id="play_mypage" src="../static/images/playbn_icon_black.png" alt="" class="playbtn">
                                             </button>
                                         </td>
                                         <td>
