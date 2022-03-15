@@ -142,6 +142,61 @@ function retro_recommend_loading(who) {
   });
 }
 
+//RE:TRO 모음집 페이지에서 좋아요 클릭
+function likeclick_recommend(userID, title, singer, rank) {
+  $.ajax({
+    type: 'POST',
+    url: '/recommend/likeclick',
+    data: {
+        id_give: userID,
+        title_give: title,
+        singer_give: singer
+    },
+    success: function (response) {
+        let like = response['like']
+        let likebtn;
+        let likebtns = document.querySelectorAll('#like_recommend');
+        for (let i = 0; i < likebtns.length; i++){
+            if(rank == i+1) {
+                likebtn = likebtns[i]
+            }
+        }
+
+        let playbar_title;
+        let playbar_singer;
+        let playbar_likebtn;
+        if(localStorage.getItem('playbar_title')) {
+            playbar_title= localStorage.getItem('playbar_title')
+        } else {
+            playbar_title = ''
+        }
+        if (localStorage.getItem('playbar_singer')) {
+            playbar_singer = localStorage.getItem('playbar_singer')
+        } else {
+            playbar_singer = ''
+        }
+
+        if (like == 1) {
+            likebtn.src = '../static/images/like_icon_hover.png';
+            if (title == playbar_title && singer == playbar_singer) {
+                playbar_likebtn = document.querySelector('#likebtn');
+                playbar_likebtn.src = '../static/images/like_icon_hover.png';
+                console.log('playbar like on')
+            }
+        } else {
+            likebtn.src = '../static/images/like_icon.png';
+            if (title == playbar_title && singer == playbar_singer) {
+                playbar_likebtn = document.querySelector('#likebtn');
+                playbar_likebtn.src = '../static/images/like_icon.png';
+                console.log('playbar like off')
+            }
+        }
+
+        alert(response['msg'])
+    }
+  });
+}
+
 // 하단 플레이어 작동 기능
 function main_playing_active_2(title, singer) {
     let userID = sessionStorage.getItem('id')
@@ -196,60 +251,5 @@ function main_playing_active_2(title, singer) {
             //alert(response["msg"])
         }
     })
-}
-
-//RE:TRO 모음집 페이지에서 좋아요 클릭
-function likeclick_recommend(userID, title, singer, rank) {
-  $.ajax({
-    type: 'POST',
-    url: '/recommend/likeclick',
-    data: {
-        id_give: userID,
-        title_give: title,
-        singer_give: singer
-    },
-    success: function (response) {
-        let like = response['like']
-        let likebtn;
-        let likebtns = document.querySelectorAll('#like_recommend');
-        for (let i = 0; i < likebtns.length; i++){
-            if(rank == i+1) {
-                likebtn = likebtns[i]
-            }
-        }
-
-        let playbar_title;
-        let playbar_singer;
-        let playbar_likebtn;
-        if(localStorage.getItem('playbar_title')) {
-            playbar_title= localStorage.getItem('playbar_title')
-        } else {
-            playbar_title = ''
-        }
-        if (localStorage.getItem('playbar_singer')) {
-            playbar_singer = localStorage.getItem('playbar_singer')
-        } else {
-            playbar_singer = ''
-        }
-
-        if (like == 1) {
-            likebtn.src = '../static/images/like_icon_hover.png';
-            if (title == playbar_title && singer == playbar_singer) {
-                playbar_likebtn = document.querySelector('#likebtn');
-                playbar_likebtn.src = '../static/images/like_icon_hover.png';
-                console.log('playbar like on')
-            }
-        } else {
-            likebtn.src = '../static/images/like_icon.png';
-            if (title == playbar_title && singer == playbar_singer) {
-                playbar_likebtn = document.querySelector('#likebtn');
-                playbar_likebtn.src = '../static/images/like_icon.png';
-                console.log('playbar like off')
-            }
-        }
-
-        alert(response['msg'])
-    }
-  });
 }
 

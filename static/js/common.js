@@ -117,6 +117,10 @@ function likeclick(userID, title, singer) {
                 recommend_name = localStorage.getItem('recommend_name')
                 console.log(recommend_name)
                 retro_recommend_loading(recommend_name);
+            } else if (page == 'mypage') {
+                chart_year = document.getElementsByClassName("btn-active")[0].value;
+                userinfo_get(chart_year)
+                console.log('mypage', chart_year)
             }
 
             alert(response['msg'])
@@ -173,6 +177,62 @@ function main_playing_active(songID) {
             play.style.height = 'auto';
             play.style.marginTop = '10px';
             play.style.marginLeft = '10px';
+            //alert(response["msg"])
+        }
+    })
+}
+
+// mypage에서 하단 플레이어 작동 기능
+function main_playing_active_3(title, singer) {
+    let userID = sessionStorage.getItem('id')
+    $.ajax({
+        type: 'POST',
+        url: '/mypage/playing',
+        data: {
+            title_give: title,
+            singer_give: singer,
+            userID_give: userID
+        },
+        success: function (response) {
+            let singer = response['music_info']['singer']
+            let title = response['music_info']['title']
+            let musicPlaySrc = response['music_info']['musicPlaySrc']
+            let like = response['music_info']['like']
+
+            localStorage.setItem('playbar_title', title)
+            localStorage.setItem('playbar_singer', singer)
+
+            let temp_html = `<div class="youtube_movie">
+                                <iframe width="100" height="75" src="${musicPlaySrc}?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                             </div>
+                             <div class="playbar_song_wrap">
+                                <div class="playbar_song_title">${title}</div>
+                                <div class="playbar_song_artist">${singer}</div>
+                             </div>
+                             <div id="like_control"></div>`
+            let temp_html2 = ``
+            if (like == 0) {
+                temp_html2 = `<img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
+            } else {
+                temp_html2 = `<img src="../static/images/like_icon_hover.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
+            }
+
+            $('#playbar_song').empty()
+            $('#playbar_song').append(temp_html)
+            $('#like_control').empty()
+            $('#like_control').append(temp_html2)
+
+            temp_html = `<td id="player_active" style="display:none">1</td>`
+            $('#playbar_control').empty();
+            $('#playbar_control').append(temp_html);
+
+            let play = document.getElementById("playbtn");
+            play.src = '../static/images/playbar_menu_pau.png';
+            play.style.width = '30px';
+            play.style.height = 'auto';
+            play.style.marginTop = '10px';
+            play.style.marginLeft = '10px';
+            //console.log(response)
             //alert(response["msg"])
         }
     })
