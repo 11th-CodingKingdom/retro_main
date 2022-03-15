@@ -1,6 +1,7 @@
 from flask import Flask, render_template, jsonify, request, session, redirect
 from pymongo import MongoClient
 from flask_bcrypt import Bcrypt
+import random
 
 app = Flask(__name__)
 app.secret_key = "qwertyuiop"
@@ -190,7 +191,6 @@ def retro_chart_update():
 
     for music in datas:
         [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'rank_type']]
-        print(music)
         songID = music['songID']
         title = music['title']
         singer = music['singer']
@@ -243,6 +243,111 @@ def retro_chart_likeclick():
         msg = '로그인을 해주세요'
 
     return jsonify({'like': like, 'msg': msg})
+
+@app.route('/retrocollection_page')
+def retro_collection_page():
+    return render_template('index-retrocollection.html')
+
+@app.route('/intro_page')
+def retro_introduce_page():
+    return render_template('index-introduce.html')
+
+@app.route('/collection', methods=['POST'])
+def retro_collection_update():
+    year = request.form['year_give']
+    userID = request.form['userID_give']
+    datas= []
+
+    if (year == 'all'):
+        years = [1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989,
+                 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
+                 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
+                 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019]
+        random_years = random.sample(years, 10)
+        for temp_year in random_years:
+            data = list(db.music.find({'rank_type': "YE", 'year': temp_year}, {'_id': False}).sort("like", -1).limit(40))
+            datas = datas + data
+    else:
+        datas = list(db.music.find({'rank_type': "YE", 'year': int(year)}, {'_id': False}).sort("like", -1).limit(200))
+    musics = []
+    likes = []
+
+    user_musics = list(db.likeMusic.find({'id': userID}, {'_id':False}))
+
+    for music in user_musics:
+        [music.pop(key, None) for key in ['id', 'year', 'albumImageUrl', 'musicPlaySrc']]
+        likes.append(music)
+
+    for music in datas:
+        [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'rank_type']]
+        songID = music['songID']
+        title = music['title']
+        singer = music['singer']
+
+        music_temp = {'title': title, 'singer': singer}
+        #temp_like = None
+        if music_temp in likes:
+            like = 1
+        else:
+            like = 0
+
+        music['like'] = like
+        musics.append(music)
+
+    return jsonify({'music_list': musics,'msg': '연결 완료'})
+
+@app.route('/collection/likeclick', methods=['POST'])
+def retro_collection_likeclick():
+    id = request.form['id_give']
+    title = request.form['title_give']
+    singer = request.form['singer_give']
+
+    if (id != 'null'):
+        temp_like = db.likeMusic.find_one({'id': id, 'title': title, 'singer': singer})
+
+        if (temp_like == None):
+            # 좋아요 안한 상태에서 클릭했을때
+            like = 1
+            music = db.musics.find_one({'title': title, 'singer': singer})
+            music_src = db.musicPlaySrc.find_one({'title': title, 'singer': singer})
+
+            temp_music = {
+                'title': title,
+                'singer': singer,
+                'id': id,
+                'year': music['year'],
+                'albumImageUrl': music['albumImageUrl'],
+                'musicPlaySrc': music_src['musicPlaySrc']
+            }
+            db.likeMusic.insert_one(temp_music)
+            msg = '좋아요 설정 완료'
+
+        else:
+            # 좋아요 한 상태에서 클릭했을때
+            like = 0
+            db.likeMusic.delete_one({'id': id, 'title': title, 'singer': singer})
+            msg = '좋아요 삭제 완료'
+    else:
+        like = 0
+        msg = '로그인을 해주세요'
+
+    return jsonify({'like': like, 'msg': msg})
+
+@app.route('/search_page')
+def retro_search_page():
+    return render_template('index-search.html')
+
+@app.route('/search', methods=['POST'])
+def retro_search():
+    word = request.form['word_give']
+
+    music_list = list(db.music.find({'rank_type': "YE", 'title': {'$regex': word}}, {'_id': False}).limit(10))
+
+    msg = '검색 완료'
+    return jsonify({'music_list': music_list,'msg': msg})
+
+
+
 
 
 if __name__ == '__main__':

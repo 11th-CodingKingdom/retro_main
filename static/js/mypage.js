@@ -26,6 +26,68 @@ function toggleLike() {
   document.getElementById("likebtn").src = "../static/images/like_icon_hover.png";
 }
 
+//필요 부분
+// 차트페이지 좋아요 클릭
+// 하단 재생바 활성화
+// 새로고침시 좋아요 노래 없을 때 - RE:TR0 차트 바로가기 버튼 활성화
+
+//아직 연결 안됨
+//mypage 차트페이지에서 좋아요 클릭
+function toggleLike(userID, title, singer, rank) {
+    $.ajax({
+        type: 'POST',
+        url: '/mypage/likeclick',
+        data: {
+            id_give: userID,
+            title_give: title,
+            singer_give: singer
+        },
+        success: function (response) {
+            let like = response['like']
+            let likebtn;
+            let likebtns = document.querySelectorAll('#like_chart');
+            for (let i = 0; i < likebtns.length; i++) {
+                if (rank == i + 1) {
+                    likebtn = likebtns[i]
+                    console.log('like click rank')
+                }
+            }
+
+            let playbar_title;
+            let playbar_singer;
+            let playbar_likebtn;
+            if (localStorage.getItem('playbar_title')) {
+                playbar_title = localStorage.getItem('playbar_title')
+            } else {
+                playbar_title = ''
+            }
+            if (localStorage.getItem('playbar_singer')) {
+                playbar_singer = localStorage.getItem('playbar_singer')
+            } else {
+                playbar_singer = ''
+            }
+
+            if (like == 1) {
+                likebtn.src = '../static/images/like_icon_hover.png';
+                if (title == playbar_title && singer == playbar_singer) {
+                    playbar_likebtn = document.querySelector('#likebtn');
+                    playbar_likebtn.src = '../static/images/like_icon_hover.png';
+                    console.log('playbar like on')
+                }
+            } else {
+                likebtn.src = '../static/images/like_icon.png';
+                if (title == playbar_title && singer == playbar_singer) {
+                    playbar_likebtn = document.querySelector('#likebtn');
+                    playbar_likebtn.src = '../static/images/like_icon.png';
+                    console.log('playbar like off')
+                }
+            }
+
+            alert(response['msg'])
+        }
+    });
+}
+
 //마이페이지 새로고침 (좋아요 노래, 성향테스트 결과 표시)
 function userinfo_get(chart_year) {
     id = sessionStorage.getItem('id')
@@ -81,7 +143,7 @@ function update_info(chart_year) {
                                             <!-- 재생버튼 -->
                                             <button type="button">
                                                 <img src="../static/images/palybn_icon_red_hover.png" alt=""
-                                                     class="playbtn">
+                                                     class="playbtn" onclick="main_playing_active(${musicPlaySrc})">
                                             </button>
                                         </td>
                                         <td>
@@ -111,47 +173,13 @@ function update_info(chart_year) {
 //회원탈퇴
 function withdraw() {
     id = sessionStorage.getItem('id')
-  $.ajax({
-    type: 'POST',
-    url: '/userinfo',
-    data: {'id':id},
-    success: function (response) {
-        sessionStorage.clear()
-        location.href='/';
-    }
-  });
-}
-
-
-// 하단 플레이어 작동 기능
-function main_playing_active(songID) {
-            $.ajax({
-                type: 'POST',
-                url: '/main/playing',
-                data: { songID_give: songID
-                },
-                success: function (response) {
-                    singer = response['music_info']['singer']
-                    title = response['music_info']['title']
-                    musicPlaySrc = response['music_info']['musicPlaySrc']
-                    let temp_html = `<div class="youtube_movie">
-                                        <iframe width="100" height="75" src="${musicPlaySrc}?enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                     </div>
-                                     <div class="playbar_song_wrap">
-                                        <div class="playbar_song_title">${title}</div>
-                                        <div class="playbar_song_artist">${singer}</div>
-                                     </div>
-                                     <img src="../static/images/like_icon.png" alt="" id="likebtn" onclick="toggleLike()">`
-
-
-                    $('#playbar_song').empty()
-                    $('#playbar_song').append(temp_html)
-
-                    temp_html = `<td id="player_active" style="display:none">1</td>`
-                    $('#playbar_control').empty();
-                    $('#playbar_control').append(temp_html);
-
-                    //alert(response["msg"])
-                }
-            })
+    $.ajax({
+        type: 'POST',
+        url: '/userinfo',
+        data: {'id': id},
+        success: function (response) {
+            sessionStorage.clear()
+            location.href = '/';
+        }
+    });
 }
