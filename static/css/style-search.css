@@ -87,13 +87,22 @@
 
 .song-list-line .line-song .song-right {
   margin-left: 36px;
-  padding-top: 17px;
+  padding-top: 5px;
+  /* display: flex; */
 }
 
 .song-list-line .line-song .song-right .song-title {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 16px;
   font-weight: 200;
+  margin-bottom: 10px;
+}
+
+.song-list-line .line-song .song-right .album-title {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+  color: #b5b6b5;
 }
 
 .song-list-line .line-artist {

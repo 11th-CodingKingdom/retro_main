@@ -18,6 +18,12 @@ for (let i = 0; i < btns.length; i++) {
   btns[i].addEventListener('click', clickBtn);
 }
 
+function enterkey() {
+  if (window.event.keyCode == 13) {
+       // 엔터키가 눌렸을 때 실행할 내용
+       console.log("엔터키 입력");
+  }
+}
 
 // 상단 팝업 닫기
 let popup = document.querySelector('.close');
@@ -178,6 +184,8 @@ function main_playing_active(songID) {
                 temp_html2 = `<img src="../static/images/like_icon_hover.png" alt="" id="likebtn" onclick="likeclick('${userID}', '${title}', '${singer}')">`
             }
 
+            console.log(temp_html2)
+
             $('#playbar_song').empty()
             $('#playbar_song').append(temp_html)
             $('#playbar_song').append(temp_html2)
@@ -193,7 +201,17 @@ function main_playing_active(songID) {
             play.style.marginTop = '10px';
             play.style.marginLeft = '10px';
             //alert(response["msg"])
+
         }
     })
 }
 
+//RE:RRO 모음집 연도 저장
+function collection_year(year){
+    let main_link = document.location.href;
+    let collect_link = main_link + 'retrocollection_page';
+
+    localStorage.setItem('retrocollection_year', year);
+
+    location.href= collect_link;
+}

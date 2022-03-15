@@ -11,7 +11,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="../static/js/main.js"></script>
     <script defer src="../static/js/common.js"></script>
-    <script defer src="../static/js/search.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../static/css/common.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
@@ -32,7 +31,7 @@
   </section>
   <header id="header">
     <div id="logo">
-      <img src="../static/images/reteo_logo.png" width="91px" height="26px" />
+      <img src="../static/images/reteo_logo.png" width="92px" height="30px" />
     </div>
     <nav id="nav">
       <div id="nav_left">
@@ -93,11 +92,11 @@
           <span>HOT</span>
         </div>
         <div id="yearchart_body">
-          <div class="yearchart_btn" style="background-image: url(../static/images/retro_con1980.png);">1980</div>
-          <div class="yearchart_btn" style="background-image: url(../static/images/retro_con1990.png);">1990</div>
-          <div class="yearchart_btn" style="background-image: url(../static/images/retro_con2000.png);">2000</div>
-          <div class="yearchart_btn" style="background-image: url(../static/images/retro_con2010.png);">2010</div>
-          <div class="yearchart_btn" style="background-image: url(../static/images/retro_con_all.png);">전곡 모음집</div>
+          <div onclick="collection_year('1980');" class="yearchart_btn" style="background-image: url(../static/images/retro_con1980.png);">1980</div>
+          <div onclick="collection_year('1990');" class="yearchart_btn" style="background-image: url(../static/images/retro_con1990.png);">1990</div>
+          <div onclick="collection_year('2000');" class="yearchart_btn" style="background-image: url(../static/images/retro_con2000.png);">2000</div>
+          <div onclick="collection_year('2010');" class="yearchart_btn" style="background-image: url(../static/images/retro_con2010.png);">2010</div>
+          <div onclick="collection_year('all');" class="yearchart_btn" style="background-image: url(../static/images/retro_con_all.png);">전곡 모음집</div>
         </div>
       </section>
       <div class="section_playlist">
