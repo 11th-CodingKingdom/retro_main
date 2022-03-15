@@ -340,13 +340,74 @@ def retro_search_page():
 @app.route('/search', methods=['POST'])
 def retro_search():
     word = request.form['word_give']
+    userID = request.form['userID_give']
 
-    music_list = list(db.music.find({'rank_type': "YE", 'title': {'$regex': word}}, {'_id': False}).limit(10))
+    datas = list(db.music.find({'rank_type': "YE", 'title': {'$regex': word}}, {'_id': False}).limit(10))
+
+    musics = []
+    likes = []
+
+    user_musics = list(db.likeMusic.find({'id': userID}, {'_id': False}))
+
+    for music in user_musics:
+        [music.pop(key, None) for key in ['id', 'year', 'albumImageUrl', 'musicPlaySrc']]
+        likes.append(music)
+
+    for music in datas:
+        [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'rank_type']]
+        songID = music['songID']
+        title = music['title']
+        singer = music['singer']
+
+        music_temp = {'title': title, 'singer': singer}
+        # temp_like = None
+        if music_temp in likes:
+            like = 1
+        else:
+            like = 0
+
+        music['like'] = like
+        musics.append(music)
 
     msg = '검색 완료'
-    return jsonify({'music_list': music_list,'msg': msg})
+    return jsonify({'music_list': musics,'msg': msg})
 
+@app.route('/search/likeclick', methods=['POST'])
+def retro_search_likeclick():
+    id = request.form['id_give']
+    title = request.form['title_give']
+    singer = request.form['singer_give']
 
+    if (id != 'null'):
+        temp_like = db.likeMusic.find_one({'id': id, 'title': title, 'singer': singer})
+
+        if (temp_like == None):
+            # 좋아요 안한 상태에서 클릭했을때
+            like = 1
+            music = db.musics.find_one({'title': title, 'singer': singer})
+            music_src = db.musicPlaySrc.find_one({'title': title, 'singer': singer})
+
+            temp_music = {
+                'title': title,
+                'singer': singer,
+                'id': id,
+                'year': music['year'],
+                'albumImageUrl': music['albumImageUrl'],
+                'musicPlaySrc': music_src['musicPlaySrc']
+            }
+            db.likeMusic.insert_one(temp_music)
+            msg = '좋아요 설정 완료'
+
+        else:
+            # 좋아요 한 상태에서 클릭했을때
+            like = 0
+            db.likeMusic.delete_one({'id': id, 'title': title, 'singer': singer})
+            msg = '좋아요 삭제 완료'
+    else:
+        like = 0
+        msg = '로그인을 해주세요'
+
+    return jsonify({'like': like, 'msg': msg})
 
 
 

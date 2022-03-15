@@ -215,3 +215,19 @@ function collection_year(year){
 
     location.href= collect_link;
 }
+
+function search_main(target) {
+  if (window.event.keyCode == 13) {
+    // 엔터키를 누르면
+    let word = target.value;
+    console.log(word);
+
+    // 페이지 이동
+    let main_link = document.location.href;
+    let search_link = main_link + 'search_page';
+
+    localStorage.setItem('search_word', word);
+
+    location.href= search_link;
+  }
+}

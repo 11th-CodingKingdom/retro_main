@@ -109,8 +109,11 @@ function likeclick(userID, title, singer) {
                 chart_year = document.getElementsByClassName("year-btn-active")[0].value;
                 console.log(chart_year)
                 retro_collection_loading(chart_year)
+            } else if (page == 'search_page') {
+                search_word = localStorage.getItem('search_word')
+                console.log(search_word)
+                search_loading(search_word);
             }
-
 
             alert(response['msg'])
         }
