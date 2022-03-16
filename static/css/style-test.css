@@ -63,6 +63,12 @@ body {
   border-radius: 28px;
   margin-bottom: 20px;
   cursor: pointer;
+  transition: all 0.9s;
+}
+
+#test-btn:hover {
+  box-shadow: 0 118px 0 0 rgba(0,0,0,0.25) inset,
+              0 -118px 0 0 rgba(0,0,0,0.25) inset;
 }
 
 #share-btn {
@@ -78,6 +84,13 @@ body {
   border-radius: 28px;
   margin-bottom: 90px;
   cursor: pointer;
+  transition: all 0.9s;
+}
+
+#share-btn:hover {
+  box-shadow: 0 118px 0 0 rgba(0,0,0,0.25) inset,
+              0 -118px 0 0 rgba(0,0,0,0.25) inset;
+  color: #fff;
 }
 
 /* test */
@@ -117,6 +130,12 @@ body {
   line-height: 59px;
   margin-bottom: 20px;
   cursor: pointer;
+  transition: all 0.9s;
+}
+
+#test_a:hover {
+  box-shadow: 0 118px 0 0 rgba(0,0,0,0.25) inset,
+              0 -118px 0 0 rgba(0,0,0,0.25) inset;
 }
 
 #test_b {
@@ -131,6 +150,13 @@ body {
   line-height: 59px;
   margin-bottom: 20px;
   cursor: pointer;
+  transition: all 0.9s;
+}
+
+#test_b:hover {
+  box-shadow: 0 118px 0 0 rgba(0,0,0,0.25) inset,
+              0 -118px 0 0 rgba(0,0,0,0.25) inset;
+  color: #fff;
 }
 
 #test_footer {
@@ -183,4 +209,10 @@ body {
   border-radius: 28px;
   margin: 50px 0 80px 0;
   cursor: pointer;
+  transition: all 0.9s;
+}
+
+#home-btn:hover {
+  box-shadow: 0 80px 0 0 rgba(0,0,0,0.25) inset,
+              0 -80px 0 0 rgba(0,0,0,0.25) inset;
 }

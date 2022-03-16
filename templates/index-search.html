@@ -1,71 +1,77 @@
 <!doctype html>
 <html lang="ko">
+
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="RE:TRO | 그때 그 시절, 당신의 음악" />
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="RE:TRO | 그때 그 시절, 당신의 음악" />
 
-    <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="../static/js/main.js"></script>
-    <script defer src="../static/js/common.js"></script>
-    <script defer src="../static/js/search.js"></script>
-    <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/common.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/style-search.css">
+  <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="../static/js/main.js"></script>
+  <script defer src="../static/js/common.js"></script>
+  <script defer src="../static/js/search.js"></script>
+  <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/common.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/style-search.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="../static/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="shortcut icon" href="../static/images/favicon.ico">
 
 </head>
+
 <body>
-  <header id="header">
-    <div id="logo" onclick="location.href='/'">
-      <img src="../static/images/reteo_logo.png" width="92px" height="30px" />
-    </div>
-    <nav id="nav">
-      <div id="nav_left">
-        <ul>
+  <div class="chart-wrap">
+    <header id="header">
+      <div id="logo" onclick="location.href='/'">
+        <img src="../static/images/reteo_logo.png" width="92px" height="30px" />
+      </div>
+      <nav id="nav">
+        <div id="nav_left">
+          <ul>
             <li><a href="/test_intro">음악성향테스트</a></li>
             <li><a href="/mypage">보관함</a></li>
-        </ul>
-      </div>
-      <div id="searchbox_wrap">
-        <img src="../static/images/search_icon.png" alt="">
-        <input type="text" id="searchbox" value="" onkeyup="search_self(this);" />
-      </div>
-      <div id="nav_right">
-      </div>
-    </nav>
-  </header>
+          </ul>
+        </div>
+        <div id="searchbox_wrap">
+          <img src="../static/images/search_icon.png" alt="">
+          <input type="text" id="searchbox" value="" onkeyup="search_self(this);" />
+        </div>
+        <div id="nav_right">
+        </div>
+      </nav>
+    </header>
 
-  <div class="search-txt">검색결과</div>
-  <div class="search-title">곡</div>
+    <div class="search-txt">검색결과</div>
+    <div class="search-title">곡</div>
 
-  <!-- 곡 리스트 -->
-  <div class="song-list">
-    <!-- 곡 리스트 첫줄 -->
-    <div class="song-list-top">
-      <div class="song">곡</div>
-      <div class="artist">아티스트</div>
-      <div class="play">듣기</div>
-      <div class="like">좋아요</div>
-    </div>
-    <!-- 곡 리스트 wrap -->
-    <div id="song-list-wrap">
-      <!-- 곡 리스트 한 줄 -->
+    <!-- 곡 리스트 -->
+    <div class="song-list">
+      <!-- 곡 리스트 첫줄 -->
+      <div class="song-list-top">
+        <div class="song">곡</div>
+        <div class="artist">아티스트</div>
+        <div class="play">듣기</div>
+        <div class="like">좋아요</div>
+      </div>
+      <!-- 곡 리스트 wrap -->
+      <div id="song-list-wrap">
+        <!-- 곡 리스트 한 줄 -->
+      </div>
     </div>
   </div>
+
 
   <!-- FOOTER -->
   <hr size="1" color="#eeeeee">
   <footer>
     <div id="footer_logo" onclick="location.href='/'">
-      <img src="../static/images/logo_footer.png"/>
+      <img src="../static/images/logo_footer.png" />
     </div>
     <div id="footer_desc">
       Copyrights © 2022 - Coding Kingdom Team, All Rights Reserved.
