@@ -201,7 +201,7 @@ function main_playing_active(songID) {
 
 //RE:RRO 모음집 연도 저장 후 이동
 function collection_year(year){
-    let main_link = window.location.href;
+    let main_link = localStorage.getItem('main_page_link');
     let collect_link = main_link + 'retrocollection_page';
     localStorage.setItem('retrocollect_year', year);
 
@@ -210,7 +210,7 @@ function collection_year(year){
 
 //RE:RRO 추천플레이리스트 종류 저장 후 이동
 function recommend_name(name){
-    let main_link = window.location.href;
+    let main_link = localStorage.getItem('main_page_link');
     let collect_link = main_link + 'recommend_page';
     localStorage.setItem('recommend_name', name);
 
