@@ -104,8 +104,10 @@ function test_output_save(type){
 }
 
 function test_intro_copy(){
-    var copyText = 'http://172.30.1.14:5000/test_intro'
-    copyText.select();
-    document.execCommand("copy");
-    alert("복사된 문자열: " + copyText.value);
+  var intro_link = location.href
+
+  alert(intro_link + ' 복사 하세요!')
+  
 }
+
+
