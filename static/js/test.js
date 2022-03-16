@@ -17,7 +17,7 @@ let qnaArr = [
   },
   {
     "Q":"내 인생음악을<br/> 친구에게 추천할 때",
-    "A":"\"난 2절 도입부가 너무 좋더라!\"<br/> 꽂힌 파트에 대해 이야기 한다",
+    "A":"<p>\"난 2절 도입부가 너무 좋더라!\"</p> <p>꽂힌 파트에 대해 이야기 한다</p>",
     "B":"\"너무 좋아\"<br/> 전체적인 느낌에 대해 이야기 한다"
   },
 ];
@@ -52,10 +52,12 @@ function changeQnA(qnaIndex){
   if(qnaIndex===3){
     let element_a = document.getElementById("test_a");
     let element_b = document.getElementById("test_b");
-    element_a.style.height = '66px';
-    element_a.style.lineHeight='30px';
-    element_b.style.height = '66px';
-    element_b.style.lineHeight='30px';
+    element_a.style.height = '62px';
+    element_a.style.lineHeight='25px';
+    element_a.style.paddingTop='10px';
+    element_b.style.height = '62px';
+    element_b.style.lineHeight='25px';
+    element_b.style.paddingTop='10px';
   }
 
   test_a.innerHTML=qna.A;
