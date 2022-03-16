@@ -257,8 +257,9 @@ td {
   border-radius: 15px;
   margin-bottom: 64px;
   display: flex;
-
   vertical-align: middle;
+  font-family: "Noto Sans KR", sans-serif;
+  letter-spacing: -0.05em;
 }
 
 .music_test_banner .music_test_left {
@@ -279,7 +280,7 @@ td {
 .music_test_left .music_test_txt span {
   color: #fff;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 23px;
   letter-spacing: -0.02em;
 }
 
