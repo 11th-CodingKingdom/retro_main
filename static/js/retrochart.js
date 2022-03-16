@@ -82,7 +82,7 @@ function retro_chart_loading(chart_year) {
                                 <td>
                                   <div id="retrochart_artist">${singer}</div>
                                 </td>
-                                <td><img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" width="40px" height="40px" id="play_chart" /></td>
+                                <td><img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" width="35px" height="35px" id="play_chart" /></td>
                                 <td><img src="../static/images/like_icon.png" width="25px" height="25px" id="like_chart" onclick="likeclick_retrochart('${userID}', '${title}', '${singer}', '${rank}')"/></td>
                               </tr>`
             } else {
@@ -102,7 +102,7 @@ function retro_chart_loading(chart_year) {
                             <td>
                               <div id="retrochart_artist">${singer}</div>
                             </td>
-                            <td><img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" width="40px" height="40px" id="play_chart" /></td>
+                            <td><img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" width="35px" height="35px" id="play_chart" /></td>
                             <td><img src="../static/images/like_icon_hover.png" width="25px" height="25px" id="like_chart" onclick="likeclick_retrochart('${userID}', '${title}', '${singer}', '${rank}')"/></td>
                           </tr>`
             }
@@ -163,7 +163,7 @@ function likeclick_retrochart(userID, title, singer, rank) {
             }
         }
 
-        alert(response['msg'])
+        //alert(response['msg'])
     }
   });
 }

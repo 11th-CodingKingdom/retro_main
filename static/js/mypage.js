@@ -36,15 +36,22 @@ function userinfo_get(chart_year) {
         success: function (response) {
             likeMusic = response['likeMusic']
             let preferenceResult = sessionStorage.getItem('preferenceResult')
-            console.log(preferenceResult)
             if (typeof preferenceResult == "undefined" || preferenceResult == null || preferenceResult == "") {
                 $('.test_left_middle').text("아직 음악 성향 테스트를 안하셨네요?")
                 $('.test_left_bottom').text("테스트를 진행해보고, 나에게 맞는 음악을 추천 받아보세요!")
                 $('.music_test_btn').text("테스트 바로가기")
+                $('.music_test_btn').click(function(){ $(location).attr("href", '/test_intro') })
             }
             else {
-                $('.test_left_middle').text(preferenceResult)
+                let type = resultTable[preferenceResult].type.type
+                let type_name = typeTable[type].name
+                let desc = typeTable[type].desc
+                let link = resultTable[preferenceResult].link
+
+                $('.test_left_middle').text(type_name)
+                $('.test_left_bottom').text(desc)
                 $('.music_test_btn').text("추천 음악 바로 가기")
+                $('.music_test_btn').click(function(){ $(location).attr("href", link) })
             }
             update_info(chart_year)
         }
@@ -90,7 +97,7 @@ function update_info(chart_year) {
                                         <td>
                                             <!-- 좋아요 버튼 -->
                                             <button type="button">
-                                                <img src="../static/images/like_icon_hover.png" alt="" width="30px" height="30px" id="like_mypage" onclick="likeclick_mypage('${userID}', '${title}', '${singer}', '${rank}')">
+                                                <img src="../static/images/like_icon_hover.png" alt="" width="25px" height="25px" id="like_mypage" onclick="likeclick_mypage('${userID}', '${title}', '${singer}', '${rank}')">
                                             </button>
                                         </td>
                                     </tr>`
@@ -180,7 +187,7 @@ function likeclick_mypage(userID, title, singer, rank) {
             }
         }
 
-        alert(response['msg'])
+        //alert(response['msg'])
     }
   });
 }

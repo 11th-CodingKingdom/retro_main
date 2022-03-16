@@ -1,73 +1,79 @@
 <!doctype html>
 <html lang="ko">
+
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="RE:TRO | 그때 그 시절, 당신의 음악"/>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="RE:TRO | 그때 그 시절, 당신의 음악" />
 
-    <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="../static/js/signup.js"></script>
-    <script defer src="../static/js/common.js"></script>
-    <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/style-signup.css">
-    <link rel="shortcut icon" href="../static/images/favicon.ico">
+  <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="../static/js/signup.js"></script>
+  <script defer src="../static/js/common.js"></script>
+  <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/style-signup.css">
+  <link rel="shortcut icon" href="../static/images/favicon.ico">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="../static/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="../static/images/favicon.ico">
 
 </head>
+
 <body>
-<div id="wrap">
+  <div id="wrap">
     <div id="content">
+      <div id="content-left">
         <div id="loginbox">
-            <div id="logo" >
-                <img src="../static/images/reteo_logo.png" width="91px" height="26px"/>
+          <div id="logo">
+            <img src="../static/images/reteo_logo.png" width="92px" height="30px" />
+          </div>
+          <div>
+            <span class="id_span">회원가입</span>
+            <div class="idpw_box">
+              <input type="text" class="namemail_input" , id="name" placeholder="이름">
             </div>
-            <div>
-                <span class="id_span">회원가입</span>
-                <div class="idpw_box">
-                    <input type="text" class="namemail_input", id="name" placeholder="이름">
-                </div>
-                <br>
-                <div class="idpw_box">
-                    <input type="text" class="namemail_input" id="email" placeholder="이메일">
-                </div>
-                <br>
-                <div class="idpw_box">
-                    <img src="../static/images/login_01.png" alt="">
-                    <input type="text" class="idpw_input" id="id" placeholder="아이디">
-                </div>
-                <br>
-                <div class="idpw_box">
-                    <img src="../static/images/password_01.png" alt="">
-                    <input type="password" class="idpw_input" id="pw" placeholder="비밀번호">
-                </div>
-                <br>
-                <div class="idpw_box">
-                    <img src="../static/images/password_01.png" alt="">
-                    <input type="password" class="idpw_input" id="pwCheck" placeholder="비밀번호 재확인">
-                </div>
-                <input type="button" class="login_btn" onclick ="regist()" value="가입하기"/>
+            <br>
+            <div class="idpw_box">
+              <input type="text" class="namemail_input" id="email" placeholder="이메일">
             </div>
+            <br>
+            <div class="idpw_box">
+              <img src="../static/images/login_01.png" alt="">
+              <input type="text" class="idpw_input" id="id" placeholder="아이디">
+            </div>
+            <br>
+            <div class="idpw_box">
+              <img src="../static/images/password_01.png" alt="">
+              <input type="password" class="idpw_input" id="pw" placeholder="비밀번호">
+            </div>
+            <br>
+            <div class="idpw_box">
+              <img src="../static/images/password_01.png" alt="">
+              <input type="password" class="idpw_input" id="pwCheck" placeholder="비밀번호 재확인">
+            </div>
+            <input type="button" class="login_btn" onclick="regist()" value="가입하기" />
+          </div>
         </div>
-        <div id="login_img">
-            <img class="banner_img" style="margin-bottom: 0px;" src="../static/images/login_bn_01.jpg"/>
-        </div>
+      </div>
+
+      <div id="login_img">
+        <img class="banner_img" style="margin-bottom: 0px;" src="../static/images/login_bn_01.jpg" />
+      </div>
     </div>
-</div>
-<hr size="1" color="#eeeeee" style="margin-top: 0;">
-<footer>
+  </div>
+  <hr size="1" color="#eeeeee" style="margin-top: 0;">
+  <footer>
     <div id="footer_logo">
-        <img src="../static/images/logo_footer.png"/>
+      <img src="../static/images/logo_footer.png" />
     </div>
     <div id="footer_desc">
-        Copyrights © 2022 - Coding Kingdom Team, All Rights Reserved.
+      Copyrights © 2022 - Coding Kingdom Team, All Rights Reserved.
     </div>
-</footer>
+  </footer>
 </body>
+
 </html>

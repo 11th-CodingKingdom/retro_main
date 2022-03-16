@@ -12,6 +12,7 @@ body {
 
 #test_logo img {
   margin: 84px 0 99px 0;
+  cursor: pointer;
 }
 
 #test_title {
@@ -61,6 +62,7 @@ body {
   letter-spacing: -0.05em;
   border-radius: 28px;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 #share-btn {
@@ -75,6 +77,7 @@ body {
   letter-spacing: -0.05em;
   border-radius: 28px;
   margin-bottom: 90px;
+  cursor: pointer;
 }
 
 /* test */
@@ -113,6 +116,7 @@ body {
   letter-spacing: -0.05em;
   line-height: 59px;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 #test_b {
@@ -126,6 +130,7 @@ body {
   letter-spacing: -0.05em;
   line-height: 59px;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 #test_footer {
@@ -177,4 +182,5 @@ body {
   line-height: 40px;
   border-radius: 28px;
   margin: 50px 0 80px 0;
+  cursor: pointer;
 }

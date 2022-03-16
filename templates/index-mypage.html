@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="../static/js/mypage.js"></script>
     <script defer src="../static/js/common.js"></script>
+    <script defer src="../static/js/search.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style-mypage.css">
 
@@ -97,11 +98,14 @@
             <ul>
                 <li><a href="">음악성향테스트</a></li>
                 <li><a href="/">보관함</a></li>
+                <!-- 성향테스트 -->
+                <li><a href="/test_intro">음악성향테스트</a></li>
+                <li><a href="/mypage">보관함</a></li>
             </ul>
         </div>
         <div id="searchbox_wrap">
             <img src="../static/images/search_icon.png" alt="">
-            <input type="text" id="searchbox" placeholder="검색어를 입력하세요." onkeyup="search_main(this)"/>
+            <input type="text" id="searchbox" placeholder="검색어를 입력하세요." onkeyup="search_main(this)">
         </div>
         <div id="nav_right">
         </div>
@@ -134,7 +138,7 @@
                     <div class="music_test_txt">
                         <span class="test_left_top test_text">나의 음악 성향 테스트 결과는?</span>
                         <span class="test_left_middle test_text"></span>
-                        <span class="test_left_bottom test_text">꿀음색에 감성 촉촉한 팝 & 발라드</span>
+                        <span class="test_left_bottom test_text"></span>
                     </div>
                 </div>
                 <div class="music_test_right">
@@ -185,14 +189,13 @@
     </div>
     <!-- 하단 재생 바 -->
     <div class="playbar">
-        <div id="playbar_song" class="playbar_song">
-        </div>
-        <img src="../static/images/palybn_icon.png" alt="" id="playbtn" onclick="togglePause()"/>
-        {# <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt=""
-                class="playbtn">#}
-        <div id="playbar_control" , style="display:none">
-            <td id="player_active" style="display:none">0</td>
-        </div>
+      <div id="playbar_song" class="playbar_song">
+      </div>
+      <img src="../static/images/palybn_icon.png" alt="" id="playbtn" onclick="togglePause()" />
+{#      <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">#}
+      <div id="playbar_control" , style="display:none">
+        <td id="player_active" style="display:none">0</td>
+      </div>
     </div>
 </footer>
 </body>

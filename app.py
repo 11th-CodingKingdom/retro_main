@@ -181,6 +181,7 @@ def retro_chart_update():
     datas = list(db.music.find({'rank_type': "AG", 'year': int(year)}, {'_id': False}).sort("like", -1).limit(100))
     musics = []
     likes = []
+    music_only_one = []
 
     user_musics = list(db.likeMusic.find({'id': userID}, {'_id':False}))
 
@@ -203,7 +204,9 @@ def retro_chart_update():
             like = 0
 
         music['like'] = like
-        musics.append(music)
+        if music_temp not in music_only_one:
+            musics.append(music)
+            music_only_one.append(music_temp)
 
     return jsonify({'music_list': musics,'msg': '연결 완료'})
 
@@ -258,6 +261,7 @@ def retro_collection_update():
     userID = request.form['userID_give']
     datas= []
 
+    print(year)
     if (year == 'all'):
         years = [1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989,
                  1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
@@ -271,6 +275,7 @@ def retro_collection_update():
         datas = list(db.music.find({'rank_type': "YE", 'year': int(year)}, {'_id': False}).sort("like", -1).limit(200))
     musics = []
     likes = []
+    music_only_one = []
 
     user_musics = list(db.likeMusic.find({'id': userID}, {'_id':False}))
 
@@ -292,7 +297,9 @@ def retro_collection_update():
             like = 0
 
         music['like'] = like
-        musics.append(music)
+        if music_temp not in music_only_one:
+            musics.append(music)
+            music_only_one.append(music_temp)
 
     return jsonify({'music_list': musics,'msg': '연결 완료'})
 
@@ -346,6 +353,7 @@ def retro_search():
 
     musics = []
     likes = []
+    music_only_one = []
 
     user_musics = list(db.likeMusic.find({'id': userID}, {'_id': False}))
 
@@ -360,14 +368,19 @@ def retro_search():
         singer = music['singer']
 
         music_temp = {'title': title, 'singer': singer}
+
         # temp_like = None
         if music_temp in likes:
             like = 1
         else:
             like = 0
-
         music['like'] = like
-        musics.append(music)
+
+        if music_temp not in music_only_one:
+            musics.append(music)
+            music_only_one.append(music_temp)
+
+
 
     msg = '검색 완료'
     return jsonify({'music_list': musics,'msg': msg})
@@ -422,6 +435,7 @@ def retro_recommend():
 
     musics = []
     likes = []
+    music_only_one = []
 
     user_musics = list(db.likeMusic.find({'id': userID}, {'_id':False}))
 
@@ -442,7 +456,10 @@ def retro_recommend():
             like = 0
 
         music['like'] = like
-        musics.append(music)
+        if music_temp not in music_only_one:
+            musics.append(music)
+            music_only_one.append(music_temp)
+
 
     msg = '연결 완료'
     return jsonify({'music_list': musics,'msg': msg})
@@ -576,6 +593,28 @@ def retro_mypagae_likeclick():
 
     return jsonify({'like': like, 'msg': msg})
 
+@app.route('/test_intro')
+def retro_test_intro_page():
+    return render_template('test_intro.html')
+
+@app.route('/test')
+def retro_test_page():
+    return render_template('test.html')
+
+@app.route('/test_output')
+def retro_test_output_page():
+    return render_template('test_output.html')
+
+@app.route('/test_output', methods=['POST'])
+def retro_test_output_save():
+    type = request.form['type_give']
+    userID = request.form['userID_give']
+
+    # 바꾸기 - 예시
+    db.users.update_one({'id': userID}, {'$set': {'preferenceResult': type}})
+
+    msg = '성향 저장 완료!'
+    return jsonify({'msg': msg})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)

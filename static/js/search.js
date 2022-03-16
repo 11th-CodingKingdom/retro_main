@@ -54,7 +54,7 @@ function search_loading(word) {
           let title = music_list[i]['title']
           let albumtitle = music_list[i]['albumtitle']
           let songID = music_list[i]['songID']
-            let rank = i + 1
+          let rank = i + 1
           let year = music_list[i]['year']
           let like = music_list[i]['like']
 
@@ -162,7 +162,7 @@ function likeclick_search(userID, title, singer, rank) {
             }
         }
 
-        alert(response['msg'])
+        //alert(response['msg'])
     }
   });
 }
