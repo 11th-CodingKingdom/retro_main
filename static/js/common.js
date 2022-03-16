@@ -1,6 +1,6 @@
 //main 페이지 주소 저장
-localStorage.setItem('main_page_link', 'http://172.30.1.14:5000/');
-let main_page_link = 'http://172.30.1.14:5000/'
+localStorage.setItem('main_page_link', window.location.href);
+let main_page_link = window.location.href
 
 // 하단 playbar에서 play 버튼 <-> pause 버튼 변경을 위한 변수
 let playcnt = 1;
