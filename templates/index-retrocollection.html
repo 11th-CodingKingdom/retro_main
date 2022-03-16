@@ -33,8 +33,8 @@
     <nav id="nav">
       <div id="nav_left">
         <ul>
-          <li><a href="#">음악성향테스트</a></li>
-          <li><a href="#">보관함</a></li>
+          <li><a href="">음악성향테스트</a></li>
+          <li><a href="">보관함</a></li>
         </ul>
       </div>
       <div id="searchbox_wrap">
@@ -49,11 +49,11 @@
   <div id="retrocollect_wrap">
     <!--년도 선택-->
     <div id="yearcollect_wrap">
-      <div class="years-btn years-btn-active">1980년대</div>
-      <div class="years-btn">1990년대</div>
-      <div class="years-btn">2000년대</div>
-      <div class="years-btn">2010년대</div>
-      <div class="years-btn">전체 곡</div>
+      <div class="years-btn years-btn-active" onclick="retro_collection_loading('1980')">1980년대</div>
+      <div class="years-btn" onclick="retro_collection_loading('1990')">1990년대</div>
+      <div class="years-btn" onclick="retro_collection_loading('2000')">2000년대</div>
+      <div class="years-btn" onclick="retro_collection_loading('2010')">2010년대</div>
+      <div class="years-btn" onclick="retro_collection_loading('all')">전체 곡</div>
     </div>
     <!-- 년도별 버튼 10개 -->
     <div id="retrocollect-year-btn">
