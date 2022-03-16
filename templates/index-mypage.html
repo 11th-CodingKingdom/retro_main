@@ -37,7 +37,7 @@
         });
 
         function openPopup() {
-                $("#popup").show();
+            $("#popup").show();
         }
     </script>
 
@@ -50,59 +50,58 @@
 
 </head>
 <body>
-    <!-- popup -->
-    <div class="container">
-        <div class="popup-wrap" id="popup">
-            <div class="note_img">
-                <img src="../static/images/레트로캐릭터_노트_디자인_v5.png" alt="">
+<!-- popup -->
+<div class="container">
+    <div class="popup-wrap" id="popup">
+        <div class="note_img">
+            <img src="../static/images/레트로캐릭터_노트_디자인_v5.png" alt="">
+        </div>
+        <div class="popup">
+            <div class="popup-head">
+                <div>
+                    <p class="head-title">정말...</p>
+                    <p class="head-body">회원 탈퇴 하실 거예요?</p>
+                </div>
             </div>
-            <div class="popup">
-                <div class="popup-head">
-                    <div>
-                        <p class="head-title">정말...</p>
-                        <p class="head-body">회원 탈퇴 하실 거예요?</p>
-                    </div>
-                </div>
-                <div class="popup-body">
-                    <div class="body-content">
-                        <div class="body-titlebox">
-                            <p>
-                                회원을 탈퇴하시면 모든 정보가 삭제됩니다. <br>
-                                레트로 정보 : 음악 성향 테스트, 좋아요 목록 등 <br>
-                                개인정보 : 이름, 이메일, 아이디, 비밀번호
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="popup-foot">
-                    <div class="popupfoot_btn">
-                        <p class="foot_btn">
-                            <span class="pop-btn close" id="close">그럼...고민 좀 더 해볼게</span>
-                        </p>
+            <div class="popup-body">
+                <div class="body-content">
+                    <div class="body-titlebox">
                         <p>
-                            <span class="pop-btn confirm" id="confirm" onclick="withdraw()">탈퇴하기</span>
+                            회원을 탈퇴하시면 모든 정보가 삭제됩니다. <br>
+                            레트로 정보 : 음악 성향 테스트, 좋아요 목록 등 <br>
+                            개인정보 : 이름, 이메일, 아이디, 비밀번호
                         </p>
                     </div>
+                </div>
+            </div>
+            <div class="popup-foot">
+                <div class="popupfoot_btn">
+                    <p class="foot_btn">
+                        <span class="pop-btn close" id="close">그럼...고민 좀 더 해볼게</span>
+                    </p>
+                    <p>
+                        <span class="pop-btn confirm" id="confirm" onclick="withdraw()">탈퇴하기</span>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-    <!-- popup -->
+</div>
+<!-- popup -->
 <header id="header">
-    <div id="logo" onclick="location.href='#'">
+    <div id="logo" onclick="location.href='/'">
         <img src="../static/images/reteo_logo.png" width="91px" height="26px"/>
     </div>
     <nav id="nav">
         <div id="nav_left">
             <ul>
-                <!-- 성향테스트 -->
                 <li><a href="">음악성향테스트</a></li>
-                <li><a href="">보관함</a></li>
+                <li><a href="/">보관함</a></li>
             </ul>
         </div>
         <div id="searchbox_wrap">
             <img src="../static/images/search_icon.png" alt="">
-            <input type="text" id="searchbox" placeholder="검색어를 입력하세요." onkeyup="search_main(this)">
+            <input type="text" id="searchbox" placeholder="검색어를 입력하세요." onkeyup="search_main(this)"/>
         </div>
         <div id="nav_right">
         </div>
@@ -186,13 +185,14 @@
     </div>
     <!-- 하단 재생 바 -->
     <div class="playbar">
-      <div id="playbar_song" class="playbar_song">
-      </div>
-      <img src="../static/images/palybn_icon.png" alt="" id="playbtn" onclick="togglePause()" />
-{#      <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt="" class="playbtn">#}
-      <div id="playbar_control" , style="display:none">
-        <td id="player_active" style="display:none">0</td>
-      </div>
+        <div id="playbar_song" class="playbar_song">
+        </div>
+        <img src="../static/images/palybn_icon.png" alt="" id="playbtn" onclick="togglePause()"/>
+        {# <img id="playbar_btn" onclick="playing_control()" src="../static/images/palybn_icon.png" alt=""
+                class="playbtn">#}
+        <div id="playbar_control" , style="display:none">
+            <td id="player_active" style="display:none">0</td>
+        </div>
     </div>
 </footer>
 </body>

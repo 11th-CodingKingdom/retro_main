@@ -224,8 +224,8 @@ li {
 a {
     text-decoration: none;
     outline: none;
-    color: #505050;
-    font-weight: 700;
+    color: #000;
+    font-weight: 400;
 }
 
 header #nav {
@@ -570,6 +570,7 @@ header #nav {
     line-height: 48px;
     vertical-align: middle;
 }
+
 /* 노래 추가 안했을 때 버튼 */
 
 #chart-body h1 {
@@ -611,28 +612,36 @@ tr {
 
 #rankchart-table .info {
     padding-left: 40px;
-    width: 15%;
+    width: 11%;
 }
 
 #rankchart-table .song {
-    width: 34%;
+    width: 32%;
     font-weight: 500;
     font-size: 16px;
 }
 
+#retrocollect_album {
+    color: #b5b6b5;
+    font-size: 14px;
+    font-weight: 200;
+    padding-top: 10px;
+}
+
 #rankchart-table .artist {
-    width: 39%;
+    width: 43%;
     font-weight: 500;
     font-size: 16px;
 
 }
 
 #rankchart-table .listen {
-    width: 6%;
+    width: 7%;
+    padding-left: 7px;
 }
 
 #rankchart-table .like {
-    width: 6%;
+    width: 7%;
 }
 
 #rankchart-row {
@@ -643,7 +652,7 @@ tr {
 }
 
 .rankchart-row-box {
-    height: 80px;
+    height: 99px;
 }
 
 .table_line {
@@ -675,11 +684,11 @@ td #rankchart_img {
 
 #list-img .list_btn {
     position: absolute;
-    top: 250px;
+    top: 270px;
     left: 350px;
 
     background-color: #eb1400;
-    width: 200px;
+    width: 225px;
     height: 48px;
 
     cursor: pointer;
@@ -690,7 +699,7 @@ td #rankchart_img {
     font-size: 16px;
     letter-spacing: -0.05em;
 
-    text-align: center;
+    text-align: left;
     line-height: 48px;
     vertical-align: middle;
 }
@@ -703,6 +712,8 @@ td #rankchart_img {
 
 #rankchart_img > img {
     vertical-align: middle;
+    width: 60px;
+    height: 60px;
 }
 
 #rankchart_song {

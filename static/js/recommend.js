@@ -88,6 +88,7 @@ function retro_recommend_loading(who) {
                                 </td>
                                 <td>
                                     <div id="rankchart_song">${title}</div>
+                                     <div id="retrocollect_album">${albumtitle}</div>
                                 </td>
                                 <td>
                                     <div id="rankchart_artist">${singer}</div>
@@ -115,6 +116,7 @@ function retro_recommend_loading(who) {
                                 </td>
                                 <td>
                                     <div id="rankchart_song">${title}</div>
+                                    <div id="retrocollect_album">${albumtitle}</div>
                                 </td>
                                 <td>
                                     <div id="rankchart_artist">${singer}</div>
