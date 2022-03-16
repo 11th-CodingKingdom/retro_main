@@ -20,9 +20,15 @@
   color: #fff;
 
   position: relative;
-  top: 300px;
-  left: 275px;
+  top: 35vh;
+  left: 18vw;
   cursor: pointer;
+  transition: all 0.9s;
+}
+
+.intro-last .intro-btn1:hover {
+  box-shadow: 0 100px 0 0 rgba(0,0,0,0.25) inset,
+              0 -100px 0 0 rgba(0,0,0,0.25) inset;
 }
 
 .intro-last .intro-btn2 {
@@ -39,8 +45,15 @@
   color: #eb1400;
 
   position: relative;
-  top: 320px;
-  left: 275px;
+  top: 37vh;
+  left: 18vw;
   display: inline-block;
   cursor: pointer;
+  transition: all 0.9s;
+}
+
+.intro-last .intro-btn2:hover {
+  box-shadow: 0 100px 0 0 rgba(0,0,0,0.25) inset,
+              0 -100px 0 0 rgba(0,0,0,0.25) inset;
+  color: #fff;
 }

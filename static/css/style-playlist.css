@@ -142,8 +142,8 @@ header #nav {
 }
 
 #playlist_contents .playlist_top .playlist_img img {
-    width: 100%;
-    height: 100%;
+    width: 240px;
+    height: 240px;
     margin: 0 auto;
     display: block;
 }
@@ -179,6 +179,7 @@ header #nav {
     font-size: 16px;
     font-weight: 400;
     letter-spacing: -0.05em;
+    width: 530px;
     height: 50px;
     margin-top: 24px;
     box-sizing: border-box;
@@ -251,14 +252,11 @@ tr {
     color: #b5b6b5;
     font-size: 14px;
     font-weight: 200;
-    padding-top: 10px;
+    padding-top: 7px;
 }
 
 #rankchart-table .artist {
     width: 48%;
-    font-weight: 500;
-    font-size: 16px;
-
 }
 
 #rankchart-table .listen {
@@ -316,12 +314,12 @@ td #rankchart_img {
 }
 
 #rankchart_song {
-    margin-top: 7px;
+    margin-top: 2px;
     color: #747474;
 }
 
 #rankchart_artist {
-    margin-top: 7px;
+    line-height: 99px;
     color: #747474;
 }
 
@@ -384,7 +382,7 @@ footer {
     width: 100px;
     height: 50px;
     background-color: #fff;
-    margin: 15px 20px;
+    margin: 2px 20px;
 }
 
 .playbar_song .playbar_song_wrap {

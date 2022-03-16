@@ -9,6 +9,7 @@
   margin-bottom: 30px;
   text-align: center;
   align-items: center;
+  cursor: pointer;
 }
 
 #retrochart_head {
@@ -23,13 +24,14 @@
   font-weight: 500;
   letter-spacing: -0.05em;
   margin-left: 20px;
+  color: #333333;
 }
 
 #retrochart_head span {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: #c8c8c8;
+  color: #a0a0a0;
   letter-spacing: -0.05em;
   position: relative;
   top: 5px;
@@ -74,7 +76,8 @@
 
 #retrochart_rank {
   font-size: 16px;
-  font-weight: 200;
+  font-weight: 300;
+  color: #333333;
 }
 
 #retrochart_song_wrap {
@@ -93,25 +96,27 @@
   text-align: left;
   margin-left: 36px;
   margin-top: 10px;
+  color: #333333;
 }
 
 #retrochart_song {
   font-size: 16px;
-  font-weight: 200;
+  font-weight: 300;
   margin-bottom: 10px;
 }
 
 #retrochart_album {
-  color: #b5b6b5;
+  color: #969696;
   font-size: 14px;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 #retrochart_artist {
   font-size: 16px;
-  font-weight: 200;
+  font-weight: 300;
   margin-left: 36px;
   text-align: left;
+  color: #333333;
 }
 
 #like_chart {

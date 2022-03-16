@@ -325,7 +325,7 @@ let resultTable = {
   },
   "abba": {
     type: typeTable.groove,
-    youtube: `<iframe width="560" height="220" src="https://www.youtube.com/embed/dYIT_jeUBKg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+    youtube: `<iframe width="400" height="220" src="https://www.youtube.com/embed/dYIT_jeUBKg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
     song: "프리스타일 - Y",
     desc: "",
       link: "https://www.youtube.com/embed/dYIT_jeUBKg"
