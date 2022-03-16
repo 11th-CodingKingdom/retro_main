@@ -95,11 +95,11 @@ function test_output_save(type){
           'userID_give': userID
         },
         success: function (response) {
-          alert(response['msg'])
+          //alert(response['msg'])
         }
     });
    } else {
-     alert('로그인하시면 저장도 가능해요!')
+     //alert('로그인하시면 저장도 가능해요!')
    }
    
 }

@@ -64,6 +64,16 @@ else{
 }
 
 
+function clickYearBtnHandler() {
+  cur_yearBtn = document.querySelector('.year-btn-active');
+  if(cur_yearBtn){
+    cur_yearBtn.classList.remove('year-btn-active');
+  }
+  this.classList.add('year-btn-active');
+  cur_yearBtn = this;
+  collect_year = document.getElementsByClassName("year-btn-active")[0].value;
+  retro_collection_loading(collect_year);
+}
 
 retro_collection_loading(collect_year)
 $(document).ready(function () {
@@ -189,7 +199,7 @@ function likeclick_retrocollection(userID, title, singer, rank) {
             }
         }
 
-        alert(response['msg'])
+        //alert(response['msg'])
     }
   });
 }

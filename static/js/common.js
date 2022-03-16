@@ -127,7 +127,7 @@ function likeclick(userID, title, singer) {
                 console.log('mypage', chart_year)
             }
 
-            alert(response['msg'])
+            //alert(response['msg'])
         }
     });
 }

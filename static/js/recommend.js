@@ -192,7 +192,7 @@ function likeclick_recommend(userID, title, singer, rank) {
             }
         }
 
-        alert(response['msg'])
+        //alert(response['msg'])
     }
   });
 }
