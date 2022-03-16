@@ -456,7 +456,6 @@ def retro_recommend():
             like = 0
 
         music['like'] = like
-        musics.append(music)
         if music_temp not in music_only_one:
             musics.append(music)
             music_only_one.append(music_temp)
