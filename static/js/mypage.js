@@ -69,6 +69,7 @@ function update_info(chart_year) {
             let title = likeMusic[i]['title']
             let musicPlaySrc = likeMusic[i]['musicPlaySrc']
             let year = likeMusic[i]['year']
+            let albumtitle = likeMusic[i]['albumtitle']
             let rank = i+1
 
             chart_year = parseInt(chart_year)
@@ -82,6 +83,7 @@ function update_info(chart_year) {
                                         </td>
                                         <td>
                                             <div id="rankchart_song">${title}</div>
+                                            <div id="retrocollect_album">${albumtitle}</div>
                                         </td>
                                         <td>
                                             <div id="rankchart_artist">${singer}</div>

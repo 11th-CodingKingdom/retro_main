@@ -51,9 +51,9 @@ function retro_recommend_loading(who) {
         } else if (who == '6') {
             image_cover = 'Editor_06.png'
         } else if (who == 'moon') {
-            image_cover = 'sub_bn_01.png'
+            image_cover = 'sub_bn_01_01.png'
         } else if (who == 'son') {
-            image_cover = 'sub_bn_02.png'
+            image_cover = 'sub_bn_02_02.png'
         }
 
         let temp_html2 = ``
@@ -88,6 +88,7 @@ function retro_recommend_loading(who) {
                                 </td>
                                 <td>
                                     <div id="rankchart_song">${title}</div>
+                                     <div id="retrocollect_album">${albumtitle}</div>
                                 </td>
                                 <td>
                                     <div id="rankchart_artist">${singer}</div>
@@ -115,6 +116,7 @@ function retro_recommend_loading(who) {
                                 </td>
                                 <td>
                                     <div id="rankchart_song">${title}</div>
+                                    <div id="retrocollect_album">${albumtitle}</div>
                                 </td>
                                 <td>
                                     <div id="rankchart_artist">${singer}</div>

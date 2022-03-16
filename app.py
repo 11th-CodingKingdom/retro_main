@@ -424,7 +424,7 @@ def retro_search_likeclick():
 
 @app.route('/recommend_page')
 def retro_recommend_page():
-    return render_template('index-Playlist.html')
+    return render_template('index-playlist.html')
 
 @app.route('/recommend', methods=['POST'])
 def retro_recommend():
