@@ -181,6 +181,7 @@ def retro_chart_update():
     datas = list(db.music.find({'rank_type': "AG", 'year': int(year)}, {'_id': False}).sort("like", -1).limit(100))
     musics = []
     likes = []
+    music_only_one = []
 
     user_musics = list(db.likeMusic.find({'id': userID}, {'_id':False}))
 
@@ -203,7 +204,9 @@ def retro_chart_update():
             like = 0
 
         music['like'] = like
-        musics.append(music)
+        if music_temp not in music_only_one:
+            musics.append(music)
+            music_only_one.append(music_temp)
 
     return jsonify({'music_list': musics,'msg': '연결 완료'})
 
@@ -272,6 +275,7 @@ def retro_collection_update():
         datas = list(db.music.find({'rank_type': "YE", 'year': int(year)}, {'_id': False}).sort("like", -1).limit(200))
     musics = []
     likes = []
+    music_only_one = []
 
     user_musics = list(db.likeMusic.find({'id': userID}, {'_id':False}))
 
@@ -293,7 +297,9 @@ def retro_collection_update():
             like = 0
 
         music['like'] = like
-        musics.append(music)
+        if music_temp not in music_only_one:
+            musics.append(music)
+            music_only_one.append(music_temp)
 
     return jsonify({'music_list': musics,'msg': '연결 완료'})
 
@@ -347,6 +353,7 @@ def retro_search():
 
     musics = []
     likes = []
+    music_only_one = []
 
     user_musics = list(db.likeMusic.find({'id': userID}, {'_id': False}))
 
@@ -361,14 +368,19 @@ def retro_search():
         singer = music['singer']
 
         music_temp = {'title': title, 'singer': singer}
+
         # temp_like = None
         if music_temp in likes:
             like = 1
         else:
             like = 0
-
         music['like'] = like
-        musics.append(music)
+
+        if music_temp not in music_only_one:
+            musics.append(music)
+            music_only_one.append(music_temp)
+
+
 
     msg = '검색 완료'
     return jsonify({'music_list': musics,'msg': msg})
@@ -423,6 +435,7 @@ def retro_recommend():
 
     musics = []
     likes = []
+    music_only_one = []
 
     user_musics = list(db.likeMusic.find({'id': userID}, {'_id':False}))
 
@@ -444,6 +457,10 @@ def retro_recommend():
 
         music['like'] = like
         musics.append(music)
+        if music_temp not in music_only_one:
+            musics.append(music)
+            music_only_one.append(music_temp)
+
 
     msg = '연결 완료'
     return jsonify({'music_list': musics,'msg': msg})
