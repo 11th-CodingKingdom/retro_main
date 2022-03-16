@@ -101,7 +101,7 @@ function search_loading(word) {
             $('#song-list-wrap').append(temp_html);
         }
         if (search_word) {
-            $('.search-txt').text(search_word + ' 검색결과')
+            $('.search-txt').text("\'"+search_word+"\'" + ' 검색결과')
         } else {
             $('.search-txt').text(' 검색결과')
         }
