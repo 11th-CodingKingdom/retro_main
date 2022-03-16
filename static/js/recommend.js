@@ -52,8 +52,8 @@ function retro_recommend_loading(who) {
             image_cover = 'Editor_06.png'
         } else if (who == 'moon') {
             image_cover = 'sub_bn_01_01.png'
-        } else if (who == 'son') {
-            image_cover = 'sub_bn_02_02.png'
+        } else if (who == 'sun') {
+            image_cover = 'sub_bn_01_02.png'
         }
 
         let temp_html2 = ``
