@@ -11,14 +11,11 @@
 
 #content-left {
   width: 50%;
-  /* margin: auto; */
-  /* justify-content: center; */
 }
 
 #loginbox {
   width: 400px;
   margin: auto;
-  /* float: left; */
   padding-top: 100px;
 }
 
@@ -30,14 +27,11 @@
 }
 #login_img {
   width: 50%;
-  /* float: right; */
 }
 
 #login_img img {
   width: 760px;
   height: auto;
-  /* height: 80%; */
-  /* float: right; */
 }
 
 .id_span {

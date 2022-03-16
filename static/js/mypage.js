@@ -95,7 +95,7 @@ function update_info(chart_year) {
                                         <td>
                                             <!-- 좋아요 버튼 -->
                                             <button type="button">
-                                                <img src="../static/images/like_icon_hover.png" alt="" width="30px" height="30px" id="like_mypage" onclick="likeclick_mypage('${userID}', '${title}', '${singer}', '${rank}')">
+                                                <img src="../static/images/like_icon_hover.png" alt="" width="25px" height="25px" id="like_mypage" onclick="likeclick_mypage('${userID}', '${title}', '${singer}', '${rank}')">
                                             </button>
                                         </td>
                                     </tr>`
