@@ -352,8 +352,9 @@ def retro_search():
     word = request.form['word_give']
     userID = request.form['userID_give']
 
-    datas = list(db.music.find({'rank_type': "YE", 'title': {'$regex': word}}, {'_id': False}).limit(10))
-
+    data_title = list(db.music.find({'rank_type': "YE", 'title': {'$regex': word}}, {'_id': False}).limit(10))
+    data_singer = list(db.music.find({'rank_type': "YE", 'singer': {'$regex': word}}, {'_id': False}).limit(10))
+    datas = data_title + data_singer
     musics = []
     likes = []
     music_only_one = []
@@ -369,7 +370,6 @@ def retro_search():
         songID = music['songID']
         title = music['title']
         singer = music['singer']
-
         music_temp = {'title': title, 'singer': singer}
 
         # temp_like = None
@@ -382,8 +382,6 @@ def retro_search():
         if music_temp not in music_only_one:
             musics.append(music)
             music_only_one.append(music_temp)
-
-
 
     msg = '검색 완료'
     return jsonify({'music_list': musics,'msg': msg})
