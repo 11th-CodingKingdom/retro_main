@@ -54,7 +54,7 @@ for(let i=0; i<yearBtns.length; i++){
 }
 
 
-
+console.log(localStorage)
 let collect_year;
 if(localStorage.getItem('retrocollect_year')){
     collect_year = localStorage.getItem('retrocollect_year')
@@ -62,20 +62,44 @@ if(localStorage.getItem('retrocollect_year')){
 else{
     collect_year = '1980'
 }
+retro_collection_loading(collect_year)
 
 
-function clickYearBtnHandler() {
-  cur_yearBtn = document.querySelector('.year-btn-active');
-  if(cur_yearBtn){
-    cur_yearBtn.classList.remove('year-btn-active');
-  }
-  this.classList.add('year-btn-active');
-  cur_yearBtn = this;
-  collect_year = document.getElementsByClassName("year-btn-active")[0].value;
-  retro_collection_loading(collect_year);
+cur_yearsBtn = document.querySelector('.years-btn-active');
+if(cur_yearsBtn){
+cur_yearsBtn.classList.remove('years-btn-active');
+}
+if($('#collect_1980').attr('value') == collect_year) {
+    yearsBtns[0].classList.add('years-btn-active');
+    cur_yearsBtn = yearsBtns[0];
+    changeYearBtnText(cur_yearsBtn);
+
+} else if ($('#collect_1990').attr('value') == collect_year) {
+    yearsBtns[1].classList.add('years-btn-active');
+    cur_yearsBtn = yearsBtns[1];
+    changeYearBtnText(cur_yearsBtn);
+
+} else if ($('#collect_2000').attr('value') == collect_year) {
+    yearsBtns[2].classList.add('years-btn-active');
+    cur_yearsBtn = yearsBtns[2];
+    changeYearBtnText(cur_yearsBtn);
+
+} else if ($('#collect_2010').attr('value') == collect_year) {
+    yearsBtns[3].classList.add('years-btn-active');
+    cur_yearsBtn = yearsBtns[3];
+    changeYearBtnText(cur_yearsBtn);
+
+} else if ($('#collect_all').attr('value') == collect_year) {
+    yearsBtns[4].classList.add('years-btn-active');
+    cur_yearsBtn = yearsBtns[4];
+    changeYearBtnText(cur_yearsBtn);
+
 }
 
-retro_collection_loading(collect_year)
+
+
+
+
 $(document).ready(function () {
     localStorage.setItem('playbar_title', '')
     localStorage.setItem('playbar_singer', '')

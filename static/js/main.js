@@ -203,8 +203,7 @@ function main_playing_active(songID) {
 function collection_year(year){
     let main_link = main_page_link;
     let collect_link = main_link + 'retrocollection_page';
-    console.log(main_link, collect_link)
-    localStorage.setItem('retrocollection_year', year);
+    localStorage.setItem('retrocollect_year', year);
 
     location.href= collect_link;
 }
