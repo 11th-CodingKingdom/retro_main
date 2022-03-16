@@ -577,6 +577,28 @@ def retro_mypagae_likeclick():
 
     return jsonify({'like': like, 'msg': msg})
 
+@app.route('/test_intro')
+def retro_test_intro_page():
+    return render_template('test_intro.html')
+
+@app.route('/test')
+def retro_test_page():
+    return render_template('test.html')
+
+@app.route('/test_output')
+def retro_test_output_page():
+    return render_template('test_output.html')
+
+@app.route('/test_output', methods=['POST'])
+def retro_test_output_save():
+    type = request.form['type_give']
+    userID = request.form['userID_give']
+
+    # 바꾸기 - 예시
+    db.users.update_one({'id': userID}, {'$set': {'preferenceResult': type}})
+
+    msg = '성향 저장 완료!'
+    return jsonify({'msg': msg})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)

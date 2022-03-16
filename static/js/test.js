@@ -22,129 +22,6 @@ let qnaArr = [
   },
 ];
 
-// 타입 이름, 설명 테이블
-let typeTable = {
-  "visual": {
-    name: "비쥬얼 타입",
-    img: "../static/images/NOTE_IMG/retro_NOTE_3.png",
-    desc: "노래실력에 걸맞는 비쥬얼 = 만족도200%"
-  },
-  "sensitive": {
-    name: "감성 타입",
-    img: "../static/images/NOTE_IMG/retro_NOTE_4.png",
-    desc: "꿀 음색 + 감성 촉촉한 팝 & 발라드"
-  },
-  "groove": {
-    name: "그루브 타입",
-    img: "../static/images/NOTE_IMG/retro_NOTE_5.png",
-    desc: "나의 혈관에도 그루브와 소울이 흐르지!"
-  },
-  "unique": {
-    name: "유니크 타입",
-    img: "../static/images/NOTE_IMG/retro_NOTE_6.png",
-    desc: "끝까지 나만 알고싶은 소중한 아티스트"
-  }
-}
-
-// 결과 테이블
-let resultTable = {
-  "aaaa": {
-    type: typeTable.unique,
-    youtube: `<iframe width="400" height="220" src="https://www.youtube.com/embed/2Au_na-wtlQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-    song: "김완선 - 삐에로는 우릴 보고 웃지",
-    desc: ""
-  },
-  "abaa": {
-    type: typeTable.unique,
-    youtube: `<iframe width="400" height="220" src="https://www.youtube.com/embed/2wyk6mnm1FA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-    song: "소방차 - 어젯밤 이야기",
-    desc: ""
-  },
-  "aaba": {
-    type: typeTable.groove,
-    youtube: `<iframe width="400" height="220" src="https://www.youtube.com/embed/n2AsXQtK8aA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-    song: "김건모 - 잘못된 만남",
-    desc: ""
-  },
-  "aaab": {
-    type: typeTable.visual,
-    youtube: `<iframe width="400" height="220" src="https://www.youtube.com/embed/mbg1Cn6Ua9U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-    song: "소녀시대 - 다시 만난 세계",
-    desc: ""
-  },
-  "baaa": {
-    type: typeTable.sensitive,
-    youtube: `<iframe width="400" height="220" src="https://www.youtube.com/embed/F_w3jpFiiEw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-    song: "김범수 - 보고싶다",
-    desc: ""
-  },
-  "abba": {
-    type: typeTable.groove,
-    youtube: `<iframe width="560" height="220" src="https://www.youtube.com/embed/dYIT_jeUBKg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-    song: "프리스타일 - Y",
-    desc: ""
-  },
-  "aabb": {
-    type: typeTable.visual,
-    youtube: `<iframe width="400" height="220" src="https://www.youtube.com/embed/-ikYiWp0H5g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-    song: "원더걸스 - Tell Me",
-    desc: ""
-  },
-  "bbaa": {
-    type: typeTable.sensitive,
-    youtube: `<iframe width="400" height="220" src="https://www.youtube.com/embed/PhBi_fZkj98" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-    song: "SG워너비 - 살다가",
-    desc: ""
-  },
-  "baba": {
-    type: typeTable.unique,
-    youtube: `<iframe width="400" height="220" src="https://www.youtube.com/embed/WtAuSC3lk14" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-    song: "빅뱅 - 하루하루",
-    desc: ""
-  },
-  "abab": {
-    type: typeTable.visual,
-    youtube: `<iframe width="400" height="220" src="https://www.youtube.com/embed/qxSUfjioFg8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-    song: "2PM - HEARTBEAT",
-    desc: ""
-  },
-  "baab": {
-    type: typeTable.visual,
-    youtube: `<iframe width="400" height="220" src="https://www.youtube.com/embed/uUnDOnj8vfM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-    song: "젝스키스 - 커플",
-    desc: ""
-  },
-  "bbba": {
-    type: typeTable.groove,
-    youtube: `<iframe width="400" height="220" src="https://www.youtube.com/embed/q8hdSF60U0A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-    song: "Justin Bieber - Baby",
-    desc: ""
-  },
-  "babb": {
-    type: typeTable.sensitive,
-    youtube: `<iframe width="400" height="220" src="https://www.youtube.com/embed/yrJ7CVeiFvo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-    song: "Beyonce - Halo",
-    desc: ""
-  },
-  "bbab": {
-    type: typeTable.sensitive,
-    youtube: `<iframe width="400" height="220" src="https://www.youtube.com/embed/-sVo6NWwK_o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-    song: "브라운 아이즈 - 벌써 일년",
-    desc: ""
-  },
-  "abbb": {
-    type: typeTable.sensitive,
-    youtube: `<iframe width="400" height="220" src="https://www.youtube.com/embed/-4I06d3a3H8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-    song: "백지영 - 사랑 안해",
-    desc: ""
-  },
-  "bbbb": {
-    type: typeTable.groove,
-    youtube: `<iframe width="400" height="220" src="https://www.youtube.com/embed/sHqLlyBlmQI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-    song: "에픽하이 - Fly",
-    desc: ""
-  }
-}
 let selectedListStr = "";
 function select(selectOpt){
   selectedListStr += selectOpt;
@@ -154,7 +31,7 @@ function select(selectOpt){
       break;
     // 결과페이지 출력
     case 4:
-      location.href = "test_output.html?"+ selectedListStr;
+      location.href = "/test_output?"+ selectedListStr;
   }
 }
 
@@ -201,4 +78,28 @@ function changeOutput(selectedListStr){
   test_output.children[4].innerHTML = result.youtube;
   //가수-노래 텍스트 변경
   test_output.children[6].innerHTML = result.song;
+
+   test_output_save(selectedListStr)
+  sessionStorage.setItem('preferenceResult', selectedListStr)
+}
+
+
+function test_output_save(type){
+   if(sessionStorage.getItem('id')) {
+        let userID = sessionStorage.getItem('id')
+        $.ajax({
+        type: 'POST',
+        url: '/test_output',
+        data: {
+          'type_give': type,
+          'userID_give': userID
+        },
+        success: function (response) {
+          alert(response['msg'])
+        }
+    });
+   } else {
+     alert('로그인하시면 저장도 가능해요!')
+   }
+   
 }
