@@ -155,7 +155,8 @@ def player_likeclick(): # 하단 뮤직플레이어에서 좋아요 클릭했을
                 'id': id,
                 'year': music['year'],
                 'albumImageUrl': music['albumImageUrl'],
-                'musicPlaySrc': music_src['musicPlaySrc']
+                'musicPlaySrc': music_src['musicPlaySrc'],
+                'albumtitle' : music['albumtitle']
             }
             db.likeMusic.insert_one(temp_music)
             msg = '좋아요 설정 완료'
@@ -231,7 +232,8 @@ def retro_chart_likeclick():
                 'id': id,
                 'year': music['year'],
                 'albumImageUrl': music['albumImageUrl'],
-                'musicPlaySrc': music_src['musicPlaySrc']
+                'musicPlaySrc': music_src['musicPlaySrc'],
+                'albumtitle' : music['albumtitle']
             }
             db.likeMusic.insert_one(temp_music)
             msg = '좋아요 설정 완료'
@@ -324,7 +326,8 @@ def retro_collection_likeclick():
                 'id': id,
                 'year': music['year'],
                 'albumImageUrl': music['albumImageUrl'],
-                'musicPlaySrc': music_src['musicPlaySrc']
+                'musicPlaySrc': music_src['musicPlaySrc'],
+                'albumtitle' : music['albumtitle']
             }
             db.likeMusic.insert_one(temp_music)
             msg = '좋아요 설정 완료'
@@ -406,7 +409,8 @@ def retro_search_likeclick():
                 'id': id,
                 'year': music['year'],
                 'albumImageUrl': music['albumImageUrl'],
-                'musicPlaySrc': music_src['musicPlaySrc']
+                'musicPlaySrc': music_src['musicPlaySrc'],
+                'albumtitle' : music['albumtitle']
             }
             db.likeMusic.insert_one(temp_music)
             msg = '좋아요 설정 완료'
@@ -540,7 +544,8 @@ def retro_recommend_likeclick():
                 'id': id,
                 'year': music['year'],
                 'albumImageUrl': music['albumImageUrl'],
-                'musicPlaySrc': music_src['musicPlaySrc']
+                'musicPlaySrc': music_src['musicPlaySrc'],
+                'albumtitle' : music['albumtitle']
             }
             db.likeMusic.insert_one(temp_music)
             msg = '좋아요 설정 완료'
@@ -577,7 +582,8 @@ def retro_mypagae_likeclick():
                 'id': id,
                 'year': music['year'],
                 'albumImageUrl': music['albumImageUrl'],
-                'musicPlaySrc': music_src['musicPlaySrc']
+                'musicPlaySrc': music_src['musicPlaySrc'],
+                'albumtitle' : music['albumtitle']
             }
             db.likeMusic.insert_one(temp_music)
             msg = '좋아요 설정 완료'
