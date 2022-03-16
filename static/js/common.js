@@ -249,11 +249,13 @@ function search_main(target) {
     let word = target.value;
 
     // 페이지 이동
-    let main_link = main_page_link;
-    let search_link = main_link + 'search_page';
-    localStorage.setItem('search_word', word);
-
-    location.href= search_link;
+    let main_link = window.location.href;
+    console.log(main_link)
+      console.log(localStorage)
+    // let search_link = main_link + 'search_page';
+    // localStorage.setItem('search_word', word);
+    //
+    // location.href= search_link;
   }
 }
 
