@@ -21,12 +21,14 @@
   text-decoration: none;
   border-bottom: 1.5px solid #b5b6b5;
   margin: 0 10px;
+  cursor: pointer;
 }
 
 .years-btn-active {
   width: 78px;
   color: #eb1400;
   border-bottom: 1.5px solid #eb1400;
+  cursor: pointer;
 }
 
 .year-btn {
@@ -48,6 +50,7 @@
   background-color: #eb1400;
   border: none;
   color: white;
+  cursor: pointer;
 }
 
 #retrocollect-year-btn {
@@ -55,6 +58,7 @@
   margin-left: 20px;
   margin-bottom: 30px;
   text-align: left;
+  cursor: pointer;
 }
 
 #retrocollect_head {
