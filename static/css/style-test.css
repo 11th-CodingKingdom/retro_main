@@ -65,6 +65,10 @@ body {
   cursor: pointer;
 }
 
+#test-btn:hover {
+  box-shadow: 300px 0 0 0 rgba(0,0,0,0.5) inset;
+}
+
 #share-btn {
   width: 300px;
   height: 59px;
@@ -78,6 +82,11 @@ body {
   border-radius: 28px;
   margin-bottom: 90px;
   cursor: pointer;
+}
+
+#share-btn:hover {
+  box-shadow: 300px 0 0 0 rgba(0,0,0,0.5) inset;
+  color: #fff;
 }
 
 /* test */
@@ -119,6 +128,10 @@ body {
   cursor: pointer;
 }
 
+#test_a:hover {
+  box-shadow: 300px 0 0 0 rgba(0,0,0,0.5) inset;
+}
+
 #test_b {
   width: 300px;
   height: 59px;
@@ -131,6 +144,11 @@ body {
   line-height: 59px;
   margin-bottom: 20px;
   cursor: pointer;
+}
+
+#test_b:hover {
+  box-shadow: 300px 0 0 0 rgba(0,0,0,0.5) inset;
+  color: #fff;
 }
 
 #test_footer {
@@ -183,4 +201,9 @@ body {
   border-radius: 28px;
   margin: 50px 0 80px 0;
   cursor: pointer;
+  transition: all 0.5s;
+}
+
+#home-btn:hover {
+  box-shadow: 200px 0 0 0 rgba(0,0,0,0.5) inset;
 }

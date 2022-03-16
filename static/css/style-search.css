@@ -1,3 +1,8 @@
+.chart-wrap {
+  width: 1476px;
+  margin: auto;
+}
+
 .search-txt {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 25px;
@@ -5,7 +10,7 @@
   letter-spacing: -0.05em;
 
   width: 1342px;
-  margin-left: 50px;
+  margin-left: 20px;
   margin-bottom: 64px;
 }
 
@@ -13,7 +18,7 @@
   font-family: "Noto Sans KR", sans-serif;
   font-size: 20px;
   font-weight: 500;
-  margin-left: 50px;
+  margin-left: 20px;
   margin-bottom: 20px;
 }
 
@@ -21,7 +26,7 @@
   /* background-color: antiquewhite; */
   width: 1342px;
   height: auto;
-  margin-left: 50px;
+  margin-left: 20px;
   margin-bottom: 100px;
 }
 
