@@ -129,7 +129,6 @@ body {
   line-height: 59px;
   margin-bottom: 20px;
   cursor: pointer;
-  transition: all 0.9s;
 }
 
 #test_a:hover {
@@ -149,7 +148,6 @@ body {
   line-height: 59px;
   margin-bottom: 20px;
   cursor: pointer;
-  transition: all 0.9s;
 }
 
 #test_b:hover {
