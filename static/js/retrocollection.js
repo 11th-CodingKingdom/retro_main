@@ -1,3 +1,6 @@
+let cur_yearBtn;
+let yearBtns = document.querySelectorAll('.year-btn');
+
 /* 년도 선택시 빨간색으로 활성화 */
 let cur_yearsBtn; // 현재 활성화된 버튼
 let yearsBtns = document.querySelectorAll('.years-btn');
@@ -10,6 +13,13 @@ function clickYearsBtnHandler() {
   this.classList.add('years-btn-active');
   cur_yearsBtn = this;
 
+
+  cur_yearBtn = document.querySelector('.year-btn-active');
+  if(cur_yearBtn){
+    cur_yearBtn.classList.remove('year-btn-active');
+  }
+  yearBtns[0].classList.add('year-btn-active');
+  cur_yearBtn = yearBtns[0];
   changeYearBtnText(cur_yearsBtn);
 }
 
@@ -35,8 +45,7 @@ function changeYearBtnText(cur_yearsBtn){
 }
 
 /* 예) 1980~1989 버튼 클릭시 빨간색으로 활성화*/
-let cur_yearBtn;
-let yearBtns = document.querySelectorAll('.year-btn');
+
 
 function clickYearBtnHandler() {
   cur_yearBtn = document.querySelector('.year-btn-active');
