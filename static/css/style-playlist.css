@@ -252,7 +252,7 @@ tr {
     color: #b5b6b5;
     font-size: 14px;
     font-weight: 200;
-    padding-top: 10px;
+    padding-top: 7px;
 }
 
 #rankchart-table .artist {
@@ -314,12 +314,12 @@ td #rankchart_img {
 }
 
 #rankchart_song {
-    margin-top: 7px;
+    margin-top: 2px;
     color: #747474;
 }
 
 #rankchart_artist {
-    margin-top: 7px;
+    line-height: 99px;
     color: #747474;
 }
 
