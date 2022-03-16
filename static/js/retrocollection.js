@@ -164,7 +164,7 @@ function retro_collection_loading(chart_year) {
                                     <img src="${albumImageUrl}"/>
                                     <div id="retrocollect_song_desc">
                                       <div id="retrocollect_song">${title}</div>
-                                      <div id="retrocollect_album">${albumtitle}</div>
+<!--                                      <div id="retrocollect_album">${albumtitle}</div>-->
                                     </div>
                                   </div>
                                 </td>
