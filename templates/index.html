@@ -20,7 +20,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../static/images/favicon.ico">
 
+    <script>
+        $(document).ready(function () {
+            //main 페이지 주소 저장
+            localStorage.setItem('main_page_link', window.location.href);
+            console.log(localStorage)
+        })
+    </script>
 </head>
+
 <body>
   <section class="banner" style="margin-bottom: 0px;">
     <img src="../static/images/intro_main.jpg"/>

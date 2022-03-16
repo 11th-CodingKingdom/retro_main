@@ -1,6 +1,5 @@
 //main 페이지 주소 저장
-localStorage.setItem('main_page_link', window.location.href);
-let main_page_link = window.location.href
+let main_page_link = localStorage.getItem('main_page_link')
 
 // 하단 playbar에서 play 버튼 <-> pause 버튼 변경을 위한 변수
 let playcnt = 1;
@@ -248,12 +247,13 @@ function search_main(target) {
     // 엔터키를 누르면
     let word = target.value;
 
-    // 페이지 이동
-    let main_link = main_page_link;
-    let search_link = main_link + 'search_page';
-    localStorage.setItem('search_word', word);
+      // 페이지 이동
+      let main_link = localStorage.getItem('main_page_link');
 
-    location.href= search_link;
+      let search_link = main_link + 'search_page';
+      localStorage.setItem('search_word', word);
+
+      location.href = search_link;
   }
 }
 

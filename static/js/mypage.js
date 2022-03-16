@@ -83,7 +83,7 @@ function update_info(chart_year) {
                                         </td>
                                         <td>
                                             <div id="rankchart_song">${title}</div>
-                                            <div id="retrocollect_album">${albumtitle}</div>
+<!--                                            <div id="retrocollect_album">${albumtitle}</div>-->
                                         </td>
                                         <td>
                                             <div id="rankchart_artist">${singer}</div>

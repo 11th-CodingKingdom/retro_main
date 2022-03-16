@@ -143,8 +143,10 @@
 
 #like_collection {
   cursor: pointer;
+  padding-left: 18px;
 }
 
 #play_collection {
   cursor: pointer;
+  padding-left: 15px;
 }
