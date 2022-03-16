@@ -101,5 +101,11 @@ function test_output_save(type){
    } else {
      //alert('로그인하시면 저장도 가능해요!')
    }
-   
+}
+
+function test_intro_copy(){
+    var copyText = 'http://172.30.1.14:5000/test_intro'
+    copyText.select();
+    document.execCommand("copy");
+    alert("복사된 문자열: " + copyText.value);
 }
