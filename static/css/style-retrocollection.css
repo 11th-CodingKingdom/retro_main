@@ -124,21 +124,23 @@
 
 #retrocollect_song {
   font-size: 16px;
-  font-weight: 200;
+  font-weight: 300;
   margin-bottom: 10px;
+  color: #333333;
 }
 
 #retrocollect_album {
-  color: #b5b6b5;
+  color: #969696;
   font-size: 14px;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 #retrocollect_artist {
   font-size: 16px;
-  font-weight: 200;
+  font-weight: 300;
   margin-left: 36px;
   text-align: left;
+  color: #333333;
 }
 
 #like_collection {

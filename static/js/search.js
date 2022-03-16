@@ -49,58 +49,56 @@ function search_loading(word) {
         let music_list = response['music_list'];
         $('#song-list-wrap').empty()
         for(let i =0; i < music_list.length; i++) {
-          let albumImageUrl = music_list[i]['albumImageUrl']
-          let singer = music_list[i]['singer']
-          let title = music_list[i]['title']
-          let albumtitle = music_list[i]['albumtitle']
-          let songID = music_list[i]['songID']
-          let rank = i + 1
-          let year = music_list[i]['year']
-          let like = music_list[i]['like']
-
-          let temp_html = ``
-          if(title.includes(word)) {
+            let albumImageUrl = music_list[i]['albumImageUrl']
+            let singer = music_list[i]['singer']
+            let title = music_list[i]['title']
+            let albumtitle = music_list[i]['albumtitle']
+            let songID = music_list[i]['songID']
+            let rank = i + 1
+            let year = music_list[i]['year']
+            let like = music_list[i]['like']
+            let temp_html = ``
             if (like == 0){
-                 temp_html = `<div class="song-list-line">
-                                  <div class="line-song">
-                                    <div class="song-left">
-                                      <img src="${albumImageUrl}" alt="">
-                                    </div>
-                                    <div class="song-right">
-                                      <div class="song-title">${title}</div>
-                                      <div class="album-title">${albumtitle}</div>
-                                    </div>
-                                  </div>
-                                  <div class="line-artist">${singer}</div>
-                                  <div class="line-play">
-                                    <img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" alt="">
-                                  </div>
-                                  <div class="line-like">
-                                    <img src="../static/images/like_icon.png" id="like_search" onclick="likeclick_search('${userID}', '${title}', '${singer}', '${rank}')"/>
-                                  </div>
-                                </div>`;
-            } else {
-                temp_html = `<div class="song-list-line">
-                                  <div class="line-song">
-                                    <div class="song-left">
-                                      <img src="${albumImageUrl}" alt="">
-                                    </div>
-                                    <div class="song-right">
-                                      <div class="song-title">${title}</div>
-                                      <div class="album-title">${albumtitle}</div>
-                                    </div>
-                                  </div>
-                                  <div class="line-artist">${singer}</div>
-                                  <div class="line-play">
-                                    <img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" alt="">
-                                  </div>
-                                  <div class="line-like">
-                                    <img src="../static/images/like_icon_hover.png" id="like_search" onclick="likeclick_search('${userID}', '${title}', '${singer}', '${rank}')"/>
-                                  </div>
-                                </div>`;
-            }
-          }
-          $('#song-list-wrap').append(temp_html);
+             temp_html = `<div class="song-list-line">
+                              <div class="line-song">
+                                <div class="song-left">
+                                  <img src="${albumImageUrl}" alt="">
+                                </div>
+                                <div class="song-right">
+                                  <div class="song-title">${title}</div>
+                                  <div class="album-title">${albumtitle}</div>
+                                </div>
+                              </div>
+                              <div class="line-artist">${singer}</div>
+                              <div class="line-play">
+                                <img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" alt="">
+                              </div>
+                              <div class="line-like">
+                                <img src="../static/images/like_icon.png" id="like_search" onclick="likeclick_search('${userID}', '${title}', '${singer}', '${rank}')"/>
+                              </div>
+                            </div>`
+        }
+            else {
+            temp_html = `<div class="song-list-line">
+                              <div class="line-song">
+                                <div class="song-left">
+                                  <img src="${albumImageUrl}" alt="">
+                                </div>
+                                <div class="song-right">
+                                  <div class="song-title">${title}</div>
+                                  <div class="album-title">${albumtitle}</div>
+                                </div>
+                              </div>
+                              <div class="line-artist">${singer}</div>
+                              <div class="line-play">
+                                <img onclick="main_playing_active(${songID})" src="../static/images/playbn_icon_black.png" alt="">
+                              </div>
+                              <div class="line-like">
+                                <img src="../static/images/like_icon_hover.png" id="like_search" onclick="likeclick_search('${userID}', '${title}', '${singer}', '${rank}')"/>
+                              </div>
+                            </div>`
+        }
+            $('#song-list-wrap').append(temp_html);
         }
         if (search_word) {
             $('.search-txt').text(search_word + ' 검색결과')
