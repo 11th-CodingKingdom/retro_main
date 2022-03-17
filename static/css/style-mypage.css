@@ -37,8 +37,8 @@
 
 .popup {
     margin: 50px auto;
-    height: 560px;
-    width: 543px;
+    height: 510px;
+    width: 497px;
     padding: 20px;
     overflow: hidden;
     background-color: white;
@@ -155,7 +155,7 @@
     background-color: #e60012;
     width: 270px;
     height: 70px;
-    margin: 80px 0 20px 0;
+    margin: 60px 0 20px 0;
 
     cursor: pointer;
 
@@ -520,24 +520,24 @@ header #nav {
 
 #chart-body #year-btn {
     /* background-color: aliceblue; */
-    width: 380px;
+    width: 320px;
     text-align: center;
     align-items: center;
     padding-bottom: 30px;
 }
 
 .btn {
-    width: 85px;
+    width: 72px;
     height: 30px;
-    border: 2px solid #afafaf;
-    border-radius: 14px;
+    border: 1px solid #c0c0c0;
+    border-radius: 20px;
     display: inline-block;
     font-size: 16px;
     color: #747474;
-    font-weight: 500;
+    font-weight: bold;
     margin-right: 6px;
     cursor: pointer;
-    background-color: #dfdfdf;
+    background-color: rgb(239, 239, 239);
     vertical-align: middle;
 }
 

@@ -494,6 +494,13 @@ td {
   vertical-align: middle;
 
   cursor: pointer;
+  transition: all 0.9s;
+}
+
+.bottom_banner .bottom_banner_btn:hover {
+  box-shadow: 0 80px 0 0 rgba(0,0,0,0.25) inset,
+              0 -80px 0 0 rgba(0,0,0,0.25) inset;
+  color: #fff;
 }
 
 footer {
