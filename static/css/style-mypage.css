@@ -338,13 +338,13 @@ header #nav {
     width: 310px;
     height: 85px;
     border-radius: 6px;
-    border: 2px solid #a0a0a0;
+    border: 1px solid #a0a0a0;
     padding: 14px;
     box-sizing: border-box;
 }
 
 #user_info {
-    margin-bottom: 13px;
+    margin: 2px 0 13px 0;
 }
 
 #user_info #name {
@@ -567,7 +567,7 @@ header #nav {
 
     cursor: pointer;
 
-    color: #dfdfdf;
+    color: white;
     font-family: "Noto Sans KR", sans-serif;
     font-weight: 500;
     font-size: 16px;
