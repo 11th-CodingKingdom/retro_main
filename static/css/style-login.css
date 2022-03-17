@@ -25,10 +25,11 @@
 }
 
 #logo {
-    width: 92px;
-    height: 30px;
+    width: 150px;
+    height: 50px;
     display: inline-block;
     cursor: pointer;
+    margin-left: 43px;
 }
 
 #login_img {
@@ -44,12 +45,12 @@
     font-size: 20px;
     font-weight: bold;
     display: flex;
-    margin: 70px auto 26px 20px;
+    margin: 53px auto 29px 52px;
 }
 
 .idpw_box {
-    width: 400px;
-    height: 55px;
+    width: 350px;
+    height: 60px;
     color: lightgrey;
     border-radius: 10px;
     border: 1px solid lightgrey;
@@ -58,14 +59,15 @@
 }
 
 .idpw_box img {
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 40px;
     margin: auto 10px;
-    padding-left: 4px;
+    padding-left: 5px;
 }
 
 .idpw_input {
-    font-size: 17px;
+    font-size: 13px;
+    font-weight: 300;
     width: 350px;
     border: none;
     display: flex;
@@ -81,21 +83,22 @@ input::placeholder {
 .login_btn {
     color: white;
     background-color: #eb1400;
-    width: 350px;
-    height: 52px;
+    width: 310px;
+    height: 48px;
     border-radius: 10px;
     border: #eb1400;
     display: inline-block;
-    margin: 40px 25px;
+    margin: 40px 55px;
     text-align: center;
     font-weight: 600;
+    font-size: 15px;
     cursor: pointer;
 }
 
 #test {
     background-color: #dfdfdf;
-    width: 400px;
-    height: 130px;
+    width: 350px;
+    height: 110px;
     border-radius: 10px;
     display: flex;
     margin: 5px auto
@@ -111,15 +114,15 @@ input::placeholder {
 
 #bannerTest-title {
     color: black;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 600;
     display: inline-block;
-    padding-top: 10px;
+    padding-top: 8px;
 }
 
 #bannerTest-text {
     color: gray;
-    font-size: 15px;
+    font-size: 13px;
     display: inline-block;
     font-weight: 600;
 }
@@ -127,9 +130,11 @@ input::placeholder {
 .banner_btn {
     color: black;
     background-color: transparent;
-    padding: 70px 30px 0 50px;
+    padding: 30px 30px 10px 10px;
     border: none;
     border-radius: 10px;
+    width: 50px;
+    height: 115px;
     cursor: pointer;
 }
 
