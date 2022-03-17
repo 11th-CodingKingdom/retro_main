@@ -400,3 +400,7 @@ let resultTable = {
       link: "https://www.youtube.com/embed/sHqLlyBlmQI"
   }
 }
+
+function search_clear(){
+    $('#searchbox').val("");
+}
