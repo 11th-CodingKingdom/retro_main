@@ -2,58 +2,22 @@
   width: 100%;
 }
 
-.intro-last {
-  background-image: url("../images/retro_id_01_03.png");
-  background-size: cover;
-  height: 100vh;
-}
-
-.intro-last .intro-btn1 {
-  width: 200px;
-  height: 50px;
-  background-color: #eb1400;
-
-  text-align: center;
-  line-height: 50px;
-  vertical-align: middle;
-  font-family: "Noto Sans KR", sans-serif;
-  color: #fff;
-
-  position: relative;
-  top: 35vh;
-  left: 18vw;
+.intro-btn {
+  width: 180px;
+  height: 180px;
+  left: 20px;
+  bottom: 30px;
+  position: fixed;
   cursor: pointer;
-  transition: all 0.9s;
+
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-name: bounce;
+  animation-timing-function: linear;
 }
 
-.intro-last .intro-btn1:hover {
-  box-shadow: 0 100px 0 0 rgba(0,0,0,0.25) inset,
-              0 -100px 0 0 rgba(0,0,0,0.25) inset;
-}
-
-.intro-last .intro-btn2 {
-  width: 200px;
-  height: 50px;
-  background-color: #fff;
-  border: 1px solid #eb1400;
-  box-sizing: border-box;
-
-  text-align: center;
-  line-height: 50px;
-  vertical-align: middle;
-  font-family: "Noto Sans KR", sans-serif;
-  color: #eb1400;
-
-  position: relative;
-  top: 37vh;
-  left: 18vw;
-  display: inline-block;
-  cursor: pointer;
-  transition: all 0.9s;
-}
-
-.intro-last .intro-btn2:hover {
-  box-shadow: 0 100px 0 0 rgba(0,0,0,0.25) inset,
-              0 -100px 0 0 rgba(0,0,0,0.25) inset;
-  color: #fff;
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
 }
