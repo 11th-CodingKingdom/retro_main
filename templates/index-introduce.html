@@ -16,25 +16,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../static/images/favicon.ico">
-
-    <script>
-        $(document).ready(function() {
-           button_update()
-
-        });
-        function button_update() {
-            userID = sessionStorage.getItem('id')
-            if (userID === null) {
-                let temp_html = `<div onclick="location.href='/regist_page'" class="intro-btn2">레트로 회원가입 하러가기</div>`
-                $('.intro-last').append(temp_html)
-            }
-        }
-    </script>
-
 </head>
 
 <body>
-  <img src="../static/images/bn_main_back.png" class="intro-btn" onmouseover="this.src='../static/images/bn_main_back_hover.png'" onmouseout="this.src='../static/images/bn_main_back.png'" />
+  <img src="../static/images/bn_main_back.png" class="intro-btn" onclick="location.href='/'" onmouseover="this.src='../static/images/bn_main_back_hover.png'" onmouseout="this.src='../static/images/bn_main_back.png'" />
   
   <img src="../static/images/retro_id_full.png" alt="" class="introduce" />
   
