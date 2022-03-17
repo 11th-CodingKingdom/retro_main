@@ -69,7 +69,7 @@ function retroChart_update(chart_year) {
             if (title.length > 10){
                 let albumchart_html = `<div class="albumchart-box">
                                           <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
-                                            <img onclick="main_playing_active(${songID})" src="../static/images/palybn_icon_red.png" alt="" id="albumchart_play" onmouseover="this.src='../static/images/palybn_icon_red_hover.png'" onmouseout="this.src='../static/images/palybn_icon_red.png'">
+                                            <img onclick="main_playing_active(${songID})" src="../static/images/palybn_icon.png" alt="" id="albumchart_play" onmouseover="this.src='../static/images/palybn_icon_red_hover.png'" onmouseout="this.src='../static/images/palybn_icon.png'">
                                           </div>
                                           <div id="albumchart_desc">
                                             <span id="albumchart_rank">${rank}</span>
@@ -108,7 +108,7 @@ function retroChart_update(chart_year) {
             else {
                 let albumchart_html = `<div class="albumchart-box">
                                           <div id="albumchart_img" style="background-image: url('${albumImageUrl}');">
-                                            <img onclick="main_playing_active(${songID})" src="../static/images/palybn_icon_red.png" alt="" id="albumchart_play" onmouseover="this.src='../static/images/palybn_icon_red_hover.png'" onmouseout="this.src='../static/images/palybn_icon_red.png'">
+                                            <img onclick="main_playing_active(${songID})" src="../static/images/palybn_icon.png" alt="" id="albumchart_play" onmouseover="this.src='../static/images/palybn_icon_red_hover.png'" onmouseout="this.src='../static/images/palybn_icon.png'">
                                           </div>
                                           <div id="albumchart_desc">
                                             <span id="albumchart_rank">${rank}</span>
