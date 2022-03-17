@@ -23,7 +23,7 @@ let popup = document.querySelector('.close');
 let banner = document.querySelector('.banner');
 
 function closePopup() {
-  banner.style.display = "none";
+  $('.banner').slideUp(260);
 }
 popup.addEventListener('click', closePopup);
 
