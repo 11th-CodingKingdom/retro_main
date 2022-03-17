@@ -556,6 +556,10 @@ header #nav {
     position: relative;
 }
 
+#theImg {
+    border-radius: 10px;
+}
+
 #list-img .list_btn {
     position: absolute;
     top: 270px;
