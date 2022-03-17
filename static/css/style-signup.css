@@ -1,5 +1,7 @@
 * {
   font-family: "Noto Sans KR", sans-serif;
+  /*max-width: 100%;*/
+  overflow: hidden;
 }
 
 #content {
@@ -17,7 +19,7 @@
 }
 
 #loginbox {
-  width: 400px;
+  width: 420px;
   margin: auto;
   /* float: left; */
   padding-top: 100px;

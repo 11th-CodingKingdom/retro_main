@@ -1,153 +1,156 @@
 * {
-  font-family: "Noto Sans KR", sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
+    /*max-width: 100%;*/
+    overflow: hidden;
 }
 
 #content {
-  overflow: hidden;
-  letter-spacing: -0.05em;
-  font-family: "Noto Sans KR", sans-serif;
-  display: flex;
-  width: 1920px;
-  margin: 0 auto;
-  max-width: 100%;
+    overflow: hidden;
+    letter-spacing: -0.05em;
+    font-family: "Noto Sans KR", sans-serif;
+    display: flex;
+    width: 1920px;
+    margin: 0 auto;
+    max-width: 100%;
 }
 
 #content-left {
-  width: 50%;
+    width: 50%;
 }
 
 #loginbox {
-  width: 400px;
-  margin: auto;
-  padding-top: 100px;
+    width: 420px;
+    margin: auto;
+    padding-top: 100px;
 }
 
 #logo {
-  width: 92px;
-  height: 30px;
-  display: inline-block;
-  cursor: pointer;
+    width: 92px;
+    height: 30px;
+    display: inline-block;
+    cursor: pointer;
 }
+
 #login_img {
-  width: 50%;
+    width: 50%;
 }
 
 #login_img img {
-  width: 960px;
-  height: auto;
+    width: 960px;
+    height: auto;
 }
 
 .id_span {
-  font-size: 20px;
-  font-weight: bold;
-  display: flex;
-  margin: 70px auto 26px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    margin: 70px auto 26px 20px;
 }
 
 .idpw_box {
-  width: 400px;
-  height: 55px;
-  color: lightgrey;
-  border-radius: 10px;
-  border: 1px solid lightgrey;
-  display: flex;
-  margin: 0 auto 0 auto;
+    width: 400px;
+    height: 55px;
+    color: lightgrey;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    display: flex;
+    margin: 0 auto 0 auto;
 }
 
 .idpw_box img {
-  width: 30px;
-  height: 30px;
-  margin: auto 10px;
-  padding-left: 4px;
+    width: 30px;
+    height: 30px;
+    margin: auto 10px;
+    padding-left: 4px;
 }
 
 .idpw_input {
-  font-size: 17px;
-  width: 350px;
-  border: none;
-  display: flex;
-  margin-top: 4px;
-  margin-right: 10px;
-  outline: none;
+    font-size: 17px;
+    width: 350px;
+    border: none;
+    display: flex;
+    margin-top: 4px;
+    margin-right: 10px;
+    outline: none;
 }
 
 input::placeholder {
-  color: lightgrey;
+    color: lightgrey;
 }
 
 .login_btn {
-  color: white;
-  background-color: #eb1400;
-  width: 350px;
-  height: 52px;
-  border-radius: 10px;
-  border: #eb1400;
-  display: inline-block;
-  margin: 40px 25px;
-  text-align: center;
-  font-weight: 600;
-  cursor: pointer;
+    color: white;
+    background-color: #eb1400;
+    width: 350px;
+    height: 52px;
+    border-radius: 10px;
+    border: #eb1400;
+    display: inline-block;
+    margin: 40px 25px;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 #test {
-  background-color: #dfdfdf;
-  width: 400px;
-  height: 130px;
-  border-radius: 10px;
-  display: flex;
-  margin: 5px auto
+    background-color: #dfdfdf;
+    width: 400px;
+    height: 130px;
+    border-radius: 10px;
+    display: flex;
+    margin: 5px auto
 }
 
 #banner_text {
-  color: black;
-  width: 250px;
-  height: 45px;
-  margin: auto auto auto 25px;
-  display: inline-block;
+    color: black;
+    width: 250px;
+    height: 45px;
+    margin: auto auto auto 25px;
+    display: inline-block;
 }
 
 #bannerTest-title {
-  color: black;
-  font-size: 20px;
-  font-weight: 600;
-  display: inline-block;
-  padding-top: 10px;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    display: inline-block;
+    padding-top: 10px;
 }
 
 #bannerTest-text {
-  color: gray;
-  font-size: 15px;
-  display: inline-block;
-  font-weight: 600;
+    color: gray;
+    font-size: 15px;
+    display: inline-block;
+    font-weight: 600;
 }
 
 .banner_btn {
-  color: black;
-  background-color: transparent;
-  padding: 70px 30px 0 50px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
+    color: black;
+    background-color: transparent;
+    padding: 70px 30px 0 50px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .banner_btn input {
-  padding-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 footer {
-  height: 100px;
+    height: 100px;
 }
 
 #footer_logo {
-  width: 957px;
-  margin: 36px auto 14px auto;
-  cursor: pointer;
+    width: 957px;
+    margin: 36px auto 14px auto;
+    cursor: pointer;
 }
 
 #footer_desc {
-  width: 957px;
-  font-size: 12px;
-  font-weight: 400;
-  color: #a4a4a4;
-  margin: 0 auto 64px auto;
+    width: 957px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #a4a4a4;
+    margin: 0 auto 64px auto;
 }
