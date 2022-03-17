@@ -7,6 +7,8 @@
   letter-spacing: -0.05em;
   font-family: "Noto Sans KR", sans-serif;
   display: flex;
+  width: 1920px;
+  margin: 0 auto;
 }
 
 #content-left {
@@ -32,7 +34,7 @@
 }
 
 #login_img img {
-  width: 760px;
+  width: 960px;
   height: auto;
   /* float: right; */
 }
@@ -66,6 +68,8 @@ input::placeholder {
   border: 1px solid lightgrey;
   display: flex;
   margin: 0 auto 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .idpw_box img {
