@@ -105,11 +105,16 @@ function test_output_save(type){
    }
 }
 
-function test_intro_copy(){
-  var intro_link = location.href
-
-  alert(intro_link + ' 복사 하세요!')
-  
+function testlink_copy(){
+  var url = '';
+  var textarea = document.createElement("textarea");
+  document.body.appendChild(textarea);
+  url = window.document.location.href;
+  textarea.value = url;
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+  alert("URL이 복사되었습니다. 음악 성향 테스트를 공유해보세요!")
 }
 
 

@@ -8,6 +8,10 @@
     <meta property="og:title" content="RE:TRO | 그때 그 시절, 당신의 음악" />
 
     <title>RE:TRO | 그때 그 시절, 당신의 음악</title>
+    <meta property="og:title" content="RE:TRO"/>
+    <meta property="og:description" content="그때 그 시절, 당신의 음악"/>
+    <meta property="og:image" content="{{url_for('static', filename='images/reteo_logo.png')}}"/>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="../static/js/common.js"></script>
     <script defer src="../static/js/test.js"></script>
@@ -34,8 +38,7 @@
     </div>
     <div id="test-btn_wrap">
       <div id="test-btn" onclick="location.href='/test';">음악 성향 알아보기</div>
-      <div id="share-btn" onclick="test_intro_copy()">공유하기</div>
-        <textarea id="test_intro_link" style="display:none"></textarea>
+      <div id="share-btn" onclick="testlink_copy()">공유하기</div>
     </div>
   </div>
 </body>
