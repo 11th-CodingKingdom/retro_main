@@ -187,7 +187,7 @@ function likeclick_mypage(userID, title, singer, rank) {
             }
         }
 
-        //alert(response['msg'])
+        alert(response['msg'])
     }
   });
 }

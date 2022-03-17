@@ -126,7 +126,7 @@ function likeclick(userID, title, singer) {
                 console.log('mypage', chart_year)
             }
 
-            //alert(response['msg'])
+            alert(response['msg'])
         }
     });
 }
@@ -284,7 +284,6 @@ let typeTable = {
     desc: "끝까지 나만 알고싶은 소중한 아티스트"
   }
 }
-console.log(typeTable)
 
 // 결과 테이블
 let resultTable = {

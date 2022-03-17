@@ -232,7 +232,7 @@ function likeclick_retrocollection(userID, title, singer, rank) {
             }
         }
 
-        //alert(response['msg'])
+        alert(response['msg'])
     }
   });
 }

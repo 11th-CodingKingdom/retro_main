@@ -187,9 +187,8 @@ def retro_chart_update():
     user_musics = list(db.likeMusic.find({'id': userID}, {'_id':False}))
 
     for music in user_musics:
-        [music.pop(key, None) for key in ['id', 'year', 'albumImageUrl', 'musicPlaySrc']]
+        [music.pop(key, None) for key in ['id', 'year', 'albumImageUrl', 'musicPlaySrc', 'albumtitle']]
         likes.append(music)
-
 
     for music in datas:
         [music.pop(key, None) for key in ['albumID', 'genre', 'Region', 'rank_type']]
@@ -233,7 +232,7 @@ def retro_chart_likeclick():
                 'year': music['year'],
                 'albumImageUrl': music['albumImageUrl'],
                 'musicPlaySrc': music_src['musicPlaySrc'],
-                'albumtitle' : music['albumtitle']
+                'albumtitle': music['albumtitle']
             }
             db.likeMusic.insert_one(temp_music)
             msg = '좋아요 설정 완료'
@@ -282,7 +281,7 @@ def retro_collection_update():
     user_musics = list(db.likeMusic.find({'id': userID}, {'_id':False}))
 
     for music in user_musics:
-        [music.pop(key, None) for key in ['id', 'year', 'albumImageUrl', 'musicPlaySrc']]
+        [music.pop(key, None) for key in ['id', 'year', 'albumImageUrl', 'musicPlaySrc', 'albumtitle']]
         likes.append(music)
 
     for music in datas:
@@ -362,7 +361,7 @@ def retro_search():
     user_musics = list(db.likeMusic.find({'id': userID}, {'_id': False}))
 
     for music in user_musics:
-        [music.pop(key, None) for key in ['id', 'year', 'albumImageUrl', 'musicPlaySrc']]
+        [music.pop(key, None) for key in ['id', 'year', 'albumImageUrl', 'musicPlaySrc', 'albumtitle']]
         likes.append(music)
 
     for music in datas:
@@ -442,7 +441,7 @@ def retro_recommend():
     user_musics = list(db.likeMusic.find({'id': userID}, {'_id':False}))
 
     for music in user_musics:
-        [music.pop(key, None) for key in ['id', 'year', 'albumImageUrl', 'musicPlaySrc']]
+        [music.pop(key, None) for key in ['id', 'year', 'albumImageUrl', 'musicPlaySrc', 'albumtitle']]
         likes.append(music)
 
     for music in datas:

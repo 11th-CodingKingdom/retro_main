@@ -160,7 +160,7 @@ function likeclick_search(userID, title, singer, rank) {
             }
         }
 
-        //alert(response['msg'])
+        alert(response['msg'])
     }
   });
 }

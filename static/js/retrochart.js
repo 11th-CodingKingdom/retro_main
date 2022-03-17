@@ -163,7 +163,7 @@ function likeclick_retrochart(userID, title, singer, rank) {
             }
         }
 
-        //alert(response['msg'])
+        alert(response['msg'])
     }
   });
 }
