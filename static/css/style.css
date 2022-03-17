@@ -20,14 +20,12 @@
   font-family: "Noto Sans KR", sans-serif;
   font-size: 16px;
   letter-spacing: -0.05em;
-  color: #333333;
 }
 
 .banner .close img {
-  width: 13px;
-  height: 13px;
-  margin: 2.5px 0 0 15px;
-  filter: opacity(0.5) drop-shadow(0 0 0 #333333);
+  width: 15px;
+  height: 15px;
+  margin: 1.5px 0 0 15px;
 }
 
 /* 헤더 아래 부분 시작 */
@@ -136,15 +134,18 @@
 
 #albumchart_rank {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 #albumchart_song {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   margin-left: 5px;
 }
 
+#albumchart_song:hover{
+  color:#eb1400;
+}
 #albumchart_artist {
   display: block;
   font-size: 14px;
@@ -207,6 +208,7 @@ td {
 #rankchart_rank {
   width: 28px;
   text-align: center;
+  font-weight: 500;
 }
 
 #rankchart_desc {
@@ -219,12 +221,16 @@ td {
 }
 
 #rankchart_song {
-  font-weight: 500;
+  font-weight: 400;
 }
 
+#rankchart_song:hover {
+  color: #eb1400;
+}
 #rankchart_artist {
   margin-top: 7px;
   color: #747474;
+  font-weight: 400;
 }
 
 .btn {
