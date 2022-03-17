@@ -1,15 +1,14 @@
 * {
     font-family: "Noto Sans KR", sans-serif;
-    /*max-width: 100%;*/
+    max-width: 100%;
     overflow: hidden;
 }
 
 #content {
-    overflow: hidden;
     letter-spacing: -0.05em;
     font-family: "Noto Sans KR", sans-serif;
     display: flex;
-    width: 1920px;
+    width: 100vw;
     margin: 0 auto;
     max-width: 100%;
 }
@@ -33,12 +32,12 @@
 }
 
 #login_img {
-    width: 50%;
+  width: 50%;
 }
 
 #login_img img {
-    width: 960px;
-    height: auto;
+    width: 100%;
+    max-width: 100%;
 }
 
 .id_span {
