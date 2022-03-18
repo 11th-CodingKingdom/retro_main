@@ -72,11 +72,8 @@ def regist():
     while i<len(id) : 
         if 'a' <= id[i] <= 'z' or 'A' <= id[i] <= 'Z' or '0' <= id[i] <= '9' :
             idcondition = True
-            print('a')
-            msg = "pass"
         else: 
             idcondition = False
-            msg = "올바른 아이디를 입력하세요"
             break
         i+=1
     
@@ -87,7 +84,6 @@ def regist():
             emailcondition = True
         else: 
             emailcondition = False
-            msg = "올바른 이메일을 입력하세요"
             break
         i+=1
 
