@@ -66,25 +66,55 @@ def regist():
     pwCheck = request.form['pwCheck']
     preferenceResult =""
     information = {'id': id, 'pw': pw, 'email': email, 'name': name, 'preferenceResult': preferenceResult}
+    
+    # 아이디 형식 확인
+    i = 0
+    while i<len(id) : 
+        if 'a' <= id[i] <= 'z' or 'A' <= id[i] <= 'Z' or '0' <= id[i] <= '9' :
+            idcondition = True
+            print('a')
+            msg = "pass"
+        else: 
+            idcondition = False
+            msg = "올바른 아이디를 입력하세요"
+            break
+        i+=1
+    
+    # 이메일 형식 확인
+    i = 0
+    while i<len(email) : 
+        if 'a' <= email[i] <= 'z' or 'A' <= email[i] <= 'Z' or '@' == email[i] or '.' == email[i] or '0' <= email[i] <= '9' :
+            emailcondition = True
+        else: 
+            emailcondition = False
+            msg = "올바른 이메일을 입력하세요"
+            break
+        i+=1
 
-    if db.users.find_one({'name': name}, {'_id': False}) is not None:
-        msg = "동일한 사용자가 존재합니다."
+    if idcondition : 
+        if emailcondition:     
+            if db.users.find_one({'name': name}, {'_id': False}) is not None:
+                msg = "동일한 사용자가 존재합니다."
 
-    elif email.find("@") == -1:
-        msg = "올바른 이메일을 입력하세요"
+            elif email.find("@") == -1 or email.find(".")==-1:
+                msg = "올바른 이메일을 입력하세요"
 
-    elif db.users.find_one({'id': id}, {'_id': False}) is not None:
-        msg = "입력하신 ID는 다른 사용자가 사용중입니다."
+            elif db.users.find_one({'id': id}, {'_id': False}) is not None:
+                msg = "입력하신 ID는 다른 사용자가 사용중입니다."
 
-    elif len(request.form['pw']) < 10:
-        msg = "비밀번호는 10자리 이상이어야 합니다."
+            elif len(request.form['pw']) < 10:
+                msg = "비밀번호는 10자리 이상이어야 합니다."
 
-    elif bcrypt.check_password_hash(pw, pwCheck) is not True:
-        msg = "비밀번호 입력을 다시 확인하세요."
+            elif bcrypt.check_password_hash(pw, pwCheck) is not True:
+                msg = "비밀번호 입력을 다시 확인하세요."
 
+            else:
+                db.users.insert_one(information)
+                msg = "회원가입 완료!"
+        else:
+            msg = "올바른 이메일을 입력하세요"
     else:
-        db.users.insert_one(information)
-        msg = "회원가입 완료!"
+        msg = "아이디는 영문, 숫자 조합으로 생성 가능합니다."
 
     return jsonify({'msg': msg})
 
