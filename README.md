@@ -1,6 +1,6 @@
 # RE:TRO | 그때 그 시절, 당신의 음악
 ![image](https://user-images.githubusercontent.com/56349582/160143139-a79ea4cc-e035-4485-9496-0dca20500ee8.png)
-<br>
+<br/>
 
 ## 목차
 - [프로젝트 소개](##프로젝트-소개)
@@ -11,15 +11,15 @@
 - [페이지 소개](##페이지-소개)
 - [기술 스택](##기술-스택)
 - [개발 문서](##개발-문서)
-<br>
+<br/>
 
 ## 프로젝트 소개
 1980년대부터 2010년대까지, 그때 그 시절 우리의 음악을 들을 수 있는 레트로 뮤직 웹사이트
-<br>
+<br/>
 
 ## 개발 기간
 2022.03.02 ~ 2022.03.17
-<br>
+<br/>
 
 ## 개발 인원
 
@@ -32,15 +32,15 @@
 ### BE
 - 김광윤
 - [김동우](https://github.com/kimphysicsman)
-<br>
+<br/>
 
 ## 웹사이트 링크
 [https://retro-music.co.kr/](https://retro-music.co.kr/)
-<br>
+<br/>
 
 ## 웹사이트 구현 영상
 [https://youtu.be/6pckrogx6go](https://youtu.be/6pckrogx6go)
-<br>
+<br/>
 
 ## 페이지 소개
 
@@ -146,7 +146,7 @@
 
 ### 소개 페이지
 - 전체 웹사이트 이용 방법을 설명하는 페이지입니다.
-<br>
+<br/>
 
 ## 기술 스택
 
@@ -158,7 +158,7 @@
 
 - Python(flask)
 - mongoDB
-<br>
+<br/>
 
 ## 개발 문서
 - [페이지 설계, 페이지 기획, API 설계, DB 설계 등 개발 문서]([https://www.notion.so/RE-TRO-15d5dadcf1924e36bba7888977c379e2](https://www.notion.so/RE-TRO-15d5dadcf1924e36bba7888977c379e2))
