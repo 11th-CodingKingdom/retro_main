@@ -21,6 +21,7 @@
 ## 개발 기간
 2022.03.02 ~ 2022.03.17
 <br/>
+<br/>
 
 ## 개발 인원
 
@@ -34,6 +35,7 @@
 - 김광윤
 - [김동우](https://github.com/kimphysicsman)
 <br/>
+<br/>
 
 ## 웹사이트 링크
 [https://retro-music.co.kr/](https://retro-music.co.kr/)
@@ -41,6 +43,7 @@
 
 ## 웹사이트 구현 영상
 [https://youtu.be/6pckrogx6go](https://youtu.be/6pckrogx6go)
+<br/>
 <br/>
 
 ## 페이지 소개
@@ -148,6 +151,7 @@
 ### 소개 페이지
 - 전체 웹사이트 이용 방법을 설명하는 페이지입니다.
 <br/>
+<br/>
 
 ## 기술 스택
 
@@ -159,6 +163,7 @@
 
 - Python(flask)
 - mongoDB
+<br/>
 <br/>
 
 ## 개발 문서
