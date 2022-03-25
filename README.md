@@ -1,4 +1,4 @@
-# re:tro_frontend
+# re:tro_main
 
 # app.py를 위한 python package
 - Flask (pip install flask)
