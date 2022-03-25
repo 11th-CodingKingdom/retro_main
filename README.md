@@ -161,4 +161,4 @@
 <br/>
 
 ## 개발 문서
-- [페이지 설계, 페이지 기획, API 설계, DB 설계 등 개발 문서]([https://www.notion.so/RE-TRO-15d5dadcf1924e36bba7888977c379e2](https://www.notion.so/RE-TRO-15d5dadcf1924e36bba7888977c379e2))
+- [페이지 설계, 페이지 기획, API 설계, DB 설계 등 개발 문서](https://www.notion.so/RE-TRO-15d5dadcf1924e36bba7888977c379e2)
