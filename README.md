@@ -1,5 +1,5 @@
 # RE:TRO | 그때 그 시절, 당신의 음악
-https://media.discordapp.net/attachments/956893537109172266/956925148680822834/ab2ba0ed3533b19c.jpg
+![image](https://user-images.githubusercontent.com/56349582/160143139-a79ea4cc-e035-4485-9496-0dca20500ee8.png)
 
 ## 목차
 - [프로젝트 소개](##프로젝트-소개)
