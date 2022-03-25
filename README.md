@@ -1,5 +1,5 @@
 # RE:TRO | 그때 그 시절, 당신의 음악
-![레트로_깃허브_인트로.jpg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9c20c37d-5749-4726-bee8-e73158705e29/레트로_깃허브_인트로.jpg)
+https://media.discordapp.net/attachments/956893537109172266/956925148680822834/ab2ba0ed3533b19c.jpg
 
 ## 목차
 - [프로젝트 소개](##프로젝트-소개)
