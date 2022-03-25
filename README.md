@@ -29,7 +29,7 @@
 - 김소정
 - 성다연
 - 임세민
-- 지수빈
+- [지수빈](https://github.com/zzzzsb)
 
 ### BE
 - [김광윤](https://github.com/Kwangdol9063)
