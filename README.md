@@ -32,7 +32,7 @@
 - 지수빈
 
 ### BE
-- 김광윤
+- [김광윤](https://github.com/Kwangdol9063)
 - [김동우](https://github.com/kimphysicsman)
 <br/>
 
