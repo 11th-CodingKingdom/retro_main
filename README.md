@@ -1,6 +1,6 @@
 # RE:TRO | 그때 그 시절, 당신의 음악
 ![image](https://user-images.githubusercontent.com/56349582/160143139-a79ea4cc-e035-4485-9496-0dca20500ee8.png)
-
+<br>
 ## 목차
 - [프로젝트 소개](##프로젝트-소개)
 - [개발 기간](##개발-기간)
