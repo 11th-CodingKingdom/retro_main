@@ -27,7 +27,7 @@
 
 ### FE
 - 김소정
-- 성다연
+- [성다연](https://github.com/dysung32)
 - [임세민](https://github.com/dlagogo)
 - [지수빈](https://github.com/zzzzsb)
 
