@@ -31,7 +31,7 @@
 ### BE
 
 - 김광윤
-- 김동우
+- [김동우](https://github.com/kimphysicsman)
 
 ## 웹사이트 링크
 
